@@ -12,8 +12,12 @@ import torch.optim as optim
 #print(args.scale)
 print(args)
 ##Load Data
-zoomTrainDataset = dataset.ZoomDataset(args, isTrain=True)
+zoomTrainDataset = dataset.ZoomDataset(args, isTrain=False)
 zoomTrainDataloader = torch.utils.data.DataLoader(zoomTrainDataset,batch_size=args.batchSize,shuffle=True)
+
+#print(zoomTrainDataset)
+#print(len(zoomTrainDataloader))
+
 
 zoomTestDataset = dataset.ZoomDataset(args, isTrain=False)
 zoomTestDataloader = torch.utils.data.DataLoader(zoomTestDataset,batch_size=args.testBatchSize,shuffle=False)
@@ -41,22 +45,24 @@ def train(epoch):
         param_group["lr"] = lr
     print("Epoch={}, lr={}".format(epoch, optimizer.param_groups[0]["lr"]))
 
-    for data in zoomTrainDataloader:
+    for batch_idx, data in enumerate(zoomTrainDataloader):
         LR_raw,LR,HR,_ = data
         HR = HR.type(torch.float32)
 
         LR_raw, HR = LR_raw.cuda(), HR.cuda()
         #plot(LR,HR)
-        print(LR_raw.shape)
+        #print(LR_raw.shape)
         output = model(LR_raw)
-        print(output.shape)
+        #print(output.shape)
         #plot(HR,output)
 
         loss = criterion(output, HR)
         loss.backward()
-        #optimizer.step()
+        optimizer.step()
 
-        print("Loss:%.4f" %(loss))
+        print("[%d|%d] Loss:%.4f" %(batch_idx, len(zoomTrainDataloader), loss))
+        #break;
+    return HR, output
 
 def test():
     pass
@@ -80,7 +86,8 @@ def plot(LR, HR):
     plt.show()
 
 if __name__=="__main__":
-    train(1)
+    HR, output = train(1)
+    plot(HR,output)
 
 
 

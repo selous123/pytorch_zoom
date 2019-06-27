@@ -1,7 +1,7 @@
 import tensorflow as tf
 import yaml
 import utils
-import net
+# import net
 import os
 import numpy as np
 from PIL import Image
@@ -11,64 +11,17 @@ import dataset
 import torch
 import time
 
-gpu_options = tf.GPUOptions(allow_growth=True)
-config=tf.ConfigProto(gpu_options=gpu_options)
+from config.option import args
 
-config_file_path = "config/test.yaml"
-with open(config_file_path, "r") as f:
-    config_file = yaml.load(f)
-
-# Model parameters
-mode = config_file["mode"]
-device = config_file["device"]
-up_ratio = config_file["model"]["up_ratio"]
-num_in_ch = config_file["model"]["num_in_channel"]
-num_out_ch = config_file["model"]["num_out_channel"]
-file_type = config_file["model"]["file_type"]
-upsample_type = config_file["model"]["upsample_type"]
-
-# Input / Output parameters
-inference_root = [config_file["io"]["inference_root"]]
-task_folder = config_file["io"]["task_folder"]
-restore_path = config_file["io"]["restore_ckpt"]
-
-# Remove boundary pixels with artifacts
-raw_tol = 0
-
-sess = tf.Session(config=config)
-# read in white and black level to normalize raw sensor data for different devices
-white_lv, black_lv = utils.read_wb_lv(device)
-
-# set up the model
-with tf.variable_scope(tf.get_variable_scope()):
-    input_raw=tf.placeholder(tf.float32,shape=[1,None,None,num_in_ch], name="input_raw")
-    out_rgb, out_d = net.SRResnet(input_raw, num_out_ch, up_ratio=up_ratio, reuse=False, up_type=upsample_type)
-
-    if raw_tol != 0:
-        out_rgb = out_rgb[:,int(raw_tol/2)*(up_ratio*4):-int(raw_tol/2)*(up_ratio*4),
-            int(raw_tol/2)*(up_ratio*4):-int(raw_tol/2)*(up_ratio*4),:]  # add a small offset to deal with boudary case
-
-    objDict = {}
-    objDict['out_rgb'] = out_rgb
-    objDict['out_d'] = out_d
-saver_restore=tf.train.Saver([var for var in tf.trainable_variables()])
-
-sess.run(tf.global_variables_initializer())
-ckpt=tf.train.get_checkpoint_state("%s"%(restore_path))
-print("Contain checkpoint: ", ckpt)
-if not ckpt:
-    print("No checkpoint found.")
-    exit()
-else:
-    saver_restore.restore(sess,ckpt.model_checkpoint_path)
+# gpu_options = tf.GPUOptions(allow_growth=True)
+# config=tf.ConfigProto(gpu_options=gpu_options)
 
 
 
 
-zoomDataset = dataset.ZoomDataset(isTrain=False)
+zoomDataset = dataset.ZoomDataset(args, isTrain=False)
 zoomDataloader = torch.utils.data.DataLoader(zoomDataset,batch_size=1,shuffle=False)
 
-exit(0)
 
 file = r'log.txt'
 #print(len(zoomDataset))
@@ -83,10 +36,12 @@ for data in zoomDataloader:
     #input_raw_img = np.expand_dims(input_raw_img, 0)
 
     lr = lr[0].numpy()
+    lr = np.transpose(lr, (1,2,0))
     hr = hr[0].numpy()
+    hr = np.transpose(hr, (1,2,0))
     inference_path = inference_path[0]
 
-    aligned_image = Image.fromarray(np.uint8(utils.clipped(lr)))
+    aligned_image = Image.fromarray(np.uint8(utils.clipped(lr) * 255))
     aligned_image = aligned_image.resize((hr.shape[1], hr.shape[0]), Image.ANTIALIAS)
     lr = np.array(aligned_image)
 

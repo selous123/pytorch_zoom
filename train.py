@@ -7,17 +7,18 @@ import torch.optim as optim
 from torch.autograd import Variable
 from torch.utils.data import DataLoader
 from srresnet import _NetG
-from dataset import DatasetFromHdf5
+import dataset
 from torchvision import models
 import torch.utils.model_zoo as model_zoo
+from config.option import args
 
 # Training settings
 parser = argparse.ArgumentParser(description="PyTorch SRResNet")
-parser.add_argument("--batchSize", type=int, default=16, help="training batch size")
+parser.add_argument("--batchSize", type=int, default=4, help="training batch size")
 parser.add_argument("--nEpochs", type=int, default=500, help="number of epochs to train for")
 parser.add_argument("--lr", type=float, default=1e-4, help="Learning Rate. Default=1e-4")
 parser.add_argument("--step", type=int, default=200, help="Sets the learning rate to the initial LR decayed by momentum every n epochs, Default: n=500")
-parser.add_argument("--cuda", action="store_true", help="Use cuda?")
+
 parser.add_argument("--resume", default="", type=str, help="Path to checkpoint (default: none)")
 parser.add_argument("--start-epoch", default=1, type=int, help="Manual epoch number (useful on restarts)")
 parser.add_argument("--threads", type=int, default=0, help="Number of threads for data loader to use, Default: 1")
@@ -31,7 +32,7 @@ def main():
     opt = parser.parse_args()
     print(opt)
 
-    cuda = opt.cuda
+    cuda = True
     if cuda:
         print("=> use gpu id: '{}'".format(opt.gpus))
         os.environ["CUDA_VISIBLE_DEVICES"] = opt.gpus
@@ -47,9 +48,13 @@ def main():
     cudnn.benchmark = True
 
     print("===> Loading datasets")
-    train_set = DatasetFromHdf5("/store/dataset/SR/train_data/data91_x4.h5")
-    training_data_loader = DataLoader(dataset=train_set, num_workers=opt.threads, \
-        batch_size=opt.batchSize, shuffle=True)
+    # train_set = DatasetFromHdf5("/store/dataset/SR/train_data/data91_x4.h5")
+    # training_data_loader = DataLoader(dataset=train_set, num_workers=opt.threads, \
+    #     batch_size=opt.batchSize, shuffle=True)
+    train_set = dataset.ZoomDataset(args, isTrain=False)
+    training_data_loader = torch.utils.data.DataLoader(train_set,batch_size=opt.batchSize,\
+                        num_workers=opt.threads, shuffle=True)
+
 
     if opt.vgg_loss:
         print('===> Loading VGG model')
@@ -67,8 +72,8 @@ def main():
         netContent = _content_model()
 
     print("===> Building model")
-    model = _NetG()
-    criterion = nn.MSELoss(size_average=False)
+    model = _NetG(args)
+    criterion = nn.MSELoss(reduction='sum')
 
     print("===> Setting GPU")
     if cuda:
@@ -121,9 +126,9 @@ def train(training_data_loader, optimizer, model, criterion, epoch):
 
     for iteration, batch in enumerate(training_data_loader, 1):
 
-        input, target = Variable(batch[0]), Variable(batch[1], requires_grad=False)
+        input, target = batch[1].type(torch.float32), batch[2].type(torch.float32)
 
-        if opt.cuda:
+        if True:
             input = input.cuda()
             target = target.cuda()
 
@@ -146,15 +151,15 @@ def train(training_data_loader, optimizer, model, criterion, epoch):
 
         optimizer.step()
 
-        if iteration%100 == 0:
-            if opt.vgg_loss:
-                print("===> Epoch[{}]({}/{}): Loss: {:.5} Content_loss {:.5}".format(epoch, iteration, len(training_data_loader), loss.data[0], content_loss.data[0]))
-            else:
-                print("===> Epoch[{}]({}/{}): Loss: {:.5}".format(epoch, iteration, len(training_data_loader), loss.data[0]))
+
+        if opt.vgg_loss:
+            print("===> Epoch[{}]({}/{}): Loss: {:.5} Content_loss {:.5}".format(epoch, iteration, len(training_data_loader), loss, content_loss.data[0]))
+        else:
+            print("===> Epoch[{}]({}/{}): Loss: {:.5}".format(epoch, iteration, len(training_data_loader), loss))
 
 def save_checkpoint(model, epoch):
     model_out_path = "checkpoint/" + "model_epoch_{}.pth".format(epoch)
-    state = {"epoch": epoch ,"model": model}
+    state = {"epoch": epoch ,"model": model.state_dict()}
     if not os.path.exists("checkpoint/"):
         os.makedirs("checkpoint/")
 
@@ -162,5 +167,59 @@ def save_checkpoint(model, epoch):
 
     print("Checkpoint saved to {}".format(model_out_path))
 
+
+
+def test():
+    print("===> Building model")
+    model = _NetG(args)
+    model_file = "checkpoint/model_epoch_3.pth"
+    model.load_state_dict(torch.load(model_file)["model"])
+
+    model = model.cuda()
+
+    test_set = dataset.ZoomDataset(args, isTrain=False)
+    testing_data_loader = torch.utils.data.DataLoader(test_set,batch_size=1,\
+                        num_workers=1, shuffle=True)
+
+    for iteration, batch in enumerate(testing_data_loader, 1):
+
+        input, target = batch[1].type(torch.float32), batch[2].type(torch.float32)
+
+        if True:
+            input = input.cuda()
+            target = target.cuda()
+
+        output = model(input)
+
+        break;
+
+    plot(output, target)
+
+import matplotlib.pyplot as plt
+import numpy as np
+def plot(LR, HR):
+    lr = LR.detach().cpu().numpy()
+    hr = HR.detach().cpu().numpy()
+
+    lr = np.transpose(lr[0], (1,2,0))
+    hr = np.transpose(hr[0], (1,2,0))
+
+    print(np.max(lr))
+    print(np.min(lr))
+    lr = np.clip(lr, 0, 1)
+    hr = np.clip(hr, 0 ,1)
+    print(np.max(lr))
+    print(np.min(lr))
+    plt.subplot(221)
+    plt.imshow(lr)
+
+    plt.subplot(222)
+    plt.imshow(hr)
+
+    plt.show()
+
 if __name__ == "__main__":
-    main()
+
+    #main()
+
+    test()

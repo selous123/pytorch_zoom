@@ -39,9 +39,9 @@ class _NetG(nn.Module):
                 nn.Conv2d(in_channels=64, out_channels=256, kernel_size=3, stride=1, padding=1, bias=False),
                 nn.PixelShuffle(2),
                 nn.LeakyReLU(0.2, inplace=True),
-                nn.Conv2d(in_channels=64, out_channels=256, kernel_size=3, stride=1, padding=1, bias=False),
-                nn.PixelShuffle(2),
-                nn.LeakyReLU(0.2, inplace=True),
+                # nn.Conv2d(in_channels=64, out_channels=256, kernel_size=3, stride=1, padding=1, bias=False),
+                # nn.PixelShuffle(2),
+                # nn.LeakyReLU(0.2, inplace=True),
             )
         elif self.scale == 8:
             self.upscale = nn.Sequential(

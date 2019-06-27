@@ -71,9 +71,11 @@ class ZoomDataset(data.Dataset):
     def __getitem__(self,i):
 
         file_name = self.file_names[i]
-        height = width = self.patch_size
+        # print(file_name)
         LRAW_path = file_name[0]
         #LRAW_path = "/store/dataset/zoom/test/00134/00005.ARW"
+        #height = width = self.patch_size
+
 
         LR_path = LRAW_path.replace(".ARW",".JPG")
         HR_path = file_name[1]
@@ -82,10 +84,19 @@ class ZoomDataset(data.Dataset):
         #tform_txt = "/store/dataset/zoom/test/00134/tform.txt"
 
         white_lv, black_lv = utils.read_wb_lv("sony")
+        # print(LRAW_path)
         input_bayer = utils.get_bayer(LRAW_path, black_lv, white_lv)
+        #print(input_bayer.shape)
         #print(input_bayer.shape)
         LR_raw = utils.reshape_raw(input_bayer)
         LR_img =  np.array(Image.open(LR_path))
+
+
+        height = int(LR_img.shape[0] * utils.readFocal_pil(LR_path) / 240.0 / 2 - 20)
+        width = int(LR_img.shape[1] * utils.readFocal_pil(LR_path) / 240.0 / 2 - 20)
+        #height = width = 128
+
+
         #with shape [self.patch_size, self.patch_size, 4]
         input_raw = utils.crop_center_wh(LR_raw, height, width)
         cropped_lr_hw = utils.crop_center_wh(LR_img, height*2, width*2)
@@ -110,15 +121,17 @@ class ZoomDataset(data.Dataset):
         zoom_ratio = 240.0 / utils.readFocal_pil(LR_path)
         aligned_hr_hw, _ = utils_align.imgAlign(hr, tform_txt, file_name[4], file_name[3], True, int(height*2*zoom_ratio), int(width*2*zoom_ratio))
         aligned_image = Image.fromarray(np.uint8(utils.clipped(aligned_hr_hw)))
-        aligned_image = aligned_image.resize((int(height *2 * self.up_ratio),
-                        int(width * 2 * self.up_ratio)), Image.ANTIALIAS)
+        aligned_image = aligned_image.resize((int(width *2 * self.up_ratio),
+                        int(height * 2 * self.up_ratio)), Image.ANTIALIAS)
         # aligned_image.save("align_arw_test/input_rgb_camera_alignedLHR.png")
         aligned_img_np = np.array(aligned_image)
 
+        #print(aligned_img_np.shape)
+
         # [H,W,C] => [C,H,W]
-        input_raw = np.transpose(input_raw, (2,0,1)) / 255.0
-        cropped_lr_hw = np.transpose(cropped_lr_hw, (2,0,1)) / 255.0
-        aligned_img_np = np.transpose(aligned_img_np, (2,0,1)) / 255.0
+        # input_raw = np.transpose(input_raw, (2,0,1)) / 255.0
+        # cropped_lr_hw = np.transpose(cropped_lr_hw, (2,0,1)) / 255.0
+        # aligned_img_np = np.transpose(aligned_img_np, (2,0,1)) / 255.0
 
         ##ToTensor
         return input_raw, cropped_lr_hw, aligned_img_np, LRAW_path
@@ -132,32 +145,38 @@ if __name__=="__main__":
     zoomData = ZoomDataset(args, isTrain=True)
 
     print(len(zoomData))
+    data_dir = "/store/dataset/zoom/X4/train"
+    sub_dirs = ["LR","HR","ARW"]
+    if not os.path.exists(data_dir):
+        os.makedirs(data_dir)
+    for sub_dir in sub_dirs:
+        s_dir = os.path.join(data_dir,sub_dir)
+        if not os.path.exists(s_dir):
+            os.makedirs(s_dir)
+    for i in range(709, len(zoomData)):
+        print("Index:%d" %i)
+        LR_raw,LR,HR,LRAW_path = zoomData[i]
 
-    LR_raw,LR,HR,_ = zoomData[0]
+
+        file_name = os.path.dirname(LRAW_path).split("/")[-1]+"_"+os.path.basename(LRAW_path).split(".")[0]+'.png'
+        LR = Image.fromarray(np.uint8(utils.clipped(LR)))
+        HR = Image.fromarray(np.uint8(utils.clipped(HR)))
+
+        LR.save(os.path.join(data_dir,"LR",file_name))
+        HR.save(os.path.join(data_dir,"HR",file_name))
+
+        file_name = os.path.dirname(LRAW_path).split("/")[-1]+"_"+os.path.basename(LRAW_path).split(".")[0]+'.npy'
+
+        np.save(os.path.join(data_dir,"ARW",file_name), LR_raw)
 
 
-    LR = np.transpose(LR, (1,2,0))
-    HR = np.transpose(HR, (1,2,0))
-
-    aligned_image = Image.fromarray(np.uint8(utils.clipped(LR)*255))
-    aligned_image = aligned_image.resize((HR.shape[1], HR.shape[0]), Image.ANTIALIAS)
-    LR = np.array(aligned_image)
-
+    LR = LR.resize((HR.size), Image.ANTIALIAS)
+    LR = np.array(LR)
+    HR = np.array(HR)
     LR = utils.image_float(LR)
     HR = utils.image_float(HR)
-
-    images.append(LR)
-    images.append(HR)
-
-    #sum_img_t, _ = utils_align.sum_aligned_image(images,images)
-
     min_img_t = np.abs(HR - LR)
     min_img_t_scale = (min_img_t - np.min(min_img_t)) / (np.max(min_img_t) - np.min(min_img_t))
-    #print(min_img_t)
-    #print(min_img_t_scale)
-    #cv2.imwrite('aligned.jpg', np.uint8(sum_img_t * 255))
-    #sum_img_t = np.uint8(255.*utils.clipped(sum_img_t))
-    #
     plt.subplot(221)
     plt.imshow(LR)
 

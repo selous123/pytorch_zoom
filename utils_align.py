@@ -169,6 +169,8 @@ def imgAlign(images, tform_txt, sour_idx, des_idx, clipped=False, height = 2500,
     ori_images_np = images
     if clipped == True:
         h, w = aligned_image_np.shape[:2]
+        if height > h or width > w:
+            raise ValueError("height should be smaller than h or width < w")
         top = int((h - height) / 2)
         left =int((w - width) / 2)
         aligned_image_np = aligned_image_np[top:top+height,left:left+width,:]
