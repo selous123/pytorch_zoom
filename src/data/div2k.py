@@ -1,5 +1,6 @@
 import os
 from data import srdata
+from data import common
 
 class DIV2K(srdata.SRData):
     def __init__(self, args, name='DIV2K', train=True, benchmark=False):
@@ -30,3 +31,29 @@ class DIV2K(srdata.SRData):
         self.dir_lr = os.path.join(self.apath, 'DIV2K_train_LR_bicubic')
         if self.input_large: self.dir_lr += 'L'
 
+    # def get_patch(self, lr, hr):
+    #     scale = self.scale[self.idx_scale]
+    #     if self.train:
+    #         lr, hr = common.get_patch(
+    #             lr, hr,
+    #             patch_size=self.args.patch_size,
+    #             scale=scale,
+    #             multi=(len(self.scale) > 1),
+    #             input_large=self.input_large
+    #         )
+    #         #print(lr.shape)
+    #         if not self.args.no_augment: lr, hr = common.augment(lr, hr)
+    #
+    #     # print(lr.shape)
+    #     else:
+    #         lr, hr = common.get_patch(
+    #             lr, hr,
+    #             patch_size=self.args.patch_size,
+    #             scale=scale,
+    #             multi=(len(self.scale) > 1),
+    #             input_large=self.input_large
+    #         )
+    #         if not self.args.no_augment: lr, hr = common.augment(lr, hr)
+    #         # ih, iw = lr.shape[:2]
+    #         # hr = hr[0:ih * scale, 0:iw * scale]
+    #     return lr, hr

@@ -31,6 +31,36 @@ def get_patch(*args, patch_size=96, scale=2, multi=False, input_large=False):
 
     return ret
 
+def get_center_patch(*args, patch_size=96, scale=2, multi=False, input_large=False):
+    ih, iw = args[0].shape[:2]
+
+    if not input_large:
+        p = scale if multi else 1
+        tp = p * patch_size
+        ip = tp // scale
+    else:
+        tp = patch_size
+        ip = patch_size
+    #print("tp,ip:", tp, ip,p)
+
+    if iw < ip or ih < ip:
+        raise ValueError("iw should small than ip, setting samller patch_size")
+
+    ix =  int((iw - ip) / 2)
+    iy =  int((ih - ip) / 2)
+
+    if not input_large:
+        tx, ty = scale * ix, scale * iy
+    else:
+        tx, ty = ix, iy
+
+    ret = [
+        args[0][iy:iy + ip, ix:ix + ip, :],
+        *[a[ty:ty + tp, tx:tx + tp, :] for a in args[1:]]
+    ]
+
+    return ret
+
 def set_channel(*args, n_channels=3):
     def _set_channel(img):
         if img.ndim == 2:
@@ -65,8 +95,7 @@ def augment(*args, hflip=True, rot=True):
         if hflip: img = img[:, ::-1, :]
         if vflip: img = img[::-1, :, :]
         if rot90: img = img.transpose(1, 0, 2)
-        
+
         return img
 
     return [_augment(a) for a in args]
-

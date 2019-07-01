@@ -9,6 +9,7 @@ class MyConcatDataset(ConcatDataset):
         self.train = datasets[0].train
 
     def set_scale(self, idx_scale):
+        # Label a number for training dataset
         for d in self.datasets:
             if hasattr(d, 'set_scale'): d.set_scale(idx_scale)
 
@@ -35,6 +36,7 @@ class Data:
             if d in ['Set5', 'Set14', 'B100', 'Urban100']:
                 m = import_module('data.benchmark')
                 testset = getattr(m, 'Benchmark')(args, train=False, name=d)
+                print(testset[0])
             else:
                 module_name = d if d.find('DIV2K-Q') < 0 else 'DIV2KJPEG'
                 m = import_module('data.' + module_name.lower())
@@ -47,4 +49,3 @@ class Data:
                 shuffle=False,
                 pin_memory=not args.cpu
             ))
-

@@ -55,6 +55,7 @@ def _ms_loop(dataset, index_queue, data_queue, done_event, collate_fn, scale, se
                     dataset.set_scale(idx_scale)
 
                 samples = collate_fn([dataset[i] for i in batch_indices])
+                ##make
                 samples.append(idx_scale)
             except Exception:
                 data_queue.put((idx, ExceptionWrapper(sys.exc_info())))
@@ -155,4 +156,3 @@ class MSDataLoader(DataLoader):
 
     def __iter__(self):
         return _MSDataLoaderIter(self)
-

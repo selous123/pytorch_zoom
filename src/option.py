@@ -25,27 +25,29 @@ parser.add_argument('--dir_demo', type=str, default='../test',
                     help='demo image directory')
 parser.add_argument('--data_train', type=str, default='DIV2K',
                     help='train dataset name')
-parser.add_argument('--data_test', type=str, default='DIV2K',
+parser.add_argument('--data_test', type=str, default='Set5',
                     help='test dataset name')
-parser.add_argument('--data_range', type=str, default='1-800/801-810',
+parser.add_argument('--data_range', type=str, default='1-1300/1301-1312',
                     help='train/test data range')
-parser.add_argument('--ext', type=str, default='sep',
+parser.add_argument('--ext', type=str, default='sep',choices=['sep_reset','sep'],
                     help='dataset file extension')
 parser.add_argument('--scale', type=str, default='4',
                     help='super resolution scale')
-parser.add_argument('--patch_size', type=int, default=192,
-                    help='output patch size')
+parser.add_argument('--patch_size', type=int, default=512,
+                    help='output train patch size')
+parser.add_argument('--test_patch_size', type=int, default=512,
+                    help='output test patch size')
 parser.add_argument('--rgb_range', type=int, default=255,
                     help='maximum value of RGB')
-parser.add_argument('--n_colors', type=int, default=3,
-                    help='number of color channels to use')
+parser.add_argument('--n_colors', type=int, default=4,
+                    help='number of color channels to use, 4 for ARW and 3 for PNG ')
 parser.add_argument('--chop', action='store_true',
                     help='enable memory-efficient forward')
 parser.add_argument('--no_augment', action='store_true',
                     help='do not use data augmentation')
 
 # Model specifications
-parser.add_argument('--model', default='EDSR',
+parser.add_argument('--model', default='EDSR',choices=['EDSR', 'MDSR', 'RCAN', 'SAN'],
                     help='model name')
 
 parser.add_argument('--act', type=str, default='relu',
@@ -87,7 +89,7 @@ parser.add_argument('--reset', action='store_true',
                     help='reset the training')
 parser.add_argument('--test_every', type=int, default=1000,
                     help='do test per every N batches')
-parser.add_argument('--epochs', type=int, default=300,
+parser.add_argument('--epochs', type=int, default=500,
                     help='number of epochs to train')
 parser.add_argument('--batch_size', type=int, default=16,
                     help='input batch size for training')
@@ -103,7 +105,7 @@ parser.add_argument('--gan_k', type=int, default=1,
 # Optimization specifications
 parser.add_argument('--lr', type=float, default=1e-4,
                     help='learning rate')
-parser.add_argument('--decay', type=str, default='200',
+parser.add_argument('--decay', type=str, default='100-200-300-400',
                     help='learning rate decay type')
 parser.add_argument('--gamma', type=float, default=0.5,
                     help='learning rate decay factor for step decay')
@@ -122,7 +124,7 @@ parser.add_argument('--gclip', type=float, default=0,
                     help='gradient clipping threshold (0 = no clipping)')
 
 # Loss specifications
-parser.add_argument('--loss', type=str, default='1*L1',
+parser.add_argument('--loss', type=str, default='1*L1',choices = ['n*MSE','+num*L1','VGG','GAN'],
                     help='loss function configuration')
 parser.add_argument('--skip_threshold', type=float, default='1e8',
                     help='skipping batch that has large error')

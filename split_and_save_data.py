@@ -153,7 +153,7 @@ if __name__=="__main__":
         s_dir = os.path.join(data_dir,sub_dir)
         if not os.path.exists(s_dir):
             os.makedirs(s_dir)
-    for i in range(709, len(zoomData)):
+    for i in range(0, len(zoomData)):
         print("Index:%d" %i)
         LR_raw,LR,HR,LRAW_path = zoomData[i]
 

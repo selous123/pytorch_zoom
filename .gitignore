@@ -11,6 +11,9 @@
 #pytorch pth file
 *.pth
 *.pkl
+#experiment and model
+/experiment/
+/models/
 
 #Image File
 *.png
