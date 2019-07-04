@@ -6,7 +6,6 @@ import model
 import loss
 from option import args
 from trainer import Trainer
-from ssl_trainer import SSL_Trainer
 
 torch.manual_seed(args.seed)
 checkpoint = utility.checkpoint(args)
@@ -31,12 +30,8 @@ def main():
             #     break;
             # exit(0)
             _model = model.Model(args, checkpoint)
-            if args.model == "SSL":
-                _loss = [loss.Loss(args, checkpoint), loss.Loss(args, checkpoint)] if not args.test_only else None
-                t = SSL_Trainer(args, loader, _model, _loss, checkpoint)
-            else:
-                _loss = loss.Loss(args, checkpoint) if not args.test_only else None
-                t = Trainer(args, loader, _model, _loss, checkpoint)
+            _loss = loss.Loss(args, checkpoint) if not args.test_only else None
+            t = Trainer(args, loader, _model, _loss, checkpoint)
             while not t.terminate():
                 t.train()
                 t.test()

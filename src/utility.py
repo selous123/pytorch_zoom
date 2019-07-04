@@ -83,9 +83,18 @@ class checkpoint():
         return os.path.join(self.dir, *subdir)
 
     def save(self, trainer, epoch, is_best=False):
+        ## save the model
         trainer.model.save(self.get_path('model'), epoch, is_best=is_best)
-        trainer.loss.save(self.dir)
-        trainer.loss.plot_loss(self.dir, epoch)
+
+        ## save and plot the train loss
+        if isinstance(trainer.loss, list):
+            names = ["loss_SR", "loss_SSL"]
+            for i,l in enumerate(trainer.loss):
+                l.save(self.dir, names[i])
+                l.plot_loss(self.dir, epoch, names[i])
+        else:
+            trainer.loss.save(self.dir)
+            trainer.loss.plot_loss(self.dir, epoch)
 
         self.plot_psnr(epoch)
         trainer.optimizer.save(self.dir)
@@ -132,12 +141,12 @@ class checkpoint():
                     filename, tensor = queue.get()
                     if filename is None: break
                     imageio.imwrite(filename, tensor.numpy())
-        
+
         self.process = [
             Process(target=bg_target, args=(self.queue,)) \
             for _ in range(self.n_processes)
         ]
-        
+
         for p in self.process: p.start()
 
     def end_background(self):
@@ -230,8 +239,7 @@ def make_optimizer(args, target):
 
         def get_last_epoch(self):
             return self.scheduler.last_epoch
-    
+
     optimizer = CustomOptimizer(trainable, **kwargs_optimizer)
     optimizer._register_scheduler(scheduler_class, **kwargs_scheduler)
     return optimizer
-
