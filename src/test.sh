@@ -15,3 +15,16 @@ python main.py --model EDSR --scale 4 --patch_size 256 --save edsr_baseline_x4_d
 
 ## train baseline with epoch 500
 python main.py --model EDSR --scale 4 --patch_size 256 --save edsr_baseline_x4_dynamic_lr_epoch500 --data_train SRRAW --data_test SRRAW --n_colors 3 --save_results --save_gt
+
+
+
+##debug SAN
+python main.py --model SAN --scale 4 --patch_size 256 --save san_x4 --data_train SRRAW --data_test SRRAW --n_colors 3 --save_results --batch_size 8
+
+
+## debug RCAN
+python main.py --model RCAN --scale 4 --patch_size 256 --save rcan_x4 --data_train SRRAW --data_test SRRAW --n_colors 3 --save_results --batch_size 16
+
+
+## debug srresnet
+python main.py --model SRResNet --scale 4 --patch_size 256 --save srrsenet_x4 --data_train SRRAW --data_test SRRAW --n_colors 3 --save_results --batch_size 16

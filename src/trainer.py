@@ -88,6 +88,10 @@ class Trainer():
                 for lr, hr, filename, _ in tqdm(d, ncols=80):
                     lr, hr = self.prepare(lr, hr)
                     sr = self.model(lr, idx_scale)
+                    ## if the return of model is tuple
+                    if isinstance(sr, tuple):
+                        sr = sr[0]
+
                     sr = utility.quantize(sr, self.args.rgb_range)
 
                     save_list = [sr]
