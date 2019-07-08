@@ -133,7 +133,7 @@ if __name__=="__main__":
 
     print(len(zoomData))
 
-    LR_raw,LR,HR,_ = zoomData[0]
+    LR_raw,LR,HR,_ = zoomData[3]
 
 
     LR = np.transpose(LR, (1,2,0))

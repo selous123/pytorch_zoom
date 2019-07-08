@@ -6,6 +6,7 @@ import skimage.color as sc
 import torch
 
 def get_patch(*args, patch_size=96, scale=2, multi=False, input_large=False):
+
     ih, iw = args[0].shape[:2]
 
     if not input_large:
