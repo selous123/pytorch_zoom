@@ -23,9 +23,9 @@ parser.add_argument('--dir_data', type=str, default='/store/dataset/SR/train_dat
                     help='dataset directory')
 parser.add_argument('--dir_demo', type=str, default='../test',
                     help='demo image directory')
-parser.add_argument('--data_train', type=str, default='DIV2K',
+parser.add_argument('--data_train', type=str, default='SRRAW',
                     help='train dataset name')
-parser.add_argument('--data_test', type=str, default='Set5',
+parser.add_argument('--data_test', type=str, default='SRRAW',
                     help='test dataset name')
 parser.add_argument('--data_range', type=str, default='1-1300/1301-1312',
                     help='train/test data range')
@@ -39,7 +39,7 @@ parser.add_argument('--test_patch_size', type=int, default=512,
                     help='output test patch size')
 parser.add_argument('--rgb_range', type=int, default=255,
                     help='maximum value of RGB')
-parser.add_argument('--n_colors', type=int, default=4,
+parser.add_argument('--n_colors', type=int, default=3,
                     help='number of color channels to use, 4 for ARW and 3 for PNG ')
 parser.add_argument('--chop', action='store_true',
                     help='enable memory-efficient forward')

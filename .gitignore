@@ -14,6 +14,7 @@
 #experiment and model
 /experiment/
 /models/
+/src/img/
 
 #Image File
 *.png
@@ -21,4 +22,3 @@
 *.csv
 *.npy
 *.txt
-

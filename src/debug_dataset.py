@@ -39,10 +39,13 @@ for data in loader.loader_test[0]:
     print("lr shape: ", data[0].shape)
     print("HR shape: ", data[1].shape)
 
-    print(data[2])
-    print(data[3])
+    # print(data[2])
+    # print(data[3])
 
-    plot(data[0],data[1])
+    plot(data[2],data[3])
+
+    print(data[4])
+    print(data[5])
 
     break;
 

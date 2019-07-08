@@ -1,5 +1,4 @@
 import torch.utils.data as data
-from config.option import args
 import torch
 from PIL import Image
 import numpy as np
@@ -11,17 +10,16 @@ import utils
 import utils_align
 
 class ZoomDataset(data.Dataset):
-    def __init__(self, args, isTrain, transform=None):
+    def __init__(self, isTrain, dir_data="/store/dataset/zoom", scale=4, transform=None):
         self.isTrain = isTrain
-        self.up_ratio = int(args.scale)
-        #self.patch_size = 128
-        self.patch_size = args.patch_size
+        self.up_ratio = int(scale)
 
         self.transform = transform
-        if self.isTrain:
-            self.dir_path = os.path.join(args.dir_data, args.data_train)
+
+        if isTrain is True:
+            self.dir_path = os.path.join(dir_data, "train")
         else:
-            self.dir_path = os.path.join(args.dir_data, args.data_test)
+            self.dir_path = os.path.join(dir_data, "test")
 
         dir_names = os.listdir(self.dir_path)
 
@@ -65,7 +63,8 @@ class ZoomDataset(data.Dataset):
                 self.file_names.append(self.file_name)
             else:
                 raise ValueError("arg.scale should be 4 or 8")
-
+        # for i in range(len(self.file_names)):
+        #     print(self.file_names[i][2])
         ## file_name : [lr_raw, HR, d_path, lr_id, hr_id]
 
     def __getitem__(self,i):
@@ -142,10 +141,11 @@ class ZoomDataset(data.Dataset):
 
 if __name__=="__main__":
     images = []
-    zoomData = ZoomDataset(args, isTrain=True)
+    zoomData = ZoomDataset(isTrain=True, scale=4)
 
     print(len(zoomData))
-    data_dir = "/store/dataset/zoom/X4/train"
+    ## destination directory
+    data_dir = "/store/dataset/zoom/X4/train1"
     sub_dirs = ["LR","HR","ARW"]
     if not os.path.exists(data_dir):
         os.makedirs(data_dir)
@@ -168,8 +168,9 @@ if __name__=="__main__":
         file_name = os.path.dirname(LRAW_path).split("/")[-1]+"_"+os.path.basename(LRAW_path).split(".")[0]+'.npy'
 
         np.save(os.path.join(data_dir,"ARW",file_name), LR_raw)
-
-
+        break;
+    #
+    #
     LR = LR.resize((HR.size), Image.ANTIALIAS)
     LR = np.array(LR)
     HR = np.array(HR)
