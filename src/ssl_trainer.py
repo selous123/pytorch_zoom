@@ -15,8 +15,11 @@ class SSL_Trainer(Trainer):
         super(SSL_Trainer, self).__init__(args, loader, my_model, my_loss, ckp)
 
     def train(self):
-        self.loss[0].step()
-        self.loss[1].step()
+
+        ## 1
+        [loss.step() for loss in self.loss]
+        # self.loss[0].step()
+        # self.loss[1].step()
 
         epoch = self.optimizer.get_last_epoch() + 1
         lr = self.optimizer.get_lr()
@@ -24,15 +27,21 @@ class SSL_Trainer(Trainer):
         self.ckp.write_log(
             '[Epoch {}]\tLearning rate: {:.2e}'.format(epoch, Decimal(lr))
         )
-        self.loss[0].start_log()
-        self.loss[1].start_log()
+
+        ## 2
+        # self.loss[0].start_log()
+        # self.loss[1].start_log()
+        [loss.start_log() for loss in self.loss]
 
         self.model.train()
 
         timer_data, timer_model = utility.timer(), utility.timer()
-        for batch, (lr, hr, _, idx_scale) in enumerate(self.loader_train):
+        for batch, (lr, labels, _, idx_scale) in enumerate(self.loader_train):
 
-            lr, hr = self.prepare(lr, hr)
+            hr = labels[0]
+            h_label = labels[1]
+
+            lr, hr, h_label = self.prepare(lr, hr, h_label)
             timer_data.hold()
             timer_model.tic()
 
@@ -40,8 +49,10 @@ class SSL_Trainer(Trainer):
 
             sr, s_label = self.model(lr, idx_scale)
 
+
+
             loss_SR = self.loss[0](sr, hr)
-            loss_SSL = self.loss[1](s_label, hr)
+            loss_SSL = self.loss[1](s_label, h_label)
 
             l = loss_SR + loss_SSL
 
@@ -66,8 +77,10 @@ class SSL_Trainer(Trainer):
 
             timer_data.tic()
 
-        self.loss[0].end_log(len(self.loader_train))
-        self.loss[1].end_log(len(self.loader_train))
+        ## 3
+        [loss.end_log(len(self.loader_train)) for loss in self.loss]
+        # self.loss[0].end_log(len(self.loader_train))
+        # self.loss[1].end_log(len(self.loader_train))
         self.error_last = self.loss[0].log[-1, -1]
         self.error_last = self.loss[1].log[-1, -1]
         self.optimizer.schedule()

@@ -29,6 +29,8 @@ class _NetG(nn.Module):
 
         conv = common.default_conv
         scale = args.scale[0]
+        if args.n_colors == 4:
+            scale = scale * 2
         self.n_feats = args.n_feats
 
         self.conv_input = nn.Conv2d(in_channels=args.n_colors, out_channels=args.n_feats, kernel_size=9, stride=1, padding=4, bias=False)

@@ -16,7 +16,7 @@ import utils
 from PIL import Image
 
 class SRRAW(data.Dataset):
-    def __init__(self, args, name='', train=True):
+    def __init__(self, args, name='', train=True, benchmark=False):
 
         ## data range split train and val dataset
         data_range = [r.split('-') for r in args.data_range.split('/')]
@@ -30,6 +30,7 @@ class SRRAW(data.Dataset):
 
         self.begin, self.end = list(map(lambda x: int(x), data_range))
 
+        self.benchmark = benchmark
         self.args = args
         self.name = name
         self.train = train
@@ -160,7 +161,7 @@ class SRRAW(data.Dataset):
         # dir_diff = os.path.join(self.apath, 'Diff')
         #
         #  = [dir_hr, dir_edge, dir_diff]
-        print(self.dir_label)
+        #print(self.dir_label)
 
         if self.n_colors == 4:
             self.dir_lr = os.path.join(self.apath, 'ARW')

@@ -29,7 +29,7 @@ def main():
             #     print(d[3])
             #
             #     break;
-            exit(0)
+            #exit(0)
             _model = model.Model(args, checkpoint)
             if args.model == "SSL":
                 _loss = [loss.Loss(args, checkpoint), loss.Loss(args, checkpoint)] if not args.test_only else None

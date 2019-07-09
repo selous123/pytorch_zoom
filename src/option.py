@@ -21,6 +21,8 @@ parser.add_argument('--seed', type=int, default=1,
 # Data specifications
 parser.add_argument('--dir_data', type=str, default='/store2/dataset/SR/train_data',
                     help='dataset directory')
+parser.add_argument('--wb_root', type=str, default='/store/dataset/zoom/train/',
+                    help='dataset wb root directory')
 parser.add_argument('--dir_demo', type=str, default='../test',
                     help='demo image directory')
 parser.add_argument('--data_train', type=str, default='SRRAW',
@@ -126,7 +128,7 @@ parser.add_argument('--gclip', type=float, default=0,
                     help='gradient clipping threshold (0 = no clipping)')
 
 # Loss specifications
-parser.add_argument('--loss', type=str, default='1*L1',choices = ['n*MSE','+num*L1','VGG','GAN'],
+parser.add_argument('--loss', type=str, default='1.0*L1',choices = ['n*MSE','+num*L1','VGG','GAN'],
                     help='loss function configuration')
 parser.add_argument('--skip_threshold', type=float, default='1e8',
                     help='skipping batch that has large error')

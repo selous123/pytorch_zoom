@@ -37,14 +37,23 @@ class Trainer():
         self.model.train()
 
         timer_data, timer_model = utility.timer(), utility.timer()
-        for batch, (lr, hr, _, idx_scale) in enumerate(self.loader_train):
+        for batch, (lr, labels, filename, idx_scale) in enumerate(self.loader_train):
+
+            hr = labels[0]
 
             lr, hr = self.prepare(lr, hr)
+
             timer_data.hold()
             timer_model.tic()
 
             self.optimizer.zero_grad()
             sr = self.model(lr, idx_scale)
+
+
+            if self.args.n_colors == 4:
+                sr = utility.postprocess_wb(sr, filename, self.args.wb_root)
+
+
             loss = self.loss(sr, hr)
             loss.backward()
             if self.args.gclip > 0:
@@ -85,12 +94,15 @@ class Trainer():
         for idx_data, d in enumerate(self.loader_test):
             for idx_scale, scale in enumerate(self.scale):
                 d.dataset.set_scale(idx_scale)
-                for lr, hr, filename, _ in tqdm(d, ncols=80):
+                for lr, labels, filename, _ in tqdm(d, ncols=80):
+                    hr = labels[0]
                     lr, hr = self.prepare(lr, hr)
                     sr = self.model(lr, idx_scale)
                     ## if the return of model is tuple
                     if isinstance(sr, tuple):
                         sr = sr[0]
+                    if self.args.n_colors == 4:
+                        sr = utility.postprocess_wb(sr, filename, self.args.wb_root)
 
                     sr = utility.quantize(sr, self.args.rgb_range)
 

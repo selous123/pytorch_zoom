@@ -2,14 +2,6 @@ from model import common
 
 import torch.nn as nn
 
-url = {
-    'r16f64x2': 'https://cv.snu.ac.kr/research/EDSR/models/edsr_baseline_x2-1bc95232.pt',
-    'r16f64x3': 'https://cv.snu.ac.kr/research/EDSR/models/edsr_baseline_x3-abf2a44e.pt',
-    'r16f64x4': 'https://cv.snu.ac.kr/research/EDSR/models/edsr_baseline_x4-6b446fab.pt',
-    'r32f256x2': 'https://cv.snu.ac.kr/research/EDSR/models/edsr_x2-0edfb8a3.pt',
-    'r32f256x3': 'https://cv.snu.ac.kr/research/EDSR/models/edsr_x3-ea3ef2c6.pt',
-    'r32f256x4': 'https://cv.snu.ac.kr/research/EDSR/models/edsr_x4-4f62e9ef.pt'
-}
 
 def make_model(args, parent=False):
     return EDSR(args)
@@ -20,12 +12,15 @@ class EDSR(nn.Module):
 
         n_resblocks = args.n_resblocks
         n_feats = args.n_feats
-        kernel_size = 3 
+        kernel_size = 3
+        self.n_colors = args.n_colors
         scale = args.scale[0]
+        if self.n_colors == 4:
+            scale = scale * 2
         act = nn.ReLU(True)
-        self.url = url['r{}f{}x{}'.format(n_resblocks, n_feats, scale)]
         self.sub_mean = common.MeanShift(args.rgb_range)
         self.add_mean = common.MeanShift(args.rgb_range, sign=1)
+
 
         # define head module
         m_head = [conv(args.n_colors, n_feats, kernel_size)]
@@ -41,7 +36,7 @@ class EDSR(nn.Module):
         # define tail module
         m_tail = [
             common.Upsampler(conv, scale, n_feats, act=False),
-            conv(n_feats, args.n_colors, kernel_size)
+            conv(n_feats, 3, kernel_size)
         ]
 
         self.head = nn.Sequential(*m_head)
@@ -49,16 +44,18 @@ class EDSR(nn.Module):
         self.tail = nn.Sequential(*m_tail)
 
     def forward(self, x):
-        x = self.sub_mean(x)
+        if self.n_colors == 3:
+            x = self.sub_mean(x)
         x = self.head(x)
 
         res = self.body(x)
         res += x
 
         x = self.tail(res)
-        x = self.add_mean(x)
+        if self.n_colors == 3:
+            x = self.add_mean(x)
 
-        return x 
+        return x
 
     def load_state_dict(self, state_dict, strict=True):
         own_state = self.state_dict()
@@ -78,4 +75,3 @@ class EDSR(nn.Module):
                 if name.find('tail') == -1:
                     raise KeyError('unexpected key "{}" in state_dict'
                                    .format(name))
-

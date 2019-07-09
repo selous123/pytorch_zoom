@@ -167,6 +167,47 @@ class checkpoint():
                 tensor_cpu = normalized.byte().permute(1, 2, 0).cpu()
                 self.queue.put(('{}{}.png'.format(filename, p), tensor_cpu))
 
+# sr is output
+# filename to find the wb_file
+def read_wb(txtfile, key):
+    wb = np.zeros((1,4))
+    with open(txtfile) as f:
+        for l in f:
+            if key in l:
+                for i in range(wb.shape[0]):
+                    nextline = next(f)
+                    try:
+                        wb[i,:] = nextline.split()
+                    except:
+                        print("WB error XXXXXXX")
+                        print(txtfile)
+    wb = wb.astype(np.float32)
+    wb = torch.from_numpy(wb)
+    return wb
+
+def postprocess_wb(sr, filenames, wb_root):
+
+    wb = torch.zeros([0,4])
+    for filename in filenames:
+        f1 ,f2 = filename.split('_')
+        wb_txt = os.path.join(wb_root, f1, 'wb.txt')
+        key = f2+":"
+        out_wb = read_wb(wb_txt, key=key)
+        wb = torch.cat([wb, out_wb], dim=0)
+    wb = wb.cuda()
+    wb = torch.cat([wb[:,0:2],wb[:,3:]], dim=1)
+    wb = wb.unsqueeze(-1).unsqueeze(-1)
+    #shape [b, 3]
+    wb = torch.pow(wb, 1/2.2)
+    # sr shape [b, 3, h, w]
+    sr = sr * wb
+
+    return sr
+
+    # wb_rgb[...,0] *= torch.pow(out_wb[0,0],1/2.2)
+    # wb_rgb[...,1] *= torch.pow(out_wb[0,1],1/2.2)
+    # wb_rgb[...,2] *= torch.pow(out_wb[0,3],1/2.2)
+
 def quantize(img, rgb_range):
     pixel_range = 255 / rgb_range
     return img.mul(pixel_range).clamp(0, 255).round().div(pixel_range)
