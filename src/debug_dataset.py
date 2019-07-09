@@ -36,16 +36,18 @@ def plot(LR, HR):
 import torch
 import torchvision
 for data in loader.loader_test[0]:
-    print("lr shape: ", data[0].shape)
-    print("HR shape: ", data[1].shape)
+    lr,labels,filename,idx = data
+    hr = labels[0]
+    print("lr shape: ", lr.shape)
+    print("HR shape: ", hr.shape)
 
     # print(data[2])
     # print(data[3])
 
-    plot(data[2],data[3])
+    plot(lr,hr)
 
-    print(data[4])
-    print(data[5])
+    print(filename)
+    print(idx)
 
     break;
 

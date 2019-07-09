@@ -19,7 +19,7 @@ parser.add_argument('--seed', type=int, default=1,
                     help='random seed')
 
 # Data specifications
-parser.add_argument('--dir_data', type=str, default='/store/dataset/SR/train_data',
+parser.add_argument('--dir_data', type=str, default='/store2/dataset/SR/train_data',
                     help='dataset directory')
 parser.add_argument('--dir_demo', type=str, default='../test',
                     help='demo image directory')
@@ -45,6 +45,8 @@ parser.add_argument('--chop', action='store_true',
                     help='enable memory-efficient forward')
 parser.add_argument('--no_augment', action='store_true',
                     help='do not use data augmentation')
+parser.add_argument('--labels', default='HR+Diff',
+                    help='setting the SSL labels for model')
 
 # Model specifications
 parser.add_argument('--model', default='EDSR',choices=['EDSR', 'MDSR', 'RCAN', 'SAN', 'SRResNet', 'SSL'],

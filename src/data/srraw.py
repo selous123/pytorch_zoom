@@ -152,12 +152,16 @@ class SRRAW(data.Dataset):
     def _set_filesystem(self, dir_data):
         self.apath = os.path.join(dir_data, self.name, 'X4', 'train')
 
-        dir_hr = os.path.join(self.apath, 'HR')
-        ##1.Add File Path into _set_filesystem
-        dir_edge = os.path.join(self.apath, 'Edge')
-        dir_diff = os.path.join(self.apath, 'Diff')
 
-        self.dir_label = [dir_hr, dir_edge, dir_diff]
+        self.dir_label = [os.path.join(self.apath, label) for label in args.labels.split('+')]
+        # dir_hr = os.path.join(self.apath, 'HR')
+        # ##1.Add File Path into _set_filesystem
+        # dir_edge = os.path.join(self.apath, 'Edge')
+        # dir_diff = os.path.join(self.apath, 'Diff')
+        #
+        #  = [dir_hr, dir_edge, dir_diff]
+        print(self.dir_label)
+
         if self.n_colors == 4:
             self.dir_lr = os.path.join(self.apath, 'ARW')
             self.ext = ('.png', '.npy')
@@ -178,8 +182,8 @@ class SRRAW(data.Dataset):
         pair = common.set_channel(*pair, n_channels=self.args.n_colors)
         pair_t = common.np2Tensor(*pair, rgb_range=self.args.rgb_range)
         #lr, hr, edge, diff
-        return pair_t[0], pair_t[1],pair_t[2], pair_t[3], filename
-
+        #return pair_t[0], pair_t[1],pair_t[2], pair_t[3], filename
+        return pair_t[0], pair_t[1:], filename
     def __len__(self):
         if self.train:
             return len(self.images_hr) * self.repeat
