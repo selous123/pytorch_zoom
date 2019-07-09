@@ -67,16 +67,23 @@ class EDSR_Zoom(nn.Module):
     def forward(self, x):
         ## s_label : [b, n_colors, H, W]
         ## y_res : [b, C, H, W]
-        s_label, y_res = self.model_ssl(x)
+        s_label, y1, y2 = self.model_ssl(x)
 
         x = self.sub_mean(x)
         x = self.head(x)
 
+        ## feature fusion : fusion
+        x = x + y1
+
         res = self.body(x)
         res += x
 
-        y_w = self.CALayer(y_res)
-        res = y_w * res
+        ## Channel Attention
+        #y_w = self.CALayer(y_res)
+        #res = y_w * res
+
+        ## feature fusion
+        res = y2 + res
 
         x = self.tail(res)
         x = self.add_mean(x)
@@ -140,10 +147,12 @@ class EDSR_SSL(nn.Module):
         x = self.sub_mean(x)
         x = self.head(x)
 
+        x1 = x
+
         res = self.body(x)
         res += x
 
         x = self.tail(res)
         x = self.add_mean(x)
 
-        return x, res
+        return x, x1, res
