@@ -75,7 +75,7 @@ def align_ecc(image_set, images_gray_set, ref_ind, thre=0.05):
     valid_id = []
     motion_thre = thre * min(r, c)
     for i in range(ref_ind - 1, -1, -1):
-        _, warp_matrix = cv2.findTransformECC(ref_gray_image, images_gray_set[i], warp_matrix, warp_mode, criteria, None, 1)
+        _, warp_matrix = cv2.findTransformECC(ref_gray_image, images_gray_set[i], warp_matrix, warp_mode, criteria)
         tform_set[i] = warp_matrix
         tform_inv_set[i] = cv2.invertAffineTransform(warp_matrix)
 
@@ -91,7 +91,7 @@ def align_ecc(image_set, images_gray_set, ref_ind, thre=0.05):
         warp_matrix = np.eye(2, 3, dtype=np.float32)
 
     for i in range(ref_ind, img_num, 1):
-        _, warp_matrix = cv2.findTransformECC(ref_gray_image, images_gray_set[i], warp_matrix, warp_mode, criteria, None, 1)
+        _, warp_matrix = cv2.findTransformECC(ref_gray_image, images_gray_set[i], warp_matrix, warp_mode, criteria)
         tform_set[i] = warp_matrix
         tform_inv_set[i] = cv2.invertAffineTransform(warp_matrix)
 

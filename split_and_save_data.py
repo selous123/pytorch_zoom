@@ -139,13 +139,24 @@ class ZoomDataset(data.Dataset):
         return len(self.file_names)
 
 
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("--data_dir", type=str, default="/store/dataset/", help="root folder that contains the images")
+parser.add_argument("--source_dir", type=str, default="/store/dataset/zoom", help="root folder that contains the images")
+parser.add_argument("--test", action='store_true', help="train or test data")
+parser.add_argument("--scale", type=int, default=4, choices=[4,8], help="up ratio of data")
+ARGS = parser.parse_args()
+
 if __name__=="__main__":
     images = []
-    zoomData = ZoomDataset(isTrain=True, scale=4)
+    zoomData = ZoomDataset(isTrain=not ARGS.test, dir_data=ARGS.source_dir, scale=ARGS.scale)
 
     print(len(zoomData))
     ## destination directory
-    data_dir = "/store/dataset/zoom/X4/train1"
+    if ARGS.test:
+        data_dir = os.path.join(ARGS.data_dir,'SRRAW','X'+str(ARGS.scale),'test')
+    else:
+        data_dir = os.path.join(ARGS.data_dir,'SRRAW','X'+str(ARGS.scale),'train')
     sub_dirs = ["LR","HR","ARW"]
     if not os.path.exists(data_dir):
         os.makedirs(data_dir)
