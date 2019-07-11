@@ -1,8 +1,9 @@
 import argparse
 import template
 
-parser = argparse.ArgumentParser(description='EDSR and MDSR')
+parser = argparse.ArgumentParser(description='self supervised learning for zoom')
 
+parser.add_argument('--desc', type=str, required=True, help="Describe what the code is doing, which would be saved in log file")
 parser.add_argument('--debug', action='store_true',
                     help='Enables debug mode')
 parser.add_argument('--template', default='.',

@@ -11,6 +11,8 @@ from ssl_trainer import SSL_Trainer
 torch.manual_seed(args.seed)
 checkpoint = utility.checkpoint(args)
 
+print(args.desc, file=checkpoint.log_file)
+
 def main():
     global model
     if args.data_test == ['video']:

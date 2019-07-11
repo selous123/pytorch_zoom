@@ -73,7 +73,7 @@ class EDSR_Zoom(nn.Module):
         x = self.head(x)
 
         ## feature fusion : fusion
-        x = x + y1
+        x = x + y2
 
         res = self.body(x)
         res += x
@@ -83,7 +83,7 @@ class EDSR_Zoom(nn.Module):
         #res = y_w * res
 
         ## feature fusion
-        res = y2 + res
+        res = res + y1
 
         x = self.tail(res)
         x = self.add_mean(x)
