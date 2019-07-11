@@ -1,7 +1,8 @@
 ## in your local host seeing data_train
 
 --dir_data /store2/dataset/SR/train_data
---wb_root /store/dataset/zoom/train/
+--wb_root /store2/dataset/SR/zoom/train/
+
 
 
 ## test
