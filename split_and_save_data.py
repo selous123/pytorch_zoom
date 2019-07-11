@@ -179,7 +179,6 @@ if __name__=="__main__":
         file_name = os.path.dirname(LRAW_path).split("/")[-1]+"_"+os.path.basename(LRAW_path).split(".")[0]+'.npy'
 
         np.save(os.path.join(data_dir,"ARW",file_name), LR_raw)
-        break;
     #
     #
     LR = LR.resize((HR.size), Image.ANTIALIAS)
