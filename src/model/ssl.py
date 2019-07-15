@@ -37,7 +37,9 @@ class EDSR_Zoom(nn.Module):
         n_feats = args.n_feats
         kernel_size = 3
         scale = args.scale[0]
+        #act = nn.ReLU6(True)
         act = nn.ReLU(True)
+        #act = common.Relu_n(20)
         self.sub_mean = common.MeanShift(args.rgb_range)
         self.add_mean = common.MeanShift(args.rgb_range, sign=1)
         self.model_ssl = EDSR_SSL(args)
@@ -55,8 +57,9 @@ class EDSR_Zoom(nn.Module):
         m_body.append(conv(n_feats, n_feats, kernel_size))
 
         # define tail module
+        # 'relu_10'
         m_tail = [
-            common.Upsampler(conv, scale, n_feats, act=False),
+            common.Upsampler(conv, scale, n_feats, act='relu'),
             conv(n_feats, args.n_colors, kernel_size)
         ]
 
@@ -73,7 +76,7 @@ class EDSR_Zoom(nn.Module):
         x = self.head(x)
 
         ## feature fusion : fusion
-        x = x + y2
+        x = x - y2
 
         res = self.body(x)
         res += x
@@ -118,7 +121,9 @@ class EDSR_SSL(nn.Module):
         n_feats = args.n_feats
         kernel_size = 3
         scale = args.scale[0]
+        #act = nn.ReLU6(True)
         act = nn.ReLU(True)
+        #act = common.Relu_n(20)
         self.sub_mean = common.MeanShift(args.rgb_range)
         self.add_mean = common.MeanShift(args.rgb_range, sign=1)
 
@@ -134,8 +139,9 @@ class EDSR_SSL(nn.Module):
         m_body.append(conv(n_feats, n_feats, kernel_size))
 
         # define tail module
+        # 'relu_10'
         m_tail = [
-            common.Upsampler(conv, scale, n_feats, act=False),
+            common.Upsampler(conv, scale, n_feats, act='relu'),
             conv(n_feats, args.n_colors, kernel_size)
         ]
 

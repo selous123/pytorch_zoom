@@ -1,12 +1,11 @@
 ## in your local host seeing data_train
-
 --dir_data /store2/dataset/SR/train_data
 --wb_root /store2/dataset/SR/zoom/train/
 
 
-
 ## ibrain server
 --dir_data /store/dataset/SR/train_data
+--wb_root /store/dataset/zoom/train
 
 ## test
 python main.py --model EDSR --scale 4  --n_resblocks 32 --n_feats 256 --res_scale 0.1 --reset --pre_train /home/ibrain/git/EDSR-PyTorch/experiment/model/EDSR_x4.pt --test_only --save_results
@@ -42,4 +41,4 @@ python main.py --model SRResNet --scale 4 --patch_size 256 --save srrsenet_x4 --
 
 
 ## debug outr model
-python main.py --model SSL --scale 4 --patch_size 256 --save ssl_addfushion_x4 --data_train SRRAW --data_test SRRAW --n_colors 3  --save_results --batch_size 16 --save_gt --labels HR+Diff
+python main.py --model SSL --scale 4 --patch_size 256  --data_train SRRAW --data_test SRRAW --n_colors 3  --save_results --batch_size 16 --save_gt --labels HR+Diff --save ssl_addfushion_x4

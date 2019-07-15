@@ -10,7 +10,49 @@ def default_conv(in_channels, out_channels, kernel_size, bias=True):
         padding=(kernel_size//2), bias=bias)
 
 
+# class Relu_n(nn.Module):
+#     def __init__(self, n):
+#         super(Relu_n, self).__init__()
+#         self.Num = n
+#
+#     def forward(self,x):
+#         max = torch.zeros(x.shape).cuda()
+#         min = torch.ones(x.shape).cuda()
+#
+#         min = min * self.Num
+#         max_x = torch.max(x, max)
+#         min_x = torch.min(max_x, min)
+#         return min_x
 
+class Relu_n(nn.Hardtanh):
+    r"""Applies the element-wise function:
+
+    .. math::
+        \text{ReLU6}(x) = \min(\max(0,x), 6)
+
+    Args:
+        inplace: can optionally do the operation in-place. Default: ``False``
+
+    Shape:
+        - Input: :math:`(N, *)` where `*` means, any number of additional
+          dimensions
+        - Output: :math:`(N, *)`, same shape as the input
+
+    .. image:: scripts/activation_images/ReLU6.png
+
+    Examples::
+
+        >>> m = nn.ReLU6()
+        >>> input = torch.randn(2)
+        >>> output = m(input)
+    """
+
+    def __init__(self, n=6, inplace=True):
+        super(Relu_n, self).__init__(0., n, inplace)
+
+    def extra_repr(self):
+        inplace_str = 'inplace' if self.inplace else ''
+        return inplace_str
 
 class MeanShift(nn.Conv2d):
     def __init__(
@@ -74,6 +116,9 @@ class Upsampler(nn.Sequential):
                     m.append(nn.ReLU(True))
                 elif act == 'prelu':
                     m.append(nn.PReLU(n_feats))
+                elif act.find('relu_')>-1:
+                    n = int(act.split('_')[1])
+                    m.append(Relu_n(n))
 
         elif scale == 3:
             m.append(conv(n_feats, 9 * n_feats, 3, bias))
@@ -84,6 +129,9 @@ class Upsampler(nn.Sequential):
                 m.append(nn.ReLU(True))
             elif act == 'prelu':
                 m.append(nn.PReLU(n_feats))
+            elif act.find('relu_')>-1:
+                n = int(act.split('_')[1])
+                m.append(Relu_n(n))
         else:
             raise NotImplementedError
 
