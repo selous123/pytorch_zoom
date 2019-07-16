@@ -133,7 +133,7 @@ parser.add_argument('--loss', type=str, default='1.0*L1',
                     help='loss function configuration, [n*MSE,+num*L1,VGG,GAN]')
 parser.add_argument('--loss_ssl', type=str, default='1.0*L1',
                     help='loss function configuration [n*MSE,+num*L1,VGG,GAN]')
-parser.add_argument('--loss_rel', type=str, default='1.0*RNLLoss',
+parser.add_argument('--loss_rel', type=str, default='None',
                     help='loss function configuration, [n*RNLLoss and None]')
 
 parser.add_argument('--skip_threshold', type=float, default='1e8',

@@ -55,10 +55,9 @@ class SSL_Trainer(Trainer):
             loss_SSL = self.loss[1](s_label, h_label)
 
             l = loss_SR + loss_SSL
-            if args.loss_rel is not None:
+            if self.args.loss_rel is not None:
 
                 loss_rel = self.loss[2]([hr, h_label], [sr, s_label])
-                print(loss_rel)
                 l = l + loss_rel
 
 
@@ -74,7 +73,7 @@ class SSL_Trainer(Trainer):
             timer_model.hold()
 
             if (batch + 1) % self.args.print_every == 0:
-                if args.loss_rel is None:
+                if self.args.loss_rel is None:
                     self.ckp.write_log('[{}/{}]\t{}\t{}\t{:.1f}+{:.1f}s'.format(
                         (batch + 1) * self.args.batch_size,
                         len(self.loader_train.dataset),
@@ -93,7 +92,6 @@ class SSL_Trainer(Trainer):
                         timer_data.release()))
 
             timer_data.tic()
-
         ## 3
         [loss.end_log(len(self.loader_train)) for loss in self.loss]
         # self.loss[0].end_log(len(self.loader_train))

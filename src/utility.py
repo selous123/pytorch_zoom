@@ -89,6 +89,8 @@ class checkpoint():
         ## save and plot the train loss
         if isinstance(trainer.loss, list):
             names = ["loss_SR", "loss_SSL"]
+            if self.args.loss_rel is not None:
+                names.append("loss_rel")
             for i,l in enumerate(trainer.loss):
                 l.save(self.dir, names[i])
                 l.plot_loss(self.dir, epoch, names[i])
@@ -162,6 +164,8 @@ class checkpoint():
             )
 
             postfix = ('SR', 'LR', 'HR')
+            if self.args.model=='SSL':
+                postfix = ('SR', 'LR', 'HR', 'slabel','g_slabel')
             for v, p in zip(save_list, postfix):
                 normalized = v[0].mul(255 / self.args.rgb_range)
                 tensor_cpu = normalized.byte().permute(1, 2, 0).cpu()

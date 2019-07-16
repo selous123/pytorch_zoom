@@ -97,10 +97,15 @@ class Trainer():
                 for lr, labels, filename, _ in tqdm(d, ncols=80):
                     hr = labels[0]
                     lr, hr = self.prepare(lr, hr)
-                    sr = self.model(lr, idx_scale)
+                    output = self.model(lr, idx_scale)
                     ## if the return of model is tuple
-                    if isinstance(sr, tuple):
-                        sr = sr[0]
+                    if isinstance(output, tuple):
+                        sr = output[0]
+                        fake_diff = output[1]
+                        diff = labels[1]
+                    else:
+                        sr = output
+
                     if self.args.n_colors == 4:
                         sr = utility.postprocess_wb(sr, filename, self.args.wb_root)
 
@@ -112,6 +117,9 @@ class Trainer():
                     )
                     if self.args.save_gt:
                         save_list.extend([lr, hr])
+
+                    if self.args.model=='SSL':
+                        save_list.extend([diff, fake_diff])
 
                     if self.args.save_results:
                         self.ckp.save_results(d, filename[0], save_list, scale)

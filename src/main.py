@@ -34,12 +34,12 @@ def main():
             #exit(0)
             _model = model.Model(args, checkpoint)
             if args.model == "SSL":
-                if not args.test_only
+                if not args.test_only:
                     _loss = [loss.Loss(args, checkpoint), loss.Loss(args, checkpoint, ls=args.loss_ssl)]
                     ## Relative Loss
-                    if args.loss_rel is not None
+                    if args.loss_rel is not None:
                         _loss.append(loss.Loss(args, checkpoint, ls=args.loss_rel))
-                else
+                else:
                     _loss = None
                 t = SSL_Trainer(args, loader, _model, _loss, checkpoint)
             else:

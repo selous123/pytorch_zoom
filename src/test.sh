@@ -40,5 +40,8 @@ python main.py --model EDSR --scale 4 --patch_size 256 --save EDSR_x4_ARW --data
 python main.py --model SRResNet --scale 4 --patch_size 256 --save srrsenet_x4 --data_train SRRAW --data_test SRRAW --n_colors 3 --save_results --batch_size 16
 
 
-## debug outr model
-python main.py --model SSL --scale 4 --patch_size 256  --data_train SRRAW --data_test SRRAW --n_colors 3  --save_results --batch_size 16 --save_gt --labels HR+Diff --save ssl_addfushion_x4
+## debug our ssl model, improve 1 point in psnr
+python main.py --model SSL --scale 4 --patch_size 256  --data_train SRRAW --data_test SRRAW --n_colors 3  --save_results --batch_size 16 --save_gt --labels HR+Diff --save ssl_addfushion_reverse_x4
+
+## debug r-loss
+python main.py --model SSL --scale 4 --patch_size 256  --data_train SRRAW --data_test SRRAW --n_colors 3  --save_results --batch_size 16 --save_gt --labels HR+Diff --save ssl_addfushion_reverse_rloss_x4 --loss_rel 1.0*RNLLoss
