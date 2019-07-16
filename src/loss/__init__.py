@@ -12,14 +12,18 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 class Loss(nn.modules.loss._Loss):
-    def __init__(self, args, ckp):
+    def __init__(self, args, ckp, ls = None):
         super(Loss, self).__init__()
         print('Preparing loss function:')
+
+        if ls is None:
+            ls = args.loss
 
         self.n_GPUs = args.n_GPUs
         self.loss = []
         self.loss_module = nn.ModuleList()
-        for loss in args.loss.split('+'):
+        #ls = args.loss
+        for loss in ls.split('+'):
             weight, loss_type = loss.split('*')
             if loss_type == 'MSE':
                 loss_function = nn.MSELoss()
@@ -37,6 +41,9 @@ class Loss(nn.modules.loss._Loss):
                     args,
                     loss_type
                 )
+            elif loss_type.find('RNLLoss') >=0 :
+                module = import_module('loss.rnlloss')
+                loss_function = getattr(module, 'RNLLoss')(args)
 
             self.loss.append({
                 'type': loss_type,

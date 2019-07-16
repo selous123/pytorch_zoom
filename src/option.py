@@ -129,10 +129,17 @@ parser.add_argument('--gclip', type=float, default=0,
                     help='gradient clipping threshold (0 = no clipping)')
 
 # Loss specifications
-parser.add_argument('--loss', type=str, default='1.0*L1',choices = ['n*MSE','+num*L1','VGG','GAN'],
-                    help='loss function configuration')
+parser.add_argument('--loss', type=str, default='1.0*L1',
+                    help='loss function configuration, [n*MSE,+num*L1,VGG,GAN]')
+parser.add_argument('--loss_ssl', type=str, default='1.0*L1',
+                    help='loss function configuration [n*MSE,+num*L1,VGG,GAN]')
+parser.add_argument('--loss_rel', type=str, default='1.0*RNLLoss',
+                    help='loss function configuration, [n*RNLLoss and None]')
+
 parser.add_argument('--skip_threshold', type=float, default='1e8',
                     help='skipping batch that has large error')
+parser.add_argument('--rloss_n', type=int, default=16,
+                    help='getting how much chunks for height or width')
 
 # Log specifications
 parser.add_argument('--save', type=str, default='test',
