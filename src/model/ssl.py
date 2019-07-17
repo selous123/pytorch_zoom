@@ -30,7 +30,7 @@ class CALayer(nn.Module):
 ## Residual Channel Attention Block (RCAB)
 class RCABlock(nn.Module):
     def __init__(
-        self, conv, n_feats, kernel_size,
+        self, conv, n_feats, kernel_size, reduction,
         bias=True, bn=False, act=nn.ReLU(True), res_scale=1):
 
         super(RCABlock, self).__init__()
@@ -78,8 +78,8 @@ class EDSR_Zoom(nn.Module):
         # define body module
         if args.attn is True:
             m_body = [
-                common.RCABlock(
-                    conv, n_feats, kernel_size, act=act, res_scale=args.res_scale
+                RCABlock(
+                    conv, n_feats, kernel_size, args.reduction, act=act, res_scale=args.res_scale
                 ) for _ in range(n_resblocks)
             ]
 
