@@ -15,23 +15,47 @@ class CALayer(nn.Module):
         # global average pooling: feature --> point
         self.avg_pool = nn.AdaptiveAvgPool2d(1)
         # feature channel downscale and upscale --> channel weight
-        # self.conv_du = nn.Sequential(
-        #         nn.Conv2d(channel, channel // reduction, 1, padding=0, bias=True),
-        #         nn.ReLU(inplace=True),
-        #         nn.Conv2d(channel // reduction, channel, 1, padding=0, bias=True),
-        #         nn.Sigmoid()
-        # )
+        self.conv_du = nn.Sequential(
+                nn.Conv2d(channel, channel // reduction, 1, padding=0, bias=True),
+                nn.ReLU(inplace=True),
+                nn.Conv2d(channel // reduction, channel, 1, padding=0, bias=True),
+                nn.Sigmoid()
+        )
 
     def forward(self, x):
         y = self.avg_pool(x)
-        #y = self.conv_du(y)
-        return y
+        y = self.conv_du(y)
+        return x * y
+
+## Residual Channel Attention Block (RCAB)
+class RCABlock(nn.Module):
+    def __init__(
+        self, conv, n_feats, kernel_size,
+        bias=True, bn=False, act=nn.ReLU(True), res_scale=1):
+
+        super(RCABlock, self).__init__()
+        m = []
+        for i in range(2):
+            m.append(conv(n_feats, n_feats, kernel_size, bias=bias))
+            if bn:
+                m.append(nn.BatchNorm2d(n_feats))
+            if i == 0:
+                m.append(act)
+
+        m.append(CALayer(n_feats, reduction))
+
+        self.body = nn.Sequential(*m)
+        self.res_scale = res_scale
+
+    def forward(self, x):
+        res = self.body(x).mul(self.res_scale)
+        res += x
+
+        return res
 
 class EDSR_Zoom(nn.Module):
     def __init__(self, args, conv=common.default_conv):
         super(EDSR_Zoom, self).__init__()
-
-
 
         n_resblocks = args.n_resblocks
         n_feats = args.n_feats
@@ -43,17 +67,30 @@ class EDSR_Zoom(nn.Module):
         self.sub_mean = common.MeanShift(args.rgb_range)
         self.add_mean = common.MeanShift(args.rgb_range, sign=1)
         self.model_ssl = EDSR_SSL(args)
-        self.CALayer = CALayer(n_feats)
+        self.CALayer_head = CALayer(n_feats)
+        self.CALayer_tail = CALayer(n_feats)
+
+        self.attn = args.attn
 
         # define head module
         m_head = [conv(args.n_colors, n_feats, kernel_size)]
 
         # define body module
-        m_body = [
-            common.ResBlock(
-                conv, n_feats, kernel_size, act=act, res_scale=args.res_scale
-            ) for _ in range(n_resblocks)
-        ]
+        if args.attn is True:
+            m_body = [
+                common.RCABlock(
+                    conv, n_feats, kernel_size, act=act, res_scale=args.res_scale
+                ) for _ in range(n_resblocks)
+            ]
+
+        else:
+            m_body = [
+                common.ResBlock(
+                    conv, n_feats, kernel_size, act=act, res_scale=args.res_scale
+                ) for _ in range(n_resblocks)
+            ]
+
+
         m_body.append(conv(n_feats, n_feats, kernel_size))
 
         # define tail module
@@ -77,6 +114,8 @@ class EDSR_Zoom(nn.Module):
 
         ## feature fusion : fusion
         x = x - y2
+        if self.attn:
+            x = self.CALayer_head(x)
 
         res = self.body(x)
         res += x
@@ -87,6 +126,8 @@ class EDSR_Zoom(nn.Module):
 
         ## feature fusion
         res = res + y1
+        if self.attn:
+            x = self.CALayer_tail(x)
 
         x = self.tail(res)
         x = self.add_mean(x)

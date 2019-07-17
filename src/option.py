@@ -74,6 +74,8 @@ parser.add_argument('--dilation', action='store_true',
 parser.add_argument('--precision', type=str, default='single',
                     choices=('single', 'half'),
                     help='FP precision for test (single | half)')
+parser.add_argument('--attn', action='store_true',
+                    help = 'use CA attention')
 
 # Option for Residual dense network (RDN)
 parser.add_argument('--G0', type=int, default=64,
