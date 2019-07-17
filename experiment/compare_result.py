@@ -6,25 +6,28 @@ import matplotlib.pyplot as plt
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("--e", type=int, default=500)
+parser.add_argument("--root_path", type=str, default="/home/ibrain/git/pytorch_zoom/experiment")
+parser.add_argument("--dir_path", type=str)
 ARGS = parser.parse_args()
 
 
 
-apath = '/home/ibrain/git/pytorch_zoom/experiment/edsr_paper_x4'
+apath = os.path.join(ARGS.root_path, 'edsr_paper_x4')
 loss_log = torch.load(os.path.join(apath, 'loss_log.pt'))
 psnr_log = torch.load(os.path.join(apath, 'psnr_log.pt'))
 #print(psnr_log)
 
-apath = '/home/ibrain/git/pytorch_zoom/experiment/edsr_baseline_x4_dynamic_lr_epoch500'
+apath = os.path.join(ARGS.root_path, 'edsr_baseline_x4_dynamic_lr_epoch500')
 loss_b_log = torch.load(os.path.join(apath, 'loss_log.pt'))
 psnr_b_log = torch.load(os.path.join(apath, 'psnr_log.pt'))
 
 
-apath = '/home/ibrain/git/pytorch_zoom/experiment/ssl_addfusionreverse_x4'
+apath = os.path.join(ARGS.root_path, 'ssl_addfusionreverse_x4')
 loss_s_log = torch.load(os.path.join(apath, 'loss_SR_log.pt'))
 psnr_s_log = torch.load(os.path.join(apath, 'psnr_log.pt'))
 
-apath = '/home/ibrain/git/pytorch_zoom/experiment/ssl_addfusion_reverse_rlossv0.2_x4'
+#apath = os.path.join(ARGS.root_path, 'ssl_addfusion_reverse_rlossv0.2_x4')
+apath = os.path.join(ARGS.root_path, ARGS.dir_path)
 loss_r_log = torch.load(os.path.join(apath, 'loss_SR_log.pt'))
 psnr_r_log = torch.load(os.path.join(apath, 'psnr_log.pt'))
 
