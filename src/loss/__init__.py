@@ -44,6 +44,10 @@ class Loss(nn.modules.loss._Loss):
             elif loss_type.find('RNLLoss') >=0 :
                 module = import_module('loss.rnlloss')
                 loss_function = getattr(module, 'RNLLoss')(args)
+                
+            elif loss_type.find('RLoss') >=0 :
+                module = import_module('loss.rloss')
+                loss_function = getattr(module, 'RLoss')(args)
 
             self.loss.append({
                 'type': loss_type,

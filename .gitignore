@@ -11,8 +11,12 @@
 #pytorch pth file
 *.pth
 *.pkl
+
 #experiment and model
-/experiment/
+/experiment/*/result*
+/experiment/*/model
+/experiment/*/optimizer*
+/experiment/*/*.pdf
 /models/
 /src/img/
 

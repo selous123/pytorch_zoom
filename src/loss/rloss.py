@@ -1,0 +1,30 @@
+import torch.nn as nn
+import torch
+
+class RLoss(nn.Module):
+    def __init__(self, args):
+        super(RLoss, self).__init__()
+        self.l_loss = nn.L1Loss()
+        self.args = args
+
+
+    def forward(self, fake, real):
+        #fake : tuple (SR, F_Diff)
+        #real : tuple (HR, Diff)
+        sr, fake_diff = fake
+        hr, diff = real
+
+        threshold = self.args.rloss_threshold * self.args.rgb_range / 255.0
+
+
+        #print(threshold)
+
+        fake_diff_byte = torch.gt(fake_diff, threshold).type(torch.cuda.FloatTensor)
+        diff_byte = torch.gt(diff, threshold).type(torch.cuda.FloatTensor)
+
+        sr_activation = torch.mul(sr, diff_byte)
+        hr_activation = torch.mul(hr, fake_diff_byte)
+
+        loss = self.l_loss(sr_activation, hr_activation)
+
+        return loss

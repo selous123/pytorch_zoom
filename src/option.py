@@ -134,12 +134,14 @@ parser.add_argument('--loss', type=str, default='1.0*L1',
 parser.add_argument('--loss_ssl', type=str, default='1.0*L1',
                     help='loss function configuration [n*MSE,+num*L1,VGG,GAN]')
 parser.add_argument('--loss_rel', type=str, default='None',
-                    help='loss function configuration, [n*RNLLoss and None]')
+                    help='loss function configuration, [n*RNLLoss, n*RLoss, None]')
 
 parser.add_argument('--skip_threshold', type=float, default='1e8',
                     help='skipping batch that has large error')
 parser.add_argument('--rloss_n', type=int, default=16,
                     help='getting how much chunks for height or width')
+parser.add_argument('--rloss_threshold', type=int, default=50,
+                    help='determined the threshold to choose the SSL label images')
 
 # Log specifications
 parser.add_argument('--save', type=str, default='test',
