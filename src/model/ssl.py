@@ -3,6 +3,21 @@ from model import common
 import torch.nn as nn
 
 
+from torch.nn import MaxPool1D
+import functional as F
+
+# class ChannelPool(MaxPool1D):
+#     def forward(self, input):
+#         n, c, w, h = input.size()
+#         input = input.view(n,c,w*h).permute(0,2,1)
+#         pooled =  F.max_pool1d(input, self.kernel_size, self.stride,
+#                         self.padding, self.dilation, self.ceil_mode,
+#                         self.return_indices)
+#         _, _, c = input.size()
+#         input = input.permute(0,2,1)
+#         return input.view(n,c,w,h)
+
+
 ## Return model list consisting of zoom model and self-supervised learning model
 def make_model(args, parent=False):
     return EDSR_Zoom(args)
@@ -26,6 +41,112 @@ class CALayer(nn.Module):
         y = self.avg_pool(x)
         y = self.conv_du(y)
         return x * y
+
+class CAconvAttn(nn.Module):
+    def __init__(self):
+        # global average pooling: feature --> point
+        self.avg_pool1 = nn.AdaptiveAvgPool2d(64)
+        # feature channel downscale and upscale --> channel weight
+        self.conv1 = nn.Sequential(
+                nn.Conv2d(channel, channel // reduction, 3, padding=1, bias=True),
+                nn.ReLU(inplace=True),
+                nn.Conv2d(channel // reduction, channel, 3, padding=1, bias=True),
+                nn.ReLU()
+        )
+
+        self.avg_pool2 = nn.AdaptiveAvgPool2d(1)
+        self.conv2 = nn.Sequential(
+                nn.Conv2d(channel, channel // reduction, 1, padding=0, bias=True),
+                nn.ReLU(inplace=True),
+                nn.Conv2d(channel // reduction, channel, 1, padding=0, bias=True),
+                nn.Sigmoid()
+        )
+
+    def forward(self, x):
+        # 64 * 256 * 256  -> 64 * 64 * 64
+        y = self.avg_pool1(x)
+        y = self.conv1(y) # 64 * 64 * 64
+
+        y = self.avg_pool2(y) # 64 * 1 * 1
+        y = self.conv2(y)
+        return x * y
+
+
+## parameter-free Spatial Attention (SA) Layer
+class PFSpatialAttn(nn.Module):
+
+    """Spatial Attention Layer"""
+    def __init__(self):
+        super(PFSpatialAttn, self).__init__()
+
+    def forward(self, x):
+        # global cross-channel averaging # e.g. 32,2048,256,256
+        x = x.mean(1, keepdim=True)  # e.g. 32,1,256,256
+        h = x.size(2)
+        w = x.size(3)
+        x = x.view(x.size(0),-1)     # e.g. 32,256*256
+        y = x
+        for b in range(x.size(0)):
+            y[b] /= torch.sum(y[b])
+        y = y.view(x.size(0),1,h,w)
+        return x * y
+
+## spatial attention (SA) Layer
+class BasicConv(nn.Module):
+    def __init__(self, in_planes, out_planes, kernel_size, stride=1, padding=0, dilation=1, groups=1, relu=True, bn=True, bias=False):
+        super(BasicConv, self).__init__()
+        self.out_channels = out_planes
+        self.conv = nn.Conv2d(in_planes, out_planes, kernel_size=kernel_size, stride=stride, padding=padding, dilation=dilation, groups=groups, bias=bias)
+        self.bn = nn.BatchNorm2d(out_planes,eps=1e-5, momentum=0.01, affine=True) if bn else None
+        self.relu = nn.ReLU() if relu else None
+
+    def forward(self, x):
+        x = self.conv(x)
+        if self.bn is not None:
+            x = self.bn(x)
+        if self.relu is not None:
+            x = self.relu(x)
+        return x
+
+class ChannelPool(nn.Module):
+    def forward(self, x):
+        return torch.cat( (torch.max(x,1)[0].unsqueeze(1), torch.mean(x,1).unsqueeze(1)), dim=1 )
+
+class SpatialAttn(nn.Module):
+    def __init__(self):
+        super(SpatialAttn, self).__init__()
+        kernel_size = 7
+        self.compress = ChannelPool()
+        self.spatial = BasicConv(2, 1, kernel_size, stride=1, padding=(kernel_size-1) // 2, relu=False)
+    def forward(self, x):
+        x_compress = self.compress(x)
+        x_out = self.spatial(x_compress)
+        scale = F.sigmoid(x_out) # broadcasting
+        return x * scale
+
+class MixAttn(nn.Module):
+    def __init__(self):
+        super(MixAttn, self).__init__()
+    def forward(self, x):
+        return x
+
+
+class NonLocalAttn(nn.Module):
+    def __init__(self):
+        super(NonLocalAttn, self).__init__()
+        kernel_size = 7
+        self.compress = ChannelPool()
+        self.spatial = BasicConv(4, 1, kernel_size, stride=1, padding=(kernel_size-1) // 2, relu=False)
+    def forward(self, x):
+        #x_compress = self.compress(x)
+        x_compress = torch.mean(x,1).unsqueeze(1) # 256 * 256 * 1
+        ## non-local operator
+        x_rot = torch.cat([torch.rot90(x_compress,i,dim=[0,1]) for i in range(4)],dim=2) # 256 * 256 * 4
+        x_out = self.spatial(x_rot)
+        scale = F.sigmoid(x_out) # broadcasting
+        return x * scale
+
+
 
 ## Residual Channel Attention Block (RCAB)
 class RCABlock(nn.Module):
