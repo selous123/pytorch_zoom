@@ -1,10 +1,11 @@
 from model import common
 
 import torch.nn as nn
+import torch
+import torch.nn.functional as F
 
-
-from torch.nn import MaxPool1D
-import functional as F
+# from torch.nn import MaxPool1D
+# import functional as F
 
 # class ChannelPool(MaxPool1D):
 #     def forward(self, input):
@@ -43,7 +44,8 @@ class CALayer(nn.Module):
         return x * y
 
 class CAconvAttn(nn.Module):
-    def __init__(self):
+    def __init__(self, channel, reduction=16):
+        super(CAconvAttn, self).__init__()
         # global average pooling: feature --> point
         self.avg_pool1 = nn.AdaptiveAvgPool2d(64)
         # feature channel downscale and upscale --> channel weight
@@ -68,7 +70,7 @@ class CAconvAttn(nn.Module):
         y = self.conv1(y) # 64 * 64 * 64
 
         y = self.avg_pool2(y) # 64 * 1 * 1
-        y = self.conv2(y)
+        y = self.conv2(y) # 64 * 1 * 1
         return x * y
 
 
@@ -112,8 +114,50 @@ class ChannelPool(nn.Module):
     def forward(self, x):
         return torch.cat( (torch.max(x,1)[0].unsqueeze(1), torch.mean(x,1).unsqueeze(1)), dim=1 )
 
+
+class PatchNonlocalPool(nn.Module):
+    def __init__(self, patch_size=16):
+        super(PatchNonlocalPool,self).__init__()
+        self.patch_size = patch_size
+        self.conv = nn.Conv2d(n_feats, n_feats,kernel_size=3,stride=1,padding=1,bias=False)
+        self.avg_pool1 = nn.AdaptiveAvgPool2d(1)
+        self.avg_pool2 = nn.AdaptiveAvgPool1d(1)
+
+    def forward(self, x):
+        b,n,h,w = x.shape
+        kernel_size = self.patch_size
+        kernel_stride = self.patch_size
+        # [b*64, 16, 16, 16, 16]
+        # x [b*64, 256, 256] => [b*64, 256, 16, 16]
+        x = x.view(x.shape[0]*x.shape[1], x.shape[2],x.shape[3])
+        a = x.unfold(1, kernel_size, kernel_stride).unfold(2,kernel_size,kernel_stride)
+        a = a.contiguous().view(a.size(0), -1, a.size(3), a.size(4))
+        # => [b*64, 256, 16, 16]
+        #[b*64,256,256_fm] a_i
+        a1 = a.view(*a.shape[:2],-1)
+        #[b*64,256_fm,256] a_j
+        a2 = a1.permute((0,2,1))
+        #[b*64,256,256] => f(x_i, x_j)
+        f1 = torch.matmul(a1, a2)
+        f_div_C = F.softmax(f1, dim=-1)
+        #[b*64,256,1,1]
+        y1 = self.avg_pool1(a)
+        #[b*64,256,1]
+        #y1 = y1.view(y1.shape[:3])
+        #[b*64,256,256]
+        #y2 = torch.mul(f1,y1)
+        #[b*64,256,1]
+        y2 = torch.matmul(f_div_C, y1)
+        #y3 = self.avg_pool2(y2)
+        #[b, 64, 16, 16]
+        y2 = y2.contiguous().view(b,n, int(h/self.patch_size), int(w/self.patch_size))
+        y2 = self.conv(y2)
+        #[b,64,1,1]
+        y2 = y2.avg_pool1(y2)
+        return y2
+
 class SpatialAttn(nn.Module):
-    def __init__(self):
+    def __init__(self, channel, reduction=16):
         super(SpatialAttn, self).__init__()
         kernel_size = 7
         self.compress = ChannelPool()
@@ -121,13 +165,18 @@ class SpatialAttn(nn.Module):
     def forward(self, x):
         x_compress = self.compress(x)
         x_out = self.spatial(x_compress)
-        scale = F.sigmoid(x_out) # broadcasting
+        scale = torch.sigmoid(x_out) # broadcasting
         return x * scale
 
 class MixAttn(nn.Module):
-    def __init__(self):
+    def __init__(self, n_feats, reduction=16):
         super(MixAttn, self).__init__()
+        self.attn1 = CALayer(n_feats,reduction)
+        self.attn2 = SpatialAttn(n_feats)
     def forward(self, x):
+        ## serial mix attention
+        x = self.attn1(x)
+        x = self.attn2(x)
         return x
 
 
@@ -136,17 +185,17 @@ class NonLocalAttn(nn.Module):
         super(NonLocalAttn, self).__init__()
         kernel_size = 7
         self.compress = ChannelPool()
-        self.spatial = BasicConv(4, 1, kernel_size, stride=1, padding=(kernel_size-1) // 2, relu=False)
+        self.spatial = BasicConv(8, 1, kernel_size, stride=1, padding=(kernel_size-1) // 2, relu=False)
     def forward(self, x):
-        #x_compress = self.compress(x)
-        x_compress = torch.mean(x,1).unsqueeze(1) # 256 * 256 * 1
+        x_compress = self.compress(x)
+        #x_compress = torch.mean(x,1).unsqueeze(1) # 1 * 256 * 256
         ## non-local operator
-        x_rot = torch.cat([torch.rot90(x_compress,i,dim=[0,1]) for i in range(4)],dim=2) # 256 * 256 * 4
+        x_rot = torch.cat([torch.rot90(x_compress,i,dim=[0,1]) for i in range(4)],dim=2) # 4 * 256 * 256
         x_out = self.spatial(x_rot)
         scale = F.sigmoid(x_out) # broadcasting
         return x * scale
 
-
+Attn = CAconvAttn
 
 ## Residual Channel Attention Block (RCAB)
 class RCABlock(nn.Module):
@@ -163,7 +212,7 @@ class RCABlock(nn.Module):
             if i == 0:
                 m.append(act)
 
-        m.append(CALayer(n_feats, reduction))
+        m.append(Attn(n_feats, reduction))
 
         self.body = nn.Sequential(*m)
         self.res_scale = res_scale
@@ -188,8 +237,8 @@ class EDSR_Zoom(nn.Module):
         self.sub_mean = common.MeanShift(args.rgb_range)
         self.add_mean = common.MeanShift(args.rgb_range, sign=1)
         self.model_ssl = EDSR_SSL(args)
-        self.CALayer_head = CALayer(n_feats)
-        self.CALayer_tail = CALayer(n_feats)
+        self.CALayer_head = Attn(n_feats)
+        self.CALayer_tail = Attn(n_feats)
 
         self.attn = args.attn
 

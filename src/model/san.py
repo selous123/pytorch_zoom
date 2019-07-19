@@ -118,7 +118,7 @@ class _NonLocalBlockND(nn.Module):
         # return f
         f_div_C = F.softmax(f, dim=-1)
         # return f_div_C
-        # (b, thw, thw)dot(b, thw, 0.5c) = (b, thw, 0.5c)->(b, 0.5c, t, h, w)->(b, c, t, h, w)
+        # (b, thw, thw) dot (b, thw, 0.5c) = (b, thw, 0.5c)->(b, 0.5c, t, h, w)->(b, c, t, h, w)
         y = torch.matmul(f_div_C, g_x)
         y = y.permute(0, 2, 1).contiguous()
         y = y.view(batch_size, self.inter_channels, *x.size()[2:])
@@ -230,7 +230,7 @@ class SOCA(nn.Module):
         N = int(h * w)
         # Crop the window of size h1xw1 at the center of input tensor for efficiency
         # h1=h,w1=w; here we set h1=w1=200 just for better efficiency.
-        h1 = 200  
+        h1 = 200
         w1 = 200
         #
         if h < h1 and w < w1:
@@ -247,15 +247,15 @@ class SOCA(nn.Module):
             H = (h - h1) // 2
             W = (w - w1) // 2
             x_sub = x[:, :, H:(H + h1), W:(W + w1)]
-            
+
         # if input size is too large, we may subsample it.
         # x_sub = self.avg_pool(x)
         ##
         ## Compute Covariance matrix
         cov_mat = MPNCOV.CovpoolLayer(x_sub) # Global Covariance pooling layer
-        
+
         # Matrix square root layer( including pre-norm,Newton-Schulz iter. and post-com. with 5 iteration)
-        cov_mat_sqrt = MPNCOV.SqrtmLayer(cov_mat,5)         
+        cov_mat_sqrt = MPNCOV.SqrtmLayer(cov_mat,5)
         cov_mat_sum = torch.mean(cov_mat_sqrt,1)
         cov_mat_sum = cov_mat_sum.view(batch_size,C,1,1)
 
@@ -363,10 +363,10 @@ class SAN(nn.Module):
         n_resblocks = args.n_resblocks
         n_feats = args.n_feats
         kernel_size = 3
-        reduction = args.reduction 
+        reduction = args.reduction
         scale = args.scale[0]
         act = nn.ReLU(inplace=True)
-        
+
         # RGB mean for DIV2K
         rgb_mean = (0.4488, 0.4371, 0.4040)
         rgb_std = (1.0, 1.0, 1.0)
@@ -432,7 +432,7 @@ class SAN(nn.Module):
 
         x = self.add_mean(x)
 
-        return x 
+        return x
 
     def load_state_dict(self, state_dict, strict=False):
         own_state = self.state_dict()
