@@ -12,8 +12,8 @@ ARGS = parser.parse_args()
 
 
 
-apath = os.path.join(ARGS.root_path, 'edsr_paper_x4')
-loss_log = torch.load(os.path.join(apath, 'loss_log.pt'))
+apath = os.path.join(ARGS.root_path, 'ssl_addfushion_reverse_x4_addattn')
+loss_log = torch.load(os.path.join(apath, 'loss_SR_log.pt'))
 psnr_log = torch.load(os.path.join(apath, 'psnr_log.pt'))
 #print(psnr_log)
 
@@ -48,18 +48,18 @@ axis = np.linspace(1, e, e)
 fig = plt.figure(figsize=(12,4))
 
 plt.subplot(121)
-plt.plot(axis, loss_log.numpy(),color = 'red' ,label= "EDSR_paper")
+plt.plot(axis, loss_log.numpy(),color = 'red' ,label= "SSL_CA")
 plt.plot(axis, loss_b_log.numpy(),color = 'blue' ,label= "EDSR_baseline_paper")
-plt.plot(axis, loss_r_log.numpy(),color = 'green' ,label= "SSL_r_loss")
+plt.plot(axis, loss_r_log.numpy(),color = 'green' ,label= "SSL_SA")
 plt.plot(axis, loss_s_log.numpy(),color = 'black' ,label= "SSL")
 plt.title("loss")
 plt.legend()
 plt.grid(True)
 
 plt.subplot(122)
-plt.plot(axis, psnr_log.numpy().squeeze(),color = 'red' ,label= "EDSR_paper")
+plt.plot(axis, psnr_log.numpy().squeeze(),color = 'red' ,label= "SSL_CA")
 plt.plot(axis, psnr_b_log.numpy().squeeze(),color = 'blue' ,label= "EDSR_baseline_paper")
-plt.plot(axis, psnr_r_log.numpy().squeeze(),color = 'green' ,label= "SSL_r_loss")
+plt.plot(axis, psnr_r_log.numpy().squeeze(),color = 'green' ,label= "SSL_SA")
 plt.plot(axis, psnr_s_log.numpy().squeeze(),color = 'black' ,label= "SSL")
 plt.title("psnr")
 plt.legend()

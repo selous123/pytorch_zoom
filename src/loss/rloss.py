@@ -14,16 +14,18 @@ class RLoss(nn.Module):
         sr, fake_diff = fake
         hr, diff = real
 
-        threshold = self.args.rloss_threshold * self.args.rgb_range / 255.0
+        #threshold = self.args.rloss_threshold * self.args.rgb_range / 255.0
 
-
+        fake_diff = fake_diff / self.args.rgb_range
+        diff = diff / self.args.rgb_range
+        #print(fake_diff)
         #print(threshold)
 
-        fake_diff_byte = torch.gt(fake_diff, threshold).type(torch.cuda.FloatTensor)
-        diff_byte = torch.gt(diff, threshold).type(torch.cuda.FloatTensor)
+        #fake_diff_byte = torch.gt(fake_diff, threshold).type(torch.cuda.FloatTensor)
+        #diff_byte = torch.gt(diff, threshold).type(torch.cuda.FloatTensor)
 
-        sr_activation = torch.mul(sr, fake_diff_byte)
-        hr_activation = torch.mul(hr, diff_byte)
+        sr_activation = torch.mul(sr, fake_diff)
+        hr_activation = torch.mul(hr, diff)
 
         loss = self.l_loss(sr_activation, hr_activation)
 
