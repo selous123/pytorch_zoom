@@ -50,10 +50,8 @@ class CAconvAttn(nn.Module):
         self.avg_pool1 = nn.AdaptiveAvgPool2d(64)
         # feature channel downscale and upscale --> channel weight
         self.conv1 = nn.Sequential(
-                nn.Conv2d(channel, channel // reduction, 3, padding=1, bias=True),
+                nn.Conv2d(channel, channel, 3, padding=1, dilation=2, bias=True),
                 nn.ReLU(inplace=True),
-                nn.Conv2d(channel // reduction, channel, 3, padding=1, bias=True),
-                nn.ReLU()
         )
 
         self.avg_pool2 = nn.AdaptiveAvgPool2d(1)
