@@ -116,7 +116,7 @@ class ChannelPool(nn.Module):
 
 
 class PatchNonlocalPool(nn.Module):
-    def __init__(self, patch_size=16):
+    def __init__(self, n_feats, patch_size=16):
         super(PatchNonlocalPool,self).__init__()
         self.patch_size = patch_size
         self.conv = nn.Conv2d(n_feats, n_feats,kernel_size=3,stride=1,padding=1,bias=False)
@@ -129,7 +129,7 @@ class PatchNonlocalPool(nn.Module):
         kernel_stride = self.patch_size
         # [b*64, 16, 16, 16, 16]
         # x [b*64, 256, 256] => [b*64, 256, 16, 16]
-        x = x.view(x.shape[0]*x.shape[1], x.shape[2],x.shape[3])
+        x = x.view(b*n, h,w)
         a = x.unfold(1, kernel_size, kernel_stride).unfold(2,kernel_size,kernel_stride)
         a = a.contiguous().view(a.size(0), -1, a.size(3), a.size(4))
         # => [b*64, 256, 16, 16]
@@ -143,7 +143,7 @@ class PatchNonlocalPool(nn.Module):
         #[b*64,256,1,1]
         y1 = self.avg_pool1(a)
         #[b*64,256,1]
-        #y1 = y1.view(y1.shape[:3])
+        y1 = y1.squeeze(-1)
         #[b*64,256,256]
         #y2 = torch.mul(f1,y1)
         #[b*64,256,1]
@@ -153,19 +153,41 @@ class PatchNonlocalPool(nn.Module):
         y2 = y2.contiguous().view(b,n, int(h/self.patch_size), int(w/self.patch_size))
         y2 = self.conv(y2)
         #[b,64,1,1]
-        y2 = y2.avg_pool1(y2)
+        y2 = self.avg_pool1(y2)
         return y2
+
+## Patch Non-local Pooling with Channel Attention (CA) Layer
+class PatchNonLocalCALayer(nn.Module):
+    def __init__(self, channel, reduction=16):
+        super(PatchNonLocalCALayer, self).__init__()
+        # global average pooling: feature --> point
+        self.patchnonlocal_pool = PatchNonlocalPool(channel)
+        # feature channel downscale and upscale --> channel weight
+        self.conv_du = nn.Sequential(
+                nn.Conv2d(channel, channel // reduction, 1, padding=0, bias=True),
+                nn.ReLU(inplace=True),
+                nn.Conv2d(channel // reduction, channel, 1, padding=0, bias=True),
+                nn.Sigmoid()
+        )
+
+    def forward(self, x):
+        y = self.patchnonlocal_pool(x)
+        y = self.conv_du(y)
+        return x * y
+
 
 class SpatialAttn(nn.Module):
     def __init__(self, channel, reduction=16):
         super(SpatialAttn, self).__init__()
         kernel_size = 7
         self.compress = ChannelPool()
-        self.spatial = BasicConv(2, 1, kernel_size, stride=1, padding=(kernel_size-1) // 2, relu=False)
+        self.spatial = BasicConv(2, 16, kernel_size, stride=1, padding=(kernel_size-1) // 2, relu=False)
+        self.channel = channel
     def forward(self, x):
         x_compress = self.compress(x)
         x_out = self.spatial(x_compress)
         scale = torch.sigmoid(x_out) # broadcasting
+        scale = scale.repeat(1, int(self.channel / 16), 1, 1)
         return x * scale
 
 class MixAttn(nn.Module):
@@ -195,7 +217,7 @@ class NonLocalAttn(nn.Module):
         scale = F.sigmoid(x_out) # broadcasting
         return x * scale
 
-Attn = CAconvAttn
+Attn = MixAttn
 
 ## Residual Channel Attention Block (RCAB)
 class RCABlock(nn.Module):
