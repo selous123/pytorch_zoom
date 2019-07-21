@@ -22,7 +22,7 @@ loss_b_log = torch.load(os.path.join(apath, 'loss_log.pt'))
 psnr_b_log = torch.load(os.path.join(apath, 'psnr_log.pt'))
 
 
-apath = os.path.join(ARGS.root_path, 'ssl_addfusionreverse_x4')
+apath = os.path.join(ARGS.root_path, 'ssl_addfushion_reverse_x4_addattn')
 loss_s_log = torch.load(os.path.join(apath, 'loss_SR_log.pt'))
 psnr_s_log = torch.load(os.path.join(apath, 'psnr_log.pt'))
 
@@ -31,6 +31,7 @@ apath = os.path.join(ARGS.root_path, ARGS.dir_path)
 loss_r_log = torch.load(os.path.join(apath, 'loss_SR_log.pt'))
 psnr_r_log = torch.load(os.path.join(apath, 'psnr_log.pt'))
 
+print(len(loss_s_log), len(loss_r_log), len(loss_b_log), len(loss_log), ARGS.e)
 
 e = min(len(loss_s_log), len(loss_r_log), len(loss_b_log), len(loss_log), ARGS.e)
 print("Epoch:",e)

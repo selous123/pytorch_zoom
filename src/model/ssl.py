@@ -50,10 +50,8 @@ class CAconvAttn(nn.Module):
         self.avg_pool1 = nn.AdaptiveAvgPool2d(64)
         # feature channel downscale and upscale --> channel weight
         self.conv1 = nn.Sequential(
-                nn.Conv2d(channel, channel // reduction, 3, padding=1, bias=True),
+                nn.Conv2d(channel, channel, 3, padding=1, dilation=2, bias=True),
                 nn.ReLU(inplace=True),
-                nn.Conv2d(channel // reduction, channel, 3, padding=1, bias=True),
-                nn.ReLU()
         )
 
         self.avg_pool2 = nn.AdaptiveAvgPool2d(1)
@@ -161,11 +159,12 @@ class SpatialAttn(nn.Module):
         super(SpatialAttn, self).__init__()
         kernel_size = 7
         self.compress = ChannelPool()
-        self.spatial = BasicConv(2, 1, kernel_size, stride=1, padding=(kernel_size-1) // 2, relu=False)
+        self.spatial = BasicConv(2, 16, kernel_size, stride=1, padding=(kernel_size-1) // 2, relu=False)
     def forward(self, x):
         x_compress = self.compress(x)
         x_out = self.spatial(x_compress)
         scale = torch.sigmoid(x_out) # broadcasting
+        #scale = torch.tile(scale, )
         return x * scale
 
 class MixAttn(nn.Module):
