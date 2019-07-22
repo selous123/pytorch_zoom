@@ -174,6 +174,53 @@ class PatchNonLocalCALayer(nn.Module):
         return x * y
 
 
+class ADL(nn.Module):
+    def __init__(self, channel, drop_rate=0.5, drop_thr=0.5):
+        super(ADL, self).__init__()
+        assert 0 <= drop_rate <= 1 and 0 <= drop_thr <= 1
+        self.drop_rate = drop_rate
+        self.drop_thr = drop_thr
+        self.attention = None
+        self.drop_mask = None
+
+        self.compress = ChannelPool()
+        self.spatial = BasicConv(8, 8, kernel_size, stride=1, padding=(kernel_size-1) // 2, relu=False)
+        self.channel = channel
+
+    def forward(self, x):
+        b = x.size(0)
+        # Generate self-attention map
+        #attention = torch.mean(x, dim=1, keepdim=True)
+        x_compress = self.compress(x)
+        x_rot = torch.cat([torch.rot90(x_compress,i,dims=[2,3]) for i in range(4)],dim=1) # 8 * 256 * 256
+        attention = self.spatial(x_rot) # 8 * 256 * 256
+        self.attention = attention[0]
+
+        # Generate importance map
+        importance_map = torch.sigmoid(attention)
+
+        # Generate drop mask
+        max_val, _ = torch.max(attention.view(b, -1), dim=1, keepdim=True)
+        thr_val = max_val * self.drop_thr
+        thr_val = thr_val.view(b, 1, 1, 1).expand_as(attention)
+        drop_mask = (attention < thr_val).float()
+        self.drop_mask = drop_mask
+        # Random selection
+        #random_tensor = torch.rand([], dtype=torch.float32) +
+        #binary_tensor = random_tensor.floor()
+        binary_tensor = self.drop_rate
+        selected_map = (1. - binary_tensor) * importance_map + binary_tensor * drop_mask # b * 8 * 256 * 256
+
+        ## broadcasting
+        selected_map = selected_map.repeat(1, int(self.channel / 8), 1, 1)
+        # Spatial multiplication to input feature map
+        output = x.mul(selected_map)
+        return output
+
+    def get_maps(self):
+        return self.attention, self.drop_mask
+
+
 class SpatialAttn(nn.Module):
     def __init__(self, channel, reduction=16):
         super(SpatialAttn, self).__init__()
@@ -196,6 +243,7 @@ class MixAttn(nn.Module):
         super(MixAttn, self).__init__()
         self.attn1 = CALayer(n_feats,reduction)
         self.attn2 = SpatialAttn(n_feats)
+        #self.attn2 = ADL(n_feats)
     def forward(self, x):
         ## serial mix attention
         x = self.attn1(x)
@@ -266,7 +314,7 @@ class EDSR_Zoom(nn.Module):
         self.CALayer_tail = Attn(n_feats)
 
         self.attn = args.attn
-
+        self.attn_maps = []
         # define head module
         m_head = [conv(args.n_colors, n_feats, kernel_size)]
 
@@ -307,6 +355,7 @@ class EDSR_Zoom(nn.Module):
         x = self.sub_mean(x)
         x = self.head(x)
 
+        self.attn_maps.append(x)
         ## feature fusion : fusion
         x = x - y2
         if self.attn:
@@ -328,6 +377,10 @@ class EDSR_Zoom(nn.Module):
         x = self.add_mean(x)
 
         return x, s_label
+
+    def get_attnmaps(self):
+        return self.attn_maps
+
 
     def load_state_dict(self, state_dict, strict=True):
         own_state = self.state_dict()
