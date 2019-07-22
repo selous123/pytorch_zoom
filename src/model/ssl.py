@@ -313,16 +313,16 @@ class EDSR_Zoom(nn.Module):
             x = self.CALayer_head(x)
 
         res = self.body(x)
-        res += x
+        ## feature fusion
+        res = res + y1
 
         ## Channel Attention
         #y_w = self.CALayer(y_res)
         #res = y_w * res
-
-        ## feature fusion
-        res = res + y1
         if self.attn:
-            x = self.CALayer_tail(x)
+            res = self.CALayer_tail(res)
+
+        res += x
 
         x = self.tail(res)
         x = self.add_mean(x)
