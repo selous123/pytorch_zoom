@@ -179,13 +179,16 @@ class SpatialAttn(nn.Module):
         super(SpatialAttn, self).__init__()
         kernel_size = 7
         self.compress = ChannelPool()
-        self.spatial = BasicConv(2, 16, kernel_size, stride=1, padding=(kernel_size-1) // 2, relu=False)
+        self.spatial = BasicConv(8, 8, kernel_size, stride=1, padding=(kernel_size-1) // 2, relu=False)
         self.channel = channel
     def forward(self, x):
         x_compress = self.compress(x)
-        x_out = self.spatial(x_compress)
+
+        x_rot = torch.cat([torch.rot90(x_compress,i,dims=[2,3]) for i in range(4)],dim=1) # 8 * 256 * 256
+
+        x_out = self.spatial(x_rot)
         scale = torch.sigmoid(x_out) # broadcasting
-        scale = scale.repeat(1, int(self.channel / 16), 1, 1)
+        scale = scale.repeat(1, int(self.channel / 8), 1, 1)
         return x * scale
 
 class MixAttn(nn.Module):
@@ -210,11 +213,13 @@ class NonLocalAttn(nn.Module):
         x_compress = self.compress(x)
         #x_compress = torch.mean(x,1).unsqueeze(1) # 1 * 256 * 256
         ## non-local operator
-        x_rot = torch.cat([torch.rot90(x_compress,i,dim=[0,1]) for i in range(4)],dim=2) # 4 * 256 * 256
+        x_rot = torch.cat([torch.rot90(x_compress,i,dims=[2,3]) for i in range(4)],dim=2) # 4 * 256 * 256
         x_out = self.spatial(x_rot)
         scale = F.sigmoid(x_out) # broadcasting
         return x * scale
 
+#Attn = MixAttn
+#from model.context_block import ContextBlock2d
 Attn = MixAttn
 
 ## Residual Channel Attention Block (RCAB)
