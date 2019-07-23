@@ -235,6 +235,9 @@ class SRRAW(data.Dataset):
         scale = self.scale[self.idx_scale]
         if self.n_colors == 4:
             scale = scale * 2
+
+        #print(scale)
+        #print(self.args.test_patch_size)
         if self.train:
             data = common.get_patch(
                 *data,
@@ -254,7 +257,8 @@ class SRRAW(data.Dataset):
 
         if self.train and not self.args.no_augment:
             data = common.augment(*data)
-
+        #print(data[0].shape)
+        #print(data[1].shape)
         return data
 
     def set_scale(self, idx_scale):
