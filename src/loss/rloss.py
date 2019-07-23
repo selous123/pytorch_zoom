@@ -24,7 +24,7 @@ class RLoss(nn.Module):
         #fake_diff_byte = torch.gt(fake_diff, threshold).type(torch.cuda.FloatTensor)
         #diff_byte = torch.gt(diff, threshold).type(torch.cuda.FloatTensor)
 
-        sr_activation = torch.mul(sr, fake_diff)
+        sr_activation = torch.mul(sr, diff)
         hr_activation = torch.mul(hr, diff)
 
         loss = self.l_loss(sr_activation, hr_activation)
