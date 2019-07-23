@@ -4,19 +4,7 @@ import torch.nn as nn
 import torch
 import torch.nn.functional as F
 
-# from torch.nn import MaxPool1D
-# import functional as F
 
-# class ChannelPool(MaxPool1D):
-#     def forward(self, input):
-#         n, c, w, h = input.size()
-#         input = input.view(n,c,w*h).permute(0,2,1)
-#         pooled =  F.max_pool1d(input, self.kernel_size, self.stride,
-#                         self.padding, self.dilation, self.ceil_mode,
-#                         self.return_indices)
-#         _, _, c = input.size()
-#         input = input.permute(0,2,1)
-#         return input.view(n,c,w,h)
 
 
 ## Return model list consisting of zoom model and self-supervised learning model
@@ -108,10 +96,38 @@ class BasicConv(nn.Module):
             x = self.relu(x)
         return x
 
+import torch.nn.functional as F
 class ChannelPool(nn.Module):
+    def __init__(self, pool_size = 1):
+        super(ChannelPool, self).__init__()
+        self.maxpool = nn.AdaptiveMaxPool1d(pool_size)
+        self.avgpool = nn.AdaptiveAvgPool1d(pool_size)
+        self.pool_size = pool_size
     def forward(self, x):
-        return torch.cat( (torch.max(x,1)[0].unsqueeze(1), torch.mean(x,1).unsqueeze(1)), dim=1 )
+        n, c, w, h = x.shape
+        x = x.view(n,c,w*h).permute(0,2,1) #n * hw * c
+        #max_pooled = self.maxpool(x)
+        avg_pooled = self.avgpool(x)
 
+        #pooled = torch.cat( (max_pooled, avg_pooled), dim=-1 )
+        pooled = avg_pooled
+        _, _, c1 = pooled.shape
+        pooled = pooled.permute(0,2,1).view(n,c1,w,h) # n * 2*pool_size * h * w
+        return pooled
+
+
+# from torch.nn import MaxPool1D
+#
+
+# class ChannelPool(nn.Module):
+#     def forward(self, x):
+#         return torch.cat((torch.max(x,1)[0].unsqueeze(1),torch.mean(x,1)[0].unsqueeze(1)), dim=1)
+
+#
+#
+#
+#
+#
 
 class PatchNonlocalPool(nn.Module):
     def __init__(self, n_feats, patch_size=16):
@@ -183,6 +199,8 @@ class ADL(nn.Module):
         self.attention = None
         self.drop_mask = None
 
+        kernel_size = 7
+
         self.compress = ChannelPool()
         self.spatial = BasicConv(8, 8, kernel_size, stride=1, padding=(kernel_size-1) // 2, relu=False)
         self.channel = channel
@@ -190,35 +208,41 @@ class ADL(nn.Module):
     def forward(self, x):
         b = x.size(0)
         # Generate self-attention map
-        #attention = torch.mean(x, dim=1, keepdim=True)
+        attention = torch.mean(x, dim=1, keepdim=True)
+        self.attention = attention # b * 1 * 256 * 256
+
         x_compress = self.compress(x)
         x_rot = torch.cat([torch.rot90(x_compress,i,dims=[2,3]) for i in range(4)],dim=1) # 8 * 256 * 256
-        attention = self.spatial(x_rot) # 8 * 256 * 256
-        self.attention = attention[0]
-
+        x_rot = self.spatial(x_rot) # 8 * 256 * 256
         # Generate importance map
-        importance_map = torch.sigmoid(attention)
+        importance_map = torch.sigmoid(x_rot)
+        importance_map = importance_map.repeat(1, int(self.channel / 8), 1, 1)
 
-        # Generate drop mask
-        max_val, _ = torch.max(attention.view(b, -1), dim=1, keepdim=True)
-        thr_val = max_val * self.drop_thr
-        thr_val = thr_val.view(b, 1, 1, 1).expand_as(attention)
-        drop_mask = (attention < thr_val).float()
-        self.drop_mask = drop_mask
-        # Random selection
-        #random_tensor = torch.rand([], dtype=torch.float32) +
-        #binary_tensor = random_tensor.floor()
-        binary_tensor = self.drop_rate
-        selected_map = (1. - binary_tensor) * importance_map + binary_tensor * drop_mask # b * 8 * 256 * 256
+        # # Generate drop mask
+        # max_val, _ = torch.max(attention.view(b, -1), dim=1, keepdim=True)
+        # thr_val = max_val * self.drop_thr
+        # thr_val = thr_val.view(b, 1, 1, 1).expand_as(attention)
+        # drop_mask = (attention < thr_val).float()
+        self.drop_mask = importance_map
+        #
+        # drop_mask = drop_mask.expand_as(importance_map)
+        #
+        # # Random selection
+        # #random_tensor = torch.rand([], dtype=torch.float32) +
+        # #binary_tensor = random_tensor.floor()
+        # binary_tensor = self.drop_rate
+        # selected_map = (1. - binary_tensor) * importance_map + binary_tensor * drop_mask # b * 8 * 256 * 256
 
         ## broadcasting
-        selected_map = selected_map.repeat(1, int(self.channel / 8), 1, 1)
+        #selected_map = selected_map.repeat(1, int(self.channel / 1), 1, 1)
         # Spatial multiplication to input feature map
+        selected_map = importance_map
+        self.selected_map = selected_map
         output = x.mul(selected_map)
         return output
 
     def get_maps(self):
-        return self.attention, self.drop_mask
+        return [self.attention, self.drop_mask, self.selected_map]
 
 
 class SpatialAttn(nn.Module):
@@ -227,6 +251,7 @@ class SpatialAttn(nn.Module):
         kernel_size = 7
         self.compress = ChannelPool()
         self.spatial = BasicConv(8, 8, kernel_size, stride=1, padding=(kernel_size-1) // 2, relu=False)
+        #self.spatial = nn.Conv2d(8, 8,kernel_size=7,stride=1,padding=(kernel_size-1) // 2,bias=False)
         self.channel = channel
     def forward(self, x):
         x_compress = self.compress(x)
@@ -238,12 +263,50 @@ class SpatialAttn(nn.Module):
         scale = scale.repeat(1, int(self.channel / 8), 1, 1)
         return x * scale
 
+class MultiPoolingSpatialAttn(nn.Module):
+    def __init__(self, channel, reduction=16):
+        super(MultiPoolingSpatialAttn, self).__init__()
+        kernel_size = 7
+        self.compress1 = ChannelPool(pool_size=1) #=> 1 * H * W
+        self.compress2 = ChannelPool(pool_size=2) #=> 2 * H * W
+        self.compress3 = ChannelPool(pool_size=4) #=> 4 * H * W
+
+        self.spatial1 = BasicConv(4, 8, kernel_size, stride=1, padding=(kernel_size-1) // 2, relu=False)
+        self.spatial2 = BasicConv(8, 8, kernel_size, stride=1, padding=(kernel_size-1) // 2, relu=False)
+        self.spatial3 = BasicConv(16, 8, kernel_size, stride=1, padding=(kernel_size-1) // 2, relu=False)
+
+        #self.spatial = nn.Conv2d(8, 8,kernel_size=7,stride=1,padding=(kernel_size-1) // 2,bias=False)
+        self.channel = channel
+    def forward(self, x):
+
+        x_compress1 = self.compress1(x)
+        x_compress2 = self.compress2(x)
+        x_compress3 = self.compress3(x)
+
+        x_rot1 = torch.cat([torch.rot90(x_compress1,i,dims=[2,3]) for i in range(4)],dim=1) # 4 * 256 * 256
+        x_out1 = self.spatial1(x_rot1)
+
+        x_rot2 = torch.cat([torch.rot90(x_compress2,i,dims=[2,3]) for i in range(4)],dim=1) # 8 * 256 * 256
+        x_out2 = self.spatial2(x_rot2)
+
+        x_rot3 = torch.cat([torch.rot90(x_compress3,i,dims=[2,3]) for i in range(4)],dim=1) # 16 * 256 * 256
+        x_out3 = self.spatial3(x_rot3)
+
+        x_out = x_out1 + x_out2 + x_out3
+        scale = torch.sigmoid(x_out) # broadcasting
+        scale = scale.repeat(1, int(self.channel / 8), 1, 1)
+        x_scale = x * scale
+
+        return x_scale
+
+
 class MixAttn(nn.Module):
     def __init__(self, n_feats, reduction=16):
         super(MixAttn, self).__init__()
         self.attn1 = CALayer(n_feats,reduction)
-        self.attn2 = SpatialAttn(n_feats)
+        #self.attn2 = SpatialAttn(n_feats)
         #self.attn2 = ADL(n_feats)
+        self.attn2 = MultiPoolingSpatialAttn(n_feats)
     def forward(self, x):
         ## serial mix attention
         x = self.attn1(x)
@@ -314,7 +377,7 @@ class EDSR_Zoom(nn.Module):
         self.CALayer_tail = Attn(n_feats)
 
         self.attn = args.attn
-        self.attn_maps = []
+
         # define head module
         m_head = [conv(args.n_colors, n_feats, kernel_size)]
 
@@ -350,6 +413,7 @@ class EDSR_Zoom(nn.Module):
     def forward(self, x):
         ## s_label : [b, n_colors, H, W]
         ## y_res : [b, C, H, W]
+        self.attn_maps = []
         s_label, y1, y2 = self.model_ssl(x)
 
         x = self.sub_mean(x)
@@ -360,6 +424,7 @@ class EDSR_Zoom(nn.Module):
         x = x - y2
         if self.attn:
             x = self.CALayer_head(x)
+            #self.attn_maps.extend(self.CALayer_head.attn2.get_maps())
 
         res = self.body(x)
         ## feature fusion

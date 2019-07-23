@@ -112,7 +112,9 @@ class Upsampler(nn.Sequential):
                 m.append(nn.PixelShuffle(2))
                 if bn:
                     m.append(nn.BatchNorm2d(n_feats))
-                if act == 'relu':
+                if act == False:
+                    continue
+                elif act == 'relu':
                     m.append(nn.ReLU(True))
                 elif act == 'prelu':
                     m.append(nn.PReLU(n_feats))

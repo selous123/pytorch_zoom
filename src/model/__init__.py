@@ -56,6 +56,9 @@ class Model(nn.Module):
             else:
                 return forward_function(x)
 
+    def get_attnmaps(self):
+        return self.model.get_attnmaps()
+
     def save(self, apath, epoch, is_best=False):
         save_dirs = [os.path.join(apath, 'model_latest.pt')]
 

@@ -7,6 +7,7 @@ import utility
 import torch
 import torch.nn.utils as utils
 from tqdm import tqdm
+import torchvision
 
 class Trainer():
     def __init__(self, args, loader, my_model, my_loss, ckp):
@@ -98,6 +99,9 @@ class Trainer():
                     hr = labels[0]
                     lr, hr = self.prepare(lr, hr)
                     output = self.model(lr, idx_scale)
+                    #print(self.model)
+                    #print(lr.shape)
+
                     ## if the return of model is tuple
                     if isinstance(output, tuple):
                         sr = output[0]
@@ -105,6 +109,9 @@ class Trainer():
                         diff = labels[1]
                     else:
                         sr = output
+
+
+                    #print(sr.shape)
 
                     if self.args.n_colors == 4:
                         sr = utility.postprocess_wb(sr, filename, self.args.wb_root)
@@ -120,6 +127,14 @@ class Trainer():
 
                     if self.args.model=='SSL':
                         save_list.extend([diff, fake_diff])
+                    #print(dir(self.model))
+                    # x = self.model.get_attnmaps()
+                    # #print(x[0].shape)
+                    # torchvision.utils.save_image(x[0].permute(1,0,2,3), '../experiment/test/attn_l1.png')
+                    # #print(x[2].shape)
+                    # torchvision.utils.save_image(x[1].permute(1,0,2,3), '../experiment/test/attn.png')
+                    # torchvision.utils.save_image(x[2].permute(1,0,2,3), '../experiment/test/mask.png')
+                    # torchvision.utils.save_image(x[3].permute(1,0,2,3), '../experiment/test/selected_map.png')
 
                     if self.args.save_results:
                         self.ckp.save_results(d, filename[0], save_list, scale)
