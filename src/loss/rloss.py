@@ -27,6 +27,13 @@ class RLoss(nn.Module):
         sr_activation = torch.mul(sr, diff)
         hr_activation = torch.mul(hr, diff)
 
-        loss = self.l_loss(sr_activation, hr_activation)
+        l1 = self.l_loss(sr_activation, hr_activation)
+
+        sr_activation1 = torch.mul(sr, fake_diff)
+        #hr_activation1 = torch.mul(hr, diff)
+
+        l2 = self.l_loss(sr_activation1, hr_activation)
+
+        loss = l1 + l2
 
         return loss

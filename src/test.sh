@@ -45,6 +45,8 @@ python main.py --model SSL --scale 4 --patch_size 256  --data_train SRRAW --data
 
 ## debug r-loss
 python main.py --model SSL --scale 4 --patch_size 256  --data_train SRRAW --data_test SRRAW --n_colors 3  --save_results --batch_size 16 --save_gt --labels HR+Diff --save ssl_addfushion_reverse_rloss_x4 --loss_rel 1.0*RNLLoss
+## debug r-loss v0.4
+python main.py --model SSL --scale 4 --patch_size 256  --data_train SRRAW --data_test SRRAW --n_colors 3  --save_results --batch_size 16 --save_gt --labels HR+Diff --save ssl_addfushion_reverse_rlossv0.4_x4 --loss_rel 1.0*RLoss
 
 ## debug attention model
 python main.py --model SSL --scale 4 --patch_size 256  --data_train SRRAW --data_test SRRAW --n_colors 3  --save_results --batch_size 16 --save_gt --labels HR+Diff --attn --save ssl_addfushion_reverse_x4_add_attn
