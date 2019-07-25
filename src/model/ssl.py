@@ -331,7 +331,7 @@ class NonLocalAttn(nn.Module):
 
 #Attn = MixAttn
 #from model.context_block import ContextBlock2d
-Attn = MixAttn
+Attn = CALayer
 
 ## Residual Channel Attention Block (RCAB)
 class RCABlock(nn.Module):
@@ -384,7 +384,7 @@ class EDSR_Zoom(nn.Module):
         # define body module
         if args.attn is True:
             m_body = [
-                RCABlock(
+                common.RCABlock(
                     conv, n_feats, kernel_size, args.reduction, act=act, res_scale=args.res_scale
                 ) for _ in range(n_resblocks)
             ]
@@ -485,11 +485,21 @@ class EDSR_SSL(nn.Module):
         m_head = [conv(args.n_colors, n_feats, kernel_size)]
 
         # define body module
-        m_body = [
-            common.ResBlock(
-                conv, n_feats, kernel_size, act=act, res_scale=args.res_scale
-            ) for _ in range(n_resblocks)
-        ]
+        self.attn = args.attn
+        if args.attn is True:
+            m_body = [
+                common.RCABlock(
+                    conv, n_feats, kernel_size, args.reduction, act=act, res_scale=args.res_scale
+                ) for _ in range(n_resblocks)
+            ]
+
+        else:
+            m_body = [
+                common.ResBlock(
+                    conv, n_feats, kernel_size, act=act, res_scale=args.res_scale
+                ) for _ in range(n_resblocks)
+            ]
+
         m_body.append(conv(n_feats, n_feats, kernel_size))
 
         # define tail module

@@ -13,6 +13,9 @@ checkpoint = utility.checkpoint(args)
 
 print(args.desc, file=checkpoint.log_file)
 
+import torch.backends.cudnn as cudnn
+cudnn.benchmark = True
+
 def main():
     global model
     if args.data_test == ['video']:
