@@ -13,7 +13,8 @@
 *.pkl
 
 #experiment and model
-/experiment/*/result*
+/experiment_pre/
+#/experiment/*/result*
 /experiment/*/model
 /experiment/*/optimizer*
 /experiment/*/*.pdf
@@ -25,4 +26,4 @@
 *.jpg
 *.csv
 *.npy
-*.txt
+#*.txt

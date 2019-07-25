@@ -20,18 +20,29 @@ class EDSR(nn.Module):
         act = nn.ReLU(True)
         self.sub_mean = common.MeanShift(args.rgb_range)
         self.add_mean = common.MeanShift(args.rgb_range, sign=1)
-        self.feats = []
+
+
+        self.attn =  args.attn
 
         # define head module
         #print(n_feats)
         m_head = [conv(args.n_colors, n_feats, kernel_size)]
 
         # define body module
-        m_body = [
-            common.ResBlock(
-                conv, n_feats, kernel_size, act=act, res_scale=args.res_scale
-            ) for _ in range(n_resblocks)
-        ]
+        if self.attn is True:
+            m_body = [
+                common.RCABlock(
+                    conv, n_feats, kernel_size, args.reduction, act=act, res_scale=args.res_scale
+                ) for _ in range(n_resblocks)
+            ]
+
+        else:
+            m_body = [
+                common.ResBlock(
+                    conv, n_feats, kernel_size, act=act, res_scale=args.res_scale
+                ) for _ in range(n_resblocks)
+            ]
+
         m_body.append(conv(n_feats, n_feats, kernel_size))
 
         # define tail module
@@ -46,6 +57,7 @@ class EDSR(nn.Module):
         self.tail = nn.Sequential(*m_tail)
 
     def forward(self, x):
+        self.feats = []
         if self.n_colors == 3:
             x = self.sub_mean(x)
         x = self.head(x)
