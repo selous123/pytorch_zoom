@@ -13,17 +13,17 @@ ARGS = parser.parse_args()
 
 
 
-apath = os.path.join(ARGS.root_path, 'ssl_addfushion_reverse_x4_addattn')
+apath = os.path.join(ARGS.root_path, 'EDSRCA_SATx4')
 loss_log = torch.load(os.path.join(apath, 'loss_SR_log.pt'))
 psnr_log = torch.load(os.path.join(apath, 'psnr_log.pt'))
 #print(psnr_log)
 
-apath = os.path.join(ARGS.root_path, 'edsr_baseline_x4_dynamic_lr_epoch500')
+apath = os.path.join(ARGS.root_path, 'EDSR_baseline_CA')
 loss_b_log = torch.load(os.path.join(apath, 'loss_log.pt'))
 psnr_b_log = torch.load(os.path.join(apath, 'psnr_log.pt'))
 
 
-apath = os.path.join(ARGS.root_path, 'ssl_addfushion_reverse_x4_addattn')
+apath = os.path.join(ARGS.root_path, 'EDSRCA_SATx4')
 loss_s_log = torch.load(os.path.join(apath, 'loss_SR_log.pt'))
 psnr_s_log = torch.load(os.path.join(apath, 'psnr_log.pt'))
 
@@ -50,19 +50,19 @@ axis = np.linspace(1, e, e)
 fig = plt.figure(figsize=(12,4))
 
 plt.subplot(121)
-plt.plot(axis, loss_log.numpy(),color = 'red' ,label= "mixv0.3")
-plt.plot(axis, loss_b_log.numpy(),color = 'blue' ,label= "EDSR_baseline_paper")
+plt.plot(axis, loss_log.numpy(),color = 'red' ,label= "EDSRCA_SAT")
+plt.plot(axis, loss_b_log.numpy(),color = 'blue' ,label= "EDSRCA")
 plt.plot(axis, loss_r_log.numpy(),color = 'green' ,label= ARGS.label)
-plt.plot(axis, loss_s_log.numpy(),color = 'black' ,label= "SSL_CA")
+plt.plot(axis, loss_s_log.numpy(),color = 'black' ,label= "EDSRCA_SAT")
 plt.title("loss")
 plt.legend()
 plt.grid(True)
 
 plt.subplot(122)
-plt.plot(axis, psnr_log.numpy().squeeze(),color = 'red' ,label= "mixv0.3")
-plt.plot(axis, psnr_b_log.numpy().squeeze(),color = 'blue' ,label= "EDSR_baseline_paper")
+plt.plot(axis, psnr_log.numpy().squeeze(),color = 'red' ,label= "EDSRCA_SAT")
+plt.plot(axis, psnr_b_log.numpy().squeeze(),color = 'blue' ,label= "EDSRCA")
 plt.plot(axis, psnr_r_log.numpy().squeeze(),color = 'green' ,label= ARGS.label)
-plt.plot(axis, psnr_s_log.numpy().squeeze(),color = 'black' ,label= "SSL_CA")
+plt.plot(axis, psnr_s_log.numpy().squeeze(),color = 'black' ,label= "EDSRCA_SAT")
 plt.title("psnr")
 plt.legend()
 plt.grid(True)

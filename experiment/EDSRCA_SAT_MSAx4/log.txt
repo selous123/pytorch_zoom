@@ -1,0 +1,1525 @@
+add self supervised for edsr with spatial attention
+EDSR_Zoom(
+  (sub_mean): MeanShift(3, 3, kernel_size=(1, 1), stride=(1, 1))
+  (add_mean): MeanShift(3, 3, kernel_size=(1, 1), stride=(1, 1))
+  (model_ssl): EDSR_SSL(
+    (sub_mean): MeanShift(3, 3, kernel_size=(1, 1), stride=(1, 1))
+    (add_mean): MeanShift(3, 3, kernel_size=(1, 1), stride=(1, 1))
+    (head): Sequential(
+      (0): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+    (body): Sequential(
+      (0): RCABlock(
+        (body): Sequential(
+          (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (3): MixAttn(
+            (attn1): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+            (attn2): MultiPoolingSpatialAttn(
+              (compress1): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=1)
+                (avgpool): AdaptiveAvgPool1d(output_size=1)
+              )
+              (compress2): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=2)
+                (avgpool): AdaptiveAvgPool1d(output_size=2)
+              )
+              (compress3): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=4)
+                (avgpool): AdaptiveAvgPool1d(output_size=4)
+              )
+              (spatial1): BasicConv(
+                (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial2): BasicConv(
+                (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial3): BasicConv(
+                (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+            )
+          )
+        )
+      )
+      (1): RCABlock(
+        (body): Sequential(
+          (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (3): MixAttn(
+            (attn1): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+            (attn2): MultiPoolingSpatialAttn(
+              (compress1): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=1)
+                (avgpool): AdaptiveAvgPool1d(output_size=1)
+              )
+              (compress2): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=2)
+                (avgpool): AdaptiveAvgPool1d(output_size=2)
+              )
+              (compress3): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=4)
+                (avgpool): AdaptiveAvgPool1d(output_size=4)
+              )
+              (spatial1): BasicConv(
+                (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial2): BasicConv(
+                (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial3): BasicConv(
+                (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+            )
+          )
+        )
+      )
+      (2): RCABlock(
+        (body): Sequential(
+          (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (3): MixAttn(
+            (attn1): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+            (attn2): MultiPoolingSpatialAttn(
+              (compress1): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=1)
+                (avgpool): AdaptiveAvgPool1d(output_size=1)
+              )
+              (compress2): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=2)
+                (avgpool): AdaptiveAvgPool1d(output_size=2)
+              )
+              (compress3): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=4)
+                (avgpool): AdaptiveAvgPool1d(output_size=4)
+              )
+              (spatial1): BasicConv(
+                (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial2): BasicConv(
+                (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial3): BasicConv(
+                (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+            )
+          )
+        )
+      )
+      (3): RCABlock(
+        (body): Sequential(
+          (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (3): MixAttn(
+            (attn1): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+            (attn2): MultiPoolingSpatialAttn(
+              (compress1): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=1)
+                (avgpool): AdaptiveAvgPool1d(output_size=1)
+              )
+              (compress2): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=2)
+                (avgpool): AdaptiveAvgPool1d(output_size=2)
+              )
+              (compress3): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=4)
+                (avgpool): AdaptiveAvgPool1d(output_size=4)
+              )
+              (spatial1): BasicConv(
+                (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial2): BasicConv(
+                (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial3): BasicConv(
+                (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+            )
+          )
+        )
+      )
+      (4): RCABlock(
+        (body): Sequential(
+          (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (3): MixAttn(
+            (attn1): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+            (attn2): MultiPoolingSpatialAttn(
+              (compress1): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=1)
+                (avgpool): AdaptiveAvgPool1d(output_size=1)
+              )
+              (compress2): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=2)
+                (avgpool): AdaptiveAvgPool1d(output_size=2)
+              )
+              (compress3): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=4)
+                (avgpool): AdaptiveAvgPool1d(output_size=4)
+              )
+              (spatial1): BasicConv(
+                (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial2): BasicConv(
+                (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial3): BasicConv(
+                (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+            )
+          )
+        )
+      )
+      (5): RCABlock(
+        (body): Sequential(
+          (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (3): MixAttn(
+            (attn1): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+            (attn2): MultiPoolingSpatialAttn(
+              (compress1): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=1)
+                (avgpool): AdaptiveAvgPool1d(output_size=1)
+              )
+              (compress2): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=2)
+                (avgpool): AdaptiveAvgPool1d(output_size=2)
+              )
+              (compress3): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=4)
+                (avgpool): AdaptiveAvgPool1d(output_size=4)
+              )
+              (spatial1): BasicConv(
+                (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial2): BasicConv(
+                (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial3): BasicConv(
+                (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+            )
+          )
+        )
+      )
+      (6): RCABlock(
+        (body): Sequential(
+          (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (3): MixAttn(
+            (attn1): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+            (attn2): MultiPoolingSpatialAttn(
+              (compress1): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=1)
+                (avgpool): AdaptiveAvgPool1d(output_size=1)
+              )
+              (compress2): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=2)
+                (avgpool): AdaptiveAvgPool1d(output_size=2)
+              )
+              (compress3): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=4)
+                (avgpool): AdaptiveAvgPool1d(output_size=4)
+              )
+              (spatial1): BasicConv(
+                (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial2): BasicConv(
+                (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial3): BasicConv(
+                (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+            )
+          )
+        )
+      )
+      (7): RCABlock(
+        (body): Sequential(
+          (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (3): MixAttn(
+            (attn1): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+            (attn2): MultiPoolingSpatialAttn(
+              (compress1): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=1)
+                (avgpool): AdaptiveAvgPool1d(output_size=1)
+              )
+              (compress2): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=2)
+                (avgpool): AdaptiveAvgPool1d(output_size=2)
+              )
+              (compress3): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=4)
+                (avgpool): AdaptiveAvgPool1d(output_size=4)
+              )
+              (spatial1): BasicConv(
+                (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial2): BasicConv(
+                (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial3): BasicConv(
+                (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+            )
+          )
+        )
+      )
+      (8): RCABlock(
+        (body): Sequential(
+          (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (3): MixAttn(
+            (attn1): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+            (attn2): MultiPoolingSpatialAttn(
+              (compress1): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=1)
+                (avgpool): AdaptiveAvgPool1d(output_size=1)
+              )
+              (compress2): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=2)
+                (avgpool): AdaptiveAvgPool1d(output_size=2)
+              )
+              (compress3): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=4)
+                (avgpool): AdaptiveAvgPool1d(output_size=4)
+              )
+              (spatial1): BasicConv(
+                (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial2): BasicConv(
+                (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial3): BasicConv(
+                (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+            )
+          )
+        )
+      )
+      (9): RCABlock(
+        (body): Sequential(
+          (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (3): MixAttn(
+            (attn1): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+            (attn2): MultiPoolingSpatialAttn(
+              (compress1): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=1)
+                (avgpool): AdaptiveAvgPool1d(output_size=1)
+              )
+              (compress2): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=2)
+                (avgpool): AdaptiveAvgPool1d(output_size=2)
+              )
+              (compress3): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=4)
+                (avgpool): AdaptiveAvgPool1d(output_size=4)
+              )
+              (spatial1): BasicConv(
+                (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial2): BasicConv(
+                (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial3): BasicConv(
+                (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+            )
+          )
+        )
+      )
+      (10): RCABlock(
+        (body): Sequential(
+          (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (3): MixAttn(
+            (attn1): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+            (attn2): MultiPoolingSpatialAttn(
+              (compress1): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=1)
+                (avgpool): AdaptiveAvgPool1d(output_size=1)
+              )
+              (compress2): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=2)
+                (avgpool): AdaptiveAvgPool1d(output_size=2)
+              )
+              (compress3): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=4)
+                (avgpool): AdaptiveAvgPool1d(output_size=4)
+              )
+              (spatial1): BasicConv(
+                (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial2): BasicConv(
+                (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial3): BasicConv(
+                (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+            )
+          )
+        )
+      )
+      (11): RCABlock(
+        (body): Sequential(
+          (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (3): MixAttn(
+            (attn1): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+            (attn2): MultiPoolingSpatialAttn(
+              (compress1): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=1)
+                (avgpool): AdaptiveAvgPool1d(output_size=1)
+              )
+              (compress2): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=2)
+                (avgpool): AdaptiveAvgPool1d(output_size=2)
+              )
+              (compress3): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=4)
+                (avgpool): AdaptiveAvgPool1d(output_size=4)
+              )
+              (spatial1): BasicConv(
+                (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial2): BasicConv(
+                (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial3): BasicConv(
+                (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+            )
+          )
+        )
+      )
+      (12): RCABlock(
+        (body): Sequential(
+          (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (3): MixAttn(
+            (attn1): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+            (attn2): MultiPoolingSpatialAttn(
+              (compress1): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=1)
+                (avgpool): AdaptiveAvgPool1d(output_size=1)
+              )
+              (compress2): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=2)
+                (avgpool): AdaptiveAvgPool1d(output_size=2)
+              )
+              (compress3): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=4)
+                (avgpool): AdaptiveAvgPool1d(output_size=4)
+              )
+              (spatial1): BasicConv(
+                (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial2): BasicConv(
+                (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial3): BasicConv(
+                (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+            )
+          )
+        )
+      )
+      (13): RCABlock(
+        (body): Sequential(
+          (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (3): MixAttn(
+            (attn1): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+            (attn2): MultiPoolingSpatialAttn(
+              (compress1): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=1)
+                (avgpool): AdaptiveAvgPool1d(output_size=1)
+              )
+              (compress2): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=2)
+                (avgpool): AdaptiveAvgPool1d(output_size=2)
+              )
+              (compress3): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=4)
+                (avgpool): AdaptiveAvgPool1d(output_size=4)
+              )
+              (spatial1): BasicConv(
+                (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial2): BasicConv(
+                (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial3): BasicConv(
+                (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+            )
+          )
+        )
+      )
+      (14): RCABlock(
+        (body): Sequential(
+          (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (3): MixAttn(
+            (attn1): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+            (attn2): MultiPoolingSpatialAttn(
+              (compress1): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=1)
+                (avgpool): AdaptiveAvgPool1d(output_size=1)
+              )
+              (compress2): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=2)
+                (avgpool): AdaptiveAvgPool1d(output_size=2)
+              )
+              (compress3): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=4)
+                (avgpool): AdaptiveAvgPool1d(output_size=4)
+              )
+              (spatial1): BasicConv(
+                (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial2): BasicConv(
+                (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial3): BasicConv(
+                (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+            )
+          )
+        )
+      )
+      (15): RCABlock(
+        (body): Sequential(
+          (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (3): MixAttn(
+            (attn1): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+            (attn2): MultiPoolingSpatialAttn(
+              (compress1): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=1)
+                (avgpool): AdaptiveAvgPool1d(output_size=1)
+              )
+              (compress2): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=2)
+                (avgpool): AdaptiveAvgPool1d(output_size=2)
+              )
+              (compress3): ChannelPool(
+                (maxpool): AdaptiveMaxPool1d(output_size=4)
+                (avgpool): AdaptiveAvgPool1d(output_size=4)
+              )
+              (spatial1): BasicConv(
+                (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial2): BasicConv(
+                (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+              (spatial3): BasicConv(
+                (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+                (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+              )
+            )
+          )
+        )
+      )
+      (16): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+    (tail): Sequential(
+      (0): Upsampler(
+        (0): Conv2d(64, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): PixelShuffle(upscale_factor=2)
+        (2): ReLU(inplace)
+        (3): Conv2d(64, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (4): PixelShuffle(upscale_factor=2)
+        (5): ReLU(inplace)
+      )
+      (1): Conv2d(64, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+  )
+  (CALayer_head): MixAttn(
+    (attn1): CALayer(
+      (avg_pool): AdaptiveAvgPool2d(output_size=1)
+      (conv_du): Sequential(
+        (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+        (1): ReLU(inplace)
+        (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+        (3): Sigmoid()
+      )
+    )
+    (attn2): MultiPoolingSpatialAttn(
+      (compress1): ChannelPool(
+        (maxpool): AdaptiveMaxPool1d(output_size=1)
+        (avgpool): AdaptiveAvgPool1d(output_size=1)
+      )
+      (compress2): ChannelPool(
+        (maxpool): AdaptiveMaxPool1d(output_size=2)
+        (avgpool): AdaptiveAvgPool1d(output_size=2)
+      )
+      (compress3): ChannelPool(
+        (maxpool): AdaptiveMaxPool1d(output_size=4)
+        (avgpool): AdaptiveAvgPool1d(output_size=4)
+      )
+      (spatial1): BasicConv(
+        (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+        (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+      )
+      (spatial2): BasicConv(
+        (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+        (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+      )
+      (spatial3): BasicConv(
+        (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+        (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (CALayer_tail): MixAttn(
+    (attn1): CALayer(
+      (avg_pool): AdaptiveAvgPool2d(output_size=1)
+      (conv_du): Sequential(
+        (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+        (1): ReLU(inplace)
+        (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+        (3): Sigmoid()
+      )
+    )
+    (attn2): MultiPoolingSpatialAttn(
+      (compress1): ChannelPool(
+        (maxpool): AdaptiveMaxPool1d(output_size=1)
+        (avgpool): AdaptiveAvgPool1d(output_size=1)
+      )
+      (compress2): ChannelPool(
+        (maxpool): AdaptiveMaxPool1d(output_size=2)
+        (avgpool): AdaptiveAvgPool1d(output_size=2)
+      )
+      (compress3): ChannelPool(
+        (maxpool): AdaptiveMaxPool1d(output_size=4)
+        (avgpool): AdaptiveAvgPool1d(output_size=4)
+      )
+      (spatial1): BasicConv(
+        (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+        (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+      )
+      (spatial2): BasicConv(
+        (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+        (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+      )
+      (spatial3): BasicConv(
+        (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+        (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+      )
+    )
+  )
+  (head): Sequential(
+    (0): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  )
+  (body): Sequential(
+    (0): RCABlock(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU(inplace)
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): MixAttn(
+          (attn1): CALayer(
+            (avg_pool): AdaptiveAvgPool2d(output_size=1)
+            (conv_du): Sequential(
+              (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+              (1): ReLU(inplace)
+              (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+              (3): Sigmoid()
+            )
+          )
+          (attn2): MultiPoolingSpatialAttn(
+            (compress1): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=1)
+              (avgpool): AdaptiveAvgPool1d(output_size=1)
+            )
+            (compress2): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=2)
+              (avgpool): AdaptiveAvgPool1d(output_size=2)
+            )
+            (compress3): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=4)
+              (avgpool): AdaptiveAvgPool1d(output_size=4)
+            )
+            (spatial1): BasicConv(
+              (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial2): BasicConv(
+              (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial3): BasicConv(
+              (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+          )
+        )
+      )
+    )
+    (1): RCABlock(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU(inplace)
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): MixAttn(
+          (attn1): CALayer(
+            (avg_pool): AdaptiveAvgPool2d(output_size=1)
+            (conv_du): Sequential(
+              (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+              (1): ReLU(inplace)
+              (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+              (3): Sigmoid()
+            )
+          )
+          (attn2): MultiPoolingSpatialAttn(
+            (compress1): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=1)
+              (avgpool): AdaptiveAvgPool1d(output_size=1)
+            )
+            (compress2): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=2)
+              (avgpool): AdaptiveAvgPool1d(output_size=2)
+            )
+            (compress3): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=4)
+              (avgpool): AdaptiveAvgPool1d(output_size=4)
+            )
+            (spatial1): BasicConv(
+              (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial2): BasicConv(
+              (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial3): BasicConv(
+              (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+          )
+        )
+      )
+    )
+    (2): RCABlock(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU(inplace)
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): MixAttn(
+          (attn1): CALayer(
+            (avg_pool): AdaptiveAvgPool2d(output_size=1)
+            (conv_du): Sequential(
+              (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+              (1): ReLU(inplace)
+              (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+              (3): Sigmoid()
+            )
+          )
+          (attn2): MultiPoolingSpatialAttn(
+            (compress1): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=1)
+              (avgpool): AdaptiveAvgPool1d(output_size=1)
+            )
+            (compress2): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=2)
+              (avgpool): AdaptiveAvgPool1d(output_size=2)
+            )
+            (compress3): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=4)
+              (avgpool): AdaptiveAvgPool1d(output_size=4)
+            )
+            (spatial1): BasicConv(
+              (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial2): BasicConv(
+              (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial3): BasicConv(
+              (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+          )
+        )
+      )
+    )
+    (3): RCABlock(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU(inplace)
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): MixAttn(
+          (attn1): CALayer(
+            (avg_pool): AdaptiveAvgPool2d(output_size=1)
+            (conv_du): Sequential(
+              (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+              (1): ReLU(inplace)
+              (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+              (3): Sigmoid()
+            )
+          )
+          (attn2): MultiPoolingSpatialAttn(
+            (compress1): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=1)
+              (avgpool): AdaptiveAvgPool1d(output_size=1)
+            )
+            (compress2): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=2)
+              (avgpool): AdaptiveAvgPool1d(output_size=2)
+            )
+            (compress3): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=4)
+              (avgpool): AdaptiveAvgPool1d(output_size=4)
+            )
+            (spatial1): BasicConv(
+              (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial2): BasicConv(
+              (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial3): BasicConv(
+              (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+          )
+        )
+      )
+    )
+    (4): RCABlock(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU(inplace)
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): MixAttn(
+          (attn1): CALayer(
+            (avg_pool): AdaptiveAvgPool2d(output_size=1)
+            (conv_du): Sequential(
+              (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+              (1): ReLU(inplace)
+              (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+              (3): Sigmoid()
+            )
+          )
+          (attn2): MultiPoolingSpatialAttn(
+            (compress1): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=1)
+              (avgpool): AdaptiveAvgPool1d(output_size=1)
+            )
+            (compress2): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=2)
+              (avgpool): AdaptiveAvgPool1d(output_size=2)
+            )
+            (compress3): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=4)
+              (avgpool): AdaptiveAvgPool1d(output_size=4)
+            )
+            (spatial1): BasicConv(
+              (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial2): BasicConv(
+              (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial3): BasicConv(
+              (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+          )
+        )
+      )
+    )
+    (5): RCABlock(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU(inplace)
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): MixAttn(
+          (attn1): CALayer(
+            (avg_pool): AdaptiveAvgPool2d(output_size=1)
+            (conv_du): Sequential(
+              (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+              (1): ReLU(inplace)
+              (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+              (3): Sigmoid()
+            )
+          )
+          (attn2): MultiPoolingSpatialAttn(
+            (compress1): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=1)
+              (avgpool): AdaptiveAvgPool1d(output_size=1)
+            )
+            (compress2): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=2)
+              (avgpool): AdaptiveAvgPool1d(output_size=2)
+            )
+            (compress3): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=4)
+              (avgpool): AdaptiveAvgPool1d(output_size=4)
+            )
+            (spatial1): BasicConv(
+              (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial2): BasicConv(
+              (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial3): BasicConv(
+              (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+          )
+        )
+      )
+    )
+    (6): RCABlock(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU(inplace)
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): MixAttn(
+          (attn1): CALayer(
+            (avg_pool): AdaptiveAvgPool2d(output_size=1)
+            (conv_du): Sequential(
+              (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+              (1): ReLU(inplace)
+              (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+              (3): Sigmoid()
+            )
+          )
+          (attn2): MultiPoolingSpatialAttn(
+            (compress1): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=1)
+              (avgpool): AdaptiveAvgPool1d(output_size=1)
+            )
+            (compress2): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=2)
+              (avgpool): AdaptiveAvgPool1d(output_size=2)
+            )
+            (compress3): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=4)
+              (avgpool): AdaptiveAvgPool1d(output_size=4)
+            )
+            (spatial1): BasicConv(
+              (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial2): BasicConv(
+              (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial3): BasicConv(
+              (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+          )
+        )
+      )
+    )
+    (7): RCABlock(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU(inplace)
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): MixAttn(
+          (attn1): CALayer(
+            (avg_pool): AdaptiveAvgPool2d(output_size=1)
+            (conv_du): Sequential(
+              (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+              (1): ReLU(inplace)
+              (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+              (3): Sigmoid()
+            )
+          )
+          (attn2): MultiPoolingSpatialAttn(
+            (compress1): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=1)
+              (avgpool): AdaptiveAvgPool1d(output_size=1)
+            )
+            (compress2): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=2)
+              (avgpool): AdaptiveAvgPool1d(output_size=2)
+            )
+            (compress3): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=4)
+              (avgpool): AdaptiveAvgPool1d(output_size=4)
+            )
+            (spatial1): BasicConv(
+              (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial2): BasicConv(
+              (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial3): BasicConv(
+              (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+          )
+        )
+      )
+    )
+    (8): RCABlock(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU(inplace)
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): MixAttn(
+          (attn1): CALayer(
+            (avg_pool): AdaptiveAvgPool2d(output_size=1)
+            (conv_du): Sequential(
+              (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+              (1): ReLU(inplace)
+              (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+              (3): Sigmoid()
+            )
+          )
+          (attn2): MultiPoolingSpatialAttn(
+            (compress1): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=1)
+              (avgpool): AdaptiveAvgPool1d(output_size=1)
+            )
+            (compress2): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=2)
+              (avgpool): AdaptiveAvgPool1d(output_size=2)
+            )
+            (compress3): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=4)
+              (avgpool): AdaptiveAvgPool1d(output_size=4)
+            )
+            (spatial1): BasicConv(
+              (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial2): BasicConv(
+              (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial3): BasicConv(
+              (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+          )
+        )
+      )
+    )
+    (9): RCABlock(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU(inplace)
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): MixAttn(
+          (attn1): CALayer(
+            (avg_pool): AdaptiveAvgPool2d(output_size=1)
+            (conv_du): Sequential(
+              (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+              (1): ReLU(inplace)
+              (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+              (3): Sigmoid()
+            )
+          )
+          (attn2): MultiPoolingSpatialAttn(
+            (compress1): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=1)
+              (avgpool): AdaptiveAvgPool1d(output_size=1)
+            )
+            (compress2): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=2)
+              (avgpool): AdaptiveAvgPool1d(output_size=2)
+            )
+            (compress3): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=4)
+              (avgpool): AdaptiveAvgPool1d(output_size=4)
+            )
+            (spatial1): BasicConv(
+              (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial2): BasicConv(
+              (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial3): BasicConv(
+              (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+          )
+        )
+      )
+    )
+    (10): RCABlock(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU(inplace)
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): MixAttn(
+          (attn1): CALayer(
+            (avg_pool): AdaptiveAvgPool2d(output_size=1)
+            (conv_du): Sequential(
+              (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+              (1): ReLU(inplace)
+              (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+              (3): Sigmoid()
+            )
+          )
+          (attn2): MultiPoolingSpatialAttn(
+            (compress1): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=1)
+              (avgpool): AdaptiveAvgPool1d(output_size=1)
+            )
+            (compress2): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=2)
+              (avgpool): AdaptiveAvgPool1d(output_size=2)
+            )
+            (compress3): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=4)
+              (avgpool): AdaptiveAvgPool1d(output_size=4)
+            )
+            (spatial1): BasicConv(
+              (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial2): BasicConv(
+              (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial3): BasicConv(
+              (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+          )
+        )
+      )
+    )
+    (11): RCABlock(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU(inplace)
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): MixAttn(
+          (attn1): CALayer(
+            (avg_pool): AdaptiveAvgPool2d(output_size=1)
+            (conv_du): Sequential(
+              (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+              (1): ReLU(inplace)
+              (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+              (3): Sigmoid()
+            )
+          )
+          (attn2): MultiPoolingSpatialAttn(
+            (compress1): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=1)
+              (avgpool): AdaptiveAvgPool1d(output_size=1)
+            )
+            (compress2): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=2)
+              (avgpool): AdaptiveAvgPool1d(output_size=2)
+            )
+            (compress3): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=4)
+              (avgpool): AdaptiveAvgPool1d(output_size=4)
+            )
+            (spatial1): BasicConv(
+              (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial2): BasicConv(
+              (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial3): BasicConv(
+              (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+          )
+        )
+      )
+    )
+    (12): RCABlock(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU(inplace)
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): MixAttn(
+          (attn1): CALayer(
+            (avg_pool): AdaptiveAvgPool2d(output_size=1)
+            (conv_du): Sequential(
+              (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+              (1): ReLU(inplace)
+              (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+              (3): Sigmoid()
+            )
+          )
+          (attn2): MultiPoolingSpatialAttn(
+            (compress1): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=1)
+              (avgpool): AdaptiveAvgPool1d(output_size=1)
+            )
+            (compress2): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=2)
+              (avgpool): AdaptiveAvgPool1d(output_size=2)
+            )
+            (compress3): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=4)
+              (avgpool): AdaptiveAvgPool1d(output_size=4)
+            )
+            (spatial1): BasicConv(
+              (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial2): BasicConv(
+              (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial3): BasicConv(
+              (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+          )
+        )
+      )
+    )
+    (13): RCABlock(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU(inplace)
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): MixAttn(
+          (attn1): CALayer(
+            (avg_pool): AdaptiveAvgPool2d(output_size=1)
+            (conv_du): Sequential(
+              (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+              (1): ReLU(inplace)
+              (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+              (3): Sigmoid()
+            )
+          )
+          (attn2): MultiPoolingSpatialAttn(
+            (compress1): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=1)
+              (avgpool): AdaptiveAvgPool1d(output_size=1)
+            )
+            (compress2): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=2)
+              (avgpool): AdaptiveAvgPool1d(output_size=2)
+            )
+            (compress3): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=4)
+              (avgpool): AdaptiveAvgPool1d(output_size=4)
+            )
+            (spatial1): BasicConv(
+              (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial2): BasicConv(
+              (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial3): BasicConv(
+              (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+          )
+        )
+      )
+    )
+    (14): RCABlock(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU(inplace)
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): MixAttn(
+          (attn1): CALayer(
+            (avg_pool): AdaptiveAvgPool2d(output_size=1)
+            (conv_du): Sequential(
+              (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+              (1): ReLU(inplace)
+              (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+              (3): Sigmoid()
+            )
+          )
+          (attn2): MultiPoolingSpatialAttn(
+            (compress1): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=1)
+              (avgpool): AdaptiveAvgPool1d(output_size=1)
+            )
+            (compress2): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=2)
+              (avgpool): AdaptiveAvgPool1d(output_size=2)
+            )
+            (compress3): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=4)
+              (avgpool): AdaptiveAvgPool1d(output_size=4)
+            )
+            (spatial1): BasicConv(
+              (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial2): BasicConv(
+              (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial3): BasicConv(
+              (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+          )
+        )
+      )
+    )
+    (15): RCABlock(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU(inplace)
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): MixAttn(
+          (attn1): CALayer(
+            (avg_pool): AdaptiveAvgPool2d(output_size=1)
+            (conv_du): Sequential(
+              (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+              (1): ReLU(inplace)
+              (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+              (3): Sigmoid()
+            )
+          )
+          (attn2): MultiPoolingSpatialAttn(
+            (compress1): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=1)
+              (avgpool): AdaptiveAvgPool1d(output_size=1)
+            )
+            (compress2): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=2)
+              (avgpool): AdaptiveAvgPool1d(output_size=2)
+            )
+            (compress3): ChannelPool(
+              (maxpool): AdaptiveMaxPool1d(output_size=4)
+              (avgpool): AdaptiveAvgPool1d(output_size=4)
+            )
+            (spatial1): BasicConv(
+              (conv): Conv2d(4, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial2): BasicConv(
+              (conv): Conv2d(8, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+            (spatial3): BasicConv(
+              (conv): Conv2d(16, 8, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3), bias=False)
+              (bn): BatchNorm2d(8, eps=1e-05, momentum=0.01, affine=True, track_running_stats=True)
+            )
+          )
+        )
+      )
+    )
+    (16): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  )
+  (tail): Sequential(
+    (0): Upsampler(
+      (0): Conv2d(64, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): PixelShuffle(upscale_factor=2)
+      (2): ReLU(inplace)
+      (3): Conv2d(64, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (4): PixelShuffle(upscale_factor=2)
+      (5): ReLU(inplace)
+    )
+    (1): Conv2d(64, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  )
+)
