@@ -321,6 +321,30 @@ class EDSR_Zoom(nn.Module):
                     raise KeyError('unexpected key "{}" in state_dict'
                                    .format(name))
 
+class RCABlock(nn.Module):
+    def __init__(
+        self, conv, n_feats, kernel_size, reduction,
+        bias=True, bn=False, act=nn.ReLU(True), res_scale=1):
+
+        super(RCABlock, self).__init__()
+        m = []
+        for i in range(2):
+            m.append(conv(n_feats, n_feats, kernel_size, bias=bias))
+            if bn:
+                m.append(nn.BatchNorm2d(n_feats))
+            if i == 0:
+                m.append(act)
+
+        m.append(common.Attn(n_feats, reduction))
+
+        self.body = nn.Sequential(*m)
+        self.res_scale = res_scale
+
+    def forward(self, x):
+        res = self.body(x).mul(self.res_scale)
+        res += x
+
+        return res
 
 class EDSR_SSL(nn.Module):
     def __init__(self, args, conv=common.default_conv):
@@ -343,7 +367,7 @@ class EDSR_SSL(nn.Module):
         self.attn = args.attn
         if args.attn is True:
             m_body = [
-                common.RCABlock(
+                RCABlock(
                     conv, n_feats, kernel_size, args.reduction, act=act, res_scale=args.res_scale
                 ) for _ in range(n_resblocks)
             ]
