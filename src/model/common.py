@@ -25,6 +25,21 @@ class CALayer(nn.Module):
         y = self.avg_pool(x)
         y = self.conv_du(y)
         return x * y
+
+class SALayer(nn.Module):
+    def __init__(self, channel, reduction=16):
+        super(SALayer, self).__init__()
+        kernel_size = 7
+        self.compress = ChannelPool()
+        self.spatial = BasicConv(1, 1, kernel_size, stride=1, padding=(kernel_size-1) // 2, relu=False)
+        #self.spatial = nn.Conv2d(8, 8,kernel_size=7,stride=1,padding=(kernel_size-1) // 2,bias=False)
+        self.channel = channel
+    def forward(self, x):
+        x_compress = self.compress(x)
+        x_out = self.spatial(x_compress)
+        scale = torch.sigmoid(x_out) # broadcasting
+        return x * scale
+
 ## spatial attention (SA) Layer
 class BasicConv(nn.Module):
     def __init__(self, in_planes, out_planes, kernel_size, stride=1, padding=0, dilation=1, groups=1, relu=True, bn=True, bias=False):
@@ -46,7 +61,7 @@ import torch.nn.functional as F
 class ChannelPool(nn.Module):
     def __init__(self, pool_size = 1):
         super(ChannelPool, self).__init__()
-        self.maxpool = nn.AdaptiveMaxPool1d(pool_size)
+        #self.maxpool = nn.AdaptiveMaxPool1d(pool_size)
         self.avgpool = nn.AdaptiveAvgPool1d(pool_size)
         self.pool_size = pool_size
     def forward(self, x):
@@ -61,12 +76,14 @@ class ChannelPool(nn.Module):
         pooled = pooled.permute(0,2,1).view(n,c1,w,h) # n * 2*pool_size * h * w
         return pooled
 
+
+
 class SpatialAttn(nn.Module):
     def __init__(self, channel, reduction=16):
         super(SpatialAttn, self).__init__()
         kernel_size = 7
         self.compress = ChannelPool()
-        self.spatial = BasicConv(8, 8, kernel_size, stride=1, padding=(kernel_size-1) // 2, relu=False)
+        self.spatial = BasicConv(4, 8, kernel_size, stride=1, padding=(kernel_size-1) // 2, relu=False)
         #self.spatial = nn.Conv2d(8, 8,kernel_size=7,stride=1,padding=(kernel_size-1) // 2,bias=False)
         self.channel = channel
     def forward(self, x):
@@ -132,16 +149,17 @@ class MixAttn(nn.Module):
     def __init__(self, n_feats, reduction=16):
         super(MixAttn, self).__init__()
         self.attn1 = CALayer(n_feats,reduction)
-        #self.attn2 = SpatialAttn(n_feats)
+        self.attn2 = SpatialAttn(n_feats)
         #self.attn2 = ADL(n_feats)
-        self.attn2 = MultiPoolingSpatialAttn(n_feats)
+        #self.attn2 = MultiPoolingSpatialAttn(n_feats)
     def forward(self, x):
         ## serial mix attention
         x = self.attn1(x)
         x = self.attn2(x)
         return x
 
-Attn = MultiPoolingSpatialAttn
+#Attn = MultiPoolingSpatialAttn
+Attn = SALayer
 
 def default_conv(in_channels, out_channels, kernel_size, bias=True):
     return nn.Conv2d(

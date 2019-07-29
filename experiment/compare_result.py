@@ -29,7 +29,7 @@ psnr_s_log = torch.load(os.path.join(apath, 'psnr_log.pt'))
 
 #apath = os.path.join(ARGS.root_path, 'ssl_addfusion_reverse_rlossv0.2_x4')
 apath = os.path.join(ARGS.root_path, ARGS.dir_path)
-loss_r_log = torch.load(os.path.join(apath, 'loss_SR_log.pt'))
+loss_r_log = torch.load(os.path.join(apath, 'loss_log.pt'))
 psnr_r_log = torch.load(os.path.join(apath, 'psnr_log.pt'))
 
 print(len(loss_s_log), len(loss_r_log), len(loss_b_log), len(loss_log), ARGS.e)
