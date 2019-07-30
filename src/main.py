@@ -7,7 +7,6 @@ import loss
 from option import args
 from trainer import Trainer
 from ssl_trainer import SSL_Trainer
-
 torch.manual_seed(args.seed)
 checkpoint = utility.checkpoint(args)
 

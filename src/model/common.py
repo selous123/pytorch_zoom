@@ -47,7 +47,7 @@ class BasicConv(nn.Module):
         self.out_channels = out_planes
         self.conv = nn.Conv2d(in_planes, out_planes, kernel_size=kernel_size, stride=stride, padding=padding, dilation=dilation, groups=groups, bias=bias)
         self.bn = nn.BatchNorm2d(out_planes,eps=1e-5, momentum=0.01, affine=True) if bn else None
-        self.relu = nn.ReLU() if relu else None
+        self.relu = nn.ReLU(inplace=True) if relu else None
 
     def forward(self, x):
         x = self.conv(x)
@@ -149,7 +149,8 @@ class MixAttn(nn.Module):
     def __init__(self, n_feats, reduction=16):
         super(MixAttn, self).__init__()
         self.attn1 = CALayer(n_feats,reduction)
-        self.attn2 = SpatialAttn(n_feats)
+        #self.attn2 = SpatialAttn(n_feats)
+        self.attn2 = SALayer(n_feats)
         #self.attn2 = ADL(n_feats)
         #self.attn2 = MultiPoolingSpatialAttn(n_feats)
     def forward(self, x):
@@ -159,8 +160,8 @@ class MixAttn(nn.Module):
         return x
 
 #Attn = MultiPoolingSpatialAttn
-Attn = SALayer
-
+#Attn = SALayer
+Attn = MixAttn
 def default_conv(in_channels, out_channels, kernel_size, bias=True):
     return nn.Conv2d(
         in_channels, out_channels, kernel_size,

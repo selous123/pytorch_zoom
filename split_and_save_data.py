@@ -52,6 +52,8 @@ class ZoomDataset(data.Dataset):
 
                 self.file_name = []
                 lr_raw_path = os.path.join(d_path, "0000"+str(6)+".ARW")
+                if not os.path.exists(lr_raw_path):
+                    continue
                 hr_path = os.path.join(d_path, "0000"+str(1)+'.JPG')
                 self.file_name.append(lr_raw_path)
                 self.file_name.append(hr_path)
@@ -61,8 +63,8 @@ class ZoomDataset(data.Dataset):
                 self.file_name.append(1)
 
                 self.file_names.append(self.file_name)
-            else:
-                raise ValueError("arg.scale should be 4 or 8")
+        else:
+            raise ValueError("arg.scale should be 4 or 8")
         # for i in range(len(self.file_names)):
         #     print(self.file_names[i][2])
         ## file_name : [lr_raw, HR, d_path, lr_id, hr_id]
