@@ -150,9 +150,9 @@ class MixAttn(nn.Module):
         super(MixAttn, self).__init__()
         self.attn1 = CALayer(n_feats,reduction)
         #self.attn2 = SpatialAttn(n_feats)
-        self.attn2 = SALayer(n_feats)
         #self.attn2 = ADL(n_feats)
         #self.attn2 = MultiPoolingSpatialAttn(n_feats)
+        self.attn2 = SALayer(n_feats)
     def forward(self, x):
         ## serial mix attention
         x = self.attn1(x)
@@ -162,6 +162,7 @@ class MixAttn(nn.Module):
 #Attn = MultiPoolingSpatialAttn
 #Attn = SALayer
 Attn = MixAttn
+
 def default_conv(in_channels, out_channels, kernel_size, bias=True):
     return nn.Conv2d(
         in_channels, out_channels, kernel_size,

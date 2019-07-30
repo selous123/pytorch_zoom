@@ -50,3 +50,10 @@ python main.py --model SSL --scale 4 --patch_size 256  --data_train SRRAW --data
 
 ## debug attention model
 python main.py --model SSL --scale 4 --patch_size 256  --data_train SRRAW --data_test SRRAW --n_colors 3  --save_results --batch_size 16 --save_gt --labels HR+Diff --attn --save ssl_addfushion_reverse_x4_add_attn
+
+
+
+
+
+## X8 model
+python main.py --model SRResNet --scale 8 --patch_size 256  --data_train SRRAW --data_test SRRAW --dir_data /store/dataset/SR/train_data --n_colors 3  --save_results --batch_size 16 --save_gt --labels HR --save SRResnetx8 --desc "srresnet x8" --epochs 200 --data_range '1-437/438-447'
