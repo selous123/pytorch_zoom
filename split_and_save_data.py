@@ -13,7 +13,6 @@ class ZoomDataset(data.Dataset):
     def __init__(self, isTrain, dir_data="/store/dataset/zoom", scale=4, transform=None):
         self.isTrain = isTrain
         self.up_ratio = int(scale)
-
         self.transform = transform
 
         if isTrain is True:
@@ -52,6 +51,8 @@ class ZoomDataset(data.Dataset):
 
                 self.file_name = []
                 lr_raw_path = os.path.join(d_path, "0000"+str(6)+".ARW")
+                if not os.path.exists(lr_raw_path):
+                    continue
                 hr_path = os.path.join(d_path, "0000"+str(1)+'.JPG')
                 self.file_name.append(lr_raw_path)
                 self.file_name.append(hr_path)
@@ -61,8 +62,8 @@ class ZoomDataset(data.Dataset):
                 self.file_name.append(1)
 
                 self.file_names.append(self.file_name)
-            else:
-                raise ValueError("arg.scale should be 4 or 8")
+        else:
+            raise ValueError("arg.scale should be 4 or 8")
         # for i in range(len(self.file_names)):
         #     print(self.file_names[i][2])
         ## file_name : [lr_raw, HR, d_path, lr_id, hr_id]
@@ -83,10 +84,11 @@ class ZoomDataset(data.Dataset):
         #tform_txt = "/store/dataset/zoom/test/00134/tform.txt"
 
         white_lv, black_lv = utils.read_wb_lv("sony")
-        # print(LRAW_path)
+        #print(LRAW_path)
         input_bayer = utils.get_bayer(LRAW_path, black_lv, white_lv)
         #print(input_bayer.shape)
         #print(input_bayer.shape)
+
         LR_raw = utils.reshape_raw(input_bayer)
         LR_img =  np.array(Image.open(LR_path))
 
