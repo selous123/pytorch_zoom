@@ -161,8 +161,8 @@ class MixAttn(nn.Module):
 
 #Attn = MultiPoolingSpatialAttn
 #Attn = SALayer
-Attn = MixAttn
-#Attn = CALayer
+#Attn = MixAttn
+Attn = CALayer
 def default_conv(in_channels, out_channels, kernel_size, bias=True):
     return nn.Conv2d(
         in_channels, out_channels, kernel_size,
