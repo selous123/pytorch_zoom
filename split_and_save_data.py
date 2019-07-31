@@ -13,7 +13,6 @@ class ZoomDataset(data.Dataset):
     def __init__(self, isTrain, dir_data="/store/dataset/zoom", scale=4, transform=None):
         self.isTrain = isTrain
         self.up_ratio = int(scale)
-
         self.transform = transform
 
         if isTrain is True:
@@ -85,10 +84,11 @@ class ZoomDataset(data.Dataset):
         #tform_txt = "/store/dataset/zoom/test/00134/tform.txt"
 
         white_lv, black_lv = utils.read_wb_lv("sony")
-        # print(LRAW_path)
+        #print(LRAW_path)
         input_bayer = utils.get_bayer(LRAW_path, black_lv, white_lv)
         #print(input_bayer.shape)
         #print(input_bayer.shape)
+
         LR_raw = utils.reshape_raw(input_bayer)
         LR_img =  np.array(Image.open(LR_path))
 

@@ -1,0 +1,71 @@
+2019-07-25-15:57:34
+
+desc: add self supervised for edsr
+debug: False
+template: .
+n_threads: 6
+cpu: False
+n_GPUs: 1
+seed: 1
+dir_data: /store2/dataset/SR/train_data
+wb_root: /store/dataset/zoom/train/
+dir_demo: ../test
+data_train: ['SRRAW']
+data_test: ['SRRAW']
+data_range: 1-1300/1301-1314
+ext: sep
+scale: [4]
+patch_size: 256
+test_patch_size: 512
+rgb_range: 255
+n_colors: 3
+chop: False
+no_augment: False
+labels: HR+Diff
+model: SSL
+act: relu
+pre_train: 
+extend: .
+n_resblocks: 16
+n_feats: 64
+res_scale: 1
+shift_mean: True
+dilation: False
+precision: single
+attn: True
+G0: 64
+RDNkSize: 3
+RDNconfig: B
+n_resgroups: 10
+reduction: 16
+reset: False
+test_every: 1000
+epochs: 200
+batch_size: 16
+split_batch: 1
+self_ensemble: False
+test_only: False
+gan_k: 1
+lr: 0.0001
+decay: 100-200-300-400
+gamma: 0.5
+optimizer: ADAM
+momentum: 0.9
+betas: (0.9, 0.999)
+epsilon: 1e-08
+weight_decay: 0
+gclip: 0
+loss: 1.0*L1
+loss_ssl: 1.0*L1
+loss_rel: None
+skip_threshold: 100000000.0
+rloss_n: 16
+rloss_threshold: 50
+save: EDSRCA_SATx4
+load: 
+resume: 0
+save_models: False
+print_every: 100
+save_results: True
+save_gt: True
+

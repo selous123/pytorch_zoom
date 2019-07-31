@@ -12,25 +12,6 @@ def make_model(args, parent=False):
     return EDSR_Zoom(args)
 
 
-## Channel Attention (CA) Layer
-class CALayer(nn.Module):
-    def __init__(self, channel, reduction=16):
-        super(CALayer, self).__init__()
-        # global average pooling: feature --> point
-        self.avg_pool = nn.AdaptiveAvgPool2d(1)
-        # feature channel downscale and upscale --> channel weight
-        self.conv_du = nn.Sequential(
-                nn.Conv2d(channel, channel // reduction, 1, padding=0, bias=True),
-                nn.ReLU(inplace=True),
-                nn.Conv2d(channel // reduction, channel, 1, padding=0, bias=True),
-                nn.Sigmoid()
-        )
-
-    def forward(self, x):
-        y = self.avg_pool(x)
-        y = self.conv_du(y)
-        return x * y
-
 class CAconvAttn(nn.Module):
     def __init__(self, channel, reduction=16):
         super(CAconvAttn, self).__init__()
@@ -79,41 +60,7 @@ class PFSpatialAttn(nn.Module):
         y = y.view(x.size(0),1,h,w)
         return x * y
 
-## spatial attention (SA) Layer
-class BasicConv(nn.Module):
-    def __init__(self, in_planes, out_planes, kernel_size, stride=1, padding=0, dilation=1, groups=1, relu=True, bn=True, bias=False):
-        super(BasicConv, self).__init__()
-        self.out_channels = out_planes
-        self.conv = nn.Conv2d(in_planes, out_planes, kernel_size=kernel_size, stride=stride, padding=padding, dilation=dilation, groups=groups, bias=bias)
-        self.bn = nn.BatchNorm2d(out_planes,eps=1e-5, momentum=0.01, affine=True) if bn else None
-        self.relu = nn.ReLU() if relu else None
 
-    def forward(self, x):
-        x = self.conv(x)
-        if self.bn is not None:
-            x = self.bn(x)
-        if self.relu is not None:
-            x = self.relu(x)
-        return x
-
-import torch.nn.functional as F
-class ChannelPool(nn.Module):
-    def __init__(self, pool_size = 1):
-        super(ChannelPool, self).__init__()
-        self.maxpool = nn.AdaptiveMaxPool1d(pool_size)
-        self.avgpool = nn.AdaptiveAvgPool1d(pool_size)
-        self.pool_size = pool_size
-    def forward(self, x):
-        n, c, w, h = x.shape
-        x = x.view(n,c,w*h).permute(0,2,1) #n * hw * c
-        #max_pooled = self.maxpool(x)
-        avg_pooled = self.avgpool(x)
-
-        #pooled = torch.cat( (max_pooled, avg_pooled), dim=-1 )
-        pooled = avg_pooled
-        _, _, c1 = pooled.shape
-        pooled = pooled.permute(0,2,1).view(n,c1,w,h) # n * 2*pool_size * h * w
-        return pooled
 
 
 # from torch.nn import MaxPool1D
@@ -245,73 +192,7 @@ class ADL(nn.Module):
         return [self.attention, self.drop_mask, self.selected_map]
 
 
-class SpatialAttn(nn.Module):
-    def __init__(self, channel, reduction=16):
-        super(SpatialAttn, self).__init__()
-        kernel_size = 7
-        self.compress = ChannelPool()
-        self.spatial = BasicConv(8, 8, kernel_size, stride=1, padding=(kernel_size-1) // 2, relu=False)
-        #self.spatial = nn.Conv2d(8, 8,kernel_size=7,stride=1,padding=(kernel_size-1) // 2,bias=False)
-        self.channel = channel
-    def forward(self, x):
-        x_compress = self.compress(x)
 
-        x_rot = torch.cat([torch.rot90(x_compress,i,dims=[2,3]) for i in range(4)],dim=1) # 8 * 256 * 256
-
-        x_out = self.spatial(x_rot)
-        scale = torch.sigmoid(x_out) # broadcasting
-        scale = scale.repeat(1, int(self.channel / 8), 1, 1)
-        return x * scale
-
-class MultiPoolingSpatialAttn(nn.Module):
-    def __init__(self, channel, reduction=16):
-        super(MultiPoolingSpatialAttn, self).__init__()
-        kernel_size = 7
-        self.compress1 = ChannelPool(pool_size=1) #=> 1 * H * W
-        self.compress2 = ChannelPool(pool_size=2) #=> 2 * H * W
-        self.compress3 = ChannelPool(pool_size=4) #=> 4 * H * W
-
-        self.spatial1 = BasicConv(4, 8, kernel_size, stride=1, padding=(kernel_size-1) // 2, relu=False)
-        self.spatial2 = BasicConv(8, 8, kernel_size, stride=1, padding=(kernel_size-1) // 2, relu=False)
-        self.spatial3 = BasicConv(16, 8, kernel_size, stride=1, padding=(kernel_size-1) // 2, relu=False)
-
-        #self.spatial = nn.Conv2d(8, 8,kernel_size=7,stride=1,padding=(kernel_size-1) // 2,bias=False)
-        self.channel = channel
-    def forward(self, x):
-
-        x_compress1 = self.compress1(x)
-        x_compress2 = self.compress2(x)
-        x_compress3 = self.compress3(x)
-
-        x_rot1 = torch.cat([torch.rot90(x_compress1,i,dims=[2,3]) for i in range(4)],dim=1) # 4 * 256 * 256
-        x_out1 = self.spatial1(x_rot1)
-
-        x_rot2 = torch.cat([torch.rot90(x_compress2,i,dims=[2,3]) for i in range(4)],dim=1) # 8 * 256 * 256
-        x_out2 = self.spatial2(x_rot2)
-
-        x_rot3 = torch.cat([torch.rot90(x_compress3,i,dims=[2,3]) for i in range(4)],dim=1) # 16 * 256 * 256
-        x_out3 = self.spatial3(x_rot3)
-
-        x_out = x_out1 + x_out2 + x_out3
-        scale = torch.sigmoid(x_out) # broadcasting
-        scale = scale.repeat(1, int(self.channel / 8), 1, 1)
-        x_scale = x * scale
-
-        return x_scale
-
-
-class MixAttn(nn.Module):
-    def __init__(self, n_feats, reduction=16):
-        super(MixAttn, self).__init__()
-        self.attn1 = CALayer(n_feats,reduction)
-        #self.attn2 = SpatialAttn(n_feats)
-        #self.attn2 = ADL(n_feats)
-        self.attn2 = MultiPoolingSpatialAttn(n_feats)
-    def forward(self, x):
-        ## serial mix attention
-        x = self.attn1(x)
-        x = self.attn2(x)
-        return x
 
 
 class NonLocalAttn(nn.Module):
@@ -331,33 +212,7 @@ class NonLocalAttn(nn.Module):
 
 #Attn = MixAttn
 #from model.context_block import ContextBlock2d
-Attn = MixAttn
 
-## Residual Channel Attention Block (RCAB)
-class RCABlock(nn.Module):
-    def __init__(
-        self, conv, n_feats, kernel_size, reduction,
-        bias=True, bn=False, act=nn.ReLU(True), res_scale=1):
-
-        super(RCABlock, self).__init__()
-        m = []
-        for i in range(2):
-            m.append(conv(n_feats, n_feats, kernel_size, bias=bias))
-            if bn:
-                m.append(nn.BatchNorm2d(n_feats))
-            if i == 0:
-                m.append(act)
-
-        m.append(Attn(n_feats, reduction))
-
-        self.body = nn.Sequential(*m)
-        self.res_scale = res_scale
-
-    def forward(self, x):
-        res = self.body(x).mul(self.res_scale)
-        res += x
-
-        return res
 
 class EDSR_Zoom(nn.Module):
     def __init__(self, args, conv=common.default_conv):
@@ -373,8 +228,8 @@ class EDSR_Zoom(nn.Module):
         self.sub_mean = common.MeanShift(args.rgb_range)
         self.add_mean = common.MeanShift(args.rgb_range, sign=1)
         self.model_ssl = EDSR_SSL(args)
-        self.CALayer_head = Attn(n_feats)
-        self.CALayer_tail = Attn(n_feats)
+        self.CALayer_head = common.Attn(n_feats)
+        self.CALayer_tail = common.Attn(n_feats)
 
         self.attn = args.attn
 
@@ -384,7 +239,7 @@ class EDSR_Zoom(nn.Module):
         # define body module
         if args.attn is True:
             m_body = [
-                RCABlock(
+                common.RCABlock(
                     conv, n_feats, kernel_size, args.reduction, act=act, res_scale=args.res_scale
                 ) for _ in range(n_resblocks)
             ]
@@ -466,6 +321,30 @@ class EDSR_Zoom(nn.Module):
                     raise KeyError('unexpected key "{}" in state_dict'
                                    .format(name))
 
+class RCABlock(nn.Module):
+    def __init__(
+        self, conv, n_feats, kernel_size, reduction,
+        bias=True, bn=False, act=nn.ReLU(True), res_scale=1):
+
+        super(RCABlock, self).__init__()
+        m = []
+        for i in range(2):
+            m.append(conv(n_feats, n_feats, kernel_size, bias=bias))
+            if bn:
+                m.append(nn.BatchNorm2d(n_feats))
+            if i == 0:
+                m.append(act)
+
+        m.append(common.Attn(n_feats, reduction))
+
+        self.body = nn.Sequential(*m)
+        self.res_scale = res_scale
+
+    def forward(self, x):
+        res = self.body(x).mul(self.res_scale)
+        res += x
+
+        return res
 
 class EDSR_SSL(nn.Module):
     def __init__(self, args, conv=common.default_conv):
@@ -485,11 +364,21 @@ class EDSR_SSL(nn.Module):
         m_head = [conv(args.n_colors, n_feats, kernel_size)]
 
         # define body module
-        m_body = [
-            common.ResBlock(
-                conv, n_feats, kernel_size, act=act, res_scale=args.res_scale
-            ) for _ in range(n_resblocks)
-        ]
+        self.attn = args.attn
+        if args.attn is True:
+            m_body = [
+                RCABlock(
+                    conv, n_feats, kernel_size, args.reduction, act=act, res_scale=args.res_scale
+                ) for _ in range(n_resblocks)
+            ]
+
+        else:
+            m_body = [
+                common.ResBlock(
+                    conv, n_feats, kernel_size, act=act, res_scale=args.res_scale
+                ) for _ in range(n_resblocks)
+            ]
+
         m_body.append(conv(n_feats, n_feats, kernel_size))
 
         # define tail module

@@ -8,7 +8,6 @@ import torch
 def get_patch(*args, patch_size=96, scale=2, multi=False, input_large=False):
 
     ih, iw = args[0].shape[:2]
-
     if not input_large:
         p = scale if multi else 1
         tp = p * patch_size
@@ -16,7 +15,7 @@ def get_patch(*args, patch_size=96, scale=2, multi=False, input_large=False):
     else:
         tp = patch_size
         ip = patch_size
-
+    
     ix = random.randrange(0, iw - ip + 1)
     iy = random.randrange(0, ih - ip + 1)
 
