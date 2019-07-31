@@ -15,7 +15,6 @@
 #experiment and model
 /experiment_pre/
 #/experiment/*/result*
-/experiment/*/model
 /experiment/*/optimizer*
 /experiment/*/*.pdf
 /models/

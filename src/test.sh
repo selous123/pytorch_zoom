@@ -21,14 +21,10 @@ python main.py --model EDSR --scale 4 --n_resblocks 32 --n_feats 256 --res_scale
 
 ## train baseline with epoch 300
 python main.py --model EDSR --scale 4 --patch_size 256 --save edsr_baseline_x4_dynamic_lr --data_train SRRAW --data_test SRRAW --n_colors 3 --save_results --save_gt
-
 ## train baseline with epoch 500
 python main.py --model EDSR --scale 4 --patch_size 256 --save edsr_baseline_x4_dynamic_lr_epoch500 --data_train SRRAW --data_test SRRAW --n_colors 3 --save_results --save_gt
-
 ##debug SAN
 python main.py --model SAN --scale 4 --patch_size 256 --save san_x4 --data_train SRRAW --data_test SRRAW --n_colors 3 --save_results --batch_size 8
-
-
 ## debug RCAN
 python main.py --model RCAN --scale 4 --patch_size 256 --save rcan_x4 --data_train SRRAW --data_test SRRAW --n_colors 3 --save_results --batch_size 16
 
@@ -42,12 +38,10 @@ python main.py --model SRResNet --scale 4 --patch_size 256 --save srrsenet_x4 --
 
 ## debug our ssl model, improve 1 point in psnr
 python main.py --model SSL --scale 4 --patch_size 256  --data_train SRRAW --data_test SRRAW --n_colors 3  --save_results --batch_size 16 --save_gt --labels HR+Diff --save ssl_addfushion_reverse_x4
-
 ## debug r-loss
 python main.py --model SSL --scale 4 --patch_size 256  --data_train SRRAW --data_test SRRAW --n_colors 3  --save_results --batch_size 16 --save_gt --labels HR+Diff --save ssl_addfushion_reverse_rloss_x4 --loss_rel 1.0*RNLLoss
 ## debug r-loss v0.4
 python main.py --model SSL --scale 4 --patch_size 256  --data_train SRRAW --data_test SRRAW --n_colors 3  --save_results --batch_size 16 --save_gt --labels HR+Diff --save ssl_addfushion_reverse_rlossv0.4_x4 --loss_rel 1.0*RLoss
-
 ## debug attention model
 python main.py --model SSL --scale 4 --patch_size 256  --data_train SRRAW --data_test SRRAW --n_colors 3  --save_results --batch_size 16 --save_gt --labels HR+Diff --attn --save ssl_addfushion_reverse_x4_add_attn
 
@@ -57,3 +51,12 @@ python main.py --model SSL --scale 4 --patch_size 256  --data_train SRRAW --data
 
 ## X8 model
 python main.py --model SRResNet --scale 8 --patch_size 256  --data_train SRRAW --data_test SRRAW --dir_data /store/dataset/SR/train_data --n_colors 3  --save_results --batch_size 16 --save_gt --labels HR --save SRResnetx8 --desc "srresnet x8" --epochs 200 --data_range '1-437/438-447'
+
+
+
+##test script
+python main.py --label HR --model EDSR --scale 4 --pre_train /store/git/pytorch_zoom/experiment/EDSR_baselinex4/model/model_best.pt --data_test SRRAW --test_only --dir_data /store2/dataset/SR/train_data --n_colors 3  --save_results --save_gt --save EDSRX4_test --desc "test rdsr model on srraw test dataset"
+python main.py --label HR --model SSL --scale 4 --pre_train /store/git/pytorch_zoom/experiment/EDSRCA_SAT_MSAx4/model/model_best.pt --data_test SRRAW_TEST --test_only --dir_data /store2/dataset/SR/train_data --n_colors 3  --save_results --save_gt --save SFNetX4_test --desc "test SFNet model on srraw test dataset" --attn
+
+
+python test.py --label HR --desc "test bicubic psnr" --scale 8 --data_range "1-437/438-447"

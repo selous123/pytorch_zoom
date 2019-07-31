@@ -30,7 +30,8 @@ parser.add_argument('--data_train', type=str, default='SRRAW',
                     help='train dataset name')
 parser.add_argument('--data_test', type=str, default='SRRAW',
                     help='test dataset name')
-parser.add_argument('--data_range', type=str, default='1-1300/1301-1314',
+#1-1300/1301-1314
+parser.add_argument('--data_range', type=str, default='1-1412/1413-1462',
                     help='train/test data range')
 parser.add_argument('--ext', type=str, default='sep',choices=['sep_reset','sep'],
                     help='dataset file extension')
@@ -52,7 +53,7 @@ parser.add_argument('--labels', default='HR+Diff',
                     help='setting the SSL labels for model')
 
 # Model specifications
-parser.add_argument('--model', default='EDSR',choices=['EDSR', 'MDSR','VDSR', 'RCAN', 'SAN', 'SRResNet', 'SSL'],
+parser.add_argument('--model', default='EDSR',choices=['EDSR', 'MDSR', 'RDN', 'RCAN', 'SAN', 'SRResNet', 'SSL'],
                     help='model name')
 
 parser.add_argument('--act', type=str, default='relu',
