@@ -55,7 +55,6 @@ class SRRAW(data.Dataset):
 
 
         #exit(0)
-        #print(list_lr)
 
         #print(path_bin)
 
