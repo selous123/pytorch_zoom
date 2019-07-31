@@ -1,0 +1,6155 @@
+SAN x4 result
+SAN(
+  (sub_mean): MeanShift(3, 3, kernel_size=(1, 1), stride=(1, 1))
+  (RG): ModuleList(
+    (0): NLRG(
+      (rcab): ModuleList(
+        (0): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (1): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (2): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (3): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (4): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (5): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (6): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (7): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (8): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (9): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (10): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (11): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (12): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (13): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (14): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (15): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+      )
+      (soca): SOCA(
+        (avg_pool): AvgPool2d(kernel_size=2, stride=2, padding=0)
+        (conv_du): Sequential(
+          (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+          (3): Sigmoid()
+        )
+      )
+      (conv_last): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+    (1): NLRG(
+      (rcab): ModuleList(
+        (0): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (1): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (2): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (3): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (4): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (5): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (6): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (7): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (8): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (9): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (10): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (11): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (12): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (13): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (14): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (15): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+      )
+      (soca): SOCA(
+        (avg_pool): AvgPool2d(kernel_size=2, stride=2, padding=0)
+        (conv_du): Sequential(
+          (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+          (3): Sigmoid()
+        )
+      )
+      (conv_last): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+    (2): NLRG(
+      (rcab): ModuleList(
+        (0): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (1): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (2): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (3): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (4): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (5): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (6): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (7): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (8): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (9): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (10): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (11): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (12): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (13): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (14): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (15): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+      )
+      (soca): SOCA(
+        (avg_pool): AvgPool2d(kernel_size=2, stride=2, padding=0)
+        (conv_du): Sequential(
+          (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+          (3): Sigmoid()
+        )
+      )
+      (conv_last): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+    (3): NLRG(
+      (rcab): ModuleList(
+        (0): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (1): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (2): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (3): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (4): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (5): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (6): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (7): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (8): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (9): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (10): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (11): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (12): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (13): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (14): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (15): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+      )
+      (soca): SOCA(
+        (avg_pool): AvgPool2d(kernel_size=2, stride=2, padding=0)
+        (conv_du): Sequential(
+          (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+          (3): Sigmoid()
+        )
+      )
+      (conv_last): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+    (4): NLRG(
+      (rcab): ModuleList(
+        (0): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (1): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (2): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (3): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (4): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (5): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (6): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (7): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (8): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (9): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (10): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (11): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (12): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (13): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (14): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (15): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+      )
+      (soca): SOCA(
+        (avg_pool): AvgPool2d(kernel_size=2, stride=2, padding=0)
+        (conv_du): Sequential(
+          (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+          (3): Sigmoid()
+        )
+      )
+      (conv_last): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+    (5): NLRG(
+      (rcab): ModuleList(
+        (0): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (1): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (2): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (3): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (4): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (5): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (6): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (7): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (8): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (9): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (10): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (11): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (12): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (13): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (14): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (15): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+      )
+      (soca): SOCA(
+        (avg_pool): AvgPool2d(kernel_size=2, stride=2, padding=0)
+        (conv_du): Sequential(
+          (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+          (3): Sigmoid()
+        )
+      )
+      (conv_last): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+    (6): NLRG(
+      (rcab): ModuleList(
+        (0): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (1): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (2): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (3): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (4): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (5): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (6): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (7): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (8): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (9): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (10): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (11): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (12): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (13): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (14): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (15): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+      )
+      (soca): SOCA(
+        (avg_pool): AvgPool2d(kernel_size=2, stride=2, padding=0)
+        (conv_du): Sequential(
+          (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+          (3): Sigmoid()
+        )
+      )
+      (conv_last): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+    (7): NLRG(
+      (rcab): ModuleList(
+        (0): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (1): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (2): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (3): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (4): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (5): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (6): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (7): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (8): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (9): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (10): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (11): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (12): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (13): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (14): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (15): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+      )
+      (soca): SOCA(
+        (avg_pool): AvgPool2d(kernel_size=2, stride=2, padding=0)
+        (conv_du): Sequential(
+          (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+          (3): Sigmoid()
+        )
+      )
+      (conv_last): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+    (8): NLRG(
+      (rcab): ModuleList(
+        (0): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (1): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (2): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (3): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (4): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (5): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (6): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (7): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (8): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (9): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (10): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (11): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (12): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (13): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (14): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (15): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+      )
+      (soca): SOCA(
+        (avg_pool): AvgPool2d(kernel_size=2, stride=2, padding=0)
+        (conv_du): Sequential(
+          (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+          (3): Sigmoid()
+        )
+      )
+      (conv_last): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+    (9): NLRG(
+      (rcab): ModuleList(
+        (0): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (1): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (2): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (3): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (4): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (5): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (6): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (7): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (8): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (9): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (10): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (11): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (12): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (13): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (14): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (15): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+      )
+      (soca): SOCA(
+        (avg_pool): AvgPool2d(kernel_size=2, stride=2, padding=0)
+        (conv_du): Sequential(
+          (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+          (3): Sigmoid()
+        )
+      )
+      (conv_last): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+  )
+  (conv_last): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (add_mean): MeanShift(3, 3, kernel_size=(1, 1), stride=(1, 1))
+  (non_local): RLNL(
+    (non_local): NONLocalBlock2D(
+      (g): Sequential(
+        (0): Conv2d(64, 16, kernel_size=(1, 1), stride=(1, 1))
+        (1): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      )
+      (W): Conv2d(16, 64, kernel_size=(1, 1), stride=(1, 1))
+      (theta): Conv2d(64, 16, kernel_size=(1, 1), stride=(1, 1))
+      (phi): Sequential(
+        (0): Conv2d(64, 16, kernel_size=(1, 1), stride=(1, 1))
+        (1): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      )
+    )
+    (sigmoid): Sigmoid()
+  )
+  (head): Sequential(
+    (0): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  )
+  (tail): Sequential(
+    (0): Upsampler(
+      (0): Conv2d(64, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): PixelShuffle(upscale_factor=2)
+      (2): Conv2d(64, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (3): PixelShuffle(upscale_factor=2)
+    )
+    (1): Conv2d(64, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  )
+)
+[Epoch 1]	Learning rate: 1.00e-4
+SAN x4 result
+SAN(
+  (sub_mean): MeanShift(3, 3, kernel_size=(1, 1), stride=(1, 1))
+  (RG): ModuleList(
+    (0): NLRG(
+      (rcab): ModuleList(
+        (0): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (1): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (2): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (3): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (4): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (5): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (6): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (7): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (8): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (9): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (10): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (11): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (12): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (13): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (14): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (15): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+      )
+      (soca): SOCA(
+        (avg_pool): AvgPool2d(kernel_size=2, stride=2, padding=0)
+        (conv_du): Sequential(
+          (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+          (3): Sigmoid()
+        )
+      )
+      (conv_last): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+    (1): NLRG(
+      (rcab): ModuleList(
+        (0): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (1): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (2): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (3): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (4): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (5): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (6): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (7): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (8): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (9): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (10): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (11): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (12): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (13): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (14): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (15): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+      )
+      (soca): SOCA(
+        (avg_pool): AvgPool2d(kernel_size=2, stride=2, padding=0)
+        (conv_du): Sequential(
+          (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+          (3): Sigmoid()
+        )
+      )
+      (conv_last): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+    (2): NLRG(
+      (rcab): ModuleList(
+        (0): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (1): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (2): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (3): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (4): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (5): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (6): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (7): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (8): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (9): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (10): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (11): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (12): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (13): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (14): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (15): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+      )
+      (soca): SOCA(
+        (avg_pool): AvgPool2d(kernel_size=2, stride=2, padding=0)
+        (conv_du): Sequential(
+          (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+          (3): Sigmoid()
+        )
+      )
+      (conv_last): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+    (3): NLRG(
+      (rcab): ModuleList(
+        (0): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (1): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (2): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (3): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (4): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (5): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (6): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (7): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (8): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (9): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (10): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (11): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (12): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (13): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (14): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (15): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+      )
+      (soca): SOCA(
+        (avg_pool): AvgPool2d(kernel_size=2, stride=2, padding=0)
+        (conv_du): Sequential(
+          (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+          (3): Sigmoid()
+        )
+      )
+      (conv_last): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+    (4): NLRG(
+      (rcab): ModuleList(
+        (0): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (1): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (2): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (3): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (4): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (5): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (6): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (7): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (8): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (9): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (10): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (11): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (12): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (13): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (14): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (15): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+      )
+      (soca): SOCA(
+        (avg_pool): AvgPool2d(kernel_size=2, stride=2, padding=0)
+        (conv_du): Sequential(
+          (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+          (3): Sigmoid()
+        )
+      )
+      (conv_last): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+    (5): NLRG(
+      (rcab): ModuleList(
+        (0): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (1): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (2): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (3): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (4): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (5): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (6): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (7): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (8): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (9): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (10): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (11): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (12): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (13): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (14): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (15): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+      )
+      (soca): SOCA(
+        (avg_pool): AvgPool2d(kernel_size=2, stride=2, padding=0)
+        (conv_du): Sequential(
+          (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+          (3): Sigmoid()
+        )
+      )
+      (conv_last): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+    (6): NLRG(
+      (rcab): ModuleList(
+        (0): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (1): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (2): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (3): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (4): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (5): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (6): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (7): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (8): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (9): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (10): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (11): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (12): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (13): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (14): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (15): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+      )
+      (soca): SOCA(
+        (avg_pool): AvgPool2d(kernel_size=2, stride=2, padding=0)
+        (conv_du): Sequential(
+          (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+          (3): Sigmoid()
+        )
+      )
+      (conv_last): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+    (7): NLRG(
+      (rcab): ModuleList(
+        (0): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (1): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (2): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (3): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (4): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (5): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (6): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (7): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (8): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (9): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (10): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (11): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (12): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (13): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (14): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (15): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+      )
+      (soca): SOCA(
+        (avg_pool): AvgPool2d(kernel_size=2, stride=2, padding=0)
+        (conv_du): Sequential(
+          (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+          (3): Sigmoid()
+        )
+      )
+      (conv_last): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+    (8): NLRG(
+      (rcab): ModuleList(
+        (0): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (1): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (2): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (3): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (4): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (5): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (6): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (7): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (8): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (9): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (10): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (11): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (12): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (13): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (14): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (15): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+      )
+      (soca): SOCA(
+        (avg_pool): AvgPool2d(kernel_size=2, stride=2, padding=0)
+        (conv_du): Sequential(
+          (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+          (3): Sigmoid()
+        )
+      )
+      (conv_last): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+    (9): NLRG(
+      (rcab): ModuleList(
+        (0): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (1): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (2): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (3): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (4): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (5): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (6): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (7): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (8): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (9): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (10): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (11): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (12): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (13): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (14): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+        (15): RB(
+          (conv_first): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          )
+        )
+      )
+      (soca): SOCA(
+        (avg_pool): AvgPool2d(kernel_size=2, stride=2, padding=0)
+        (conv_du): Sequential(
+          (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+          (1): ReLU(inplace)
+          (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+          (3): Sigmoid()
+        )
+      )
+      (conv_last): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+  )
+  (conv_last): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (add_mean): MeanShift(3, 3, kernel_size=(1, 1), stride=(1, 1))
+  (non_local): RLNL(
+    (non_local): NONLocalBlock2D(
+      (g): Sequential(
+        (0): Conv2d(64, 16, kernel_size=(1, 1), stride=(1, 1))
+        (1): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      )
+      (W): Conv2d(16, 64, kernel_size=(1, 1), stride=(1, 1))
+      (theta): Conv2d(64, 16, kernel_size=(1, 1), stride=(1, 1))
+      (phi): Sequential(
+        (0): Conv2d(64, 16, kernel_size=(1, 1), stride=(1, 1))
+        (1): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+      )
+    )
+    (sigmoid): Sigmoid()
+  )
+  (head): Sequential(
+    (0): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  )
+  (tail): Sequential(
+    (0): Upsampler(
+      (0): Conv2d(64, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): PixelShuffle(upscale_factor=2)
+      (2): Conv2d(64, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (3): PixelShuffle(upscale_factor=2)
+    )
+    (1): Conv2d(64, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  )
+)
+[Epoch 1]	Learning rate: 1.00e-4
+[800/7800]	[L1: 26.8137]	96.2+0.4s
+[1600/7800]	[L1: 25.3747]	97.3+0.1s
+[2400/7800]	[L1: 24.2794]	97.3+0.1s
+[3200/7800]	[L1: 23.9429]	97.3+0.1s
+[4000/7800]	[L1: 23.4929]	97.3+0.1s
+[4800/7800]	[L1: 23.2891]	97.4+0.1s
+[5600/7800]	[L1: 23.1071]	97.3+0.1s
+[6400/7800]	[L1: 22.9414]	97.3+0.1s
+[7200/7800]	[L1: 22.7426]	97.3+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.448 (Best: 19.448 @epoch 1)
+Forward: 10.14s
+
+Saving...
+Total: 10.95s
+
+[Epoch 2]	Learning rate: 1.00e-4
+[800/7800]	[L1: 21.4414]	97.3+0.3s
+[1600/7800]	[L1: 21.7055]	97.3+0.1s
+[2400/7800]	[L1: 21.6976]	97.3+0.1s
+[3200/7800]	[L1: 21.6251]	97.3+0.1s
+[4000/7800]	[L1: 21.5477]	97.3+0.1s
+[4800/7800]	[L1: 21.4531]	97.3+0.1s
+[5600/7800]	[L1: 21.3862]	97.3+0.1s
+[6400/7800]	[L1: 21.3885]	97.3+0.1s
+[7200/7800]	[L1: 21.3593]	97.3+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.917 (Best: 19.917 @epoch 2)
+Forward: 9.29s
+
+Saving...
+Total: 10.05s
+
+[Epoch 3]	Learning rate: 1.00e-4
+[800/7800]	[L1: 20.2543]	97.3+0.3s
+[1600/7800]	[L1: 20.6117]	97.3+0.1s
+[2400/7800]	[L1: 20.8646]	97.3+0.1s
+[3200/7800]	[L1: 21.1947]	97.3+0.1s
+[4000/7800]	[L1: 21.2366]	97.3+0.1s
+[4800/7800]	[L1: 21.1514]	97.3+0.1s
+[5600/7800]	[L1: 21.1066]	97.3+0.1s
+[6400/7800]	[L1: 21.0247]	97.2+0.1s
+[7200/7800]	[L1: 21.1382]	97.2+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.373 (Best: 19.917 @epoch 2)
+Forward: 9.26s
+
+Saving...
+Total: 9.96s
+
+[Epoch 4]	Learning rate: 1.00e-4
+[800/7800]	[L1: 20.8642]	97.3+0.3s
+[1600/7800]	[L1: 20.7066]	97.2+0.1s
+[2400/7800]	[L1: 20.8249]	97.2+0.1s
+[3200/7800]	[L1: 20.6982]	97.2+0.1s
+[4000/7800]	[L1: 20.6573]	97.2+0.1s
+[4800/7800]	[L1: 20.7896]	97.2+0.1s
+[5600/7800]	[L1: 20.7342]	97.2+0.1s
+[6400/7800]	[L1: 20.7413]	97.2+0.1s
+[7200/7800]	[L1: 20.8159]	97.2+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.087 (Best: 20.087 @epoch 4)
+Forward: 9.26s
+
+Saving...
+Total: 10.07s
+
+[Epoch 5]	Learning rate: 1.00e-4
+[800/7800]	[L1: 20.7443]	97.2+0.3s
+[1600/7800]	[L1: 20.4913]	97.2+0.1s
+[2400/7800]	[L1: 20.5980]	97.2+0.1s
+[3200/7800]	[L1: 20.5793]	97.2+0.1s
+[4000/7800]	[L1: 20.5659]	97.2+0.1s
+[4800/7800]	[L1: 20.6166]	97.2+0.1s
+[5600/7800]	[L1: 20.6851]	97.2+0.1s
+[6400/7800]	[L1: 20.7188]	97.1+0.1s
+[7200/7800]	[L1: 20.6318]	97.1+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.800 (Best: 20.087 @epoch 4)
+Forward: 9.17s
+
+Saving...
+Total: 9.95s
+
+[Epoch 6]	Learning rate: 1.00e-4
+[800/7800]	[L1: 20.4088]	97.3+0.4s
+[1600/7800]	[L1: 20.4976]	97.2+0.1s
+[2400/7800]	[L1: 20.5912]	97.2+0.1s
+[3200/7800]	[L1: 20.6102]	97.2+0.1s
+[4000/7800]	[L1: 20.6289]	97.2+0.1s
+[4800/7800]	[L1: 20.6020]	97.2+0.1s
+[5600/7800]	[L1: 20.4990]	97.2+0.1s
+[6400/7800]	[L1: 20.5130]	97.2+0.1s
+[7200/7800]	[L1: 20.5438]	97.2+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.767 (Best: 20.087 @epoch 4)
+Forward: 9.28s
+
+Saving...
+Total: 10.09s
+
+[Epoch 7]	Learning rate: 1.00e-4
+[800/7800]	[L1: 20.4237]	97.2+0.3s
+[1600/7800]	[L1: 20.5775]	97.1+0.1s
+[2400/7800]	[L1: 20.6095]	97.1+0.1s
+[3200/7800]	[L1: 20.4537]	97.1+0.1s
+[4000/7800]	[L1: 20.5260]	97.1+0.1s
+[4800/7800]	[L1: 20.4739]	97.2+0.1s
+[5600/7800]	[L1: 20.4138]	97.1+0.1s
+[6400/7800]	[L1: 20.4154]	97.1+0.1s
+[7200/7800]	[L1: 20.3646]	97.1+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.259 (Best: 20.259 @epoch 7)
+Forward: 9.24s
+
+Saving...
+Total: 10.11s
+
+[Epoch 8]	Learning rate: 1.00e-4
+[800/7800]	[L1: 20.6770]	97.1+0.3s
+[1600/7800]	[L1: 20.5760]	97.1+0.1s
+[2400/7800]	[L1: 20.4048]	97.1+0.1s
+[3200/7800]	[L1: 20.4662]	97.1+0.1s
+[4000/7800]	[L1: 20.5569]	97.2+0.1s
+[4800/7800]	[L1: 20.5086]	97.1+0.1s
+[5600/7800]	[L1: 20.5002]	97.2+0.1s
+[6400/7800]	[L1: 20.4141]	97.1+0.1s
+[7200/7800]	[L1: 20.3948]	97.2+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 18.560 (Best: 20.259 @epoch 7)
+Forward: 9.25s
+
+Saving...
+Total: 10.09s
+
+[Epoch 9]	Learning rate: 1.00e-4
+[800/7800]	[L1: 21.1861]	97.2+0.3s
+[1600/7800]	[L1: 20.7863]	97.2+0.1s
+[2400/7800]	[L1: 20.5029]	97.2+0.1s
+[3200/7800]	[L1: 20.2747]	97.1+0.1s
+[4000/7800]	[L1: 20.2575]	97.1+0.1s
+[4800/7800]	[L1: 20.2160]	97.1+0.1s
+[5600/7800]	[L1: 20.2036]	97.1+0.1s
+[6400/7800]	[L1: 20.1377]	97.1+0.1s
+[7200/7800]	[L1: 20.1860]	97.1+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.301 (Best: 20.259 @epoch 7)
+Forward: 9.29s
+
+Saving...
+Total: 10.12s
+
+[Epoch 10]	Learning rate: 1.00e-4
+[800/7800]	[L1: 19.5919]	97.1+0.3s
+[1600/7800]	[L1: 19.2156]	97.1+0.1s
+[2400/7800]	[L1: 19.7961]	97.1+0.1s
+[3200/7800]	[L1: 20.0541]	97.2+0.1s
+[4000/7800]	[L1: 20.2426]	97.1+0.1s
+[4800/7800]	[L1: 20.2532]	97.2+0.1s
+[5600/7800]	[L1: 20.3208]	97.1+0.1s
+[6400/7800]	[L1: 20.3067]	97.1+0.1s
+[7200/7800]	[L1: 20.2655]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.542 (Best: 20.259 @epoch 7)
+Forward: 9.31s
+
+Saving...
+Total: 10.27s
+
+[Epoch 11]	Learning rate: 1.00e-4
+[800/7800]	[L1: 19.8805]	97.1+0.3s
+[1600/7800]	[L1: 19.8909]	97.2+0.1s
+[2400/7800]	[L1: 19.9033]	97.1+0.1s
+[3200/7800]	[L1: 19.8774]	97.1+0.1s
+[4000/7800]	[L1: 20.0779]	97.1+0.1s
+[4800/7800]	[L1: 20.0577]	97.1+0.1s
+[5600/7800]	[L1: 20.0226]	97.2+0.1s
+[6400/7800]	[L1: 20.0035]	97.1+0.1s
+[7200/7800]	[L1: 19.9961]	97.1+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 18.844 (Best: 20.259 @epoch 7)
+Forward: 9.31s
+
+Saving...
+Total: 9.99s
+
+[Epoch 12]	Learning rate: 1.00e-4
+[800/7800]	[L1: 19.6855]	97.1+0.4s
+[1600/7800]	[L1: 19.4711]	97.0+0.1s
+[2400/7800]	[L1: 19.8182]	97.0+0.1s
+[3200/7800]	[L1: 19.9809]	97.0+0.1s
+[4000/7800]	[L1: 19.8591]	97.2+0.1s
+[4800/7800]	[L1: 19.9878]	97.0+0.1s
+[5600/7800]	[L1: 19.9627]	97.0+0.1s
+[6400/7800]	[L1: 19.8573]	97.0+0.1s
+[7200/7800]	[L1: 19.8664]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.220 (Best: 20.259 @epoch 7)
+Forward: 9.29s
+
+Saving...
+Total: 10.29s
+
+[Epoch 13]	Learning rate: 1.00e-4
+[800/7800]	[L1: 19.7443]	97.1+0.3s
+[1600/7800]	[L1: 19.6225]	97.1+0.1s
+[2400/7800]	[L1: 19.7751]	97.1+0.1s
+[3200/7800]	[L1: 19.8804]	97.1+0.1s
+[4000/7800]	[L1: 19.7673]	97.1+0.1s
+[4800/7800]	[L1: 19.7158]	97.1+0.1s
+[5600/7800]	[L1: 19.7334]	97.1+0.1s
+[6400/7800]	[L1: 19.7653]	97.0+0.1s
+[7200/7800]	[L1: 19.7777]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.644 (Best: 20.259 @epoch 7)
+Forward: 9.25s
+
+Saving...
+Total: 10.11s
+
+[Epoch 14]	Learning rate: 1.00e-4
+[800/7800]	[L1: 19.7098]	97.1+0.3s
+[1600/7800]	[L1: 19.9782]	97.1+0.1s
+[2400/7800]	[L1: 20.1606]	97.0+0.1s
+[3200/7800]	[L1: 20.0787]	97.0+0.1s
+[4000/7800]	[L1: 20.0571]	97.0+0.1s
+[4800/7800]	[L1: 19.8979]	97.0+0.1s
+[5600/7800]	[L1: 19.7807]	97.0+0.1s
+[6400/7800]	[L1: 19.8293]	97.0+0.1s
+[7200/7800]	[L1: 19.7755]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.354 (Best: 20.259 @epoch 7)
+Forward: 9.34s
+
+Saving...
+Total: 10.32s
+
+[Epoch 15]	Learning rate: 1.00e-4
+[800/7800]	[L1: 19.3268]	97.1+0.3s
+[1600/7800]	[L1: 19.4613]	97.1+0.1s
+[2400/7800]	[L1: 19.4270]	97.0+0.1s
+[3200/7800]	[L1: 19.3872]	97.1+0.1s
+[4000/7800]	[L1: 19.5327]	97.1+0.1s
+[4800/7800]	[L1: 19.4213]	97.1+0.1s
+[5600/7800]	[L1: 19.4550]	97.1+0.1s
+[6400/7800]	[L1: 19.4116]	97.1+0.1s
+[7200/7800]	[L1: 19.3697]	97.1+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.459 (Best: 20.259 @epoch 7)
+Forward: 9.26s
+
+Saving...
+Total: 10.29s
+
+[Epoch 16]	Learning rate: 1.00e-4
+[800/7800]	[L1: 19.4851]	97.1+0.4s
+[1600/7800]	[L1: 19.0921]	97.0+0.1s
+[2400/7800]	[L1: 19.5602]	97.0+0.1s
+[3200/7800]	[L1: 19.7429]	97.0+0.1s
+[4000/7800]	[L1: 19.7001]	97.0+0.1s
+[4800/7800]	[L1: 19.5487]	97.0+0.1s
+[5600/7800]	[L1: 19.4143]	97.0+0.1s
+[6400/7800]	[L1: 19.4233]	97.0+0.1s
+[7200/7800]	[L1: 19.4230]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.308 (Best: 20.259 @epoch 7)
+Forward: 9.29s
+
+Saving...
+Total: 10.33s
+
+[Epoch 17]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.5061]	97.1+0.3s
+[1600/7800]	[L1: 19.0416]	97.1+0.1s
+[2400/7800]	[L1: 19.3302]	97.0+0.1s
+[3200/7800]	[L1: 19.4229]	97.0+0.1s
+[4000/7800]	[L1: 19.4658]	97.0+0.1s
+[4800/7800]	[L1: 19.3516]	97.0+0.1s
+[5600/7800]	[L1: 19.3577]	97.0+0.1s
+[6400/7800]	[L1: 19.3754]	96.9+0.1s
+[7200/7800]	[L1: 19.3536]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.756 (Best: 20.756 @epoch 17)
+Forward: 9.27s
+
+Saving...
+Total: 10.43s
+
+[Epoch 18]	Learning rate: 1.00e-4
+[800/7800]	[L1: 19.4922]	97.1+0.3s
+[1600/7800]	[L1: 19.0931]	97.0+0.1s
+[2400/7800]	[L1: 18.9983]	97.0+0.1s
+[3200/7800]	[L1: 19.0969]	97.1+0.1s
+[4000/7800]	[L1: 19.1979]	97.0+0.1s
+[4800/7800]	[L1: 19.2232]	97.1+0.1s
+[5600/7800]	[L1: 19.2833]	97.0+0.1s
+[6400/7800]	[L1: 19.2490]	97.1+0.1s
+[7200/7800]	[L1: 19.2518]	97.1+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.367 (Best: 20.756 @epoch 17)
+Forward: 9.29s
+
+Saving...
+Total: 10.10s
+
+[Epoch 19]	Learning rate: 1.00e-4
+[800/7800]	[L1: 19.0762]	97.1+0.4s
+[1600/7800]	[L1: 19.0315]	97.0+0.1s
+[2400/7800]	[L1: 18.8774]	97.0+0.1s
+[3200/7800]	[L1: 18.9655]	97.1+0.1s
+[4000/7800]	[L1: 18.9356]	97.0+0.1s
+[4800/7800]	[L1: 19.0876]	97.0+0.1s
+[5600/7800]	[L1: 19.0801]	97.0+0.1s
+[6400/7800]	[L1: 19.0811]	97.0+0.1s
+[7200/7800]	[L1: 19.1179]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.871 (Best: 20.871 @epoch 19)
+Forward: 9.27s
+
+Saving...
+Total: 10.46s
+
+[Epoch 20]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.8533]	97.0+0.3s
+[1600/7800]	[L1: 19.3398]	97.0+0.1s
+[2400/7800]	[L1: 19.2381]	97.0+0.1s
+[3200/7800]	[L1: 19.2511]	97.0+0.1s
+[4000/7800]	[L1: 19.2635]	97.0+0.1s
+[4800/7800]	[L1: 19.2717]	97.0+0.1s
+[5600/7800]	[L1: 19.2324]	97.0+0.1s
+[6400/7800]	[L1: 19.1744]	97.0+0.1s
+[7200/7800]	[L1: 19.1098]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.024 (Best: 20.871 @epoch 19)
+Forward: 9.28s
+
+Saving...
+Total: 10.26s
+
+[Epoch 21]	Learning rate: 1.00e-4
+[800/7800]	[L1: 19.4120]	97.0+0.4s
+[1600/7800]	[L1: 19.4254]	97.0+0.1s
+[2400/7800]	[L1: 19.2388]	97.0+0.1s
+[3200/7800]	[L1: 19.2771]	97.0+0.1s
+[4000/7800]	[L1: 19.3693]	97.0+0.1s
+[4800/7800]	[L1: 19.3025]	97.0+0.1s
+[5600/7800]	[L1: 19.3135]	97.0+0.1s
+[6400/7800]	[L1: 19.2772]	97.0+0.1s
+[7200/7800]	[L1: 19.1960]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.050 (Best: 21.050 @epoch 21)
+Forward: 9.30s
+
+Saving...
+Total: 10.50s
+
+[Epoch 22]	Learning rate: 1.00e-4
+[800/7800]	[L1: 19.6043]	97.1+0.3s
+[1600/7800]	[L1: 19.3571]	97.0+0.1s
+[2400/7800]	[L1: 19.1169]	97.0+0.1s
+[3200/7800]	[L1: 19.1075]	97.0+0.1s
+[4000/7800]	[L1: 19.0602]	97.0+0.1s
+[4800/7800]	[L1: 18.9974]	97.1+0.1s
+[5600/7800]	[L1: 18.9498]	97.0+0.1s
+[6400/7800]	[L1: 18.9651]	97.0+0.1s
+[7200/7800]	[L1: 18.9129]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.901 (Best: 21.050 @epoch 21)
+Forward: 9.33s
+
+Saving...
+Total: 10.40s
+
+[Epoch 23]	Learning rate: 1.00e-4
+[800/7800]	[L1: 19.4927]	97.0+0.3s
+[1600/7800]	[L1: 19.2144]	97.0+0.1s
+[2400/7800]	[L1: 19.0555]	96.9+0.1s
+[3200/7800]	[L1: 19.0500]	96.9+0.1s
+[4000/7800]	[L1: 18.9636]	97.0+0.1s
+[4800/7800]	[L1: 18.9482]	97.0+0.1s
+[5600/7800]	[L1: 19.0422]	97.0+0.1s
+[6400/7800]	[L1: 18.9908]	97.0+0.1s
+[7200/7800]	[L1: 18.9838]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.219 (Best: 21.050 @epoch 21)
+Forward: 9.27s
+
+Saving...
+Total: 10.40s
+
+[Epoch 24]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.6976]	96.9+0.3s
+[1600/7800]	[L1: 18.9145]	97.0+0.1s
+[2400/7800]	[L1: 18.8642]	97.0+0.1s
+[3200/7800]	[L1: 18.9919]	97.0+0.1s
+[4000/7800]	[L1: 18.8561]	97.0+0.1s
+[4800/7800]	[L1: 18.8436]	97.0+0.1s
+[5600/7800]	[L1: 18.7690]	97.0+0.1s
+[6400/7800]	[L1: 18.8554]	96.9+0.1s
+[7200/7800]	[L1: 18.8603]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.027 (Best: 21.050 @epoch 21)
+Forward: 9.28s
+
+Saving...
+Total: 10.40s
+
+[Epoch 25]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.9194]	97.0+0.3s
+[1600/7800]	[L1: 18.9535]	97.0+0.1s
+[2400/7800]	[L1: 18.9272]	96.9+0.1s
+[3200/7800]	[L1: 18.8537]	97.4+0.1s
+[4000/7800]	[L1: 18.8101]	97.1+0.1s
+[4800/7800]	[L1: 18.7979]	96.9+0.1s
+[5600/7800]	[L1: 18.7695]	96.9+0.1s
+[6400/7800]	[L1: 18.7236]	97.0+0.1s
+[7200/7800]	[L1: 18.8097]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.720 (Best: 21.050 @epoch 21)
+Forward: 9.28s
+
+Saving...
+Total: 10.07s
+
+[Epoch 26]	Learning rate: 1.00e-4
+[800/7800]	[L1: 19.2491]	97.0+0.3s
+[1600/7800]	[L1: 18.7430]	97.0+0.1s
+[2400/7800]	[L1: 18.6241]	97.0+0.1s
+[3200/7800]	[L1: 18.9546]	97.0+0.1s
+[4000/7800]	[L1: 18.9775]	96.9+0.1s
+[4800/7800]	[L1: 18.8385]	97.0+0.1s
+[5600/7800]	[L1: 18.8833]	97.0+0.1s
+[6400/7800]	[L1: 18.9017]	97.0+0.1s
+[7200/7800]	[L1: 18.7955]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.213 (Best: 21.050 @epoch 21)
+Forward: 9.30s
+
+Saving...
+Total: 10.46s
+
+[Epoch 27]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.4088]	97.0+0.3s
+[1600/7800]	[L1: 18.7076]	96.9+0.1s
+[2400/7800]	[L1: 18.5216]	96.9+0.1s
+[3200/7800]	[L1: 18.6998]	96.9+0.1s
+[4000/7800]	[L1: 18.7939]	96.9+0.1s
+[4800/7800]	[L1: 18.7766]	96.9+0.1s
+[5600/7800]	[L1: 18.7933]	96.9+0.1s
+[6400/7800]	[L1: 18.7857]	96.9+0.1s
+[7200/7800]	[L1: 18.7827]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.812 (Best: 21.050 @epoch 21)
+Forward: 9.26s
+
+Saving...
+Total: 10.45s
+
+[Epoch 28]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.6978]	97.1+0.4s
+[1600/7800]	[L1: 18.7082]	96.9+0.1s
+[2400/7800]	[L1: 18.5108]	96.9+0.1s
+[3200/7800]	[L1: 18.6507]	96.9+0.1s
+[4000/7800]	[L1: 18.6092]	96.9+0.1s
+[4800/7800]	[L1: 18.5599]	96.9+0.1s
+[5600/7800]	[L1: 18.5010]	96.9+0.1s
+[6400/7800]	[L1: 18.5257]	96.9+0.1s
+[7200/7800]	[L1: 18.5455]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.442 (Best: 21.442 @epoch 28)
+Forward: 9.28s
+
+Saving...
+Total: 10.24s
+
+[Epoch 29]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.8184]	97.0+0.3s
+[1600/7800]	[L1: 18.7849]	96.8+0.1s
+[2400/7800]	[L1: 18.5793]	96.8+0.1s
+[3200/7800]	[L1: 18.5453]	96.8+0.1s
+[4000/7800]	[L1: 18.6222]	96.8+0.1s
+[4800/7800]	[L1: 18.4725]	96.8+0.1s
+[5600/7800]	[L1: 18.5216]	96.8+0.1s
+[6400/7800]	[L1: 18.6112]	96.9+0.1s
+[7200/7800]	[L1: 18.5753]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.433 (Best: 21.442 @epoch 28)
+Forward: 9.32s
+
+Saving...
+Total: 10.30s
+
+[Epoch 30]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.0625]	96.9+0.4s
+[1600/7800]	[L1: 18.3272]	96.9+0.1s
+[2400/7800]	[L1: 18.5747]	97.0+0.1s
+[3200/7800]	[L1: 18.5715]	96.9+0.1s
+[4000/7800]	[L1: 18.5489]	96.9+0.1s
+[4800/7800]	[L1: 18.5018]	96.9+0.1s
+[5600/7800]	[L1: 18.4692]	96.9+0.1s
+[6400/7800]	[L1: 18.4894]	96.9+0.1s
+[7200/7800]	[L1: 18.4436]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.370 (Best: 21.442 @epoch 28)
+Forward: 9.32s
+
+Saving...
+Total: 10.54s
+
+[Epoch 31]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.8428]	96.9+0.3s
+[1600/7800]	[L1: 18.1457]	96.9+0.1s
+[2400/7800]	[L1: 18.3545]	96.9+0.1s
+[3200/7800]	[L1: 18.5093]	96.9+0.1s
+[4000/7800]	[L1: 18.5849]	96.9+0.1s
+[4800/7800]	[L1: 18.5409]	96.9+0.1s
+[5600/7800]	[L1: 18.5030]	96.9+0.1s
+[6400/7800]	[L1: 18.6084]	96.9+0.1s
+[7200/7800]	[L1: 18.6045]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.633 (Best: 21.442 @epoch 28)
+Forward: 9.33s
+
+Saving...
+Total: 10.55s
+
+[Epoch 32]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.7479]	96.9+0.3s
+[1600/7800]	[L1: 18.4755]	96.8+0.1s
+[2400/7800]	[L1: 18.4505]	96.8+0.1s
+[3200/7800]	[L1: 18.5094]	96.8+0.1s
+[4000/7800]	[L1: 18.5208]	96.8+0.1s
+[4800/7800]	[L1: 18.5517]	96.8+0.1s
+[5600/7800]	[L1: 18.5147]	96.8+0.1s
+[6400/7800]	[L1: 18.4530]	96.8+0.1s
+[7200/7800]	[L1: 18.3855]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.212 (Best: 21.442 @epoch 28)
+Forward: 9.29s
+
+Saving...
+Total: 10.52s
+
+[Epoch 33]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.5496]	96.8+0.3s
+[1600/7800]	[L1: 18.6964]	96.8+0.1s
+[2400/7800]	[L1: 18.5384]	96.8+0.1s
+[3200/7800]	[L1: 18.1826]	96.8+0.1s
+[4000/7800]	[L1: 18.3242]	96.8+0.1s
+[4800/7800]	[L1: 18.3551]	96.8+0.1s
+[5600/7800]	[L1: 18.3558]	96.8+0.1s
+[6400/7800]	[L1: 18.3192]	96.8+0.1s
+[7200/7800]	[L1: 18.3736]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.707 (Best: 21.442 @epoch 28)
+Forward: 9.26s
+
+Saving...
+Total: 10.46s
+
+[Epoch 34]	Learning rate: 1.00e-4
+[800/7800]	[L1: 19.1160]	96.9+0.4s
+[1600/7800]	[L1: 18.4238]	97.4+0.1s
+[2400/7800]	[L1: 18.1566]	96.9+0.1s
+[3200/7800]	[L1: 18.1759]	97.6+0.1s
+[4000/7800]	[L1: 18.2243]	96.9+0.1s
+[4800/7800]	[L1: 18.2379]	96.8+0.1s
+[5600/7800]	[L1: 18.2975]	96.9+0.1s
+[6400/7800]	[L1: 18.3151]	96.9+0.1s
+[7200/7800]	[L1: 18.4164]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.745 (Best: 21.442 @epoch 28)
+Forward: 9.33s
+
+Saving...
+Total: 10.59s
+
+[Epoch 35]	Learning rate: 1.00e-4
+[800/7800]	[L1: 19.1775]	97.0+0.3s
+[1600/7800]	[L1: 18.4639]	97.0+0.1s
+[2400/7800]	[L1: 18.3004]	96.9+0.1s
+[3200/7800]	[L1: 18.2988]	97.0+0.1s
+[4000/7800]	[L1: 18.2925]	97.0+0.1s
+[4800/7800]	[L1: 18.3717]	97.0+0.1s
+[5600/7800]	[L1: 18.3665]	97.0+0.1s
+[6400/7800]	[L1: 18.3990]	97.0+0.1s
+[7200/7800]	[L1: 18.3578]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.252 (Best: 21.442 @epoch 28)
+Forward: 9.24s
+
+Saving...
+Total: 10.44s
+
+[Epoch 36]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.1124]	96.9+0.3s
+[1600/7800]	[L1: 17.9048]	96.9+0.1s
+[2400/7800]	[L1: 17.9270]	96.9+0.1s
+[3200/7800]	[L1: 18.1157]	96.9+0.1s
+[4000/7800]	[L1: 18.0309]	96.9+0.1s
+[4800/7800]	[L1: 18.0006]	97.0+0.1s
+[5600/7800]	[L1: 18.0453]	96.9+0.1s
+[6400/7800]	[L1: 18.0473]	97.0+0.1s
+[7200/7800]	[L1: 18.0945]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.609 (Best: 21.442 @epoch 28)
+Forward: 9.29s
+
+Saving...
+Total: 10.39s
+
+[Epoch 37]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.8572]	97.0+0.4s
+[1600/7800]	[L1: 17.6630]	97.1+0.1s
+[2400/7800]	[L1: 17.8199]	97.0+0.1s
+[3200/7800]	[L1: 17.9354]	97.0+0.1s
+[4000/7800]	[L1: 17.9246]	96.9+0.1s
+[4800/7800]	[L1: 18.0193]	96.9+0.1s
+[5600/7800]	[L1: 17.9722]	97.0+0.1s
+[6400/7800]	[L1: 18.0200]	97.0+0.1s
+[7200/7800]	[L1: 17.9919]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.507 (Best: 21.442 @epoch 28)
+Forward: 9.24s
+
+Saving...
+Total: 10.44s
+
+[Epoch 38]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.5917]	97.0+0.4s
+[1600/7800]	[L1: 18.5507]	97.0+0.1s
+[2400/7800]	[L1: 18.3943]	96.9+0.1s
+[3200/7800]	[L1: 18.3646]	97.0+0.1s
+[4000/7800]	[L1: 18.3689]	96.9+0.1s
+[4800/7800]	[L1: 18.3466]	96.9+0.1s
+[5600/7800]	[L1: 18.3238]	96.9+0.1s
+[6400/7800]	[L1: 18.2170]	96.9+0.1s
+[7200/7800]	[L1: 18.1965]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.678 (Best: 21.442 @epoch 28)
+Forward: 9.23s
+
+Saving...
+Total: 10.47s
+
+[Epoch 39]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.1248]	97.0+0.4s
+[1600/7800]	[L1: 17.9448]	97.0+0.1s
+[2400/7800]	[L1: 17.8963]	96.9+0.1s
+[3200/7800]	[L1: 17.9279]	96.9+0.1s
+[4000/7800]	[L1: 18.0001]	96.9+0.1s
+[4800/7800]	[L1: 18.0674]	96.9+0.1s
+[5600/7800]	[L1: 18.1267]	97.0+0.1s
+[6400/7800]	[L1: 18.1005]	96.9+0.1s
+[7200/7800]	[L1: 18.1606]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.196 (Best: 21.442 @epoch 28)
+Forward: 9.28s
+
+Saving...
+Total: 10.46s
+
+[Epoch 40]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.3593]	97.1+0.3s
+[1600/7800]	[L1: 17.7457]	97.0+0.1s
+[2400/7800]	[L1: 18.0008]	96.9+0.1s
+[3200/7800]	[L1: 17.9991]	96.8+0.1s
+[4000/7800]	[L1: 18.0242]	96.8+0.1s
+[4800/7800]	[L1: 17.9843]	96.9+0.1s
+[5600/7800]	[L1: 18.0195]	96.8+0.1s
+[6400/7800]	[L1: 18.0836]	96.9+0.1s
+[7200/7800]	[L1: 18.1466]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.159 (Best: 21.442 @epoch 28)
+Forward: 9.26s
+
+Saving...
+Total: 10.15s
+
+[Epoch 41]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.5587]	96.9+0.3s
+[1600/7800]	[L1: 17.4699]	96.9+0.1s
+[2400/7800]	[L1: 17.5925]	96.9+0.1s
+[3200/7800]	[L1: 17.5597]	96.9+0.1s
+[4000/7800]	[L1: 17.6713]	96.9+0.1s
+[4800/7800]	[L1: 17.6254]	96.9+0.1s
+[5600/7800]	[L1: 17.6748]	96.9+0.1s
+[6400/7800]	[L1: 17.7391]	96.9+0.1s
+[7200/7800]	[L1: 17.6927]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.480 (Best: 21.442 @epoch 28)
+Forward: 9.29s
+
+Saving...
+Total: 10.62s
+
+[Epoch 42]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.8291]	96.9+0.3s
+[1600/7800]	[L1: 17.3956]	96.9+0.1s
+[2400/7800]	[L1: 17.4985]	96.9+0.1s
+[3200/7800]	[L1: 17.7490]	96.9+0.1s
+[4000/7800]	[L1: 17.8922]	96.9+0.1s
+[4800/7800]	[L1: 17.8203]	97.0+0.1s
+[5600/7800]	[L1: 17.9644]	97.0+0.1s
+[6400/7800]	[L1: 17.9408]	97.0+0.1s
+[7200/7800]	[L1: 18.0050]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.827 (Best: 21.442 @epoch 28)
+Forward: 9.25s
+
+Saving...
+Total: 10.45s
+
+[Epoch 43]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.5221]	96.9+0.4s
+[1600/7800]	[L1: 18.1187]	97.0+0.1s
+[2400/7800]	[L1: 18.2147]	97.0+0.1s
+[3200/7800]	[L1: 18.1449]	96.9+0.1s
+[4000/7800]	[L1: 17.9820]	96.9+0.1s
+[4800/7800]	[L1: 17.9539]	97.0+0.1s
+[5600/7800]	[L1: 17.8670]	97.0+0.1s
+[6400/7800]	[L1: 17.9012]	97.0+0.1s
+[7200/7800]	[L1: 17.8964]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.980 (Best: 21.442 @epoch 28)
+Forward: 9.26s
+
+Saving...
+Total: 10.51s
+
+[Epoch 44]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.9912]	96.9+0.3s
+[1600/7800]	[L1: 18.1725]	96.9+0.1s
+[2400/7800]	[L1: 18.0165]	96.9+0.1s
+[3200/7800]	[L1: 17.9460]	96.9+0.1s
+[4000/7800]	[L1: 17.9805]	96.8+0.1s
+[4800/7800]	[L1: 17.9941]	96.8+0.1s
+[5600/7800]	[L1: 17.9700]	96.8+0.1s
+[6400/7800]	[L1: 17.8895]	96.9+0.1s
+[7200/7800]	[L1: 17.8633]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.099 (Best: 21.442 @epoch 28)
+Forward: 9.22s
+
+Saving...
+Total: 10.45s
+
+[Epoch 45]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.3238]	96.9+0.3s
+[1600/7800]	[L1: 17.9996]	97.0+0.1s
+[2400/7800]	[L1: 18.2383]	97.0+0.1s
+[3200/7800]	[L1: 18.0970]	96.9+0.1s
+[4000/7800]	[L1: 17.9812]	96.9+0.1s
+[4800/7800]	[L1: 18.0511]	96.9+0.1s
+[5600/7800]	[L1: 18.0575]	96.9+0.1s
+[6400/7800]	[L1: 18.0415]	97.0+0.1s
+[7200/7800]	[L1: 17.9277]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.636 (Best: 21.442 @epoch 28)
+Forward: 9.28s
+
+Saving...
+Total: 10.54s
+
+[Epoch 46]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.6119]	97.0+0.3s
+[1600/7800]	[L1: 18.2395]	97.0+0.1s
+[2400/7800]	[L1: 17.9296]	97.0+0.1s
+[3200/7800]	[L1: 17.7930]	97.0+0.1s
+[4000/7800]	[L1: 17.7709]	97.0+0.1s
+[4800/7800]	[L1: 17.7990]	97.0+0.1s
+[5600/7800]	[L1: 17.8660]	97.0+0.1s
+[6400/7800]	[L1: 17.9290]	96.9+0.1s
+[7200/7800]	[L1: 17.8696]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.682 (Best: 21.442 @epoch 28)
+Forward: 9.26s
+
+Saving...
+Total: 10.49s
+
+[Epoch 47]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.0695]	97.0+0.3s
+[1600/7800]	[L1: 17.7405]	97.0+0.1s
+[2400/7800]	[L1: 17.5344]	97.0+0.1s
+[3200/7800]	[L1: 17.7479]	97.0+0.1s
+[4000/7800]	[L1: 17.7220]	97.0+0.1s
+[4800/7800]	[L1: 17.7554]	96.9+0.1s
+[5600/7800]	[L1: 17.6291]	96.9+0.1s
+[6400/7800]	[L1: 17.7098]	96.9+0.1s
+[7200/7800]	[L1: 17.7704]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.162 (Best: 21.442 @epoch 28)
+Forward: 9.25s
+
+Saving...
+Total: 10.09s
+
+[Epoch 48]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.4782]	97.0+0.4s
+[1600/7800]	[L1: 17.7335]	97.0+0.1s
+[2400/7800]	[L1: 17.7478]	97.0+0.1s
+[3200/7800]	[L1: 17.4913]	97.0+0.1s
+[4000/7800]	[L1: 17.5686]	96.9+0.1s
+[4800/7800]	[L1: 17.5850]	97.0+0.1s
+[5600/7800]	[L1: 17.5881]	96.9+0.1s
+[6400/7800]	[L1: 17.6484]	97.0+0.1s
+[7200/7800]	[L1: 17.7169]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.085 (Best: 21.442 @epoch 28)
+Forward: 9.29s
+
+Saving...
+Total: 10.53s
+
+[Epoch 49]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.6724]	96.9+0.4s
+[1600/7800]	[L1: 17.7585]	97.0+0.1s
+[2400/7800]	[L1: 17.9008]	96.9+0.1s
+[3200/7800]	[L1: 17.9999]	96.9+0.1s
+[4000/7800]	[L1: 17.8836]	96.9+0.1s
+[4800/7800]	[L1: 17.8256]	96.9+0.1s
+[5600/7800]	[L1: 17.9386]	96.9+0.1s
+[6400/7800]	[L1: 17.8519]	96.9+0.1s
+[7200/7800]	[L1: 17.7617]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.265 (Best: 21.442 @epoch 28)
+Forward: 9.27s
+
+Saving...
+Total: 10.53s
+
+[Epoch 50]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.5142]	96.8+0.4s
+[1600/7800]	[L1: 17.7110]	97.0+0.1s
+[2400/7800]	[L1: 17.4749]	96.9+0.1s
+[3200/7800]	[L1: 17.5619]	96.9+0.1s
+[4000/7800]	[L1: 17.6098]	96.9+0.1s
+[4800/7800]	[L1: 17.6114]	96.9+0.1s
+[5600/7800]	[L1: 17.7273]	97.0+0.1s
+[6400/7800]	[L1: 17.7515]	96.9+0.1s
+[7200/7800]	[L1: 17.7755]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.638 (Best: 21.442 @epoch 28)
+Forward: 9.27s
+
+Saving...
+Total: 10.76s
+
+[Epoch 51]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.0421]	96.9+0.4s
+[1600/7800]	[L1: 18.2356]	97.0+0.1s
+[2400/7800]	[L1: 18.0645]	96.9+0.1s
+[3200/7800]	[L1: 18.0439]	96.9+0.1s
+[4000/7800]	[L1: 17.9461]	96.9+0.1s
+[4800/7800]	[L1: 17.9225]	96.9+0.1s
+[5600/7800]	[L1: 17.8247]	96.9+0.1s
+[6400/7800]	[L1: 17.7314]	96.9+0.1s
+[7200/7800]	[L1: 17.7295]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.133 (Best: 21.442 @epoch 28)
+Forward: 9.27s
+
+Saving...
+Total: 10.52s
+
+[Epoch 52]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.2730]	97.0+0.4s
+[1600/7800]	[L1: 17.1733]	96.9+0.1s
+[2400/7800]	[L1: 17.4026]	96.9+0.1s
+[3200/7800]	[L1: 17.3783]	96.9+0.1s
+[4000/7800]	[L1: 17.5450]	97.0+0.1s
+[4800/7800]	[L1: 17.5507]	96.9+0.1s
+[5600/7800]	[L1: 17.5387]	97.0+0.1s
+[6400/7800]	[L1: 17.6185]	97.0+0.1s
+[7200/7800]	[L1: 17.5771]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.863 (Best: 21.863 @epoch 52)
+Forward: 9.27s
+
+Saving...
+Total: 10.61s
+
+[Epoch 53]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.6162]	97.0+0.3s
+[1600/7800]	[L1: 17.8626]	96.9+0.1s
+[2400/7800]	[L1: 17.7283]	96.9+0.1s
+[3200/7800]	[L1: 17.5996]	96.9+0.1s
+[4000/7800]	[L1: 17.6183]	96.9+0.1s
+[4800/7800]	[L1: 17.6095]	96.9+0.1s
+[5600/7800]	[L1: 17.6663]	97.0+0.1s
+[6400/7800]	[L1: 17.6096]	96.9+0.1s
+[7200/7800]	[L1: 17.5637]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.814 (Best: 21.863 @epoch 52)
+Forward: 9.28s
+
+Saving...
+Total: 10.55s
+
+[Epoch 54]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.6087]	97.0+0.3s
+[1600/7800]	[L1: 17.4811]	96.9+0.1s
+[2400/7800]	[L1: 17.3212]	96.9+0.1s
+[3200/7800]	[L1: 17.2179]	96.9+0.1s
+[4000/7800]	[L1: 17.3631]	96.9+0.1s
+[4800/7800]	[L1: 17.3477]	97.0+0.1s
+[5600/7800]	[L1: 17.3757]	96.9+0.1s
+[6400/7800]	[L1: 17.3420]	96.9+0.1s
+[7200/7800]	[L1: 17.3990]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.681 (Best: 21.863 @epoch 52)
+Forward: 9.28s
+
+Saving...
+Total: 10.48s
+
+[Epoch 55]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.9058]	97.1+0.3s
+[1600/7800]	[L1: 17.5649]	97.0+0.1s
+[2400/7800]	[L1: 17.7256]	97.0+0.1s
+[3200/7800]	[L1: 17.6686]	97.0+0.1s
+[4000/7800]	[L1: 17.7096]	97.0+0.1s
+[4800/7800]	[L1: 17.6625]	97.0+0.1s
+[5600/7800]	[L1: 17.5928]	96.9+0.1s
+[6400/7800]	[L1: 17.5531]	97.0+0.1s
+[7200/7800]	[L1: 17.5175]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.113 (Best: 21.863 @epoch 52)
+Forward: 9.32s
+
+Saving...
+Total: 10.58s
+
+[Epoch 56]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.9947]	97.0+0.3s
+[1600/7800]	[L1: 17.9723]	96.9+0.1s
+[2400/7800]	[L1: 17.5523]	97.0+0.1s
+[3200/7800]	[L1: 17.5966]	96.9+0.1s
+[4000/7800]	[L1: 17.5221]	96.9+0.1s
+[4800/7800]	[L1: 17.5049]	96.9+0.1s
+[5600/7800]	[L1: 17.5078]	96.9+0.1s
+[6400/7800]	[L1: 17.5557]	96.9+0.1s
+[7200/7800]	[L1: 17.5680]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.668 (Best: 21.863 @epoch 52)
+Forward: 9.31s
+
+Saving...
+Total: 10.63s
+
+[Epoch 57]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.9557]	97.0+0.4s
+[1600/7800]	[L1: 17.9301]	96.9+0.1s
+[2400/7800]	[L1: 17.8104]	96.9+0.1s
+[3200/7800]	[L1: 17.6898]	96.9+0.1s
+[4000/7800]	[L1: 17.5362]	96.9+0.1s
+[4800/7800]	[L1: 17.4873]	96.8+0.1s
+[5600/7800]	[L1: 17.4756]	96.9+0.1s
+[6400/7800]	[L1: 17.5084]	96.9+0.1s
+[7200/7800]	[L1: 17.5368]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.893 (Best: 21.863 @epoch 52)
+Forward: 9.30s
+
+Saving...
+Total: 10.58s
+
+[Epoch 58]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.3511]	97.1+0.3s
+[1600/7800]	[L1: 17.2361]	97.0+0.1s
+[2400/7800]	[L1: 17.1314]	96.9+0.1s
+[3200/7800]	[L1: 17.2798]	96.9+0.1s
+[4000/7800]	[L1: 17.3524]	96.9+0.1s
+[4800/7800]	[L1: 17.4852]	96.8+0.1s
+[5600/7800]	[L1: 17.5094]	96.9+0.1s
+[6400/7800]	[L1: 17.5269]	96.9+0.1s
+[7200/7800]	[L1: 17.5319]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.404 (Best: 21.863 @epoch 52)
+Forward: 9.25s
+
+Saving...
+Total: 10.49s
+
+[Epoch 59]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.8985]	96.9+0.4s
+[1600/7800]	[L1: 17.6800]	96.9+0.1s
+[2400/7800]	[L1: 17.6372]	97.0+0.1s
+[3200/7800]	[L1: 17.6848]	97.0+0.1s
+[4000/7800]	[L1: 17.5811]	96.9+0.1s
+[4800/7800]	[L1: 17.5598]	96.9+0.1s
+[5600/7800]	[L1: 17.6340]	96.9+0.1s
+[6400/7800]	[L1: 17.6433]	96.9+0.1s
+[7200/7800]	[L1: 17.5838]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.521 (Best: 21.863 @epoch 52)
+Forward: 9.30s
+
+Saving...
+Total: 10.61s
+
+[Epoch 60]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.6444]	96.9+0.4s
+[1600/7800]	[L1: 17.8123]	96.9+0.1s
+[2400/7800]	[L1: 17.7381]	96.9+0.1s
+[3200/7800]	[L1: 17.6628]	96.9+0.1s
+[4000/7800]	[L1: 17.5694]	96.9+0.1s
+[4800/7800]	[L1: 17.5298]	96.9+0.1s
+[5600/7800]	[L1: 17.5451]	96.9+0.1s
+[6400/7800]	[L1: 17.4399]	96.9+0.1s
+[7200/7800]	[L1: 17.4505]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.431 (Best: 21.863 @epoch 52)
+Forward: 9.25s
+
+Saving...
+Total: 10.60s
+
+[Epoch 61]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.8826]	96.9+0.3s
+[1600/7800]	[L1: 17.4150]	96.9+0.1s
+[2400/7800]	[L1: 17.5376]	96.9+0.1s
+[3200/7800]	[L1: 17.4287]	96.9+0.1s
+[4000/7800]	[L1: 17.5420]	96.9+0.1s
+[4800/7800]	[L1: 17.5485]	96.9+0.1s
+[5600/7800]	[L1: 17.4280]	96.9+0.1s
+[6400/7800]	[L1: 17.3553]	96.9+0.1s
+[7200/7800]	[L1: 17.3950]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.143 (Best: 21.863 @epoch 52)
+Forward: 9.34s
+
+Saving...
+Total: 10.62s
+
+[Epoch 62]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.2661]	97.0+0.3s
+[1600/7800]	[L1: 17.1743]	96.9+0.1s
+[2400/7800]	[L1: 17.0421]	97.0+0.1s
+[3200/7800]	[L1: 17.1946]	96.9+0.1s
+[4000/7800]	[L1: 17.2043]	97.0+0.1s
+[4800/7800]	[L1: 17.3318]	97.0+0.1s
+[5600/7800]	[L1: 17.2478]	97.0+0.1s
+[6400/7800]	[L1: 17.2435]	97.0+0.1s
+[7200/7800]	[L1: 17.2716]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.540 (Best: 21.863 @epoch 52)
+Forward: 9.29s
+
+Saving...
+Total: 10.58s
+
+[Epoch 63]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.4310]	96.9+0.3s
+[1600/7800]	[L1: 17.5853]	96.9+0.1s
+[2400/7800]	[L1: 17.5333]	96.9+0.1s
+[3200/7800]	[L1: 17.5888]	96.9+0.1s
+[4000/7800]	[L1: 17.5755]	96.9+0.1s
+[4800/7800]	[L1: 17.5312]	96.9+0.1s
+[5600/7800]	[L1: 17.5927]	97.0+0.1s
+[6400/7800]	[L1: 17.5719]	97.0+0.1s
+[7200/7800]	[L1: 17.5427]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.139 (Best: 21.863 @epoch 52)
+Forward: 9.28s
+
+Saving...
+Total: 10.59s
+
+[Epoch 64]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.7562]	97.0+0.3s
+[1600/7800]	[L1: 17.2321]	97.0+0.1s
+[2400/7800]	[L1: 17.5016]	97.1+0.1s
+[3200/7800]	[L1: 17.4901]	97.1+0.1s
+[4000/7800]	[L1: 17.4838]	97.0+0.1s
+[4800/7800]	[L1: 17.5835]	97.0+0.1s
+[5600/7800]	[L1: 17.6216]	97.0+0.1s
+[6400/7800]	[L1: 17.5945]	97.0+0.1s
+[7200/7800]	[L1: 17.6195]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.168 (Best: 21.863 @epoch 52)
+Forward: 9.30s
+
+Saving...
+Total: 10.66s
+
+[Epoch 65]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.7605]	96.9+0.4s
+[1600/7800]	[L1: 17.0846]	97.0+0.1s
+[2400/7800]	[L1: 17.2160]	96.9+0.1s
+[3200/7800]	[L1: 17.1491]	97.0+0.1s
+[4000/7800]	[L1: 17.3257]	96.9+0.1s
+[4800/7800]	[L1: 17.2913]	96.9+0.1s
+[5600/7800]	[L1: 17.2848]	96.9+0.1s
+[6400/7800]	[L1: 17.1724]	96.9+0.1s
+[7200/7800]	[L1: 17.1757]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.117 (Best: 21.863 @epoch 52)
+Forward: 9.28s
+
+Saving...
+Total: 11.01s
+
+[Epoch 66]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.9377]	97.0+0.3s
+[1600/7800]	[L1: 17.3942]	97.0+0.1s
+[2400/7800]	[L1: 17.3608]	97.0+0.1s
+[3200/7800]	[L1: 17.4567]	96.9+0.1s
+[4000/7800]	[L1: 17.3566]	96.9+0.1s
+[4800/7800]	[L1: 17.3467]	97.0+0.1s
+[5600/7800]	[L1: 17.3873]	96.9+0.1s
+[6400/7800]	[L1: 17.3034]	97.0+0.1s
+[7200/7800]	[L1: 17.2115]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.819 (Best: 21.863 @epoch 52)
+Forward: 9.31s
+
+Saving...
+Total: 10.60s
+
+[Epoch 67]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.7715]	97.0+0.3s
+[1600/7800]	[L1: 17.4609]	96.9+0.1s
+[2400/7800]	[L1: 17.4646]	96.9+0.1s
+[3200/7800]	[L1: 17.3041]	97.0+0.1s
+[4000/7800]	[L1: 17.3688]	97.0+0.1s
+[4800/7800]	[L1: 17.2681]	97.0+0.1s
+[5600/7800]	[L1: 17.2864]	96.9+0.1s
+[6400/7800]	[L1: 17.2337]	96.9+0.1s
+[7200/7800]	[L1: 17.1739]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.443 (Best: 21.863 @epoch 52)
+Forward: 9.29s
+
+Saving...
+Total: 10.54s
+
+[Epoch 68]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.4214]	97.0+0.3s
+[1600/7800]	[L1: 17.3402]	96.9+0.1s
+[2400/7800]	[L1: 17.2777]	96.9+0.1s
+[3200/7800]	[L1: 17.3475]	96.9+0.1s
+[4000/7800]	[L1: 17.3637]	96.9+0.1s
+[4800/7800]	[L1: 17.3886]	96.9+0.1s
+[5600/7800]	[L1: 17.3826]	96.9+0.1s
+[6400/7800]	[L1: 17.3292]	96.9+0.1s
+[7200/7800]	[L1: 17.3143]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.379 (Best: 21.863 @epoch 52)
+Forward: 9.23s
+
+Saving...
+Total: 10.41s
+
+[Epoch 69]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.2548]	97.0+0.3s
+[1600/7800]	[L1: 17.0978]	97.0+0.1s
+[2400/7800]	[L1: 16.8852]	96.9+0.1s
+[3200/7800]	[L1: 17.0128]	96.9+0.1s
+[4000/7800]	[L1: 17.0823]	96.9+0.1s
+[4800/7800]	[L1: 17.1121]	96.9+0.1s
+[5600/7800]	[L1: 17.1800]	96.9+0.1s
+[6400/7800]	[L1: 17.1686]	96.9+0.1s
+[7200/7800]	[L1: 17.1900]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.333 (Best: 21.863 @epoch 52)
+Forward: 9.29s
+
+Saving...
+Total: 10.60s
+
+[Epoch 70]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.3667]	96.9+0.4s
+[1600/7800]	[L1: 16.9761]	96.9+0.1s
+[2400/7800]	[L1: 17.1906]	96.9+0.1s
+[3200/7800]	[L1: 17.4158]	96.9+0.1s
+[4000/7800]	[L1: 17.2340]	96.9+0.1s
+[4800/7800]	[L1: 17.1073]	96.9+0.1s
+[5600/7800]	[L1: 17.1682]	96.9+0.1s
+[6400/7800]	[L1: 17.1518]	96.9+0.1s
+[7200/7800]	[L1: 17.2504]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.074 (Best: 22.074 @epoch 70)
+Forward: 9.30s
+
+Saving...
+Total: 10.71s
+
+[Epoch 71]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.9449]	97.0+0.3s
+[1600/7800]	[L1: 17.1321]	97.0+0.1s
+[2400/7800]	[L1: 17.2811]	97.0+0.1s
+[3200/7800]	[L1: 17.2251]	97.0+0.1s
+[4000/7800]	[L1: 17.0855]	97.1+0.1s
+[4800/7800]	[L1: 17.0980]	97.0+0.1s
+[5600/7800]	[L1: 17.1464]	97.0+0.1s
+[6400/7800]	[L1: 17.1126]	97.0+0.1s
+[7200/7800]	[L1: 17.1240]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.980 (Best: 22.074 @epoch 70)
+Forward: 9.29s
+
+Saving...
+Total: 10.57s
+
+[Epoch 72]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.4459]	96.9+0.3s
+[1600/7800]	[L1: 17.1347]	96.9+0.1s
+[2400/7800]	[L1: 17.2744]	96.9+0.1s
+[3200/7800]	[L1: 17.1597]	96.9+0.1s
+[4000/7800]	[L1: 17.2435]	96.9+0.1s
+[4800/7800]	[L1: 17.2218]	96.9+0.1s
+[5600/7800]	[L1: 17.3002]	96.9+0.1s
+[6400/7800]	[L1: 17.2839]	96.9+0.1s
+[7200/7800]	[L1: 17.2519]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.137 (Best: 22.074 @epoch 70)
+Forward: 9.26s
+
+Saving...
+Total: 10.64s
+
+[Epoch 73]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.9941]	96.9+0.3s
+[1600/7800]	[L1: 16.9581]	96.9+0.1s
+[2400/7800]	[L1: 16.8659]	96.9+0.1s
+[3200/7800]	[L1: 16.8174]	96.9+0.1s
+[4000/7800]	[L1: 16.8412]	97.0+0.1s
+[4800/7800]	[L1: 16.8146]	96.9+0.1s
+[5600/7800]	[L1: 16.8763]	97.0+0.1s
+[6400/7800]	[L1: 16.9153]	96.9+0.1s
+[7200/7800]	[L1: 16.9246]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.055 (Best: 22.074 @epoch 70)
+Forward: 9.28s
+
+Saving...
+Total: 10.63s
+
+[Epoch 74]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.4660]	96.9+0.3s
+[1600/7800]	[L1: 17.5752]	96.8+0.1s
+[2400/7800]	[L1: 17.4255]	96.8+0.1s
+[3200/7800]	[L1: 17.2600]	97.0+0.1s
+[4000/7800]	[L1: 17.1332]	96.9+0.1s
+[4800/7800]	[L1: 17.2570]	96.9+0.1s
+[5600/7800]	[L1: 17.2231]	96.9+0.1s
+[6400/7800]	[L1: 17.2087]	96.9+0.1s
+[7200/7800]	[L1: 17.2816]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.239 (Best: 22.074 @epoch 70)
+Forward: 9.30s
+
+Saving...
+Total: 10.60s
+
+[Epoch 75]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.0730]	97.0+0.3s
+[1600/7800]	[L1: 16.8971]	96.9+0.1s
+[2400/7800]	[L1: 16.8044]	96.9+0.1s
+[3200/7800]	[L1: 16.9043]	96.9+0.1s
+[4000/7800]	[L1: 16.8111]	96.9+0.1s
+[4800/7800]	[L1: 16.8291]	96.9+0.1s
+[5600/7800]	[L1: 16.9087]	96.9+0.1s
+[6400/7800]	[L1: 16.8926]	96.9+0.1s
+[7200/7800]	[L1: 16.8485]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.498 (Best: 22.074 @epoch 70)
+Forward: 9.22s
+
+Saving...
+Total: 10.48s
+
+[Epoch 76]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.8258]	96.9+0.4s
+[1600/7800]	[L1: 16.7467]	96.8+0.1s
+[2400/7800]	[L1: 16.9734]	96.9+0.1s
+[3200/7800]	[L1: 16.9881]	96.8+0.1s
+[4000/7800]	[L1: 17.0259]	96.8+0.1s
+[4800/7800]	[L1: 17.0551]	96.8+0.1s
+[5600/7800]	[L1: 17.0334]	96.9+0.1s
+[6400/7800]	[L1: 17.0961]	96.9+0.1s
+[7200/7800]	[L1: 17.0549]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.238 (Best: 22.074 @epoch 70)
+Forward: 9.29s
+
+Saving...
+Total: 10.64s
+
+[Epoch 77]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.5099]	96.9+0.3s
+[1600/7800]	[L1: 17.6599]	96.9+0.1s
+[2400/7800]	[L1: 17.5460]	96.9+0.1s
+[3200/7800]	[L1: 17.7958]	96.9+0.1s
+[4000/7800]	[L1: 17.8647]	96.9+0.1s
+[4800/7800]	[L1: 17.6751]	96.9+0.1s
+[5600/7800]	[L1: 17.5959]	96.8+0.1s
+[6400/7800]	[L1: 17.4849]	96.9+0.1s
+[7200/7800]	[L1: 17.3293]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.319 (Best: 22.319 @epoch 77)
+Forward: 9.27s
+
+Saving...
+Total: 10.68s
+
+[Epoch 78]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.4903]	97.0+0.3s
+[1600/7800]	[L1: 16.5605]	96.9+0.1s
+[2400/7800]	[L1: 16.8206]	96.9+0.1s
+[3200/7800]	[L1: 16.9739]	96.9+0.1s
+[4000/7800]	[L1: 17.1221]	96.9+0.1s
+[4800/7800]	[L1: 17.0355]	96.9+0.1s
+[5600/7800]	[L1: 16.9787]	97.0+0.1s
+[6400/7800]	[L1: 16.9165]	96.9+0.1s
+[7200/7800]	[L1: 16.9592]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.021 (Best: 22.319 @epoch 77)
+Forward: 9.33s
+
+Saving...
+Total: 10.64s
+
+[Epoch 79]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.5232]	97.0+0.3s
+[1600/7800]	[L1: 17.2186]	96.9+0.1s
+[2400/7800]	[L1: 17.1338]	96.9+0.1s
+[3200/7800]	[L1: 16.8586]	96.9+0.1s
+[4000/7800]	[L1: 16.9182]	96.9+0.1s
+[4800/7800]	[L1: 16.8827]	96.9+0.1s
+[5600/7800]	[L1: 16.8716]	96.8+0.1s
+[6400/7800]	[L1: 16.9155]	96.8+0.1s
+[7200/7800]	[L1: 16.9595]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.081 (Best: 22.319 @epoch 77)
+Forward: 9.27s
+
+Saving...
+Total: 10.62s
+
+[Epoch 80]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.4846]	96.8+0.4s
+[1600/7800]	[L1: 17.1324]	96.8+0.1s
+[2400/7800]	[L1: 16.7102]	96.8+0.1s
+[3200/7800]	[L1: 16.7432]	96.8+0.1s
+[4000/7800]	[L1: 16.9367]	96.8+0.1s
+[4800/7800]	[L1: 16.9414]	96.8+0.1s
+[5600/7800]	[L1: 16.8869]	96.9+0.1s
+[6400/7800]	[L1: 16.8858]	96.9+0.1s
+[7200/7800]	[L1: 16.9051]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.524 (Best: 22.319 @epoch 77)
+Forward: 9.37s
+
+Saving...
+Total: 10.73s
+
+[Epoch 81]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.6875]	97.0+0.4s
+[1600/7800]	[L1: 16.8879]	97.0+0.1s
+[2400/7800]	[L1: 16.9160]	97.0+0.1s
+[3200/7800]	[L1: 17.0516]	96.9+0.1s
+[4000/7800]	[L1: 17.0511]	96.9+0.1s
+[4800/7800]	[L1: 17.1370]	96.9+0.1s
+[5600/7800]	[L1: 17.1232]	96.9+0.1s
+[6400/7800]	[L1: 17.0306]	96.9+0.1s
+[7200/7800]	[L1: 16.9502]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.301 (Best: 22.319 @epoch 77)
+Forward: 9.33s
+
+Saving...
+Total: 10.66s
+
+[Epoch 82]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.0260]	96.9+0.3s
+[1600/7800]	[L1: 16.4455]	97.0+0.1s
+[2400/7800]	[L1: 16.5791]	96.9+0.1s
+[3200/7800]	[L1: 16.7399]	96.9+0.1s
+[4000/7800]	[L1: 16.7847]	97.0+0.1s
+[4800/7800]	[L1: 16.9175]	96.9+0.1s
+[5600/7800]	[L1: 16.8762]	96.9+0.1s
+[6400/7800]	[L1: 16.9423]	96.9+0.1s
+[7200/7800]	[L1: 17.0150]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.493 (Best: 22.319 @epoch 77)
+Forward: 9.26s
+
+Saving...
+Total: 10.58s
+
+[Epoch 83]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.5293]	96.9+0.3s
+[1600/7800]	[L1: 17.3964]	96.9+0.1s
+[2400/7800]	[L1: 17.2967]	96.9+0.1s
+[3200/7800]	[L1: 17.1970]	96.9+0.1s
+[4000/7800]	[L1: 17.1837]	96.9+0.1s
+[4800/7800]	[L1: 17.2325]	96.9+0.1s
+[5600/7800]	[L1: 17.2537]	96.9+0.1s
+[6400/7800]	[L1: 17.2645]	96.9+0.1s
+[7200/7800]	[L1: 17.2390]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.971 (Best: 22.319 @epoch 77)
+Forward: 9.27s
+
+Saving...
+Total: 10.78s
+
+[Epoch 84]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.7751]	97.0+0.3s
+[1600/7800]	[L1: 16.7911]	97.0+0.1s
+[2400/7800]	[L1: 16.7911]	97.0+0.1s
+[3200/7800]	[L1: 16.6921]	97.0+0.1s
+[4000/7800]	[L1: 16.8320]	97.0+0.1s
+[4800/7800]	[L1: 16.7613]	96.9+0.1s
+[5600/7800]	[L1: 16.7616]	96.9+0.1s
+[6400/7800]	[L1: 16.8167]	96.9+0.1s
+[7200/7800]	[L1: 16.8610]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.609 (Best: 22.319 @epoch 77)
+Forward: 9.31s
+
+Saving...
+Total: 10.67s
+
+[Epoch 85]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.4228]	96.9+0.3s
+[1600/7800]	[L1: 16.9476]	96.9+0.1s
+[2400/7800]	[L1: 16.7637]	96.9+0.1s
+[3200/7800]	[L1: 17.0074]	96.9+0.1s
+[4000/7800]	[L1: 16.9379]	97.0+0.1s
+[4800/7800]	[L1: 16.8780]	97.0+0.1s
+[5600/7800]	[L1: 16.8791]	97.0+0.1s
+[6400/7800]	[L1: 16.8226]	96.9+0.1s
+[7200/7800]	[L1: 16.8120]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.302 (Best: 22.319 @epoch 77)
+Forward: 9.26s
+
+Saving...
+Total: 10.57s
+
+[Epoch 86]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.9824]	97.0+0.4s
+[1600/7800]	[L1: 16.8641]	96.9+0.1s
+[2400/7800]	[L1: 16.9146]	96.8+0.1s
+[3200/7800]	[L1: 16.8049]	96.9+0.1s
+[4000/7800]	[L1: 16.7220]	96.9+0.1s
+[4800/7800]	[L1: 16.6687]	96.9+0.1s
+[5600/7800]	[L1: 16.7828]	96.8+0.1s
+[6400/7800]	[L1: 16.8478]	96.8+0.1s
+[7200/7800]	[L1: 16.8722]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.614 (Best: 22.319 @epoch 77)
+Forward: 9.32s
+
+Saving...
+Total: 10.59s
+
+[Epoch 87]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.5544]	97.0+0.4s
+[1600/7800]	[L1: 16.3867]	96.9+0.1s
+[2400/7800]	[L1: 16.5265]	96.9+0.1s
+[3200/7800]	[L1: 16.6910]	96.9+0.1s
+[4000/7800]	[L1: 16.8042]	96.9+0.1s
+[4800/7800]	[L1: 16.8203]	96.9+0.1s
+[5600/7800]	[L1: 16.8765]	96.9+0.1s
+[6400/7800]	[L1: 16.8701]	96.9+0.1s
+[7200/7800]	[L1: 16.8411]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.768 (Best: 22.319 @epoch 77)
+Forward: 9.27s
+
+Saving...
+Total: 10.55s
+
+[Epoch 88]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.7812]	96.9+0.3s
+[1600/7800]	[L1: 17.1473]	96.9+0.1s
+[2400/7800]	[L1: 16.8865]	96.9+0.1s
+[3200/7800]	[L1: 16.8258]	96.9+0.1s
+[4000/7800]	[L1: 16.7949]	96.9+0.1s
+[4800/7800]	[L1: 16.7874]	96.9+0.1s
+[5600/7800]	[L1: 16.8374]	96.8+0.1s
+[6400/7800]	[L1: 16.8870]	96.9+0.1s
+[7200/7800]	[L1: 16.8630]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.898 (Best: 22.319 @epoch 77)
+Forward: 9.29s
+
+Saving...
+Total: 10.59s
+
+[Epoch 89]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.4090]	96.8+0.3s
+[1600/7800]	[L1: 17.1890]	96.8+0.1s
+[2400/7800]	[L1: 17.0294]	96.9+0.1s
+[3200/7800]	[L1: 17.1109]	96.9+0.1s
+[4000/7800]	[L1: 17.0088]	96.8+0.1s
+[4800/7800]	[L1: 16.9651]	96.8+0.1s
+[5600/7800]	[L1: 16.9109]	96.8+0.1s
+[6400/7800]	[L1: 16.9150]	96.8+0.1s
+[7200/7800]	[L1: 16.9103]	96.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.369 (Best: 22.319 @epoch 77)
+Forward: 9.31s
+
+Saving...
+Total: 10.65s
+
+[Epoch 90]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.0572]	97.0+0.3s
+[1600/7800]	[L1: 16.9696]	96.9+0.1s
+[2400/7800]	[L1: 17.0632]	96.9+0.1s
+[3200/7800]	[L1: 16.9276]	96.9+0.1s
+[4000/7800]	[L1: 16.8116]	96.9+0.1s
+[4800/7800]	[L1: 16.7226]	96.8+0.1s
+[5600/7800]	[L1: 16.6842]	96.9+0.1s
+[6400/7800]	[L1: 16.7160]	96.9+0.1s
+[7200/7800]	[L1: 16.7717]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.471 (Best: 22.319 @epoch 77)
+Forward: 9.26s
+
+Saving...
+Total: 10.56s
+
+[Epoch 91]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.3375]	96.9+0.3s
+[1600/7800]	[L1: 16.5915]	96.8+0.1s
+[2400/7800]	[L1: 16.4010]	96.8+0.1s
+[3200/7800]	[L1: 16.4365]	96.8+0.1s
+[4000/7800]	[L1: 16.5108]	96.8+0.1s
+[4800/7800]	[L1: 16.5540]	96.8+0.1s
+[5600/7800]	[L1: 16.6979]	96.8+0.1s
+[6400/7800]	[L1: 16.6886]	96.8+0.1s
+[7200/7800]	[L1: 16.6713]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.899 (Best: 22.319 @epoch 77)
+Forward: 9.26s
+
+Saving...
+Total: 10.56s
+
+[Epoch 92]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.7844]	96.9+0.4s
+[1600/7800]	[L1: 16.8325]	96.9+0.1s
+[2400/7800]	[L1: 16.8803]	96.9+0.1s
+[3200/7800]	[L1: 17.0181]	96.9+0.1s
+[4000/7800]	[L1: 16.9903]	96.9+0.1s
+[4800/7800]	[L1: 16.9506]	96.9+0.1s
+[5600/7800]	[L1: 16.8555]	96.8+0.1s
+[6400/7800]	[L1: 16.8969]	96.9+0.1s
+[7200/7800]	[L1: 16.8822]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.151 (Best: 22.319 @epoch 77)
+Forward: 9.27s
+
+Saving...
+Total: 10.56s
+
+[Epoch 93]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.8473]	96.9+0.3s
+[1600/7800]	[L1: 17.1045]	96.9+0.1s
+[2400/7800]	[L1: 17.2694]	96.8+0.1s
+[3200/7800]	[L1: 17.0354]	96.8+0.1s
+[4000/7800]	[L1: 17.1422]	96.9+0.1s
+[4800/7800]	[L1: 17.1100]	96.9+0.1s
+[5600/7800]	[L1: 16.9578]	96.7+0.1s
+[6400/7800]	[L1: 16.8871]	96.8+0.1s
+[7200/7800]	[L1: 16.8460]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.241 (Best: 22.319 @epoch 77)
+Forward: 9.32s
+
+Saving...
+Total: 10.67s
+
+[Epoch 94]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.6346]	96.8+0.3s
+[1600/7800]	[L1: 16.7262]	96.9+0.1s
+[2400/7800]	[L1: 16.5347]	96.8+0.1s
+[3200/7800]	[L1: 16.7315]	96.8+0.1s
+[4000/7800]	[L1: 16.8120]	96.9+0.1s
+[4800/7800]	[L1: 16.8106]	96.9+0.1s
+[5600/7800]	[L1: 16.8106]	96.9+0.1s
+[6400/7800]	[L1: 16.8262]	96.9+0.1s
+[7200/7800]	[L1: 16.8399]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.681 (Best: 22.319 @epoch 77)
+Forward: 9.28s
+
+Saving...
+Total: 10.61s
+
+[Epoch 95]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.2065]	96.9+0.3s
+[1600/7800]	[L1: 16.3890]	96.9+0.1s
+[2400/7800]	[L1: 16.4654]	96.9+0.1s
+[3200/7800]	[L1: 16.4083]	96.8+0.1s
+[4000/7800]	[L1: 16.4874]	96.8+0.1s
+[4800/7800]	[L1: 16.4495]	96.8+0.1s
+[5600/7800]	[L1: 16.5051]	96.9+0.1s
+[6400/7800]	[L1: 16.5981]	96.8+0.1s
+[7200/7800]	[L1: 16.6032]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.383 (Best: 22.319 @epoch 77)
+Forward: 9.33s
+
+Saving...
+Total: 10.66s
+
+[Epoch 96]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.1952]	96.7+0.4s
+[1600/7800]	[L1: 16.5560]	96.8+0.1s
+[2400/7800]	[L1: 16.5632]	96.8+0.1s
+[3200/7800]	[L1: 16.5851]	96.9+0.1s
+[4000/7800]	[L1: 16.7249]	96.8+0.1s
+[4800/7800]	[L1: 16.6378]	96.8+0.1s
+[5600/7800]	[L1: 16.6397]	96.8+0.1s
+[6400/7800]	[L1: 16.6820]	96.9+0.1s
+[7200/7800]	[L1: 16.6292]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.035 (Best: 22.319 @epoch 77)
+Forward: 9.26s
+
+Saving...
+Total: 10.60s
+
+[Epoch 97]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.6675]	96.8+0.4s
+[1600/7800]	[L1: 16.8145]	96.9+0.1s
+[2400/7800]	[L1: 16.7413]	96.8+0.1s
+[3200/7800]	[L1: 16.7966]	96.8+0.1s
+[4000/7800]	[L1: 16.8180]	96.8+0.1s
+[4800/7800]	[L1: 16.7529]	96.8+0.1s
+[5600/7800]	[L1: 16.8529]	96.9+0.1s
+[6400/7800]	[L1: 16.7991]	96.8+0.1s
+[7200/7800]	[L1: 16.7954]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.780 (Best: 22.319 @epoch 77)
+Forward: 9.29s
+
+Saving...
+Total: 10.61s
+
+[Epoch 98]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.4179]	96.9+0.4s
+[1600/7800]	[L1: 16.4481]	96.8+0.1s
+[2400/7800]	[L1: 16.6012]	96.8+0.1s
+[3200/7800]	[L1: 16.5536]	96.8+0.1s
+[4000/7800]	[L1: 16.5086]	96.8+0.1s
+[4800/7800]	[L1: 16.5197]	96.8+0.1s
+[5600/7800]	[L1: 16.5694]	96.8+0.1s
+[6400/7800]	[L1: 16.5873]	96.8+0.1s
+[7200/7800]	[L1: 16.5405]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.465 (Best: 22.319 @epoch 77)
+Forward: 9.25s
+
+Saving...
+Total: 10.61s
+
+[Epoch 99]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.1065]	96.8+0.3s
+[1600/7800]	[L1: 16.6983]	96.8+0.1s
+[2400/7800]	[L1: 16.7630]	96.8+0.1s
+[3200/7800]	[L1: 16.7121]	96.8+0.1s
+[4000/7800]	[L1: 16.6641]	96.8+0.1s
+[4800/7800]	[L1: 16.5125]	96.7+0.1s
+[5600/7800]	[L1: 16.5246]	96.7+0.1s
+[6400/7800]	[L1: 16.5787]	96.8+0.1s
+[7200/7800]	[L1: 16.6532]	96.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.000 (Best: 22.319 @epoch 77)
+Forward: 9.31s
+
+Saving...
+Total: 10.61s
+
+[Epoch 100]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.3346]	97.0+0.3s
+[1600/7800]	[L1: 17.0744]	96.8+0.1s
+[2400/7800]	[L1: 16.9412]	96.8+0.1s
+[3200/7800]	[L1: 16.8751]	96.7+0.1s
+[4000/7800]	[L1: 16.8258]	96.7+0.1s
+[4800/7800]	[L1: 16.7765]	96.9+0.1s
+[5600/7800]	[L1: 16.7377]	97.2+0.1s
+[6400/7800]	[L1: 16.7343]	96.8+0.1s
+[7200/7800]	[L1: 16.7173]	96.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.854 (Best: 22.319 @epoch 77)
+Forward: 9.28s
+
+Saving...
+Total: 10.62s
+
+[Epoch 101]	Learning rate: 2.50e-5
+[800/7800]	[L1: 15.9147]	96.8+0.3s
+[1600/7800]	[L1: 15.8294]	96.8+0.1s
+[2400/7800]	[L1: 15.9367]	96.8+0.1s
+[3200/7800]	[L1: 15.8327]	96.8+0.1s
+[4000/7800]	[L1: 15.9909]	96.8+0.1s
+[4800/7800]	[L1: 15.9883]	96.8+0.1s
+[5600/7800]	[L1: 15.9300]	96.8+0.1s
+[6400/7800]	[L1: 16.0135]	96.8+0.1s
+[7200/7800]	[L1: 15.9781]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.030 (Best: 22.319 @epoch 77)
+Forward: 9.31s
+
+Saving...
+Total: 10.61s
+
+[Epoch 102]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.9747]	96.8+0.4s
+[1600/7800]	[L1: 15.9335]	96.8+0.1s
+[2400/7800]	[L1: 15.8965]	96.8+0.1s
+[3200/7800]	[L1: 16.0250]	96.8+0.1s
+[4000/7800]	[L1: 15.9560]	96.8+0.1s
+[4800/7800]	[L1: 15.9240]	96.8+0.1s
+[5600/7800]	[L1: 15.8168]	96.8+0.1s
+[6400/7800]	[L1: 15.8245]	96.8+0.1s
+[7200/7800]	[L1: 15.8315]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.164 (Best: 22.319 @epoch 77)
+Forward: 9.29s
+
+Saving...
+Total: 10.62s
+
+[Epoch 103]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.4976]	96.9+0.4s
+[1600/7800]	[L1: 15.6058]	96.9+0.1s
+[2400/7800]	[L1: 15.7171]	96.9+0.1s
+[3200/7800]	[L1: 15.6909]	96.8+0.1s
+[4000/7800]	[L1: 15.6749]	96.9+0.1s
+[4800/7800]	[L1: 15.7270]	96.8+0.1s
+[5600/7800]	[L1: 15.6640]	96.9+0.1s
+[6400/7800]	[L1: 15.6906]	96.9+0.1s
+[7200/7800]	[L1: 15.6621]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.503 (Best: 22.503 @epoch 103)
+Forward: 9.30s
+
+Saving...
+Total: 10.71s
+
+[Epoch 104]	Learning rate: 5.00e-5
+[800/7800]	[L1: 16.1728]	96.8+0.4s
+[1600/7800]	[L1: 15.8105]	96.7+0.1s
+[2400/7800]	[L1: 15.8551]	96.8+0.1s
+[3200/7800]	[L1: 15.7560]	96.8+0.1s
+[4000/7800]	[L1: 15.6448]	96.8+0.1s
+[4800/7800]	[L1: 15.5864]	96.8+0.1s
+[5600/7800]	[L1: 15.6305]	96.8+0.1s
+[6400/7800]	[L1: 15.7237]	96.8+0.1s
+[7200/7800]	[L1: 15.7337]	96.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.087 (Best: 22.503 @epoch 103)
+Forward: 9.32s
+
+Saving...
+Total: 10.66s
+
+[Epoch 105]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.5042]	96.9+0.3s
+[1600/7800]	[L1: 15.7833]	96.9+0.1s
+[2400/7800]	[L1: 15.8737]	96.9+0.1s
+[3200/7800]	[L1: 15.6715]	96.8+0.1s
+[4000/7800]	[L1: 15.5905]	96.8+0.1s
+[4800/7800]	[L1: 15.6106]	97.0+0.1s
+[5600/7800]	[L1: 15.6292]	97.0+0.1s
+[6400/7800]	[L1: 15.6369]	96.9+0.1s
+[7200/7800]	[L1: 15.6282]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.993 (Best: 22.503 @epoch 103)
+Forward: 9.30s
+
+Saving...
+Total: 10.62s
+
+[Epoch 106]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.7370]	96.9+0.4s
+[1600/7800]	[L1: 15.6593]	96.8+0.1s
+[2400/7800]	[L1: 15.6481]	96.9+0.1s
+[3200/7800]	[L1: 15.5884]	96.9+0.1s
+[4000/7800]	[L1: 15.5543]	96.7+0.1s
+[4800/7800]	[L1: 15.5063]	96.8+0.1s
+[5600/7800]	[L1: 15.5643]	96.8+0.1s
+[6400/7800]	[L1: 15.5138]	96.8+0.1s
+[7200/7800]	[L1: 15.5276]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.983 (Best: 22.503 @epoch 103)
+Forward: 9.28s
+
+Saving...
+Total: 10.58s
+
+[Epoch 107]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.4936]	96.9+0.4s
+[1600/7800]	[L1: 15.3320]	96.8+0.1s
+[2400/7800]	[L1: 15.3093]	96.9+0.1s
+[3200/7800]	[L1: 15.3404]	96.8+0.1s
+[4000/7800]	[L1: 15.4037]	96.9+0.1s
+[4800/7800]	[L1: 15.4595]	96.8+0.1s
+[5600/7800]	[L1: 15.4698]	96.8+0.1s
+[6400/7800]	[L1: 15.4843]	96.9+0.1s
+[7200/7800]	[L1: 15.5161]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.290 (Best: 22.503 @epoch 103)
+Forward: 9.38s
+
+Saving...
+Total: 10.69s
+
+[Epoch 108]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.4370]	96.9+0.4s
+[1600/7800]	[L1: 15.3582]	96.9+0.1s
+[2400/7800]	[L1: 15.6767]	96.8+0.1s
+[3200/7800]	[L1: 15.5478]	96.8+0.1s
+[4000/7800]	[L1: 15.5613]	96.8+0.1s
+[4800/7800]	[L1: 15.5070]	96.9+0.1s
+[5600/7800]	[L1: 15.4987]	96.9+0.1s
+[6400/7800]	[L1: 15.5038]	96.9+0.1s
+[7200/7800]	[L1: 15.5002]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.810 (Best: 22.810 @epoch 108)
+Forward: 9.31s
+
+Saving...
+Total: 10.70s
+
+[Epoch 109]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.6436]	96.8+0.4s
+[1600/7800]	[L1: 15.5803]	96.9+0.1s
+[2400/7800]	[L1: 15.5262]	96.8+0.1s
+[3200/7800]	[L1: 15.5555]	96.8+0.1s
+[4000/7800]	[L1: 15.4353]	96.9+0.1s
+[4800/7800]	[L1: 15.3342]	96.8+0.1s
+[5600/7800]	[L1: 15.3804]	96.8+0.1s
+[6400/7800]	[L1: 15.2536]	96.8+0.1s
+[7200/7800]	[L1: 15.3201]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.226 (Best: 22.810 @epoch 108)
+Forward: 9.28s
+
+Saving...
+Total: 10.57s
+
+[Epoch 110]	Learning rate: 5.00e-5
+[800/7800]	[L1: 16.3973]	96.8+0.4s
+[1600/7800]	[L1: 16.0768]	96.9+0.1s
+[2400/7800]	[L1: 15.7912]	96.8+0.1s
+[3200/7800]	[L1: 15.6864]	96.9+0.1s
+[4000/7800]	[L1: 15.7205]	96.8+0.1s
+[4800/7800]	[L1: 15.7395]	96.8+0.1s
+[5600/7800]	[L1: 15.6810]	96.8+0.1s
+[6400/7800]	[L1: 15.6929]	96.8+0.1s
+[7200/7800]	[L1: 15.6033]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.862 (Best: 22.810 @epoch 108)
+Forward: 9.34s
+
+Saving...
+Total: 10.67s
+
+[Epoch 111]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.8169]	96.8+0.4s
+[1600/7800]	[L1: 14.9055]	96.8+0.1s
+[2400/7800]	[L1: 15.1973]	96.8+0.1s
+[3200/7800]	[L1: 15.1958]	96.8+0.1s
+[4000/7800]	[L1: 15.2441]	96.8+0.1s
+[4800/7800]	[L1: 15.2949]	96.8+0.1s
+[5600/7800]	[L1: 15.3133]	96.8+0.1s
+[6400/7800]	[L1: 15.3476]	96.8+0.1s
+[7200/7800]	[L1: 15.2739]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.752 (Best: 22.810 @epoch 108)
+Forward: 9.31s
+
+Saving...
+Total: 10.64s
+
+[Epoch 112]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.6958]	96.9+0.3s
+[1600/7800]	[L1: 15.6300]	96.8+0.1s
+[2400/7800]	[L1: 15.3306]	96.9+0.1s
+[3200/7800]	[L1: 15.1842]	96.9+0.1s
+[4000/7800]	[L1: 15.2599]	96.9+0.1s
+[4800/7800]	[L1: 15.3724]	96.8+0.1s
+[5600/7800]	[L1: 15.3305]	96.9+0.1s
+[6400/7800]	[L1: 15.3521]	96.8+0.1s
+[7200/7800]	[L1: 15.3401]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.662 (Best: 22.810 @epoch 108)
+Forward: 9.30s
+
+Saving...
+Total: 10.61s
+
+[Epoch 113]	Learning rate: 5.00e-5
+[800/7800]	[L1: 16.1300]	96.8+0.3s
+[1600/7800]	[L1: 15.8350]	96.9+0.1s
+[2400/7800]	[L1: 15.6859]	96.9+0.1s
+[3200/7800]	[L1: 15.6267]	96.9+0.1s
+[4000/7800]	[L1: 15.5161]	96.9+0.1s
+[4800/7800]	[L1: 15.5221]	96.9+0.1s
+[5600/7800]	[L1: 15.5432]	96.9+0.1s
+[6400/7800]	[L1: 15.4999]	96.8+0.1s
+[7200/7800]	[L1: 15.4893]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.218 (Best: 22.810 @epoch 108)
+Forward: 9.30s
+
+Saving...
+Total: 10.63s
+
+[Epoch 114]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.9994]	96.8+0.4s
+[1600/7800]	[L1: 15.8884]	96.8+0.1s
+[2400/7800]	[L1: 15.7150]	96.8+0.1s
+[3200/7800]	[L1: 15.5445]	96.8+0.1s
+[4000/7800]	[L1: 15.4465]	96.8+0.1s
+[4800/7800]	[L1: 15.4217]	96.8+0.1s
+[5600/7800]	[L1: 15.4690]	96.8+0.1s
+[6400/7800]	[L1: 15.4327]	96.9+0.1s
+[7200/7800]	[L1: 15.4544]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.068 (Best: 22.810 @epoch 108)
+Forward: 9.31s
+
+Saving...
+Total: 10.63s
+
+[Epoch 115]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.2215]	96.8+0.3s
+[1600/7800]	[L1: 15.2746]	96.9+0.1s
+[2400/7800]	[L1: 15.3579]	96.8+0.1s
+[3200/7800]	[L1: 15.3714]	96.8+0.1s
+[4000/7800]	[L1: 15.2676]	96.8+0.1s
+[4800/7800]	[L1: 15.3059]	96.8+0.1s
+[5600/7800]	[L1: 15.2610]	96.8+0.1s
+[6400/7800]	[L1: 15.2808]	96.8+0.1s
+[7200/7800]	[L1: 15.2746]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.145 (Best: 22.810 @epoch 108)
+Forward: 9.27s
+
+Saving...
+Total: 10.56s
+
+[Epoch 116]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.9429]	96.8+0.4s
+[1600/7800]	[L1: 15.9261]	96.9+0.1s
+[2400/7800]	[L1: 15.6310]	96.8+0.1s
+[3200/7800]	[L1: 15.6308]	96.8+0.1s
+[4000/7800]	[L1: 15.5314]	96.9+0.1s
+[4800/7800]	[L1: 15.4818]	96.9+0.1s
+[5600/7800]	[L1: 15.5205]	96.9+0.1s
+[6400/7800]	[L1: 15.4950]	96.9+0.1s
+[7200/7800]	[L1: 15.4730]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.647 (Best: 22.810 @epoch 108)
+Forward: 9.26s
+
+Saving...
+Total: 10.60s
+
+[Epoch 117]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.2260]	96.9+0.3s
+[1600/7800]	[L1: 15.4337]	96.9+0.1s
+[2400/7800]	[L1: 15.2695]	96.8+0.1s
+[3200/7800]	[L1: 15.1944]	96.8+0.1s
+[4000/7800]	[L1: 15.2521]	96.8+0.1s
+[4800/7800]	[L1: 15.2674]	96.8+0.1s
+[5600/7800]	[L1: 15.2822]	96.9+0.1s
+[6400/7800]	[L1: 15.2888]	96.8+0.1s
+[7200/7800]	[L1: 15.2785]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.712 (Best: 22.810 @epoch 108)
+Forward: 9.27s
+
+Saving...
+Total: 10.61s
+
+[Epoch 118]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.5926]	97.0+0.3s
+[1600/7800]	[L1: 14.9099]	97.0+0.1s
+[2400/7800]	[L1: 15.0704]	97.0+0.1s
+[3200/7800]	[L1: 15.0044]	96.9+0.1s
+[4000/7800]	[L1: 15.1490]	96.9+0.1s
+[4800/7800]	[L1: 15.1912]	97.0+0.1s
+[5600/7800]	[L1: 15.2213]	96.9+0.1s
+[6400/7800]	[L1: 15.2705]	96.9+0.1s
+[7200/7800]	[L1: 15.2290]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.055 (Best: 22.810 @epoch 108)
+Forward: 9.29s
+
+Saving...
+Total: 10.60s
+
+[Epoch 119]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.7962]	97.1+0.4s
+[1600/7800]	[L1: 15.1239]	97.0+0.1s
+[2400/7800]	[L1: 15.2291]	97.0+0.1s
+[3200/7800]	[L1: 15.3085]	97.0+0.1s
+[4000/7800]	[L1: 15.3274]	96.9+0.1s
+[4800/7800]	[L1: 15.3399]	96.9+0.1s
+[5600/7800]	[L1: 15.2432]	96.9+0.1s
+[6400/7800]	[L1: 15.2509]	96.9+0.1s
+[7200/7800]	[L1: 15.2072]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.892 (Best: 22.810 @epoch 108)
+Forward: 9.34s
+
+Saving...
+Total: 10.69s
+
+[Epoch 120]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.6995]	96.8+0.4s
+[1600/7800]	[L1: 14.8140]	96.9+0.1s
+[2400/7800]	[L1: 14.9136]	96.9+0.1s
+[3200/7800]	[L1: 14.9877]	96.9+0.1s
+[4000/7800]	[L1: 15.0639]	96.9+0.1s
+[4800/7800]	[L1: 15.1052]	96.9+0.1s
+[5600/7800]	[L1: 15.1494]	96.8+0.1s
+[6400/7800]	[L1: 15.0984]	96.9+0.1s
+[7200/7800]	[L1: 15.0868]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.495 (Best: 22.810 @epoch 108)
+Forward: 9.25s
+
+Saving...
+Total: 10.58s
+
+[Epoch 121]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.1963]	96.8+0.3s
+[1600/7800]	[L1: 15.3155]	96.8+0.1s
+[2400/7800]	[L1: 15.1148]	96.9+0.1s
+[3200/7800]	[L1: 15.1509]	96.8+0.1s
+[4000/7800]	[L1: 15.2567]	96.8+0.1s
+[4800/7800]	[L1: 15.3506]	96.8+0.1s
+[5600/7800]	[L1: 15.3379]	96.8+0.1s
+[6400/7800]	[L1: 15.3369]	96.8+0.1s
+[7200/7800]	[L1: 15.3325]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.246 (Best: 22.810 @epoch 108)
+Forward: 9.27s
+
+Saving...
+Total: 10.55s
+
+[Epoch 122]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.9941]	96.8+0.4s
+[1600/7800]	[L1: 14.9773]	96.9+0.1s
+[2400/7800]	[L1: 15.0243]	96.8+0.1s
+[3200/7800]	[L1: 15.0283]	96.8+0.1s
+[4000/7800]	[L1: 15.1185]	96.8+0.1s
+[4800/7800]	[L1: 15.1574]	96.8+0.1s
+[5600/7800]	[L1: 15.1541]	96.8+0.1s
+[6400/7800]	[L1: 15.1307]	96.8+0.1s
+[7200/7800]	[L1: 15.1592]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.398 (Best: 22.810 @epoch 108)
+Forward: 9.35s
+
+Saving...
+Total: 10.65s
+
+[Epoch 123]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.6265]	96.8+0.4s
+[1600/7800]	[L1: 15.5928]	96.8+0.1s
+[2400/7800]	[L1: 15.5076]	96.8+0.1s
+[3200/7800]	[L1: 15.4211]	96.8+0.1s
+[4000/7800]	[L1: 15.4770]	96.8+0.1s
+[4800/7800]	[L1: 15.4138]	96.8+0.1s
+[5600/7800]	[L1: 15.2607]	96.8+0.1s
+[6400/7800]	[L1: 15.2790]	96.8+0.1s
+[7200/7800]	[L1: 15.2925]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.566 (Best: 22.810 @epoch 108)
+Forward: 9.27s
+
+Saving...
+Total: 10.59s
+
+[Epoch 124]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.2246]	97.0+0.3s
+[1600/7800]	[L1: 14.8591]	96.8+0.1s
+[2400/7800]	[L1: 14.9198]	96.8+0.1s
+[3200/7800]	[L1: 14.9716]	96.8+0.1s
+[4000/7800]	[L1: 15.0674]	96.8+0.1s
+[4800/7800]	[L1: 15.1176]	96.8+0.1s
+[5600/7800]	[L1: 15.1184]	96.8+0.1s
+[6400/7800]	[L1: 15.1190]	96.8+0.1s
+[7200/7800]	[L1: 15.1463]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.689 (Best: 22.810 @epoch 108)
+Forward: 9.35s
+
+Saving...
+Total: 10.70s
+
+[Epoch 125]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.5829]	96.8+0.4s
+[1600/7800]	[L1: 14.5465]	96.9+0.1s
+[2400/7800]	[L1: 14.7765]	96.8+0.1s
+[3200/7800]	[L1: 14.9977]	96.8+0.1s
+[4000/7800]	[L1: 15.0590]	96.8+0.1s
+[4800/7800]	[L1: 15.0072]	96.8+0.1s
+[5600/7800]	[L1: 15.0355]	96.8+0.1s
+[6400/7800]	[L1: 15.0539]	96.8+0.1s
+[7200/7800]	[L1: 15.1075]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.062 (Best: 22.810 @epoch 108)
+Forward: 9.31s
+
+Saving...
+Total: 10.62s
+
+[Epoch 126]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.2199]	96.9+0.4s
+[1600/7800]	[L1: 15.1815]	96.9+0.1s
+[2400/7800]	[L1: 15.2299]	96.9+0.1s
+[3200/7800]	[L1: 15.0240]	96.8+0.1s
+[4000/7800]	[L1: 14.9427]	96.9+0.1s
+[4800/7800]	[L1: 14.9233]	96.8+0.1s
+[5600/7800]	[L1: 14.9126]	96.8+0.1s
+[6400/7800]	[L1: 14.9155]	96.8+0.1s
+[7200/7800]	[L1: 14.9085]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.549 (Best: 22.810 @epoch 108)
+Forward: 9.27s
+
+Saving...
+Total: 10.59s
+
+[Epoch 127]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.0454]	96.9+0.3s
+[1600/7800]	[L1: 14.7442]	96.9+0.1s
+[2400/7800]	[L1: 14.9204]	96.9+0.1s
+[3200/7800]	[L1: 14.8676]	96.9+0.1s
+[4000/7800]	[L1: 14.8800]	96.9+0.1s
+[4800/7800]	[L1: 14.8881]	96.8+0.1s
+[5600/7800]	[L1: 14.9620]	96.9+0.1s
+[6400/7800]	[L1: 14.9562]	96.9+0.1s
+[7200/7800]	[L1: 14.9671]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.038 (Best: 22.810 @epoch 108)
+Forward: 9.22s
+
+Saving...
+Total: 10.55s
+
+[Epoch 128]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.9447]	96.9+0.4s
+[1600/7800]	[L1: 15.3313]	96.9+0.1s
+[2400/7800]	[L1: 15.3823]	96.9+0.1s
+[3200/7800]	[L1: 15.4223]	96.9+0.1s
+[4000/7800]	[L1: 15.4083]	97.0+0.1s
+[4800/7800]	[L1: 15.2964]	96.9+0.1s
+[5600/7800]	[L1: 15.2569]	96.9+0.1s
+[6400/7800]	[L1: 15.2422]	96.9+0.1s
+[7200/7800]	[L1: 15.1753]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.236 (Best: 22.810 @epoch 108)
+Forward: 9.26s
+
+Saving...
+Total: 10.61s
+
+[Epoch 129]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.3715]	96.9+0.3s
+[1600/7800]	[L1: 15.1134]	96.9+0.1s
+[2400/7800]	[L1: 15.0825]	96.8+0.1s
+[3200/7800]	[L1: 15.1162]	96.9+0.1s
+[4000/7800]	[L1: 15.1808]	96.8+0.1s
+[4800/7800]	[L1: 15.1048]	96.9+0.1s
+[5600/7800]	[L1: 15.1284]	96.8+0.1s
+[6400/7800]	[L1: 15.0570]	96.8+0.1s
+[7200/7800]	[L1: 15.0216]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.557 (Best: 22.810 @epoch 108)
+Forward: 9.29s
+
+Saving...
+Total: 10.58s
+
+[Epoch 130]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.5998]	97.0+0.3s
+[1600/7800]	[L1: 14.5729]	97.0+0.1s
+[2400/7800]	[L1: 14.7064]	97.0+0.1s
+[3200/7800]	[L1: 14.8532]	96.9+0.1s
+[4000/7800]	[L1: 14.8513]	96.9+0.1s
+[4800/7800]	[L1: 14.8582]	96.9+0.1s
+[5600/7800]	[L1: 14.8490]	96.9+0.1s
+[6400/7800]	[L1: 14.8256]	96.9+0.1s
+[7200/7800]	[L1: 14.8883]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.744 (Best: 22.810 @epoch 108)
+Forward: 9.30s
+
+Saving...
+Total: 10.62s
+
+[Epoch 131]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.0367]	97.0+0.3s
+[1600/7800]	[L1: 14.8976]	97.0+0.1s
+[2400/7800]	[L1: 14.7966]	96.9+0.1s
+[3200/7800]	[L1: 14.8586]	96.9+0.1s
+[4000/7800]	[L1: 14.7942]	96.8+0.1s
+[4800/7800]	[L1: 14.8388]	96.9+0.1s
+[5600/7800]	[L1: 14.8711]	96.9+0.1s
+[6400/7800]	[L1: 14.9433]	96.8+0.1s
+[7200/7800]	[L1: 14.9966]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.360 (Best: 22.810 @epoch 108)
+Forward: 9.27s
+
+Saving...
+Total: 10.55s
+
+[Epoch 132]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.9161]	96.9+0.3s
+[1600/7800]	[L1: 14.8378]	96.9+0.1s
+[2400/7800]	[L1: 14.8564]	96.9+0.1s
+[3200/7800]	[L1: 14.8350]	96.9+0.1s
+[4000/7800]	[L1: 14.8374]	96.9+0.1s
+[4800/7800]	[L1: 14.9547]	96.8+0.1s
+[5600/7800]	[L1: 14.9782]	96.8+0.1s
+[6400/7800]	[L1: 14.9334]	96.8+0.1s
+[7200/7800]	[L1: 14.9403]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.469 (Best: 22.810 @epoch 108)
+Forward: 9.30s
+
+Saving...
+Total: 10.70s
+
+[Epoch 133]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.9358]	96.9+0.3s
+[1600/7800]	[L1: 14.4660]	96.9+0.1s
+[2400/7800]	[L1: 14.5407]	97.0+0.1s
+[3200/7800]	[L1: 14.6213]	96.8+0.1s
+[4000/7800]	[L1: 14.6885]	96.9+0.1s
+[4800/7800]	[L1: 14.7242]	96.9+0.1s
+[5600/7800]	[L1: 14.7972]	96.8+0.1s
+[6400/7800]	[L1: 14.8724]	97.0+0.1s
+[7200/7800]	[L1: 14.9595]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.963 (Best: 22.963 @epoch 133)
+Forward: 9.32s
+
+Saving...
+Total: 10.71s
+
+[Epoch 134]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.5384]	96.8+0.3s
+[1600/7800]	[L1: 15.3161]	96.8+0.1s
+[2400/7800]	[L1: 15.0811]	96.7+0.1s
+[3200/7800]	[L1: 14.9948]	96.8+0.1s
+[4000/7800]	[L1: 15.0962]	96.8+0.1s
+[4800/7800]	[L1: 15.1335]	96.8+0.1s
+[5600/7800]	[L1: 15.1896]	96.9+0.1s
+[6400/7800]	[L1: 15.1384]	96.9+0.1s
+[7200/7800]	[L1: 15.1922]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.409 (Best: 22.963 @epoch 133)
+Forward: 9.27s
+
+Saving...
+Total: 10.57s
+
+[Epoch 135]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.6918]	96.9+0.3s
+[1600/7800]	[L1: 14.9345]	96.8+0.1s
+[2400/7800]	[L1: 14.9234]	96.8+0.1s
+[3200/7800]	[L1: 14.9695]	96.8+0.1s
+[4000/7800]	[L1: 14.9671]	96.8+0.1s
+[4800/7800]	[L1: 14.9234]	96.8+0.1s
+[5600/7800]	[L1: 14.9661]	96.8+0.1s
+[6400/7800]	[L1: 14.9973]	96.8+0.1s
+[7200/7800]	[L1: 15.0121]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.415 (Best: 22.963 @epoch 133)
+Forward: 9.33s
+
+Saving...
+Total: 10.67s
+
+[Epoch 136]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.3351]	96.8+0.3s
+[1600/7800]	[L1: 15.3308]	96.8+0.1s
+[2400/7800]	[L1: 15.1331]	96.7+0.1s
+[3200/7800]	[L1: 15.1741]	96.7+0.1s
+[4000/7800]	[L1: 15.1829]	96.8+0.1s
+[4800/7800]	[L1: 15.1498]	96.8+0.1s
+[5600/7800]	[L1: 15.1251]	96.8+0.1s
+[6400/7800]	[L1: 15.0071]	96.8+0.1s
+[7200/7800]	[L1: 15.0172]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.059 (Best: 22.963 @epoch 133)
+Forward: 9.26s
+
+Saving...
+Total: 10.60s
+
+[Epoch 137]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.7985]	96.8+0.3s
+[1600/7800]	[L1: 14.9912]	96.9+0.1s
+[2400/7800]	[L1: 15.0657]	97.0+0.1s
+[3200/7800]	[L1: 15.0090]	96.9+0.1s
+[4000/7800]	[L1: 14.9206]	96.8+0.1s
+[4800/7800]	[L1: 14.9640]	96.9+0.1s
+[5600/7800]	[L1: 15.0264]	96.9+0.1s
+[6400/7800]	[L1: 14.9775]	96.9+0.1s
+[7200/7800]	[L1: 14.9418]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 23.107 (Best: 23.107 @epoch 137)
+Forward: 9.26s
+
+Saving...
+Total: 10.67s
+
+[Epoch 138]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.6043]	96.8+0.4s
+[1600/7800]	[L1: 15.0508]	96.8+0.1s
+[2400/7800]	[L1: 15.0690]	96.8+0.1s
+[3200/7800]	[L1: 15.1280]	96.8+0.1s
+[4000/7800]	[L1: 14.9996]	96.8+0.1s
+[4800/7800]	[L1: 14.9820]	96.8+0.1s
+[5600/7800]	[L1: 14.9671]	96.9+0.1s
+[6400/7800]	[L1: 14.9413]	98.2+0.1s
+[7200/7800]	[L1: 14.8613]	97.1+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.177 (Best: 23.107 @epoch 137)
+Forward: 9.25s
+
+Saving...
+Total: 10.56s
+
+[Epoch 139]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.1969]	96.7+0.3s
+[1600/7800]	[L1: 14.7551]	96.8+0.1s
+[2400/7800]	[L1: 14.8481]	98.6+0.1s
+[3200/7800]	[L1: 14.8551]	98.0+0.1s
+[4000/7800]	[L1: 14.8824]	98.1+0.1s
+[4800/7800]	[L1: 14.8731]	97.7+0.1s
+[5600/7800]	[L1: 14.9682]	97.4+0.1s
+[6400/7800]	[L1: 14.9510]	97.2+0.1s
+[7200/7800]	[L1: 14.9918]	97.3+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.122 (Best: 23.107 @epoch 137)
+Forward: 9.32s
+
+Saving...
+Total: 10.64s
+
+[Epoch 140]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.7541]	97.3+0.3s
+[1600/7800]	[L1: 14.8386]	97.2+0.1s
+[2400/7800]	[L1: 14.6660]	97.3+0.1s
+[3200/7800]	[L1: 14.7449]	97.3+0.1s
+[4000/7800]	[L1: 14.7642]	97.4+0.1s
+[4800/7800]	[L1: 14.7629]	97.4+0.1s
+[5600/7800]	[L1: 14.9047]	97.2+0.1s
+[6400/7800]	[L1: 14.8850]	97.6+0.1s
+[7200/7800]	[L1: 14.9361]	97.3+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.905 (Best: 23.107 @epoch 137)
+Forward: 9.39s
+
+Saving...
+Total: 10.79s
+
+[Epoch 141]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.6281]	97.3+0.3s
+[1600/7800]	[L1: 14.6993]	97.4+0.1s
+[2400/7800]	[L1: 14.8617]	97.3+0.1s
+[3200/7800]	[L1: 14.9411]	97.3+0.1s
+[4000/7800]	[L1: 14.9065]	97.2+0.1s
+[4800/7800]	[L1: 14.9673]	97.3+0.1s
+[5600/7800]	[L1: 14.9596]	97.4+0.1s
+[6400/7800]	[L1: 14.9472]	97.3+0.1s
+[7200/7800]	[L1: 14.9318]	97.3+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.447 (Best: 23.107 @epoch 137)
+Forward: 9.34s
+
+Saving...
+Total: 10.77s
+
+[Epoch 142]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.2000]	97.3+0.3s
+[1600/7800]	[L1: 15.3472]	97.4+0.1s
+[2400/7800]	[L1: 15.3040]	97.4+0.1s
+[3200/7800]	[L1: 15.0932]	97.4+0.1s
+[4000/7800]	[L1: 15.0134]	97.3+0.1s
+[4800/7800]	[L1: 14.9575]	97.3+0.1s
+[5600/7800]	[L1: 14.9926]	97.3+0.1s
+[6400/7800]	[L1: 15.0408]	97.4+0.1s
+[7200/7800]	[L1: 14.9890]	97.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.197 (Best: 23.107 @epoch 137)
+Forward: 9.32s
+
+Saving...
+Total: 10.70s
+
+[Epoch 143]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.6109]	97.3+0.4s
+[1600/7800]	[L1: 14.7754]	97.3+0.1s
+[2400/7800]	[L1: 15.0350]	97.5+0.1s
+[3200/7800]	[L1: 15.0581]	96.9+0.1s
+[4000/7800]	[L1: 14.9652]	96.8+0.1s
+[4800/7800]	[L1: 14.9310]	97.1+0.1s
+[5600/7800]	[L1: 14.9217]	96.8+0.1s
+[6400/7800]	[L1: 14.9009]	96.8+0.1s
+[7200/7800]	[L1: 14.8851]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.715 (Best: 23.107 @epoch 137)
+Forward: 9.26s
+
+Saving...
+Total: 10.63s
+
+[Epoch 144]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.7957]	96.8+0.4s
+[1600/7800]	[L1: 14.6548]	97.0+0.1s
+[2400/7800]	[L1: 14.8737]	96.9+0.1s
+[3200/7800]	[L1: 14.8709]	96.9+0.1s
+[4000/7800]	[L1: 14.8198]	96.9+0.1s
+[4800/7800]	[L1: 14.8789]	96.9+0.1s
+[5600/7800]	[L1: 14.8251]	96.9+0.1s
+[6400/7800]	[L1: 14.8827]	97.0+0.1s
+[7200/7800]	[L1: 14.9022]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.843 (Best: 23.107 @epoch 137)
+Forward: 9.25s
+
+Saving...
+Total: 10.66s
+
+[Epoch 145]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.7768]	96.8+0.3s
+[1600/7800]	[L1: 14.7942]	96.8+0.1s
+[2400/7800]	[L1: 14.6747]	96.8+0.1s
+[3200/7800]	[L1: 14.7255]	96.9+0.1s
+[4000/7800]	[L1: 14.7034]	96.8+0.1s
+[4800/7800]	[L1: 14.7471]	96.8+0.1s
+[5600/7800]	[L1: 14.8159]	96.7+0.1s
+[6400/7800]	[L1: 14.8628]	96.8+0.1s
+[7200/7800]	[L1: 14.8159]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.091 (Best: 23.107 @epoch 137)
+Forward: 9.28s
+
+Saving...
+Total: 10.67s
+
+[Epoch 146]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.6572]	96.8+0.4s
+[1600/7800]	[L1: 14.6083]	96.8+0.1s
+[2400/7800]	[L1: 14.9852]	97.1+0.1s
+[3200/7800]	[L1: 14.9444]	97.0+0.1s
+[4000/7800]	[L1: 14.9269]	97.0+0.1s
+[4800/7800]	[L1: 14.9090]	97.0+0.1s
+[5600/7800]	[L1: 14.9558]	96.9+0.1s
+[6400/7800]	[L1: 15.0252]	96.9+0.1s
+[7200/7800]	[L1: 14.9504]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.485 (Best: 23.107 @epoch 137)
+Forward: 9.32s
+
+Saving...
+Total: 10.69s
+
+[Epoch 147]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.8856]	97.0+0.3s
+[1600/7800]	[L1: 14.5218]	96.9+0.1s
+[2400/7800]	[L1: 14.7451]	96.9+0.1s
+[3200/7800]	[L1: 14.8177]	96.9+0.1s
+[4000/7800]	[L1: 14.7591]	97.0+0.1s
+[4800/7800]	[L1: 14.7663]	97.0+0.1s
+[5600/7800]	[L1: 14.7286]	96.9+0.1s
+[6400/7800]	[L1: 14.7477]	97.0+0.1s
+[7200/7800]	[L1: 14.7843]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.084 (Best: 23.107 @epoch 137)
+Forward: 9.28s
+
+Saving...
+Total: 10.66s
+
+[Epoch 148]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.0409]	97.0+0.4s
+[1600/7800]	[L1: 14.7469]	96.9+0.1s
+[2400/7800]	[L1: 14.8332]	96.9+0.1s
+[3200/7800]	[L1: 14.8118]	96.8+0.1s
+[4000/7800]	[L1: 14.8599]	96.8+0.1s
+[4800/7800]	[L1: 14.9100]	96.9+0.1s
+[5600/7800]	[L1: 14.8142]	96.9+0.1s
+[6400/7800]	[L1: 14.7762]	96.9+0.1s
+[7200/7800]	[L1: 14.7657]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.993 (Best: 23.107 @epoch 137)
+Forward: 9.31s
+
+Saving...
+Total: 10.70s
+
+[Epoch 149]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.0247]	96.9+0.3s
+[1600/7800]	[L1: 14.6532]	96.9+0.1s
+[2400/7800]	[L1: 14.7348]	96.9+0.1s
+[3200/7800]	[L1: 14.7265]	97.0+0.1s
+[4000/7800]	[L1: 14.7619]	97.0+0.1s
+[4800/7800]	[L1: 14.7420]	97.0+0.1s
+[5600/7800]	[L1: 14.7422]	96.9+0.1s
+[6400/7800]	[L1: 14.7934]	96.9+0.1s
+[7200/7800]	[L1: 14.8217]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.162 (Best: 23.107 @epoch 137)
+Forward: 9.27s
+
+Saving...
+Total: 10.80s
+
+[Epoch 150]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.7605]	97.0+0.4s
+[1600/7800]	[L1: 14.5050]	96.9+0.1s
+[2400/7800]	[L1: 14.6479]	96.9+0.1s
+[3200/7800]	[L1: 14.7188]	96.9+0.1s
+[4000/7800]	[L1: 14.6918]	96.9+0.1s
+[4800/7800]	[L1: 14.7311]	97.0+0.1s
+[5600/7800]	[L1: 14.7988]	96.9+0.1s
+[6400/7800]	[L1: 14.7379]	97.0+0.1s
+[7200/7800]	[L1: 14.7791]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.873 (Best: 23.107 @epoch 137)
+Forward: 9.24s
+
+Saving...
+Total: 10.55s
+
+[Epoch 151]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.9693]	96.9+0.3s
+[1600/7800]	[L1: 14.8303]	97.0+0.1s
+[2400/7800]	[L1: 14.8328]	97.0+0.1s
+[3200/7800]	[L1: 14.8787]	97.0+0.1s
+[4000/7800]	[L1: 14.8160]	97.0+0.1s
+[4800/7800]	[L1: 14.8237]	96.9+0.1s
+[5600/7800]	[L1: 14.7591]	97.0+0.1s
+[6400/7800]	[L1: 14.7665]	97.0+0.1s
+[7200/7800]	[L1: 14.7613]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.338 (Best: 23.107 @epoch 137)
+Forward: 9.25s
+
+Saving...
+Total: 10.55s
+
+[Epoch 152]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.9149]	96.9+0.4s
+[1600/7800]	[L1: 14.6721]	96.9+0.1s
+[2400/7800]	[L1: 14.6496]	96.9+0.1s
+[3200/7800]	[L1: 14.6226]	96.9+0.1s
+[4000/7800]	[L1: 14.6477]	96.9+0.1s
+[4800/7800]	[L1: 14.7126]	96.9+0.1s
+[5600/7800]	[L1: 14.6380]	96.9+0.1s
+[6400/7800]	[L1: 14.6256]	96.9+0.1s
+[7200/7800]	[L1: 14.6939]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.833 (Best: 23.107 @epoch 137)
+Forward: 9.29s
+
+Saving...
+Total: 10.71s
+
+[Epoch 153]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.7182]	96.9+0.3s
+[1600/7800]	[L1: 14.7382]	96.9+0.1s
+[2400/7800]	[L1: 14.7093]	97.0+0.1s
+[3200/7800]	[L1: 14.7594]	97.1+0.1s
+[4000/7800]	[L1: 14.8249]	96.9+0.1s
+[4800/7800]	[L1: 14.8405]	97.0+0.1s
+[5600/7800]	[L1: 14.7895]	97.0+0.1s
+[6400/7800]	[L1: 14.7431]	96.9+0.1s
+[7200/7800]	[L1: 14.7977]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.727 (Best: 23.107 @epoch 137)
+Forward: 9.30s
+
+Saving...
+Total: 10.60s
+
+[Epoch 154]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.8756]	96.9+0.4s
+[1600/7800]	[L1: 14.3984]	97.0+0.1s
+[2400/7800]	[L1: 14.6513]	96.9+0.1s
+[3200/7800]	[L1: 14.5720]	97.0+0.1s
+[4000/7800]	[L1: 14.6150]	97.0+0.1s
+[4800/7800]	[L1: 14.6048]	97.0+0.1s
+[5600/7800]	[L1: 14.6801]	96.9+0.1s
+[6400/7800]	[L1: 14.6282]	96.9+0.1s
+[7200/7800]	[L1: 14.6026]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.414 (Best: 23.107 @epoch 137)
+Forward: 9.25s
+
+Saving...
+Total: 10.54s
+
+[Epoch 155]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.4869]	97.0+0.3s
+[1600/7800]	[L1: 14.8029]	96.9+0.1s
+[2400/7800]	[L1: 14.9369]	96.9+0.1s
+[3200/7800]	[L1: 14.7974]	96.9+0.1s
+[4000/7800]	[L1: 14.7220]	96.9+0.1s
+[4800/7800]	[L1: 14.6850]	96.8+0.1s
+[5600/7800]	[L1: 14.6113]	96.8+0.1s
+[6400/7800]	[L1: 14.6366]	96.9+0.1s
+[7200/7800]	[L1: 14.6644]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.973 (Best: 23.107 @epoch 137)
+Forward: 9.28s
+
+Saving...
+Total: 10.64s
+
+[Epoch 156]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.1053]	96.9+0.3s
+[1600/7800]	[L1: 14.6110]	96.9+0.1s
+[2400/7800]	[L1: 14.3846]	97.0+0.1s
+[3200/7800]	[L1: 14.4882]	96.9+0.1s
+[4000/7800]	[L1: 14.4903]	96.9+0.1s
+[4800/7800]	[L1: 14.4649]	96.9+0.1s
+[5600/7800]	[L1: 14.5073]	96.9+0.1s
+[6400/7800]	[L1: 14.6350]	96.9+0.1s
+[7200/7800]	[L1: 14.5956]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 23.103 (Best: 23.107 @epoch 137)
+Forward: 9.23s
+
+Saving...
+Total: 10.61s
+
+[Epoch 157]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.7792]	97.0+0.3s
+[1600/7800]	[L1: 14.9949]	97.0+0.1s
+[2400/7800]	[L1: 15.0973]	96.8+0.1s
+[3200/7800]	[L1: 14.8464]	96.8+0.1s
+[4000/7800]	[L1: 14.9012]	96.8+0.1s
+[4800/7800]	[L1: 14.8320]	96.9+0.1s
+[5600/7800]	[L1: 14.7699]	96.9+0.1s
+[6400/7800]	[L1: 14.7237]	96.9+0.1s
+[7200/7800]	[L1: 14.7093]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.239 (Best: 23.107 @epoch 137)
+Forward: 9.26s
+
+Saving...
+Total: 10.58s
+
+[Epoch 158]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.9535]	97.0+0.3s
+[1600/7800]	[L1: 14.7897]	96.9+0.1s
+[2400/7800]	[L1: 14.7934]	96.9+0.1s
+[3200/7800]	[L1: 14.7501]	97.0+0.1s
+[4000/7800]	[L1: 14.7085]	96.9+0.1s
+[4800/7800]	[L1: 14.7805]	96.9+0.1s
+[5600/7800]	[L1: 14.7658]	96.9+0.1s
+[6400/7800]	[L1: 14.7574]	97.0+0.1s
+[7200/7800]	[L1: 14.7039]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.984 (Best: 23.107 @epoch 137)
+Forward: 9.29s
+
+Saving...
+Total: 10.63s
+
+[Epoch 159]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.2658]	96.9+0.3s
+[1600/7800]	[L1: 14.5793]	97.0+0.1s
+[2400/7800]	[L1: 14.5325]	97.0+0.1s
+[3200/7800]	[L1: 14.6553]	97.0+0.1s
+[4000/7800]	[L1: 14.6720]	97.0+0.1s
+[4800/7800]	[L1: 14.6221]	97.0+0.1s
+[5600/7800]	[L1: 14.6340]	96.9+0.1s
+[6400/7800]	[L1: 14.5888]	97.0+0.1s
+[7200/7800]	[L1: 14.6173]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.689 (Best: 23.107 @epoch 137)
+Forward: 9.26s
+
+Saving...
+Total: 10.57s
+
+[Epoch 160]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.4481]	96.9+0.3s
+[1600/7800]	[L1: 14.4427]	97.0+0.1s
+[2400/7800]	[L1: 14.7539]	96.9+0.1s
+[3200/7800]	[L1: 14.6795]	96.9+0.1s
+[4000/7800]	[L1: 14.6790]	96.9+0.1s
+[4800/7800]	[L1: 14.6774]	96.9+0.1s
+[5600/7800]	[L1: 14.6143]	96.9+0.1s
+[6400/7800]	[L1: 14.6318]	96.9+0.1s
+[7200/7800]	[L1: 14.6796]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.555 (Best: 23.107 @epoch 137)
+Forward: 9.28s
+
+Saving...
+Total: 10.62s
+
+[Epoch 161]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.5894]	96.9+0.3s
+[1600/7800]	[L1: 14.6584]	97.0+0.1s
+[2400/7800]	[L1: 14.5334]	97.1+0.1s
+[3200/7800]	[L1: 14.6123]	97.0+0.1s
+[4000/7800]	[L1: 14.6255]	97.0+0.1s
+[4800/7800]	[L1: 14.6460]	96.9+0.1s
+[5600/7800]	[L1: 14.6319]	96.9+0.1s
+[6400/7800]	[L1: 14.7091]	97.0+0.1s
+[7200/7800]	[L1: 14.7602]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.866 (Best: 23.107 @epoch 137)
+Forward: 9.24s
+
+Saving...
+Total: 10.58s
+
+[Epoch 162]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.8429]	97.0+0.3s
+[1600/7800]	[L1: 14.9987]	97.0+0.1s
+[2400/7800]	[L1: 14.8199]	97.0+0.1s
+[3200/7800]	[L1: 14.7378]	97.0+0.1s
+[4000/7800]	[L1: 14.7064]	97.0+0.1s
+[4800/7800]	[L1: 14.6049]	97.0+0.1s
+[5600/7800]	[L1: 14.6693]	97.0+0.1s
+[6400/7800]	[L1: 14.6856]	97.0+0.1s
+[7200/7800]	[L1: 14.7210]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.173 (Best: 23.107 @epoch 137)
+Forward: 9.19s
+
+Saving...
+Total: 10.51s
+
+[Epoch 163]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.1474]	96.9+0.4s
+[1600/7800]	[L1: 14.5294]	96.9+0.1s
+[2400/7800]	[L1: 14.6692]	96.9+0.1s
+[3200/7800]	[L1: 14.5492]	96.9+0.1s
+[4000/7800]	[L1: 14.4579]	96.9+0.1s
+[4800/7800]	[L1: 14.4637]	96.9+0.1s
+[5600/7800]	[L1: 14.4925]	96.8+0.1s
+[6400/7800]	[L1: 14.4861]	96.9+0.1s
+[7200/7800]	[L1: 14.4747]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.776 (Best: 23.107 @epoch 137)
+Forward: 9.26s
+
+Saving...
+Total: 10.57s
+
+[Epoch 164]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.6243]	96.9+0.3s
+[1600/7800]	[L1: 14.5750]	96.9+0.1s
+[2400/7800]	[L1: 14.7690]	96.9+0.1s
+[3200/7800]	[L1: 14.7214]	96.9+0.1s
+[4000/7800]	[L1: 14.6509]	96.8+0.1s
+[4800/7800]	[L1: 14.7511]	96.9+0.1s
+[5600/7800]	[L1: 14.7972]	96.9+0.1s
+[6400/7800]	[L1: 14.7792]	96.9+0.1s
+[7200/7800]	[L1: 14.7072]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.666 (Best: 23.107 @epoch 137)
+Forward: 9.25s
+
+Saving...
+Total: 10.59s
+
+[Epoch 165]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.0490]	96.9+0.3s
+[1600/7800]	[L1: 14.8882]	96.9+0.1s
+[2400/7800]	[L1: 14.7332]	96.9+0.1s
+[3200/7800]	[L1: 14.6249]	96.8+0.1s
+[4000/7800]	[L1: 14.5510]	96.9+0.1s
+[4800/7800]	[L1: 14.6103]	96.9+0.1s
+[5600/7800]	[L1: 14.6020]	97.0+0.1s
+[6400/7800]	[L1: 14.6767]	97.0+0.1s
+[7200/7800]	[L1: 14.6878]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.724 (Best: 23.107 @epoch 137)
+Forward: 9.34s
+
+Saving...
+Total: 10.63s
+
+[Epoch 166]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.0956]	97.0+0.3s
+[1600/7800]	[L1: 14.8178]	96.9+0.1s
+[2400/7800]	[L1: 14.7923]	96.9+0.1s
+[3200/7800]	[L1: 14.8046]	96.9+0.1s
+[4000/7800]	[L1: 14.7636]	96.9+0.1s
+[4800/7800]	[L1: 14.8214]	96.9+0.1s
+[5600/7800]	[L1: 14.7341]	96.9+0.1s
+[6400/7800]	[L1: 14.7723]	96.8+0.1s
+[7200/7800]	[L1: 14.6856]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.449 (Best: 23.107 @epoch 137)
+Forward: 9.23s
+
+Saving...
+Total: 10.54s
+
+[Epoch 167]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.3996]	96.9+0.3s
+[1600/7800]	[L1: 14.4294]	96.9+0.1s
+[2400/7800]	[L1: 14.5857]	96.9+0.1s
+[3200/7800]	[L1: 14.4936]	96.9+0.1s
+[4000/7800]	[L1: 14.4176]	97.0+0.1s
+[4800/7800]	[L1: 14.4814]	97.0+0.1s
+[5600/7800]	[L1: 14.4997]	96.9+0.1s
+[6400/7800]	[L1: 14.5405]	96.9+0.1s
+[7200/7800]	[L1: 14.5047]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.571 (Best: 23.107 @epoch 137)
+Forward: 9.29s
+
+Saving...
+Total: 10.64s
+
+[Epoch 168]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.0168]	96.9+0.3s
+[1600/7800]	[L1: 14.0444]	96.9+0.1s
+[2400/7800]	[L1: 14.3689]	96.9+0.1s
+[3200/7800]	[L1: 14.4081]	96.9+0.1s
+[4000/7800]	[L1: 14.5354]	96.9+0.1s
+[4800/7800]	[L1: 14.5764]	96.9+0.1s
+[5600/7800]	[L1: 14.6011]	96.9+0.1s
+[6400/7800]	[L1: 14.6014]	97.0+0.1s
+[7200/7800]	[L1: 14.6188]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.093 (Best: 23.107 @epoch 137)
+Forward: 9.32s
+
+Saving...
+Total: 10.57s
+
+[Epoch 169]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.2583]	97.0+0.3s
+[1600/7800]	[L1: 14.7730]	97.0+0.1s
+[2400/7800]	[L1: 14.7825]	96.9+0.1s
+[3200/7800]	[L1: 14.7078]	96.9+0.1s
+[4000/7800]	[L1: 14.6785]	96.9+0.1s
+[4800/7800]	[L1: 14.6621]	96.9+0.1s
+[5600/7800]	[L1: 14.6492]	96.9+0.1s
+[6400/7800]	[L1: 14.6409]	96.9+0.1s
+[7200/7800]	[L1: 14.6563]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.836 (Best: 23.107 @epoch 137)
+Forward: 9.26s
+
+Saving...
+Total: 10.61s
+
+[Epoch 170]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.6804]	96.9+0.4s
+[1600/7800]	[L1: 14.4726]	96.9+0.1s
+[2400/7800]	[L1: 14.5421]	96.9+0.1s
+[3200/7800]	[L1: 14.5429]	96.9+0.1s
+[4000/7800]	[L1: 14.5923]	97.0+0.1s
+[4800/7800]	[L1: 14.5487]	96.9+0.1s
+[5600/7800]	[L1: 14.5127]	96.9+0.1s
+[6400/7800]	[L1: 14.5015]	96.9+0.1s
+[7200/7800]	[L1: 14.5143]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.592 (Best: 23.107 @epoch 137)
+Forward: 9.23s
+
+Saving...
+Total: 10.52s
+
+[Epoch 171]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.5161]	96.8+0.4s
+[1600/7800]	[L1: 14.3487]	96.9+0.1s
+[2400/7800]	[L1: 14.4109]	96.9+0.1s
+[3200/7800]	[L1: 14.4660]	96.9+0.1s
+[4000/7800]	[L1: 14.5049]	96.9+0.1s
+[4800/7800]	[L1: 14.5420]	96.9+0.1s
+[5600/7800]	[L1: 14.5250]	96.9+0.1s
+[6400/7800]	[L1: 14.4779]	96.9+0.1s
+[7200/7800]	[L1: 14.4940]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.763 (Best: 23.107 @epoch 137)
+Forward: 9.23s
+
+Saving...
+Total: 10.50s
+
+[Epoch 172]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.4705]	96.9+0.3s
+[1600/7800]	[L1: 14.4245]	97.0+0.1s
+[2400/7800]	[L1: 14.3241]	97.0+0.1s
+[3200/7800]	[L1: 14.4089]	96.9+0.1s
+[4000/7800]	[L1: 14.5403]	97.0+0.1s
+[4800/7800]	[L1: 14.6402]	96.9+0.1s
+[5600/7800]	[L1: 14.6735]	96.9+0.1s
+[6400/7800]	[L1: 14.6461]	97.0+0.1s
+[7200/7800]	[L1: 14.6317]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.803 (Best: 23.107 @epoch 137)
+Forward: 9.31s
+
+Saving...
+Total: 10.62s
+
+[Epoch 173]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.4105]	96.9+0.4s
+[1600/7800]	[L1: 14.2018]	96.9+0.1s
+[2400/7800]	[L1: 14.4019]	96.9+0.1s
+[3200/7800]	[L1: 14.4561]	96.9+0.1s
+[4000/7800]	[L1: 14.5268]	96.9+0.1s
+[4800/7800]	[L1: 14.5053]	96.8+0.1s
+[5600/7800]	[L1: 14.5728]	96.8+0.1s
+[6400/7800]	[L1: 14.6372]	96.8+0.1s
+[7200/7800]	[L1: 14.6404]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.918 (Best: 23.107 @epoch 137)
+Forward: 9.26s
+
+Saving...
+Total: 10.66s
+
+[Epoch 174]	Learning rate: 5.00e-5
+[800/7800]	[L1: 15.2148]	96.9+0.3s
+[1600/7800]	[L1: 15.0302]	97.0+0.1s
+[2400/7800]	[L1: 14.9676]	96.9+0.1s
+[3200/7800]	[L1: 14.8702]	96.9+0.1s
+[4000/7800]	[L1: 14.7041]	96.9+0.1s
+[4800/7800]	[L1: 14.5741]	96.9+0.1s
+[5600/7800]	[L1: 14.5367]	96.9+0.1s
+[6400/7800]	[L1: 14.5584]	96.9+0.1s
+[7200/7800]	[L1: 14.4898]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.204 (Best: 23.107 @epoch 137)
+Forward: 9.31s
+
+Saving...
+Total: 10.63s
+
+[Epoch 175]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.8256]	96.9+0.3s
+[1600/7800]	[L1: 15.0551]	96.9+0.1s
+[2400/7800]	[L1: 15.1594]	96.9+0.1s
+[3200/7800]	[L1: 15.0467]	96.9+0.1s
+[4000/7800]	[L1: 14.9381]	96.8+0.1s
+[4800/7800]	[L1: 14.8762]	96.9+0.1s
+[5600/7800]	[L1: 14.8273]	96.9+0.1s
+[6400/7800]	[L1: 14.7261]	96.9+0.1s
+[7200/7800]	[L1: 14.6856]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.262 (Best: 23.107 @epoch 137)
+Forward: 9.29s
+
+Saving...
+Total: 10.58s
+
+[Epoch 176]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.0254]	96.8+0.3s
+[1600/7800]	[L1: 14.2123]	96.8+0.1s
+[2400/7800]	[L1: 14.3315]	96.9+0.1s
+[3200/7800]	[L1: 14.3539]	96.9+0.1s
+[4000/7800]	[L1: 14.3174]	97.0+0.1s
+[4800/7800]	[L1: 14.3360]	97.0+0.1s
+[5600/7800]	[L1: 14.2325]	96.9+0.1s
+[6400/7800]	[L1: 14.3236]	96.9+0.1s
+[7200/7800]	[L1: 14.3871]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.485 (Best: 23.107 @epoch 137)
+Forward: 9.33s
+
+Saving...
+Total: 10.64s
+
+[Epoch 177]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.2292]	96.9+0.3s
+[1600/7800]	[L1: 14.5580]	96.9+0.1s
+[2400/7800]	[L1: 14.6078]	96.9+0.1s
+[3200/7800]	[L1: 14.4821]	96.9+0.1s
+[4000/7800]	[L1: 14.3366]	96.9+0.1s
+[4800/7800]	[L1: 14.4355]	96.9+0.1s
+[5600/7800]	[L1: 14.4382]	96.9+0.1s
+[6400/7800]	[L1: 14.4659]	96.9+0.1s
+[7200/7800]	[L1: 14.4755]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.548 (Best: 23.107 @epoch 137)
+Forward: 9.26s
+
+Saving...
+Total: 10.58s
+
+[Epoch 178]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.3267]	96.9+0.4s
+[1600/7800]	[L1: 14.3162]	96.9+0.1s
+[2400/7800]	[L1: 14.3859]	96.9+0.1s
+[3200/7800]	[L1: 14.3321]	96.9+0.1s
+[4000/7800]	[L1: 14.3911]	96.9+0.1s
+[4800/7800]	[L1: 14.3880]	96.9+0.1s
+[5600/7800]	[L1: 14.3897]	96.9+0.1s
+[6400/7800]	[L1: 14.4288]	96.9+0.1s
+[7200/7800]	[L1: 14.4245]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.683 (Best: 23.107 @epoch 137)
+Forward: 9.30s
+
+Saving...
+Total: 10.82s
+
+[Epoch 179]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.3138]	96.9+0.3s
+[1600/7800]	[L1: 14.5583]	97.9+0.1s
+[2400/7800]	[L1: 14.6677]	96.9+0.1s
+[3200/7800]	[L1: 14.5803]	97.0+0.1s
+[4000/7800]	[L1: 14.6039]	97.0+0.1s
+[4800/7800]	[L1: 14.5561]	97.0+0.1s
+[5600/7800]	[L1: 14.5434]	96.9+0.1s
+[6400/7800]	[L1: 14.5308]	96.9+0.1s
+[7200/7800]	[L1: 14.4916]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.136 (Best: 23.107 @epoch 137)
+Forward: 9.28s
+
+Saving...
+Total: 10.58s
+
+[Epoch 180]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.2832]	96.9+0.3s
+[1600/7800]	[L1: 14.6117]	97.0+0.1s
+[2400/7800]	[L1: 14.6314]	96.9+0.1s
+[3200/7800]	[L1: 14.4977]	96.9+0.1s
+[4000/7800]	[L1: 14.4212]	96.9+0.1s
+[4800/7800]	[L1: 14.3989]	97.0+0.1s
+[5600/7800]	[L1: 14.3462]	97.0+0.1s
+[6400/7800]	[L1: 14.3787]	96.9+0.1s
+[7200/7800]	[L1: 14.4191]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.651 (Best: 23.107 @epoch 137)
+Forward: 9.31s
+
+Saving...
+Total: 10.65s
+
+[Epoch 181]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.3306]	97.0+0.3s
+[1600/7800]	[L1: 14.4231]	97.0+0.1s
+[2400/7800]	[L1: 14.4340]	96.8+0.1s
+[3200/7800]	[L1: 14.5165]	96.9+0.1s
+[4000/7800]	[L1: 14.5514]	96.9+0.1s
+[4800/7800]	[L1: 14.5151]	96.9+0.1s
+[5600/7800]	[L1: 14.5375]	96.9+0.1s
+[6400/7800]	[L1: 14.5569]	96.9+0.1s
+[7200/7800]	[L1: 14.5531]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.907 (Best: 23.107 @epoch 137)
+Forward: 9.25s
+
+Saving...
+Total: 10.58s
+
+[Epoch 182]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.7905]	96.9+0.4s
+[1600/7800]	[L1: 14.7391]	97.0+0.1s
+[2400/7800]	[L1: 14.6345]	97.0+0.1s
+[3200/7800]	[L1: 14.4366]	96.9+0.1s
+[4000/7800]	[L1: 14.5444]	97.0+0.1s
+[4800/7800]	[L1: 14.5209]	96.9+0.1s
+[5600/7800]	[L1: 14.4480]	96.9+0.1s
+[6400/7800]	[L1: 14.4245]	96.9+0.1s
+[7200/7800]	[L1: 14.4261]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 23.000 (Best: 23.107 @epoch 137)
+Forward: 9.24s
+
+Saving...
+Total: 10.55s
+
+[Epoch 183]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.5636]	96.9+0.3s
+[1600/7800]	[L1: 14.4924]	97.0+0.1s
+[2400/7800]	[L1: 14.5471]	97.0+0.1s
+[3200/7800]	[L1: 14.4605]	97.0+0.1s
+[4000/7800]	[L1: 14.4735]	97.0+0.1s
+[4800/7800]	[L1: 14.4301]	97.0+0.1s
+[5600/7800]	[L1: 14.4074]	97.0+0.1s
+[6400/7800]	[L1: 14.3861]	96.9+0.1s
+[7200/7800]	[L1: 14.3543]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.660 (Best: 23.107 @epoch 137)
+Forward: 9.26s
+
+Saving...
+Total: 10.53s
+
+[Epoch 184]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.4661]	96.9+0.3s
+[1600/7800]	[L1: 14.3004]	97.0+0.1s
+[2400/7800]	[L1: 14.3200]	97.0+0.1s
+[3200/7800]	[L1: 14.4011]	96.9+0.1s
+[4000/7800]	[L1: 14.4452]	96.9+0.1s
+[4800/7800]	[L1: 14.4185]	97.0+0.1s
+[5600/7800]	[L1: 14.3986]	97.0+0.1s
+[6400/7800]	[L1: 14.4089]	97.0+0.1s
+[7200/7800]	[L1: 14.3727]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.320 (Best: 23.107 @epoch 137)
+Forward: 9.33s
+
+Saving...
+Total: 10.64s
+
+[Epoch 185]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.0710]	96.9+0.3s
+[1600/7800]	[L1: 14.4075]	97.0+0.1s
+[2400/7800]	[L1: 14.4513]	96.8+0.1s
+[3200/7800]	[L1: 14.5279]	96.9+0.1s
+[4000/7800]	[L1: 14.5434]	96.9+0.1s
+[4800/7800]	[L1: 14.5417]	96.9+0.1s
+[5600/7800]	[L1: 14.5339]	96.8+0.1s
+[6400/7800]	[L1: 14.5423]	96.9+0.1s
+[7200/7800]	[L1: 14.5083]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.605 (Best: 23.107 @epoch 137)
+Forward: 9.29s
+
+Saving...
+Total: 10.64s
+
+[Epoch 186]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.5962]	97.0+0.3s
+[1600/7800]	[L1: 14.6138]	97.1+0.1s
+[2400/7800]	[L1: 14.6108]	97.0+0.1s
+[3200/7800]	[L1: 14.7195]	96.9+0.1s
+[4000/7800]	[L1: 14.6416]	96.8+0.1s
+[4800/7800]	[L1: 14.5807]	96.9+0.1s
+[5600/7800]	[L1: 14.6428]	97.0+0.1s
+[6400/7800]	[L1: 14.6909]	96.9+0.1s
+[7200/7800]	[L1: 14.6578]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.819 (Best: 23.107 @epoch 137)
+Forward: 9.29s
+
+Saving...
+Total: 10.58s
+
+[Epoch 187]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.5927]	97.0+0.3s
+[1600/7800]	[L1: 14.2855]	97.0+0.1s
+[2400/7800]	[L1: 14.3676]	96.9+0.1s
+[3200/7800]	[L1: 14.3805]	97.0+0.1s
+[4000/7800]	[L1: 14.3791]	97.0+0.1s
+[4800/7800]	[L1: 14.3837]	97.0+0.1s
+[5600/7800]	[L1: 14.4604]	97.0+0.1s
+[6400/7800]	[L1: 14.4303]	97.0+0.1s
+[7200/7800]	[L1: 14.4162]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.622 (Best: 23.107 @epoch 137)
+Forward: 9.33s
+
+Saving...
+Total: 10.61s
+
+[Epoch 188]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.5705]	97.1+0.4s
+[1600/7800]	[L1: 14.3998]	97.0+0.1s
+[2400/7800]	[L1: 14.4443]	97.0+0.1s
+[3200/7800]	[L1: 14.4996]	97.0+0.1s
+[4000/7800]	[L1: 14.5889]	97.0+0.1s
+[4800/7800]	[L1: 14.5945]	97.0+0.1s
+[5600/7800]	[L1: 14.6220]	96.9+0.1s
+[6400/7800]	[L1: 14.5711]	96.9+0.1s
+[7200/7800]	[L1: 14.5050]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.698 (Best: 23.107 @epoch 137)
+Forward: 9.25s
+
+Saving...
+Total: 10.57s
+
+[Epoch 189]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.0743]	96.9+0.3s
+[1600/7800]	[L1: 14.3028]	96.9+0.1s
+[2400/7800]	[L1: 14.3231]	96.9+0.1s
+[3200/7800]	[L1: 14.4172]	96.9+0.1s
+[4000/7800]	[L1: 14.4784]	96.9+0.1s
+[4800/7800]	[L1: 14.3962]	96.9+0.1s
+[5600/7800]	[L1: 14.3549]	96.9+0.1s
+[6400/7800]	[L1: 14.3951]	96.9+0.1s
+[7200/7800]	[L1: 14.3888]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 23.035 (Best: 23.107 @epoch 137)
+Forward: 9.26s
+
+Saving...
+Total: 10.60s
+
+[Epoch 190]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.6559]	97.1+0.3s
+[1600/7800]	[L1: 14.7441]	96.9+0.1s
+[2400/7800]	[L1: 14.7220]	96.9+0.1s
+[3200/7800]	[L1: 14.7168]	96.9+0.1s
+[4000/7800]	[L1: 14.7473]	96.9+0.1s
+[4800/7800]	[L1: 14.7306]	96.9+0.1s
+[5600/7800]	[L1: 14.6663]	97.0+0.1s
+[6400/7800]	[L1: 14.5669]	96.9+0.1s
+[7200/7800]	[L1: 14.5173]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.555 (Best: 23.107 @epoch 137)
+Forward: 9.30s
+
+Saving...
+Total: 10.63s
+
+[Epoch 191]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.4733]	96.9+0.4s
+[1600/7800]	[L1: 14.4552]	96.9+0.1s
+[2400/7800]	[L1: 14.5630]	96.9+0.1s
+[3200/7800]	[L1: 14.3816]	97.0+0.1s
+[4000/7800]	[L1: 14.4256]	96.9+0.1s
+[4800/7800]	[L1: 14.4339]	96.9+0.1s
+[5600/7800]	[L1: 14.4205]	96.9+0.1s
+[6400/7800]	[L1: 14.4054]	96.9+0.1s
+[7200/7800]	[L1: 14.3743]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.803 (Best: 23.107 @epoch 137)
+Forward: 9.25s
+
+Saving...
+Total: 10.60s
+
+[Epoch 192]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.0848]	96.9+0.4s
+[1600/7800]	[L1: 14.1910]	96.9+0.1s
+[2400/7800]	[L1: 14.1504]	96.9+0.1s
+[3200/7800]	[L1: 14.1967]	96.8+0.1s
+[4000/7800]	[L1: 14.1789]	96.9+0.1s
+[4800/7800]	[L1: 14.1957]	96.9+0.1s
+[5600/7800]	[L1: 14.2241]	96.9+0.1s
+[6400/7800]	[L1: 14.2788]	96.9+0.1s
+[7200/7800]	[L1: 14.3533]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.656 (Best: 23.107 @epoch 137)
+Forward: 9.29s
+
+Saving...
+Total: 10.62s
+
+[Epoch 193]	Learning rate: 5.00e-5
+[800/7800]	[L1: 13.8981]	97.0+0.4s
+[1600/7800]	[L1: 14.4050]	96.8+0.1s
+[2400/7800]	[L1: 14.2949]	96.8+0.1s
+[3200/7800]	[L1: 14.3558]	96.8+0.1s
+[4000/7800]	[L1: 14.4940]	96.8+0.1s
+[4800/7800]	[L1: 14.4143]	96.8+0.1s
+[5600/7800]	[L1: 14.4191]	96.8+0.1s
+[6400/7800]	[L1: 14.4995]	96.8+0.1s
+[7200/7800]	[L1: 14.4354]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 23.182 (Best: 23.182 @epoch 193)
+Forward: 9.30s
+
+Saving...
+Total: 10.71s
+
+[Epoch 194]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.5333]	96.9+0.4s
+[1600/7800]	[L1: 14.6665]	96.9+0.1s
+[2400/7800]	[L1: 14.5816]	96.9+0.1s
+[3200/7800]	[L1: 14.5977]	96.9+0.1s
+[4000/7800]	[L1: 14.5069]	96.8+0.1s
+[4800/7800]	[L1: 14.5637]	96.9+0.1s
+[5600/7800]	[L1: 14.5971]	96.9+0.1s
+[6400/7800]	[L1: 14.6239]	96.8+0.1s
+[7200/7800]	[L1: 14.5650]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.837 (Best: 23.182 @epoch 193)
+Forward: 9.28s
+
+Saving...
+Total: 10.61s
+
+[Epoch 195]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.0086]	96.9+0.3s
+[1600/7800]	[L1: 14.1551]	96.9+0.1s
+[2400/7800]	[L1: 14.4154]	96.9+0.1s
+[3200/7800]	[L1: 14.3661]	96.9+0.1s
+[4000/7800]	[L1: 14.3204]	96.9+0.1s
+[4800/7800]	[L1: 14.3945]	96.9+0.1s
+[5600/7800]	[L1: 14.3300]	96.9+0.1s
+[6400/7800]	[L1: 14.3165]	96.9+0.1s
+[7200/7800]	[L1: 14.3103]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.807 (Best: 23.182 @epoch 193)
+Forward: 9.28s
+
+Saving...
+Total: 10.62s
+
+[Epoch 196]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.5833]	96.9+0.3s
+[1600/7800]	[L1: 14.4759]	96.9+0.1s
+[2400/7800]	[L1: 14.4131]	96.8+0.1s
+[3200/7800]	[L1: 14.3601]	96.8+0.1s
+[4000/7800]	[L1: 14.2862]	96.8+0.1s
+[4800/7800]	[L1: 14.3803]	96.8+0.1s
+[5600/7800]	[L1: 14.4697]	96.8+0.1s
+[6400/7800]	[L1: 14.4862]	96.9+0.1s
+[7200/7800]	[L1: 14.4656]	96.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.691 (Best: 23.182 @epoch 193)
+Forward: 9.27s
+
+Saving...
+Total: 10.60s
+
+[Epoch 197]	Learning rate: 5.00e-5
+[800/7800]	[L1: 14.0528]	96.9+0.3s
+[1600/7800]	[L1: 14.1862]	97.0+0.1s
+[2400/7800]	[L1: 14.1707]	96.9+0.1s
+[3200/7800]	[L1: 14.2948]	96.9+0.1s
+[4000/7800]	[L1: 14.3797]	96.9+0.1s
+[4800/7800]	[L1: 14.4026]	96.8+0.1s
+[5600/7800]	[L1: 14.3626]	96.9+0.1s
+[6400/7800]	[L1: 14.3700]	96.9+0.1s
+[7200/7800]	[L1: 14.3660]	96.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.486 (Best: 23.182 @epoch 193)
+Forward: 9.30s
+
+Saving...
+Total: 10.63s
+
+[Epoch 198]	Learning rate: 5.00e-5
+[800/7800]	[L1: 13.8400]	96.8+0.4s
+[1600/7800]	[L1: 13.9600]	97.0+0.1s
+[2400/7800]	[L1: 14.2230]	97.0+0.1s
+[3200/7800]	[L1: 14.1206]	96.9+0.1s
+[4000/7800]	[L1: 14.1886]	96.9+0.1s
+[4800/7800]	[L1: 14.2739]	96.9+0.1s
+[5600/7800]	[L1: 14.2947]	96.9+0.1s
+[6400/7800]	[L1: 14.2652]	97.6+0.1s
+[7200/7800]	[L1: 14.3460]	97.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.869 (Best: 23.182 @epoch 193)
+Forward: 9.28s
+
+Saving...
+Total: 10.62s
+
