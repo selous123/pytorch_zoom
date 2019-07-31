@@ -52,7 +52,7 @@ parser.add_argument('--labels', default='HR+Diff',
                     help='setting the SSL labels for model')
 
 # Model specifications
-parser.add_argument('--model', default='EDSR',choices=['EDSR', 'MDSR', 'RCAN', 'SAN', 'SRResNet', 'SSL'],
+parser.add_argument('--model', default='EDSR',choices=['EDSR', 'MDSR', 'RDN', 'RCAN', 'SAN', 'SRResNet', 'SSL'],
                     help='model name')
 
 parser.add_argument('--act', type=str, default='relu',

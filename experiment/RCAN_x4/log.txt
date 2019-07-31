@@ -1,0 +1,5280 @@
+rcan x4 result
+RCAN(
+  (sub_mean): MeanShift(3, 3, kernel_size=(1, 1), stride=(1, 1))
+  (add_mean): MeanShift(3, 3, kernel_size=(1, 1), stride=(1, 1))
+  (head): Sequential(
+    (0): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  )
+  (body): Sequential(
+    (0): ResidualGroup(
+      (body): Sequential(
+        (0): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (1): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (2): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (3): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (4): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (5): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (6): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (7): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (8): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (9): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (10): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (11): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (12): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (13): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (14): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (15): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (16): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+    (1): ResidualGroup(
+      (body): Sequential(
+        (0): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (1): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (2): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (3): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (4): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (5): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (6): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (7): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (8): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (9): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (10): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (11): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (12): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (13): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (14): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (15): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (16): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+    (2): ResidualGroup(
+      (body): Sequential(
+        (0): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (1): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (2): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (3): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (4): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (5): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (6): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (7): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (8): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (9): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (10): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (11): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (12): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (13): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (14): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (15): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (16): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+    (3): ResidualGroup(
+      (body): Sequential(
+        (0): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (1): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (2): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (3): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (4): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (5): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (6): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (7): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (8): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (9): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (10): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (11): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (12): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (13): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (14): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (15): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (16): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+    (4): ResidualGroup(
+      (body): Sequential(
+        (0): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (1): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (2): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (3): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (4): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (5): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (6): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (7): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (8): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (9): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (10): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (11): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (12): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (13): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (14): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (15): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (16): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+    (5): ResidualGroup(
+      (body): Sequential(
+        (0): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (1): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (2): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (3): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (4): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (5): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (6): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (7): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (8): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (9): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (10): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (11): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (12): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (13): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (14): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (15): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (16): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+    (6): ResidualGroup(
+      (body): Sequential(
+        (0): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (1): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (2): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (3): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (4): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (5): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (6): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (7): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (8): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (9): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (10): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (11): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (12): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (13): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (14): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (15): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (16): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+    (7): ResidualGroup(
+      (body): Sequential(
+        (0): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (1): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (2): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (3): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (4): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (5): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (6): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (7): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (8): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (9): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (10): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (11): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (12): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (13): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (14): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (15): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (16): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+    (8): ResidualGroup(
+      (body): Sequential(
+        (0): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (1): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (2): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (3): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (4): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (5): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (6): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (7): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (8): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (9): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (10): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (11): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (12): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (13): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (14): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (15): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (16): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+    (9): ResidualGroup(
+      (body): Sequential(
+        (0): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (1): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (2): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (3): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (4): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (5): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (6): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (7): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (8): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (9): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (10): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (11): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (12): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (13): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (14): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (15): RCAB(
+          (body): Sequential(
+            (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (1): ReLU(inplace)
+            (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+            (3): CALayer(
+              (avg_pool): AdaptiveAvgPool2d(output_size=1)
+              (conv_du): Sequential(
+                (0): Conv2d(64, 4, kernel_size=(1, 1), stride=(1, 1))
+                (1): ReLU(inplace)
+                (2): Conv2d(4, 64, kernel_size=(1, 1), stride=(1, 1))
+                (3): Sigmoid()
+              )
+            )
+          )
+        )
+        (16): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+    (10): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  )
+  (tail): Sequential(
+    (0): Upsampler(
+      (0): Conv2d(64, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): PixelShuffle(upscale_factor=2)
+      (2): Conv2d(64, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (3): PixelShuffle(upscale_factor=2)
+    )
+    (1): Conv2d(64, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  )
+)
+[Epoch 1]	Learning rate: 1.00e-4
+[800/7800]	[L1: 29.0969]	91.8+5.5s
+[1600/7800]	[L1: 26.5214]	93.2+0.1s
+[2400/7800]	[L1: 25.3064]	93.0+0.1s
+[3200/7800]	[L1: 24.6065]	93.0+0.1s
+[4000/7800]	[L1: 24.1975]	93.0+0.1s
+[4800/7800]	[L1: 23.8409]	92.9+0.1s
+[5600/7800]	[L1: 23.6476]	92.9+0.1s
+[6400/7800]	[L1: 23.4571]	93.0+0.1s
+[7200/7800]	[L1: 23.2301]	93.2+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.182 (Best: 19.182 @epoch 1)
+Forward: 3.41s
+
+Saving...
+Total: 4.29s
+
+[Epoch 2]	Learning rate: 1.00e-4
+[800/7800]	[L1: 22.1803]	93.0+0.3s
+[1600/7800]	[L1: 21.9126]	92.9+0.1s
+[2400/7800]	[L1: 21.7024]	92.9+0.1s
+[3200/7800]	[L1: 21.6979]	93.0+0.1s
+[4000/7800]	[L1: 21.7569]	92.9+0.1s
+[4800/7800]	[L1: 21.7537]	93.0+0.1s
+[5600/7800]	[L1: 21.6675]	92.9+0.1s
+[6400/7800]	[L1: 21.5656]	92.9+0.1s
+[7200/7800]	[L1: 21.5413]	93.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.729 (Best: 19.729 @epoch 2)
+Forward: 2.67s
+
+Saving...
+Total: 3.72s
+
+[Epoch 3]	Learning rate: 1.00e-4
+[800/7800]	[L1: 21.3039]	93.0+0.4s
+[1600/7800]	[L1: 20.8660]	92.9+0.1s
+[2400/7800]	[L1: 20.8321]	92.9+0.1s
+[3200/7800]	[L1: 20.9004]	92.8+0.1s
+[4000/7800]	[L1: 20.8463]	93.0+0.1s
+[4800/7800]	[L1: 20.9927]	92.9+0.1s
+[5600/7800]	[L1: 21.1061]	92.9+0.1s
+[6400/7800]	[L1: 20.9987]	93.0+0.1s
+[7200/7800]	[L1: 21.0561]	93.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 18.501 (Best: 19.729 @epoch 2)
+Forward: 2.67s
+
+Saving...
+Total: 3.66s
+
+[Epoch 4]	Learning rate: 1.00e-4
+[800/7800]	[L1: 20.1987]	93.1+0.3s
+[1600/7800]	[L1: 20.2811]	93.0+0.1s
+[2400/7800]	[L1: 20.6549]	93.0+0.1s
+[3200/7800]	[L1: 20.8176]	92.9+0.1s
+[4000/7800]	[L1: 20.7524]	92.9+0.1s
+[4800/7800]	[L1: 20.7511]	93.0+0.1s
+[5600/7800]	[L1: 20.7553]	93.1+0.1s
+[6400/7800]	[L1: 20.8946]	93.0+0.1s
+[7200/7800]	[L1: 20.8259]	92.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.712 (Best: 19.729 @epoch 2)
+Forward: 2.52s
+
+Saving...
+Total: 3.71s
+
+[Epoch 5]	Learning rate: 1.00e-4
+[800/7800]	[L1: 21.3650]	93.1+0.3s
+[1600/7800]	[L1: 21.2594]	92.9+0.1s
+[2400/7800]	[L1: 21.0875]	93.0+0.1s
+[3200/7800]	[L1: 21.1279]	92.9+0.1s
+[4000/7800]	[L1: 21.0185]	92.9+0.1s
+[4800/7800]	[L1: 20.9478]	93.0+0.1s
+[5600/7800]	[L1: 21.0045]	92.9+0.1s
+[6400/7800]	[L1: 20.9410]	92.8+0.1s
+[7200/7800]	[L1: 20.8973]	92.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.130 (Best: 20.130 @epoch 5)
+Forward: 2.70s
+
+Saving...
+Total: 3.95s
+
+[Epoch 6]	Learning rate: 1.00e-4
+[800/7800]	[L1: 20.6799]	93.1+0.3s
+[1600/7800]	[L1: 20.6168]	93.0+0.1s
+[2400/7800]	[L1: 20.7091]	93.0+0.1s
+[3200/7800]	[L1: 20.4771]	93.0+0.1s
+[4000/7800]	[L1: 20.6319]	92.9+0.1s
+[4800/7800]	[L1: 20.6772]	92.9+0.1s
+[5600/7800]	[L1: 20.7239]	92.9+0.1s
+[6400/7800]	[L1: 20.7563]	92.9+0.1s
+[7200/7800]	[L1: 20.7473]	92.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.593 (Best: 20.130 @epoch 5)
+Forward: 2.72s
+
+Saving...
+Total: 3.80s
+
+[Epoch 7]	Learning rate: 1.00e-4
+[800/7800]	[L1: 20.0639]	93.0+0.3s
+[1600/7800]	[L1: 20.2920]	93.0+0.1s
+[2400/7800]	[L1: 20.3156]	93.0+0.1s
+[3200/7800]	[L1: 20.3524]	93.0+0.1s
+[4000/7800]	[L1: 20.4833]	93.1+0.1s
+[4800/7800]	[L1: 20.5182]	93.1+0.1s
+[5600/7800]	[L1: 20.5859]	93.0+0.1s
+[6400/7800]	[L1: 20.5868]	93.0+0.1s
+[7200/7800]	[L1: 20.6627]	93.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.813 (Best: 20.130 @epoch 5)
+Forward: 2.52s
+
+Saving...
+Total: 4.00s
+
+[Epoch 8]	Learning rate: 1.00e-4
+[800/7800]	[L1: 20.9792]	93.0+0.3s
+[1600/7800]	[L1: 21.0115]	93.0+0.1s
+[2400/7800]	[L1: 20.8663]	93.0+0.1s
+[3200/7800]	[L1: 20.8347]	93.0+0.1s
+[4000/7800]	[L1: 20.7410]	92.9+0.1s
+[4800/7800]	[L1: 20.7520]	92.9+0.1s
+[5600/7800]	[L1: 20.7632]	92.9+0.1s
+[6400/7800]	[L1: 20.7772]	92.9+0.1s
+[7200/7800]	[L1: 20.7485]	92.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.622 (Best: 20.130 @epoch 5)
+Forward: 2.84s
+
+Saving...
+Total: 4.44s
+
+[Epoch 9]	Learning rate: 1.00e-4
+[800/7800]	[L1: 20.2538]	93.1+0.3s
+[1600/7800]	[L1: 20.3065]	92.9+0.1s
+[2400/7800]	[L1: 20.4808]	93.0+0.1s
+[3200/7800]	[L1: 20.5615]	92.9+0.1s
+[4000/7800]	[L1: 20.6915]	93.0+0.1s
+[4800/7800]	[L1: 20.5670]	92.9+0.1s
+[5600/7800]	[L1: 20.4744]	93.0+0.1s
+[6400/7800]	[L1: 20.4199]	93.1+0.1s
+[7200/7800]	[L1: 20.4629]	92.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.973 (Best: 20.130 @epoch 5)
+Forward: 2.61s
+
+Saving...
+Total: 4.26s
+
+[Epoch 10]	Learning rate: 1.00e-4
+[800/7800]	[L1: 20.7115]	93.1+0.3s
+[1600/7800]	[L1: 20.6528]	92.8+0.1s
+[2400/7800]	[L1: 20.6315]	92.8+0.1s
+[3200/7800]	[L1: 20.4830]	92.8+0.1s
+[4000/7800]	[L1: 20.4889]	92.8+0.1s
+[4800/7800]	[L1: 20.4093]	92.8+0.1s
+[5600/7800]	[L1: 20.4062]	92.9+0.1s
+[6400/7800]	[L1: 20.3355]	92.8+0.1s
+[7200/7800]	[L1: 20.4262]	92.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.777 (Best: 20.130 @epoch 5)
+Forward: 2.58s
+
+Saving...
+Total: 4.11s
+
+[Epoch 11]	Learning rate: 1.00e-4
+[800/7800]	[L1: 20.2637]	92.9+0.3s
+[1600/7800]	[L1: 20.0408]	92.9+0.1s
+[2400/7800]	[L1: 20.0287]	93.0+0.1s
+[3200/7800]	[L1: 20.2041]	93.0+0.1s
+[4000/7800]	[L1: 20.3512]	92.9+0.1s
+[4800/7800]	[L1: 20.4021]	92.8+0.1s
+[5600/7800]	[L1: 20.2845]	92.9+0.1s
+[6400/7800]	[L1: 20.2543]	92.9+0.1s
+[7200/7800]	[L1: 20.1611]	92.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.715 (Best: 20.130 @epoch 5)
+Forward: 2.49s
+
+Saving...
+Total: 3.94s
+
+[Epoch 12]	Learning rate: 1.00e-4
+[800/7800]	[L1: 20.8245]	93.0+0.4s
+[1600/7800]	[L1: 20.2970]	93.0+0.1s
+[2400/7800]	[L1: 20.3241]	93.0+0.1s
+[3200/7800]	[L1: 20.1764]	92.9+0.1s
+[4000/7800]	[L1: 20.0719]	92.9+0.1s
+[4800/7800]	[L1: 20.1118]	92.9+0.1s
+[5600/7800]	[L1: 20.1149]	92.9+0.1s
+[6400/7800]	[L1: 20.2683]	93.1+0.1s
+[7200/7800]	[L1: 20.1540]	93.1+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.292 (Best: 20.292 @epoch 12)
+Forward: 2.89s
+
+Saving...
+Total: 4.10s
+
+[Epoch 13]	Learning rate: 1.00e-4
+[800/7800]	[L1: 20.6528]	93.0+0.3s
+[1600/7800]	[L1: 20.4277]	92.9+0.1s
+[2400/7800]	[L1: 20.2345]	93.0+0.1s
+[3200/7800]	[L1: 20.1884]	93.0+0.1s
+[4000/7800]	[L1: 20.1973]	93.0+0.1s
+[4800/7800]	[L1: 20.0488]	92.8+0.1s
+[5600/7800]	[L1: 19.9186]	92.9+0.1s
+[6400/7800]	[L1: 19.8685]	92.8+0.1s
+[7200/7800]	[L1: 19.9228]	92.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.217 (Best: 20.292 @epoch 12)
+Forward: 2.61s
+
+Saving...
+Total: 4.10s
+
+[Epoch 14]	Learning rate: 1.00e-4
+[800/7800]	[L1: 20.3489]	92.8+0.3s
+[1600/7800]	[L1: 20.0606]	92.8+0.1s
+[2400/7800]	[L1: 20.0688]	93.0+0.1s
+[3200/7800]	[L1: 20.0749]	92.9+0.1s
+[4000/7800]	[L1: 19.9127]	92.9+0.1s
+[4800/7800]	[L1: 19.9505]	92.9+0.1s
+[5600/7800]	[L1: 20.0392]	92.9+0.1s
+[6400/7800]	[L1: 19.9790]	93.0+0.1s
+[7200/7800]	[L1: 19.9402]	92.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.623 (Best: 20.292 @epoch 12)
+Forward: 2.95s
+
+Saving...
+Total: 4.41s
+
+[Epoch 15]	Learning rate: 1.00e-4
+[800/7800]	[L1: 19.7319]	92.9+0.3s
+[1600/7800]	[L1: 19.7363]	92.8+0.1s
+[2400/7800]	[L1: 19.5280]	92.8+0.1s
+[3200/7800]	[L1: 19.5155]	92.9+0.1s
+[4000/7800]	[L1: 19.4386]	92.8+0.1s
+[4800/7800]	[L1: 19.5570]	92.9+0.1s
+[5600/7800]	[L1: 19.6291]	93.0+0.1s
+[6400/7800]	[L1: 19.6511]	92.8+0.1s
+[7200/7800]	[L1: 19.6566]	92.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.015 (Best: 20.292 @epoch 12)
+Forward: 2.56s
+
+Saving...
+Total: 5.07s
+
+[Epoch 16]	Learning rate: 1.00e-4
+[800/7800]	[L1: 19.6294]	92.9+0.3s
+[1600/7800]	[L1: 19.9185]	92.8+0.1s
+[2400/7800]	[L1: 19.8880]	92.9+0.1s
+[3200/7800]	[L1: 19.9147]	92.9+0.1s
+[4000/7800]	[L1: 19.8234]	92.9+0.1s
+[4800/7800]	[L1: 19.6891]	92.9+0.1s
+[5600/7800]	[L1: 19.7104]	92.8+0.1s
+[6400/7800]	[L1: 19.6271]	92.9+0.1s
+[7200/7800]	[L1: 19.5823]	92.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.686 (Best: 20.292 @epoch 12)
+Forward: 2.60s
+
+Saving...
+Total: 3.37s
+
+[Epoch 17]	Learning rate: 1.00e-4
+[800/7800]	[L1: 19.6544]	93.4+0.3s
+[1600/7800]	[L1: 19.7352]	92.9+0.1s
+[2400/7800]	[L1: 19.7034]	92.9+0.1s
+[3200/7800]	[L1: 19.7113]	92.9+0.1s
+[4000/7800]	[L1: 19.7647]	92.9+0.1s
+[4800/7800]	[L1: 19.7560]	93.0+0.1s
+[5600/7800]	[L1: 19.6738]	92.9+0.1s
+[6400/7800]	[L1: 19.6380]	92.9+0.1s
+[7200/7800]	[L1: 19.6062]	92.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.285 (Best: 20.292 @epoch 12)
+Forward: 2.51s
+
+Saving...
+Total: 4.97s
+
+[Epoch 18]	Learning rate: 1.00e-4
+[800/7800]	[L1: 20.3784]	92.9+0.3s
+[1600/7800]	[L1: 19.6380]	92.8+0.1s
+[2400/7800]	[L1: 19.7313]	92.8+0.1s
+[3200/7800]	[L1: 19.5656]	92.8+0.1s
+[4000/7800]	[L1: 19.4461]	92.8+0.1s
+[4800/7800]	[L1: 19.4256]	92.8+0.1s
+[5600/7800]	[L1: 19.4777]	92.7+0.1s
+[6400/7800]	[L1: 19.5514]	92.8+0.1s
+[7200/7800]	[L1: 19.6369]	92.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.230 (Best: 20.292 @epoch 12)
+Forward: 2.59s
+
+Saving...
+Total: 5.11s
+
+[Epoch 19]	Learning rate: 1.00e-4
+[800/7800]	[L1: 19.7605]	92.6+0.3s
+[1600/7800]	[L1: 19.7175]	92.7+0.1s
+[2400/7800]	[L1: 19.6049]	92.7+0.1s
+[3200/7800]	[L1: 19.6547]	92.8+0.1s
+[4000/7800]	[L1: 19.5605]	92.8+0.1s
+[4800/7800]	[L1: 19.5912]	92.8+0.1s
+[5600/7800]	[L1: 19.5021]	92.8+0.1s
+[6400/7800]	[L1: 19.4484]	92.9+0.1s
+[7200/7800]	[L1: 19.4885]	93.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.930 (Best: 20.292 @epoch 12)
+Forward: 2.98s
+
+Saving...
+Total: 4.19s
+
+[Epoch 20]	Learning rate: 1.00e-4
+[800/7800]	[L1: 19.5613]	92.9+0.3s
+[1600/7800]	[L1: 19.7725]	92.9+0.1s
+[2400/7800]	[L1: 19.9698]	92.9+0.1s
+[3200/7800]	[L1: 19.8728]	92.9+0.1s
+[4000/7800]	[L1: 19.6688]	92.9+0.1s
+[4800/7800]	[L1: 19.5653]	92.8+0.1s
+[5600/7800]	[L1: 19.4372]	92.9+0.1s
+[6400/7800]	[L1: 19.4933]	92.8+0.1s
+[7200/7800]	[L1: 19.4979]	92.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.783 (Best: 20.783 @epoch 20)
+Forward: 2.77s
+
+Saving...
+Total: 5.37s
+
+[Epoch 21]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.4295]	92.9+0.3s
+[1600/7800]	[L1: 18.5645]	92.9+0.1s
+[2400/7800]	[L1: 18.6880]	92.9+0.1s
+[3200/7800]	[L1: 18.8505]	92.8+0.1s
+[4000/7800]	[L1: 19.0559]	92.8+0.1s
+[4800/7800]	[L1: 19.1039]	92.7+0.1s
+[5600/7800]	[L1: 19.1688]	92.8+0.1s
+[6400/7800]	[L1: 19.1614]	92.8+0.1s
+[7200/7800]	[L1: 19.1912]	92.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.528 (Best: 20.783 @epoch 20)
+Forward: 2.57s
+
+Saving...
+Total: 5.04s
+
+[Epoch 22]	Learning rate: 1.00e-4
+[800/7800]	[L1: 19.2035]	92.8+0.3s
+[1600/7800]	[L1: 19.4098]	92.8+0.1s
+[2400/7800]	[L1: 19.4611]	92.8+0.1s
+[3200/7800]	[L1: 19.4230]	92.8+0.1s
+[4000/7800]	[L1: 19.4143]	92.8+0.1s
+[4800/7800]	[L1: 19.3468]	92.9+0.1s
+[5600/7800]	[L1: 19.3349]	92.9+0.1s
+[6400/7800]	[L1: 19.3011]	92.8+0.1s
+[7200/7800]	[L1: 19.2452]	92.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.704 (Best: 20.783 @epoch 20)
+Forward: 2.55s
+
+Saving...
+Total: 5.00s
+
+[Epoch 23]	Learning rate: 1.00e-4
+[800/7800]	[L1: 19.3997]	92.8+0.3s
+[1600/7800]	[L1: 19.0287]	92.7+0.1s
+[2400/7800]	[L1: 19.1551]	92.8+0.1s
+[3200/7800]	[L1: 19.1783]	92.7+0.1s
+[4000/7800]	[L1: 19.2395]	92.7+0.1s
+[4800/7800]	[L1: 19.2533]	92.8+0.1s
+[5600/7800]	[L1: 19.3426]	92.7+0.1s
+[6400/7800]	[L1: 19.2444]	92.6+0.1s
+[7200/7800]	[L1: 19.2895]	92.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 18.906 (Best: 20.783 @epoch 20)
+Forward: 2.62s
+
+Saving...
+Total: 5.13s
+
+[Epoch 24]	Learning rate: 1.00e-4
+[800/7800]	[L1: 19.6868]	92.8+0.3s
+[1600/7800]	[L1: 18.8591]	92.7+0.1s
+[2400/7800]	[L1: 18.9594]	92.8+0.1s
+[3200/7800]	[L1: 18.9115]	92.7+0.1s
+[4000/7800]	[L1: 19.1211]	92.7+0.1s
+[4800/7800]	[L1: 19.1928]	92.8+0.1s
+[5600/7800]	[L1: 19.1027]	92.8+0.1s
+[6400/7800]	[L1: 19.0398]	92.7+0.1s
+[7200/7800]	[L1: 19.0941]	92.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.199 (Best: 20.783 @epoch 20)
+Forward: 2.83s
+
+Saving...
+Total: 5.31s
+
+[Epoch 25]	Learning rate: 1.00e-4
+[800/7800]	[L1: 19.2042]	92.8+0.3s
+[1600/7800]	[L1: 19.2594]	92.8+0.1s
+[2400/7800]	[L1: 19.2607]	92.7+0.1s
+[3200/7800]	[L1: 19.2140]	92.7+0.1s
+[4000/7800]	[L1: 19.1896]	92.8+0.1s
+[4800/7800]	[L1: 19.0769]	92.8+0.1s
+[5600/7800]	[L1: 19.1204]	92.8+0.1s
+[6400/7800]	[L1: 19.1629]	92.8+0.1s
+[7200/7800]	[L1: 19.0841]	92.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.295 (Best: 20.783 @epoch 20)
+Forward: 2.59s
+
+Saving...
+Total: 5.04s
+
+[Epoch 26]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.8995]	92.8+0.4s
+[1600/7800]	[L1: 18.8789]	92.8+0.1s
+[2400/7800]	[L1: 18.8425]	92.8+0.1s
+[3200/7800]	[L1: 18.8856]	92.7+0.1s
+[4000/7800]	[L1: 18.8976]	92.8+0.1s
+[4800/7800]	[L1: 18.9479]	92.7+0.1s
+[5600/7800]	[L1: 18.9813]	92.8+0.1s
+[6400/7800]	[L1: 18.9354]	92.8+0.1s
+[7200/7800]	[L1: 18.8433]	92.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.606 (Best: 20.783 @epoch 20)
+Forward: 2.64s
+
+Saving...
+Total: 5.16s
+
+[Epoch 27]	Learning rate: 1.00e-4
+[800/7800]	[L1: 19.3283]	92.7+0.3s
+[1600/7800]	[L1: 18.9893]	92.8+0.1s
+[2400/7800]	[L1: 18.7606]	92.8+0.1s
+[3200/7800]	[L1: 18.7321]	92.9+0.1s
+[4000/7800]	[L1: 18.7495]	92.8+0.1s
+[4800/7800]	[L1: 18.7880]	92.7+0.1s
+[5600/7800]	[L1: 18.7523]	92.7+0.1s
+[6400/7800]	[L1: 18.7049]	92.8+0.1s
+[7200/7800]	[L1: 18.7668]	92.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.060 (Best: 20.783 @epoch 20)
+Forward: 2.52s
+
+Saving...
+Total: 4.97s
+
+[Epoch 28]	Learning rate: 1.00e-4
+[800/7800]	[L1: 19.0913]	92.8+0.3s
+[1600/7800]	[L1: 18.8421]	92.9+0.1s
+[2400/7800]	[L1: 18.5360]	92.8+0.1s
+[3200/7800]	[L1: 18.6017]	92.8+0.1s
+[4000/7800]	[L1: 18.6648]	92.8+0.1s
+[4800/7800]	[L1: 18.7229]	92.9+0.1s
+[5600/7800]	[L1: 18.7458]	92.8+0.1s
+[6400/7800]	[L1: 18.6628]	92.8+0.1s
+[7200/7800]	[L1: 18.5810]	92.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 19.629 (Best: 20.783 @epoch 20)
+Forward: 2.81s
+
+Saving...
+Total: 4.29s
+
+[Epoch 29]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.4320]	92.8+0.3s
+[1600/7800]	[L1: 18.4204]	93.0+0.1s
+[2400/7800]	[L1: 18.6377]	92.7+0.1s
+[3200/7800]	[L1: 18.5179]	92.8+0.1s
+[4000/7800]	[L1: 18.5456]	92.8+0.1s
+[4800/7800]	[L1: 18.5451]	92.8+0.1s
+[5600/7800]	[L1: 18.5846]	92.7+0.1s
+[6400/7800]	[L1: 18.6266]	92.9+0.1s
+[7200/7800]	[L1: 18.6305]	92.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.715 (Best: 20.783 @epoch 20)
+Forward: 2.54s
+
+Saving...
+Total: 4.99s
+
+[Epoch 30]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.1205]	92.7+0.3s
+[1600/7800]	[L1: 18.3536]	92.7+0.1s
+[2400/7800]	[L1: 18.2592]	92.7+0.1s
+[3200/7800]	[L1: 18.5536]	92.7+0.1s
+[4000/7800]	[L1: 18.5695]	92.9+0.1s
+[4800/7800]	[L1: 18.5131]	92.8+0.1s
+[5600/7800]	[L1: 18.5373]	92.8+0.1s
+[6400/7800]	[L1: 18.5476]	92.7+0.1s
+[7200/7800]	[L1: 18.5533]	92.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.614 (Best: 20.783 @epoch 20)
+Forward: 3.08s
+
+Saving...
+Total: 4.53s
+
+[Epoch 31]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.7180]	92.9+0.3s
+[1600/7800]	[L1: 18.5061]	92.8+0.1s
+[2400/7800]	[L1: 18.8065]	92.8+0.1s
+[3200/7800]	[L1: 18.6206]	92.9+0.1s
+[4000/7800]	[L1: 18.7049]	92.8+0.1s
+[4800/7800]	[L1: 18.6457]	92.7+0.1s
+[5600/7800]	[L1: 18.6169]	92.8+0.1s
+[6400/7800]	[L1: 18.6115]	92.7+0.1s
+[7200/7800]	[L1: 18.6041]	92.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.940 (Best: 20.940 @epoch 31)
+Forward: 2.57s
+
+Saving...
+Total: 5.16s
+
+[Epoch 32]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.4802]	92.7+0.3s
+[1600/7800]	[L1: 18.6567]	92.7+0.1s
+[2400/7800]	[L1: 18.7167]	92.7+0.1s
+[3200/7800]	[L1: 18.6831]	92.8+0.1s
+[4000/7800]	[L1: 18.6997]	92.7+0.1s
+[4800/7800]	[L1: 18.6293]	92.7+0.1s
+[5600/7800]	[L1: 18.5331]	92.7+0.1s
+[6400/7800]	[L1: 18.5926]	92.8+0.1s
+[7200/7800]	[L1: 18.5551]	92.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.640 (Best: 20.940 @epoch 31)
+Forward: 2.70s
+
+Saving...
+Total: 5.15s
+
+[Epoch 33]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.2914]	92.8+0.3s
+[1600/7800]	[L1: 18.2769]	92.9+0.1s
+[2400/7800]	[L1: 18.3109]	92.8+0.1s
+[3200/7800]	[L1: 18.1826]	92.8+0.1s
+[4000/7800]	[L1: 18.2382]	92.7+0.1s
+[4800/7800]	[L1: 18.2708]	92.8+0.1s
+[5600/7800]	[L1: 18.3098]	92.8+0.1s
+[6400/7800]	[L1: 18.3783]	92.7+0.1s
+[7200/7800]	[L1: 18.3147]	92.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.686 (Best: 20.940 @epoch 31)
+Forward: 2.67s
+
+Saving...
+Total: 5.18s
+
+[Epoch 34]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.4842]	92.8+0.3s
+[1600/7800]	[L1: 18.5438]	92.7+0.1s
+[2400/7800]	[L1: 18.4953]	92.7+0.1s
+[3200/7800]	[L1: 18.6216]	92.7+0.1s
+[4000/7800]	[L1: 18.4059]	92.7+0.1s
+[4800/7800]	[L1: 18.4174]	92.8+0.1s
+[5600/7800]	[L1: 18.4017]	92.7+0.1s
+[6400/7800]	[L1: 18.4021]	92.7+0.1s
+[7200/7800]	[L1: 18.2475]	92.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.828 (Best: 20.940 @epoch 31)
+Forward: 2.56s
+
+Saving...
+Total: 5.03s
+
+[Epoch 35]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.5309]	92.6+0.4s
+[1600/7800]	[L1: 18.2107]	92.8+0.1s
+[2400/7800]	[L1: 18.2281]	92.8+0.1s
+[3200/7800]	[L1: 18.1521]	92.7+0.1s
+[4000/7800]	[L1: 18.0916]	92.7+0.1s
+[4800/7800]	[L1: 18.1886]	92.7+0.1s
+[5600/7800]	[L1: 18.2435]	92.8+0.1s
+[6400/7800]	[L1: 18.1633]	92.7+0.1s
+[7200/7800]	[L1: 18.2055]	92.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.390 (Best: 20.940 @epoch 31)
+Forward: 2.52s
+
+Saving...
+Total: 4.99s
+
+[Epoch 36]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.8603]	92.7+0.4s
+[1600/7800]	[L1: 18.5123]	92.7+0.1s
+[2400/7800]	[L1: 18.1669]	92.7+0.1s
+[3200/7800]	[L1: 18.1383]	92.7+0.1s
+[4000/7800]	[L1: 18.1529]	92.7+0.1s
+[4800/7800]	[L1: 18.1240]	92.7+0.1s
+[5600/7800]	[L1: 18.1559]	92.7+0.1s
+[6400/7800]	[L1: 18.2455]	92.7+0.1s
+[7200/7800]	[L1: 18.2211]	92.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.105 (Best: 20.940 @epoch 31)
+Forward: 2.60s
+
+Saving...
+Total: 5.11s
+
+[Epoch 37]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.8733]	92.7+0.3s
+[1600/7800]	[L1: 17.9139]	92.8+0.1s
+[2400/7800]	[L1: 17.8111]	92.7+0.1s
+[3200/7800]	[L1: 17.9465]	92.9+0.1s
+[4000/7800]	[L1: 18.0325]	92.8+0.1s
+[4800/7800]	[L1: 18.0787]	92.8+0.1s
+[5600/7800]	[L1: 18.1203]	92.7+0.1s
+[6400/7800]	[L1: 18.1514]	92.8+0.1s
+[7200/7800]	[L1: 18.1925]	92.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.869 (Best: 20.940 @epoch 31)
+Forward: 2.83s
+
+Saving...
+Total: 5.30s
+
+[Epoch 38]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.3920]	92.6+0.3s
+[1600/7800]	[L1: 18.7424]	92.7+0.1s
+[2400/7800]	[L1: 18.3524]	92.7+0.1s
+[3200/7800]	[L1: 18.4187]	92.7+0.1s
+[4000/7800]	[L1: 18.3149]	92.7+0.1s
+[4800/7800]	[L1: 18.2588]	92.8+0.1s
+[5600/7800]	[L1: 18.4265]	92.9+0.1s
+[6400/7800]	[L1: 18.3595]	92.9+0.1s
+[7200/7800]	[L1: 18.3359]	92.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.552 (Best: 21.552 @epoch 38)
+Forward: 2.61s
+
+Saving...
+Total: 5.21s
+
+[Epoch 39]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.0084]	92.8+0.3s
+[1600/7800]	[L1: 18.2797]	92.8+0.1s
+[2400/7800]	[L1: 18.2029]	92.7+0.1s
+[3200/7800]	[L1: 18.1422]	92.8+0.1s
+[4000/7800]	[L1: 18.1604]	92.8+0.1s
+[4800/7800]	[L1: 18.2187]	92.8+0.1s
+[5600/7800]	[L1: 18.2111]	92.9+0.1s
+[6400/7800]	[L1: 18.2018]	92.9+0.1s
+[7200/7800]	[L1: 18.1460]	92.9+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.988 (Best: 21.552 @epoch 38)
+Forward: 2.51s
+
+Saving...
+Total: 5.03s
+
+[Epoch 40]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.2762]	92.9+0.3s
+[1600/7800]	[L1: 18.1353]	92.8+0.1s
+[2400/7800]	[L1: 18.0152]	92.8+0.1s
+[3200/7800]	[L1: 17.8903]	92.7+0.1s
+[4000/7800]	[L1: 17.9341]	92.8+0.1s
+[4800/7800]	[L1: 17.8432]	92.8+0.1s
+[5600/7800]	[L1: 17.8396]	92.9+0.1s
+[6400/7800]	[L1: 17.9334]	92.9+0.1s
+[7200/7800]	[L1: 17.9673]	92.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.612 (Best: 21.612 @epoch 40)
+Forward: 2.70s
+
+Saving...
+Total: 5.34s
+
+[Epoch 41]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.3386]	92.8+0.3s
+[1600/7800]	[L1: 18.5512]	92.7+0.1s
+[2400/7800]	[L1: 18.5843]	92.7+0.1s
+[3200/7800]	[L1: 18.5967]	92.7+0.1s
+[4000/7800]	[L1: 18.4450]	92.7+0.1s
+[4800/7800]	[L1: 18.3089]	92.7+0.1s
+[5600/7800]	[L1: 18.3014]	92.7+0.1s
+[6400/7800]	[L1: 18.2119]	92.7+0.1s
+[7200/7800]	[L1: 18.2067]	92.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.576 (Best: 21.612 @epoch 40)
+Forward: 2.90s
+
+Saving...
+Total: 4.45s
+
+[Epoch 42]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.8676]	92.7+0.3s
+[1600/7800]	[L1: 17.4907]	92.9+0.1s
+[2400/7800]	[L1: 17.5450]	92.8+0.1s
+[3200/7800]	[L1: 17.7683]	92.8+0.1s
+[4000/7800]	[L1: 17.8677]	92.6+0.1s
+[4800/7800]	[L1: 17.9409]	92.6+0.1s
+[5600/7800]	[L1: 17.8845]	92.8+0.1s
+[6400/7800]	[L1: 17.8529]	92.9+0.1s
+[7200/7800]	[L1: 17.8921]	92.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.084 (Best: 21.612 @epoch 40)
+Forward: 2.73s
+
+Saving...
+Total: 5.21s
+
+[Epoch 43]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.4577]	92.6+0.3s
+[1600/7800]	[L1: 18.2810]	92.8+0.1s
+[2400/7800]	[L1: 18.4086]	92.8+0.1s
+[3200/7800]	[L1: 18.4053]	92.9+0.1s
+[4000/7800]	[L1: 18.4021]	92.7+0.1s
+[4800/7800]	[L1: 18.4050]	92.8+0.1s
+[5600/7800]	[L1: 18.3575]	92.7+0.1s
+[6400/7800]	[L1: 18.3934]	92.6+0.1s
+[7200/7800]	[L1: 18.3128]	92.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.915 (Best: 21.915 @epoch 43)
+Forward: 2.97s
+
+Saving...
+Total: 4.58s
+
+[Epoch 44]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.2817]	92.6+0.3s
+[1600/7800]	[L1: 18.1455]	92.7+0.1s
+[2400/7800]	[L1: 18.1512]	92.8+0.1s
+[3200/7800]	[L1: 18.0763]	92.9+0.1s
+[4000/7800]	[L1: 18.0325]	92.7+0.1s
+[4800/7800]	[L1: 17.9976]	92.6+0.1s
+[5600/7800]	[L1: 17.9597]	92.7+0.1s
+[6400/7800]	[L1: 17.9375]	92.8+0.1s
+[7200/7800]	[L1: 18.0079]	92.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.433 (Best: 21.915 @epoch 43)
+Forward: 2.50s
+
+Saving...
+Total: 5.03s
+
+[Epoch 45]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.1120]	92.8+0.3s
+[1600/7800]	[L1: 18.2113]	92.7+0.1s
+[2400/7800]	[L1: 17.8866]	92.8+0.1s
+[3200/7800]	[L1: 18.0635]	92.7+0.1s
+[4000/7800]	[L1: 18.0470]	92.7+0.1s
+[4800/7800]	[L1: 17.9695]	92.8+0.1s
+[5600/7800]	[L1: 17.8686]	92.8+0.1s
+[6400/7800]	[L1: 17.8431]	92.9+0.1s
+[7200/7800]	[L1: 17.8279]	92.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.977 (Best: 21.915 @epoch 43)
+Forward: 2.62s
+
+Saving...
+Total: 5.11s
+
+[Epoch 46]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.8303]	92.7+0.3s
+[1600/7800]	[L1: 17.6699]	92.7+0.1s
+[2400/7800]	[L1: 17.9449]	92.7+0.1s
+[3200/7800]	[L1: 17.8798]	92.7+0.1s
+[4000/7800]	[L1: 17.7426]	92.7+0.1s
+[4800/7800]	[L1: 17.7027]	92.8+0.1s
+[5600/7800]	[L1: 17.7723]	92.7+0.1s
+[6400/7800]	[L1: 17.7514]	92.6+0.1s
+[7200/7800]	[L1: 17.7832]	92.6+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.540 (Best: 21.915 @epoch 43)
+Forward: 2.42s
+
+Saving...
+Total: 4.95s
+
+[Epoch 47]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.1067]	92.8+0.3s
+[1600/7800]	[L1: 18.0103]	92.9+0.1s
+[2400/7800]	[L1: 17.8203]	92.7+0.1s
+[3200/7800]	[L1: 17.9496]	93.0+0.1s
+[4000/7800]	[L1: 17.9212]	92.8+0.1s
+[4800/7800]	[L1: 17.8133]	92.7+0.1s
+[5600/7800]	[L1: 17.8828]	92.8+0.1s
+[6400/7800]	[L1: 17.8831]	92.9+0.1s
+[7200/7800]	[L1: 17.9127]	92.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.654 (Best: 21.915 @epoch 43)
+Forward: 2.63s
+
+Saving...
+Total: 5.12s
+
+[Epoch 48]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.8751]	92.8+0.3s
+[1600/7800]	[L1: 17.4895]	92.6+0.1s
+[2400/7800]	[L1: 17.8193]	92.7+0.1s
+[3200/7800]	[L1: 17.7938]	92.7+0.1s
+[4000/7800]	[L1: 17.8767]	92.6+0.1s
+[4800/7800]	[L1: 17.7569]	92.7+0.1s
+[5600/7800]	[L1: 17.8115]	92.7+0.1s
+[6400/7800]	[L1: 17.7517]	92.6+0.1s
+[7200/7800]	[L1: 17.7421]	92.6+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.393 (Best: 21.915 @epoch 43)
+Forward: 2.48s
+
+Saving...
+Total: 5.04s
+
+[Epoch 49]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.9021]	92.8+0.3s
+[1600/7800]	[L1: 17.8642]	92.7+0.1s
+[2400/7800]	[L1: 17.7621]	92.7+0.1s
+[3200/7800]	[L1: 17.7830]	92.8+0.1s
+[4000/7800]	[L1: 17.6833]	93.0+0.1s
+[4800/7800]	[L1: 17.6386]	92.7+0.1s
+[5600/7800]	[L1: 17.6863]	92.7+0.1s
+[6400/7800]	[L1: 17.8013]	92.7+0.1s
+[7200/7800]	[L1: 17.7815]	92.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.453 (Best: 21.915 @epoch 43)
+Forward: 2.59s
+
+Saving...
+Total: 5.08s
+
+[Epoch 50]	Learning rate: 1.00e-4
+[800/7800]	[L1: 18.2055]	92.8+0.3s
+[1600/7800]	[L1: 18.1070]	92.7+0.1s
+[2400/7800]	[L1: 18.0254]	92.9+0.1s
+[3200/7800]	[L1: 17.9917]	92.9+0.1s
+[4000/7800]	[L1: 17.9569]	92.9+0.1s
+[4800/7800]	[L1: 17.9770]	92.8+0.1s
+[5600/7800]	[L1: 17.8892]	92.8+0.1s
+[6400/7800]	[L1: 17.9087]	92.7+0.1s
+[7200/7800]	[L1: 17.9438]	92.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.527 (Best: 21.915 @epoch 43)
+Forward: 2.68s
+
+Saving...
+Total: 5.18s
+
+[Epoch 51]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.8652]	92.6+0.3s
+[1600/7800]	[L1: 17.8777]	92.6+0.1s
+[2400/7800]	[L1: 17.8074]	92.5+0.1s
+[3200/7800]	[L1: 17.7480]	92.6+0.1s
+[4000/7800]	[L1: 17.7415]	92.5+0.1s
+[4800/7800]	[L1: 17.8208]	92.7+0.1s
+[5600/7800]	[L1: 17.7782]	92.6+0.1s
+[6400/7800]	[L1: 17.8262]	92.6+0.1s
+[7200/7800]	[L1: 17.8062]	92.6+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.731 (Best: 21.915 @epoch 43)
+Forward: 2.53s
+
+Saving...
+Total: 5.06s
+
+[Epoch 52]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.7728]	92.9+0.3s
+[1600/7800]	[L1: 17.9262]	92.7+0.1s
+[2400/7800]	[L1: 17.9024]	92.7+0.1s
+[3200/7800]	[L1: 17.9390]	92.7+0.1s
+[4000/7800]	[L1: 17.8280]	92.7+0.1s
+[4800/7800]	[L1: 17.8449]	92.8+0.1s
+[5600/7800]	[L1: 17.7865]	92.7+0.1s
+[6400/7800]	[L1: 17.7617]	92.8+0.1s
+[7200/7800]	[L1: 17.7702]	92.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.410 (Best: 21.915 @epoch 43)
+Forward: 2.57s
+
+Saving...
+Total: 5.31s
+
+[Epoch 53]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.8005]	92.6+0.2s
+[1600/7800]	[L1: 17.8756]	92.7+0.1s
+[2400/7800]	[L1: 17.8860]	92.6+0.1s
+[3200/7800]	[L1: 17.8957]	92.6+0.1s
+[4000/7800]	[L1: 17.9465]	92.6+0.1s
+[4800/7800]	[L1: 17.7587]	92.6+0.1s
+[5600/7800]	[L1: 17.6489]	92.7+0.1s
+[6400/7800]	[L1: 17.6527]	92.8+0.1s
+[7200/7800]	[L1: 17.6780]	92.6+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.547 (Best: 21.915 @epoch 43)
+Forward: 2.55s
+
+Saving...
+Total: 5.03s
+
+[Epoch 54]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.3722]	92.5+0.3s
+[1600/7800]	[L1: 17.3717]	92.6+0.1s
+[2400/7800]	[L1: 17.2834]	92.7+0.1s
+[3200/7800]	[L1: 17.4553]	92.6+0.1s
+[4000/7800]	[L1: 17.5462]	92.6+0.1s
+[4800/7800]	[L1: 17.5856]	92.8+0.1s
+[5600/7800]	[L1: 17.6883]	92.7+0.1s
+[6400/7800]	[L1: 17.6953]	92.8+0.1s
+[7200/7800]	[L1: 17.7018]	92.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.234 (Best: 21.915 @epoch 43)
+Forward: 2.78s
+
+Saving...
+Total: 5.32s
+
+[Epoch 55]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.2765]	92.6+0.3s
+[1600/7800]	[L1: 18.0606]	92.7+0.1s
+[2400/7800]	[L1: 17.8986]	92.7+0.1s
+[3200/7800]	[L1: 17.7613]	92.7+0.1s
+[4000/7800]	[L1: 17.7042]	92.7+0.1s
+[4800/7800]	[L1: 17.6679]	92.7+0.1s
+[5600/7800]	[L1: 17.7007]	92.7+0.1s
+[6400/7800]	[L1: 17.6274]	92.8+0.1s
+[7200/7800]	[L1: 17.6260]	92.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.503 (Best: 21.915 @epoch 43)
+Forward: 2.62s
+
+Saving...
+Total: 5.11s
+
+[Epoch 56]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.9423]	92.6+0.3s
+[1600/7800]	[L1: 17.5370]	92.6+0.1s
+[2400/7800]	[L1: 17.5255]	92.6+0.1s
+[3200/7800]	[L1: 17.4352]	92.6+0.1s
+[4000/7800]	[L1: 17.3608]	92.7+0.1s
+[4800/7800]	[L1: 17.3871]	92.7+0.1s
+[5600/7800]	[L1: 17.4087]	92.6+0.1s
+[6400/7800]	[L1: 17.3889]	92.5+0.1s
+[7200/7800]	[L1: 17.4397]	92.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.284 (Best: 21.915 @epoch 43)
+Forward: 2.89s
+
+Saving...
+Total: 5.43s
+
+[Epoch 57]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.7638]	92.8+0.3s
+[1600/7800]	[L1: 17.6256]	92.7+0.1s
+[2400/7800]	[L1: 17.5964]	92.7+0.1s
+[3200/7800]	[L1: 17.6813]	92.6+0.1s
+[4000/7800]	[L1: 17.6484]	92.7+0.1s
+[4800/7800]	[L1: 17.5206]	92.7+0.1s
+[5600/7800]	[L1: 17.4182]	92.7+0.1s
+[6400/7800]	[L1: 17.4074]	92.8+0.1s
+[7200/7800]	[L1: 17.3889]	92.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.368 (Best: 21.915 @epoch 43)
+Forward: 2.54s
+
+Saving...
+Total: 5.03s
+
+[Epoch 58]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.4106]	92.7+0.3s
+[1600/7800]	[L1: 17.6688]	92.6+0.1s
+[2400/7800]	[L1: 17.6187]	92.7+0.1s
+[3200/7800]	[L1: 17.4110]	92.6+0.1s
+[4000/7800]	[L1: 17.5241]	92.6+0.1s
+[4800/7800]	[L1: 17.5154]	92.6+0.1s
+[5600/7800]	[L1: 17.4802]	92.7+0.1s
+[6400/7800]	[L1: 17.4742]	92.7+0.1s
+[7200/7800]	[L1: 17.5229]	92.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.430 (Best: 21.915 @epoch 43)
+Forward: 2.96s
+
+Saving...
+Total: 4.45s
+
+[Epoch 59]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.6034]	92.6+0.4s
+[1600/7800]	[L1: 17.9176]	92.6+0.1s
+[2400/7800]	[L1: 17.6908]	92.6+0.1s
+[3200/7800]	[L1: 17.4912]	92.8+0.1s
+[4000/7800]	[L1: 17.4381]	92.6+0.1s
+[4800/7800]	[L1: 17.3581]	92.7+0.1s
+[5600/7800]	[L1: 17.3997]	92.7+0.1s
+[6400/7800]	[L1: 17.3749]	92.7+0.1s
+[7200/7800]	[L1: 17.3980]	92.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.554 (Best: 21.915 @epoch 43)
+Forward: 2.65s
+
+Saving...
+Total: 5.18s
+
+[Epoch 60]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.1563]	92.7+0.3s
+[1600/7800]	[L1: 17.7313]	92.6+0.1s
+[2400/7800]	[L1: 17.5939]	92.6+0.1s
+[3200/7800]	[L1: 17.6577]	92.8+0.1s
+[4000/7800]	[L1: 17.4657]	92.7+0.1s
+[4800/7800]	[L1: 17.4419]	92.7+0.1s
+[5600/7800]	[L1: 17.5086]	92.7+0.1s
+[6400/7800]	[L1: 17.4800]	92.5+0.1s
+[7200/7800]	[L1: 17.4961]	92.6+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.609 (Best: 21.915 @epoch 43)
+Forward: 2.71s
+
+Saving...
+Total: 5.20s
+
+[Epoch 61]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.3552]	92.5+0.4s
+[1600/7800]	[L1: 17.5358]	92.7+0.1s
+[2400/7800]	[L1: 17.3881]	92.7+0.1s
+[3200/7800]	[L1: 17.4798]	92.6+0.1s
+[4000/7800]	[L1: 17.3092]	92.7+0.1s
+[4800/7800]	[L1: 17.2337]	92.8+0.1s
+[5600/7800]	[L1: 17.2826]	92.6+0.1s
+[6400/7800]	[L1: 17.2585]	92.6+0.1s
+[7200/7800]	[L1: 17.2043]	92.6+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.983 (Best: 21.983 @epoch 61)
+Forward: 2.81s
+
+Saving...
+Total: 5.44s
+
+[Epoch 62]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.6272]	92.8+0.3s
+[1600/7800]	[L1: 17.5894]	92.7+0.1s
+[2400/7800]	[L1: 17.7589]	92.7+0.1s
+[3200/7800]	[L1: 17.6096]	92.6+0.1s
+[4000/7800]	[L1: 17.5159]	92.7+0.1s
+[4800/7800]	[L1: 17.5269]	92.7+0.1s
+[5600/7800]	[L1: 17.4805]	92.7+0.1s
+[6400/7800]	[L1: 17.4457]	92.7+0.1s
+[7200/7800]	[L1: 17.4977]	92.6+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.437 (Best: 21.983 @epoch 61)
+Forward: 2.56s
+
+Saving...
+Total: 5.05s
+
+[Epoch 63]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.8169]	92.5+0.3s
+[1600/7800]	[L1: 17.3979]	92.6+0.1s
+[2400/7800]	[L1: 17.5480]	92.7+0.1s
+[3200/7800]	[L1: 17.5870]	92.7+0.1s
+[4000/7800]	[L1: 17.4304]	92.7+0.1s
+[4800/7800]	[L1: 17.2923]	92.8+0.1s
+[5600/7800]	[L1: 17.2886]	92.7+0.1s
+[6400/7800]	[L1: 17.2555]	92.7+0.1s
+[7200/7800]	[L1: 17.3040]	93.0+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.139 (Best: 21.983 @epoch 61)
+Forward: 2.91s
+
+Saving...
+Total: 5.40s
+
+[Epoch 64]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.5988]	92.7+0.3s
+[1600/7800]	[L1: 17.5552]	92.7+0.1s
+[2400/7800]	[L1: 17.6072]	92.6+0.1s
+[3200/7800]	[L1: 17.5903]	92.6+0.1s
+[4000/7800]	[L1: 17.5084]	92.6+0.1s
+[4800/7800]	[L1: 17.5970]	92.6+0.1s
+[5600/7800]	[L1: 17.5616]	92.6+0.1s
+[6400/7800]	[L1: 17.5549]	92.6+0.1s
+[7200/7800]	[L1: 17.4453]	92.6+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.740 (Best: 21.983 @epoch 61)
+Forward: 2.89s
+
+Saving...
+Total: 5.44s
+
+[Epoch 65]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.3956]	92.5+0.4s
+[1600/7800]	[L1: 17.2740]	92.7+0.1s
+[2400/7800]	[L1: 17.2075]	92.7+0.1s
+[3200/7800]	[L1: 17.2448]	92.7+0.1s
+[4000/7800]	[L1: 17.2774]	92.7+0.1s
+[4800/7800]	[L1: 17.2241]	92.7+0.1s
+[5600/7800]	[L1: 17.2013]	92.8+0.1s
+[6400/7800]	[L1: 17.2655]	92.6+0.1s
+[7200/7800]	[L1: 17.2619]	92.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.366 (Best: 21.983 @epoch 61)
+Forward: 2.55s
+
+Saving...
+Total: 5.04s
+
+[Epoch 66]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.0369]	92.9+0.3s
+[1600/7800]	[L1: 16.8958]	92.7+0.1s
+[2400/7800]	[L1: 17.0064]	92.7+0.1s
+[3200/7800]	[L1: 17.0897]	92.6+0.1s
+[4000/7800]	[L1: 17.2988]	92.7+0.1s
+[4800/7800]	[L1: 17.4093]	92.7+0.1s
+[5600/7800]	[L1: 17.4428]	92.6+0.1s
+[6400/7800]	[L1: 17.3649]	92.7+0.1s
+[7200/7800]	[L1: 17.4288]	92.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.521 (Best: 21.983 @epoch 61)
+Forward: 2.83s
+
+Saving...
+Total: 5.32s
+
+[Epoch 67]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.7869]	92.5+0.4s
+[1600/7800]	[L1: 17.0374]	92.6+0.1s
+[2400/7800]	[L1: 16.9640]	92.6+0.1s
+[3200/7800]	[L1: 16.8756]	92.6+0.1s
+[4000/7800]	[L1: 16.8682]	92.7+0.1s
+[4800/7800]	[L1: 17.0317]	92.6+0.1s
+[5600/7800]	[L1: 17.0908]	92.5+0.1s
+[6400/7800]	[L1: 17.0545]	92.6+0.1s
+[7200/7800]	[L1: 17.0903]	92.6+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.290 (Best: 21.983 @epoch 61)
+Forward: 2.95s
+
+Saving...
+Total: 4.52s
+
+[Epoch 68]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.8110]	92.6+0.3s
+[1600/7800]	[L1: 17.7243]	92.7+0.1s
+[2400/7800]	[L1: 17.6179]	92.7+0.1s
+[3200/7800]	[L1: 17.7140]	92.7+0.1s
+[4000/7800]	[L1: 17.5741]	92.6+0.1s
+[4800/7800]	[L1: 17.4201]	92.8+0.1s
+[5600/7800]	[L1: 17.3744]	92.6+0.1s
+[6400/7800]	[L1: 17.3656]	92.6+0.1s
+[7200/7800]	[L1: 17.3596]	92.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.917 (Best: 21.983 @epoch 61)
+Forward: 2.62s
+
+Saving...
+Total: 5.13s
+
+[Epoch 69]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.2151]	92.5+0.3s
+[1600/7800]	[L1: 17.2589]	92.7+0.1s
+[2400/7800]	[L1: 17.2595]	92.7+0.1s
+[3200/7800]	[L1: 17.2939]	92.8+0.1s
+[4000/7800]	[L1: 17.1348]	92.7+0.1s
+[4800/7800]	[L1: 17.1078]	92.6+0.1s
+[5600/7800]	[L1: 17.1195]	92.7+0.1s
+[6400/7800]	[L1: 17.2129]	92.7+0.1s
+[7200/7800]	[L1: 17.2398]	92.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.375 (Best: 21.983 @epoch 61)
+Forward: 2.72s
+
+Saving...
+Total: 5.28s
+
+[Epoch 70]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.6925]	92.6+0.3s
+[1600/7800]	[L1: 17.0414]	92.7+0.1s
+[2400/7800]	[L1: 17.0649]	92.7+0.1s
+[3200/7800]	[L1: 17.0427]	92.8+0.1s
+[4000/7800]	[L1: 16.9612]	92.8+0.1s
+[4800/7800]	[L1: 17.1008]	92.8+0.1s
+[5600/7800]	[L1: 17.0947]	92.8+0.1s
+[6400/7800]	[L1: 17.1259]	92.7+0.1s
+[7200/7800]	[L1: 17.1646]	92.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.842 (Best: 21.983 @epoch 61)
+Forward: 2.52s
+
+Saving...
+Total: 5.08s
+
+[Epoch 71]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.1057]	92.7+0.3s
+[1600/7800]	[L1: 16.9450]	92.7+0.1s
+[2400/7800]	[L1: 17.0428]	92.7+0.1s
+[3200/7800]	[L1: 16.8142]	92.7+0.1s
+[4000/7800]	[L1: 16.9049]	92.7+0.1s
+[4800/7800]	[L1: 16.9666]	92.6+0.1s
+[5600/7800]	[L1: 16.8887]	92.7+0.1s
+[6400/7800]	[L1: 16.9356]	92.7+0.1s
+[7200/7800]	[L1: 16.9210]	92.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.175 (Best: 21.983 @epoch 61)
+Forward: 2.58s
+
+Saving...
+Total: 5.13s
+
+[Epoch 72]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.2594]	92.7+0.4s
+[1600/7800]	[L1: 17.4541]	92.8+0.1s
+[2400/7800]	[L1: 17.3224]	92.7+0.1s
+[3200/7800]	[L1: 17.1355]	92.7+0.1s
+[4000/7800]	[L1: 17.0300]	92.6+0.1s
+[4800/7800]	[L1: 17.1589]	92.7+0.1s
+[5600/7800]	[L1: 17.2354]	92.7+0.1s
+[6400/7800]	[L1: 17.1220]	92.7+0.1s
+[7200/7800]	[L1: 17.1888]	92.6+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 22.112 (Best: 22.112 @epoch 72)
+Forward: 2.49s
+
+Saving...
+Total: 5.16s
+
+[Epoch 73]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.4052]	92.7+0.3s
+[1600/7800]	[L1: 17.1174]	92.7+0.1s
+[2400/7800]	[L1: 17.0269]	92.7+0.1s
+[3200/7800]	[L1: 16.9222]	92.7+0.1s
+[4000/7800]	[L1: 16.9957]	92.7+0.1s
+[4800/7800]	[L1: 16.9168]	92.7+0.1s
+[5600/7800]	[L1: 17.0169]	92.7+0.1s
+[6400/7800]	[L1: 17.0685]	92.7+0.1s
+[7200/7800]	[L1: 17.0087]	92.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.560 (Best: 22.112 @epoch 72)
+Forward: 2.45s
+
+Saving...
+Total: 4.99s
+
+[Epoch 74]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.8595]	92.7+0.3s
+[1600/7800]	[L1: 16.8711]	92.7+0.1s
+[2400/7800]	[L1: 17.0118]	92.7+0.1s
+[3200/7800]	[L1: 16.9112]	92.7+0.1s
+[4000/7800]	[L1: 16.9357]	92.7+0.1s
+[4800/7800]	[L1: 17.0569]	92.7+0.1s
+[5600/7800]	[L1: 16.9581]	92.7+0.1s
+[6400/7800]	[L1: 16.9930]	92.7+0.1s
+[7200/7800]	[L1: 16.9998]	92.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.835 (Best: 22.112 @epoch 72)
+Forward: 2.66s
+
+Saving...
+Total: 5.20s
+
+[Epoch 75]	Learning rate: 1.00e-4
+[800/7800]	[L1: 16.7859]	92.7+0.3s
+[1600/7800]	[L1: 16.9145]	92.8+0.1s
+[2400/7800]	[L1: 16.9522]	92.9+0.1s
+[3200/7800]	[L1: 17.0730]	92.8+0.1s
+[4000/7800]	[L1: 17.1310]	92.7+0.1s
+[4800/7800]	[L1: 17.1155]	92.7+0.1s
+[5600/7800]	[L1: 17.0610]	92.7+0.1s
+[6400/7800]	[L1: 17.0404]	92.8+0.1s
+[7200/7800]	[L1: 17.0698]	92.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 20.985 (Best: 22.112 @epoch 72)
+Forward: 2.71s
+
+Saving...
+Total: 5.21s
+
+[Epoch 76]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.3090]	92.6+0.3s
+[1600/7800]	[L1: 17.4089]	92.6+0.1s
+[2400/7800]	[L1: 17.2451]	92.7+0.1s
+[3200/7800]	[L1: 17.2417]	92.7+0.1s
+[4000/7800]	[L1: 17.3294]	92.7+0.1s
+[4800/7800]	[L1: 17.1956]	92.7+0.1s
+[5600/7800]	[L1: 17.2282]	92.8+0.1s
+[6400/7800]	[L1: 17.1894]	92.6+0.1s
+[7200/7800]	[L1: 17.1978]	92.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.743 (Best: 22.112 @epoch 72)
+Forward: 2.59s
+
+Saving...
+Total: 5.09s
+
+[Epoch 77]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.5873]	92.4+0.4s
+[1600/7800]	[L1: 17.1520]	92.5+0.1s
+[2400/7800]	[L1: 17.2015]	92.6+0.1s
+[3200/7800]	[L1: 17.0048]	92.9+0.1s
+[4000/7800]	[L1: 17.0000]	92.7+0.1s
+[4800/7800]	[L1: 16.9853]	92.6+0.1s
+[5600/7800]	[L1: 17.0130]	92.6+0.1s
+[6400/7800]	[L1: 17.0787]	92.6+0.1s
+[7200/7800]	[L1: 17.1695]	92.7+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.093 (Best: 22.112 @epoch 72)
+Forward: 2.55s
+
+Saving...
+Total: 5.30s
+
+[Epoch 78]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.1779]	92.6+0.3s
+[1600/7800]	[L1: 17.1957]	92.8+0.1s
+[2400/7800]	[L1: 17.0800]	92.8+0.1s
+[3200/7800]	[L1: 17.1704]	92.8+0.1s
+[4000/7800]	[L1: 17.1324]	92.8+0.1s
+[4800/7800]	[L1: 17.1407]	92.7+0.1s
+[5600/7800]	[L1: 17.1392]	92.7+0.1s
+[6400/7800]	[L1: 17.1102]	92.6+0.1s
+[7200/7800]	[L1: 17.1499]	92.6+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 21.185 (Best: 22.112 @epoch 72)
+Forward: 2.92s
+
+Saving...
+Total: 4.47s
+
+[Epoch 79]	Learning rate: 1.00e-4
+[800/7800]	[L1: 17.2393]	92.7+0.3s
+[1600/7800]	[L1: 17.5284]	92.5+0.1s
+[2400/7800]	[L1: 17.1938]	92.6+0.1s
+[3200/7800]	[L1: 17.2443]	92.9+0.1s
+[4000/7800]	[L1: 17.2384]	92.6+0.1s
+[4800/7800]	[L1: 17.2874]	92.7+0.1s
+[5600/7800]	[L1: 17.3216]	92.6+0.1s
+[6400/7800]	[L1: 17.2549]	92.6+0.1s
+[7200/7800]	[L1: 17.2245]	92.6+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 6.674 (Best: 22.112 @epoch 72)
+Forward: 2.64s
+
+Saving...
+Total: 3.47s
+
+[Epoch 80]	Learning rate: 1.00e-4
+[800/7800]	[L1: 22103.7949]	92.5+0.3s
+[1600/7800]	[L1: 16272.6758]	92.4+0.1s
+[2400/7800]	[L1: 136161.9844]	92.3+0.1s
+[3200/7800]	[L1: 173984.7812]	92.3+0.1s
+[4000/7800]	[L1: 149112.0781]	92.4+0.1s
+[4800/7800]	[L1: 125966.3047]	92.3+0.1s
+[5600/7800]	[L1: 111206.4609]	92.3+0.1s
+[6400/7800]	[L1: 100348.7266]	92.3+0.1s
+[7200/7800]	[L1: 97339.5625]	92.3+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 4.725 (Best: 22.112 @epoch 72)
+Forward: 2.49s
+
+Saving...
+Total: 3.36s
+
+[Epoch 81]	Learning rate: 1.00e-4
+[800/7800]	[L1: 36003.1367]	92.4+0.3s
+[1600/7800]	[L1: 23020.6895]	92.4+0.1s
+[2400/7800]	[L1: 17789.9688]	92.5+0.1s
+[3200/7800]	[L1: 14145.0088]	92.4+0.1s
+[4000/7800]	[L1: 12312.5771]	92.5+0.1s
+[4800/7800]	[L1: 11500.4219]	92.4+0.1s
+[5600/7800]	[L1: 12459.4531]	92.5+0.1s
+[6400/7800]	[L1: 12431.3389]	92.5+0.1s
+[7200/7800]	[L1: 13647.0459]	92.5+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 4.673 (Best: 22.112 @epoch 72)
+Forward: 2.59s
+
+Saving...
+Total: 3.52s
+
+[Epoch 82]	Learning rate: 1.00e-4
+[800/7800]	[L1: 35338.4844]	92.6+0.3s
+[1600/7800]	[L1: 21830.7871]	92.4+0.1s
+[2400/7800]	[L1: 18903.2266]	92.5+0.1s
+[3200/7800]	[L1: 14856.0576]	92.5+0.1s
+[4000/7800]	[L1: 13138.2832]	92.4+0.1s
+[4800/7800]	[L1: 12087.9883]	92.4+0.1s
+[5600/7800]	[L1: 10928.6084]	92.4+0.1s
+[6400/7800]	[L1: 9793.8193]	92.4+0.1s
+[7200/7800]	[L1: 9510.1123]	92.5+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 5.119 (Best: 22.112 @epoch 72)
+Forward: 2.51s
+
+Saving...
+Total: 5.06s
+
+[Epoch 83]	Learning rate: 1.00e-4
+[800/7800]	[L1: 7514.3794]	92.2+0.4s
+[1600/7800]	[L1: 5429.7251]	92.4+0.1s
+[2400/7800]	[L1: 4379.5044]	92.4+0.1s
+[3200/7800]	[L1: 3887.5789]	92.3+0.1s
+[4000/7800]	[L1: 3580.6377]	92.3+0.1s
+[4800/7800]	[L1: 3533.0842]	92.4+0.1s
+[5600/7800]	[L1: 6524.6152]	92.4+0.1s
+[6400/7800]	[L1: 6308.6362]	92.4+0.1s
+[7200/7800]	[L1: 5952.8525]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 5.833 (Best: 22.112 @epoch 72)
+Forward: 2.53s
+
+Saving...
+Total: 4.00s
+
+[Epoch 84]	Learning rate: 1.00e-4
+[800/7800]	[L1: 58190.8867]	92.4+0.3s
+[1600/7800]	[L1: 33264.8242]	92.4+0.1s
+[2400/7800]	[L1: 23051.9824]	92.5+0.1s
+[3200/7800]	[L1: 17968.6328]	92.3+0.1s
+[4000/7800]	[L1: 15553.3555]	92.4+0.1s
+[4800/7800]	[L1: 13859.5127]	92.4+0.1s
+[5600/7800]	[L1: 14543.8730]	92.5+0.1s
+[6400/7800]	[L1: 14213.2422]	92.6+0.1s
+[7200/7800]	[L1: 13790.7637]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 5.739 (Best: 22.112 @epoch 72)
+Forward: 2.63s
+
+Saving...
+Total: 5.11s
+
+[Epoch 85]	Learning rate: 1.00e-4
+[800/7800]	[L1: 730.5273]	92.2+0.3s
+[1600/7800]	[L1: 1020.1774]	92.3+0.1s
+[2400/7800]	[L1: 1466.8696]	92.4+0.1s
+[3200/7800]	[L1: 2994.2422]	92.4+0.1s
+[4000/7800]	[L1: 2937.2104]	92.3+0.1s
+[4800/7800]	[L1: 2800.0830]	92.4+0.1s
+[5600/7800]	[L1: 2529.9045]	92.3+0.1s
+[6400/7800]	[L1: 3288.9573]	92.4+0.1s
+[7200/7800]	[L1: 3113.6873]	92.3+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 8.578 (Best: 22.112 @epoch 72)
+Forward: 2.57s
+
+Saving...
+Total: 3.41s
+
+[Epoch 86]	Learning rate: 1.00e-4
+[800/7800]	[L1: 1626.4147]	92.5+0.3s
+[1600/7800]	[L1: 5607.1748]	92.4+0.1s
+[2400/7800]	[L1: 4337.1436]	92.4+0.1s
+[3200/7800]	[L1: 3459.7959]	92.4+0.1s
+[4000/7800]	[L1: 2971.5007]	92.4+0.1s
+[4800/7800]	[L1: 2697.6201]	92.4+0.1s
+[5600/7800]	[L1: 2630.3838]	92.5+0.1s
+[6400/7800]	[L1: 2640.9160]	92.5+0.1s
+[7200/7800]	[L1: 2577.3503]	92.3+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 6.362 (Best: 22.112 @epoch 72)
+Forward: 2.61s
+
+Saving...
+Total: 5.10s
+
+[Epoch 87]	Learning rate: 1.00e-4
+[800/7800]	[L1: 3567.7419]	92.2+0.3s
+[1600/7800]	[L1: 2935.5369]	92.4+0.1s
+[2400/7800]	[L1: 2719.8005]	92.4+0.1s
+[3200/7800]	[L1: 2908.3691]	92.5+0.1s
+[4000/7800]	[L1: 2610.0188]	92.6+0.1s
+[4800/7800]	[L1: 4064.2800]	92.6+0.1s
+[5600/7800]	[L1: 3862.9470]	92.4+0.1s
+[6400/7800]	[L1: 3673.0891]	92.5+0.1s
+[7200/7800]	[L1: 3536.5750]	92.3+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 6.441 (Best: 22.112 @epoch 72)
+Forward: 3.00s
+
+Saving...
+Total: 4.70s
+
+[Epoch 88]	Learning rate: 1.00e-4
+[800/7800]	[L1: 662.5308]	92.4+0.3s
+[1600/7800]	[L1: 639.2396]	92.5+0.1s
+[2400/7800]	[L1: 701.9355]	92.5+0.1s
+[3200/7800]	[L1: 818.9562]	92.4+0.1s
+[4000/7800]	[L1: 1125.7001]	92.4+0.1s
+[4800/7800]	[L1: 1136.9698]	92.3+0.1s
+[5600/7800]	[L1: 1165.8003]	92.5+0.1s
+[6400/7800]	[L1: 1116.6556]	92.6+0.1s
+[7200/7800]	[L1: 1071.8846]	92.5+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 5.779 (Best: 22.112 @epoch 72)
+Forward: 2.54s
+
+Saving...
+Total: 5.08s
+
+[Epoch 89]	Learning rate: 1.00e-4
+[800/7800]	[L1: 1195.5725]	92.2+0.3s
+[1600/7800]	[L1: 776.5073]	92.4+0.1s
+[2400/7800]	[L1: 640.9576]	92.4+0.1s
+[3200/7800]	[L1: 607.6115]	92.3+0.1s
+[4000/7800]	[L1: 693.5811]	92.4+0.1s
+[4800/7800]	[L1: 660.4769]	92.4+0.1s
+[5600/7800]	[L1: 619.9631]	92.4+0.1s
+[6400/7800]	[L1: 11618.6064]	92.5+0.1s
+[7200/7800]	[L1: 42077.7852]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 5.284 (Best: 22.112 @epoch 72)
+Forward: 2.79s
+
+Saving...
+Total: 5.31s
+
+[Epoch 90]	Learning rate: 1.00e-4
+[800/7800]	[L1: 11333.2051]	92.3+0.3s
+[1600/7800]	[L1: 8650.8125]	92.4+0.1s
+[2400/7800]	[L1: 6799.1704]	92.5+0.1s
+[3200/7800]	[L1: 5846.4648]	92.5+0.1s
+[4000/7800]	[L1: 4986.4790]	92.4+0.1s
+[4800/7800]	[L1: 4554.5439]	92.4+0.1s
+[5600/7800]	[L1: 4199.1826]	92.4+0.1s
+[6400/7800]	[L1: 3893.3665]	92.4+0.1s
+[7200/7800]	[L1: 3582.3186]	92.6+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 5.807 (Best: 22.112 @epoch 72)
+Forward: 2.90s
+
+Saving...
+Total: 4.11s
+
+[Epoch 91]	Learning rate: 1.00e-4
+[800/7800]	[L1: 1214.9410]	92.5+0.3s
+[1600/7800]	[L1: 1278.5212]	92.4+0.1s
+[2400/7800]	[L1: 1106.5343]	92.3+0.1s
+[3200/7800]	[L1: 979.9420]	92.4+0.1s
+[4000/7800]	[L1: 917.2467]	92.4+0.1s
+[4800/7800]	[L1: 864.5035]	92.5+0.1s
+[5600/7800]	[L1: 828.8328]	92.4+0.1s
+[6400/7800]	[L1: 821.5215]	92.6+0.1s
+[7200/7800]	[L1: 788.7745]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 5.066 (Best: 22.112 @epoch 72)
+Forward: 2.55s
+
+Saving...
+Total: 4.02s
+
+[Epoch 92]	Learning rate: 1.00e-4
+[800/7800]	[L1: 10495.3350]	92.4+0.4s
+[1600/7800]	[L1: 5704.8613]	92.3+0.1s
+[2400/7800]	[L1: 4364.9619]	92.4+0.1s
+[3200/7800]	[L1: 3703.5938]	92.5+0.1s
+[4000/7800]	[L1: 3025.4443]	92.5+0.1s
+[4800/7800]	[L1: 2564.8716]	92.5+0.1s
+[5600/7800]	[L1: 3789.0940]	92.4+0.1s
+[6400/7800]	[L1: 3912.3291]	92.3+0.1s
+[7200/7800]	[L1: 4814.7944]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 4.984 (Best: 22.112 @epoch 72)
+Forward: 2.57s
+
+Saving...
+Total: 5.06s
+
+[Epoch 93]	Learning rate: 1.00e-4
+[800/7800]	[L1: 2851.1677]	92.3+0.3s
+[1600/7800]	[L1: 5123.5410]	92.5+0.1s
+[2400/7800]	[L1: 4030.2517]	92.5+0.1s
+[3200/7800]	[L1: 3492.2749]	92.5+0.1s
+[4000/7800]	[L1: 3118.6204]	92.4+0.1s
+[4800/7800]	[L1: 3031.9226]	92.5+0.1s
+[5600/7800]	[L1: 2919.3826]	92.5+0.1s
+[6400/7800]	[L1: 2607.3232]	92.6+0.1s
+[7200/7800]	[L1: 2353.2961]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 7.533 (Best: 22.112 @epoch 72)
+Forward: 2.51s
+
+Saving...
+Total: 3.36s
+
+[Epoch 94]	Learning rate: 1.00e-4
+[800/7800]	[L1: 330.0116]	92.5+0.3s
+[1600/7800]	[L1: 265.0366]	92.5+0.1s
+[2400/7800]	[L1: 257.2783]	92.5+0.1s
+[3200/7800]	[L1: 267.9626]	92.4+0.1s
+[4000/7800]	[L1: 249.5938]	92.4+0.1s
+[4800/7800]	[L1: 232.9503]	92.4+0.1s
+[5600/7800]	[L1: 227.2501]	92.5+0.1s
+[6400/7800]	[L1: 222.9499]	92.5+0.1s
+[7200/7800]	[L1: 209.4099]	92.5+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 9.204 (Best: 22.112 @epoch 72)
+Forward: 2.53s
+
+Saving...
+Total: 3.33s
+
+[Epoch 95]	Learning rate: 1.00e-4
+[800/7800]	[L1: 170.7932]	92.4+0.3s
+[1600/7800]	[L1: 149.2945]	92.4+0.1s
+[2400/7800]	[L1: 254.1354]	92.4+0.1s
+[3200/7800]	[L1: 254.7890]	92.3+0.1s
+[4000/7800]	[L1: 229.6751]	92.4+0.1s
+[4800/7800]	[L1: 216.8333]	92.3+0.1s
+[5600/7800]	[L1: 524.1854]	92.4+0.1s
+[6400/7800]	[L1: 511.7828]	92.3+0.1s
+[7200/7800]	[L1: 485.9103]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 9.314 (Best: 22.112 @epoch 72)
+Forward: 2.56s
+
+Saving...
+Total: 3.54s
+
+[Epoch 96]	Learning rate: 1.00e-4
+[800/7800]	[L1: 266.1309]	92.5+0.3s
+[1600/7800]	[L1: 400.4933]	92.5+0.1s
+[2400/7800]	[L1: 363.0837]	92.4+0.1s
+[3200/7800]	[L1: 357.2790]	92.5+0.1s
+[4000/7800]	[L1: 1228.2661]	92.5+0.1s
+[4800/7800]	[L1: 1270.9442]	92.5+0.1s
+[5600/7800]	[L1: 1154.4746]	92.5+0.1s
+[6400/7800]	[L1: 1118.1647]	92.5+0.1s
+[7200/7800]	[L1: 1036.3531]	92.5+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 4.806 (Best: 22.112 @epoch 72)
+Forward: 2.84s
+
+Saving...
+Total: 4.00s
+
+[Epoch 97]	Learning rate: 1.00e-4
+[800/7800]	[L1: 30381.0020]	92.5+0.3s
+[1600/7800]	[L1: 35559.4336]	92.6+0.1s
+[2400/7800]	[L1: 29342.1641]	92.5+0.1s
+[3200/7800]	[L1: 23325.9805]	92.4+0.1s
+[4000/7800]	[L1: 18756.6914]	92.4+0.1s
+[4800/7800]	[L1: 15703.0732]	92.7+0.1s
+[5600/7800]	[L1: 13477.6445]	92.5+0.1s
+[6400/7800]	[L1: 11808.3203]	92.6+0.1s
+[7200/7800]	[L1: 10513.4746]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 8.971 (Best: 22.112 @epoch 72)
+Forward: 2.61s
+
+Saving...
+Total: 3.53s
+
+[Epoch 98]	Learning rate: 1.00e-4
+[800/7800]	[L1: 164.0312]	92.5+0.3s
+[1600/7800]	[L1: 148.3030]	92.6+0.1s
+[2400/7800]	[L1: 170.6880]	92.6+0.1s
+[3200/7800]	[L1: 202.2088]	92.4+0.1s
+[4000/7800]	[L1: 196.2654]	92.5+0.1s
+[4800/7800]	[L1: 191.7334]	92.5+0.1s
+[5600/7800]	[L1: 183.6479]	92.5+0.1s
+[6400/7800]	[L1: 181.2669]	92.4+0.1s
+[7200/7800]	[L1: 178.9750]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 9.998 (Best: 22.112 @epoch 72)
+Forward: 2.59s
+
+Saving...
+Total: 3.43s
+
+[Epoch 99]	Learning rate: 1.00e-4
+[800/7800]	[L1: 164.7112]	92.5+0.3s
+[1600/7800]	[L1: 149.9734]	92.5+0.1s
+[2400/7800]	[L1: 149.1846]	92.4+0.1s
+[3200/7800]	[L1: 169.3934]	92.4+0.1s
+[4000/7800]	[L1: 183.1225]	92.4+0.1s
+[4800/7800]	[L1: 174.1142]	92.3+0.1s
+[5600/7800]	[L1: 178.1847]	92.5+0.1s
+[6400/7800]	[L1: 183.5172]	92.6+0.1s
+[7200/7800]	[L1: 181.3255]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 9.855 (Best: 22.112 @epoch 72)
+Forward: 2.54s
+
+Saving...
+Total: 3.33s
+
+[Epoch 100]	Learning rate: 1.00e-4
+[800/7800]	[L1: 156.2236]	92.6+0.3s
+[1600/7800]	[L1: 347.8001]	92.5+0.1s
+[2400/7800]	[L1: 326.0434]	92.5+0.1s
+[3200/7800]	[L1: 316.7635]	92.4+0.1s
+[4000/7800]	[L1: 315.0816]	92.5+0.1s
+[4800/7800]	[L1: 284.5672]	92.5+0.1s
+[5600/7800]	[L1: 263.0633]	92.7+0.1s
+[6400/7800]	[L1: 250.1623]	92.5+0.1s
+[7200/7800]	[L1: 239.5147]	92.5+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 10.378 (Best: 22.112 @epoch 72)
+Forward: 2.48s
+
+Saving...
+Total: 3.28s
+
+[Epoch 101]	Learning rate: 2.50e-5
+[800/7800]	[L1: 91.6775]	92.4+0.3s
+[1600/7800]	[L1: 94.0603]	92.5+0.1s
+[2400/7800]	[L1: 112.2867]	92.3+0.1s
+[3200/7800]	[L1: 119.1626]	92.4+0.1s
+[4000/7800]	[L1: 120.1079]	92.5+0.1s
+[4800/7800]	[L1: 120.2308]	93.4+0.1s
+[5600/7800]	[L1: 121.2586]	92.4+0.1s
+[6400/7800]	[L1: 122.0414]	92.4+0.1s
+[7200/7800]	[L1: 125.5772]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 10.089 (Best: 22.112 @epoch 72)
+Forward: 2.51s
+
+Saving...
+Total: 3.40s
+
+[Epoch 102]	Learning rate: 5.00e-5
+[800/7800]	[L1: 121.2790]	92.5+0.3s
+[1600/7800]	[L1: 132.8774]	92.6+0.1s
+[2400/7800]	[L1: 127.0798]	92.5+0.1s
+[3200/7800]	[L1: 129.8796]	92.4+0.1s
+[4000/7800]	[L1: 126.1586]	92.4+0.1s
+[4800/7800]	[L1: 119.4840]	92.7+0.1s
+[5600/7800]	[L1: 115.0164]	92.4+0.1s
+[6400/7800]	[L1: 113.8305]	92.4+0.1s
+[7200/7800]	[L1: 114.0358]	92.3+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 9.101 (Best: 22.112 @epoch 72)
+Forward: 2.59s
+
+Saving...
+Total: 3.41s
+
+[Epoch 103]	Learning rate: 5.00e-5
+[800/7800]	[L1: 149.4921]	92.6+0.3s
+[1600/7800]	[L1: 148.2666]	92.4+0.1s
+[2400/7800]	[L1: 150.2887]	92.5+0.1s
+[3200/7800]	[L1: 137.0529]	92.7+0.1s
+[4000/7800]	[L1: 130.4892]	92.7+0.1s
+[4800/7800]	[L1: 130.7067]	92.5+0.1s
+[5600/7800]	[L1: 125.5389]	92.5+0.1s
+[6400/7800]	[L1: 122.4738]	92.4+0.1s
+[7200/7800]	[L1: 123.1610]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 10.490 (Best: 22.112 @epoch 72)
+Forward: 2.49s
+
+Saving...
+Total: 3.30s
+
+[Epoch 104]	Learning rate: 5.00e-5
+[800/7800]	[L1: 107.8516]	92.4+0.4s
+[1600/7800]	[L1: 163.3939]	92.4+0.1s
+[2400/7800]	[L1: 168.3560]	92.5+0.1s
+[3200/7800]	[L1: 159.0709]	92.4+0.1s
+[4000/7800]	[L1: 160.7154]	92.4+0.1s
+[4800/7800]	[L1: 360.1840]	92.5+0.1s
+[5600/7800]	[L1: 438.0652]	92.5+0.1s
+[6400/7800]	[L1: 401.4125]	92.4+0.1s
+[7200/7800]	[L1: 382.2406]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 10.411 (Best: 22.112 @epoch 72)
+Forward: 2.58s
+
+Saving...
+Total: 3.45s
+
+[Epoch 105]	Learning rate: 5.00e-5
+[800/7800]	[L1: 184.6013]	92.5+0.3s
+[1600/7800]	[L1: 211.4135]	92.4+0.1s
+[2400/7800]	[L1: 215.9317]	92.4+0.1s
+[3200/7800]	[L1: 215.1164]	92.5+0.1s
+[4000/7800]	[L1: 186.8856]	92.4+0.1s
+[4800/7800]	[L1: 167.7004]	92.5+0.1s
+[5600/7800]	[L1: 154.6057]	92.4+0.1s
+[6400/7800]	[L1: 144.5506]	92.3+0.1s
+[7200/7800]	[L1: 135.3622]	92.3+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.005 (Best: 22.112 @epoch 72)
+Forward: 2.61s
+
+Saving...
+Total: 3.42s
+
+[Epoch 106]	Learning rate: 5.00e-5
+[800/7800]	[L1: 64.0921]	92.4+0.3s
+[1600/7800]	[L1: 62.8496]	92.5+0.1s
+[2400/7800]	[L1: 62.5416]	92.5+0.1s
+[3200/7800]	[L1: 62.5747]	92.4+0.1s
+[4000/7800]	[L1: 62.5727]	92.4+0.1s
+[4800/7800]	[L1: 62.5587]	92.5+0.1s
+[5600/7800]	[L1: 62.5216]	92.4+0.1s
+[6400/7800]	[L1: 62.2958]	92.3+0.1s
+[7200/7800]	[L1: 61.9364]	92.3+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.038 (Best: 22.112 @epoch 72)
+Forward: 2.80s
+
+Saving...
+Total: 3.78s
+
+[Epoch 107]	Learning rate: 5.00e-5
+[800/7800]	[L1: 62.0076]	92.4+0.3s
+[1600/7800]	[L1: 62.9769]	92.3+0.1s
+[2400/7800]	[L1: 134.9848]	92.6+0.1s
+[3200/7800]	[L1: 144.1958]	92.4+0.1s
+[4000/7800]	[L1: 142.1937]	92.5+0.1s
+[4800/7800]	[L1: 133.5787]	92.4+0.1s
+[5600/7800]	[L1: 127.0547]	92.5+0.1s
+[6400/7800]	[L1: 122.2949]	92.4+0.1s
+[7200/7800]	[L1: 141.3218]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 8.203 (Best: 22.112 @epoch 72)
+Forward: 2.51s
+
+Saving...
+Total: 3.47s
+
+[Epoch 108]	Learning rate: 5.00e-5
+[800/7800]	[L1: 124.7284]	92.4+0.3s
+[1600/7800]	[L1: 108.3197]	92.3+0.1s
+[2400/7800]	[L1: 102.9454]	92.4+0.1s
+[3200/7800]	[L1: 97.8687]	92.4+0.1s
+[4000/7800]	[L1: 95.1146]	92.4+0.1s
+[4800/7800]	[L1: 113.1590]	92.4+0.1s
+[5600/7800]	[L1: 115.8306]	92.4+0.1s
+[6400/7800]	[L1: 113.1513]	92.4+0.1s
+[7200/7800]	[L1: 111.0781]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 10.748 (Best: 22.112 @epoch 72)
+Forward: 2.48s
+
+Saving...
+Total: 3.64s
+
+[Epoch 109]	Learning rate: 5.00e-5
+[800/7800]	[L1: 74.2669]	92.5+0.3s
+[1600/7800]	[L1: 77.5836]	92.4+0.1s
+[2400/7800]	[L1: 74.5167]	92.7+0.1s
+[3200/7800]	[L1: 83.5347]	92.4+0.1s
+[4000/7800]	[L1: 81.7132]	92.5+0.1s
+[4800/7800]	[L1: 79.9262]	92.5+0.1s
+[5600/7800]	[L1: 78.7464]	92.5+0.1s
+[6400/7800]	[L1: 83.2413]	92.5+0.1s
+[7200/7800]	[L1: 88.7737]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 9.508 (Best: 22.112 @epoch 72)
+Forward: 2.53s
+
+Saving...
+Total: 3.37s
+
+[Epoch 110]	Learning rate: 5.00e-5
+[800/7800]	[L1: 73.0843]	92.5+0.3s
+[1600/7800]	[L1: 67.3795]	92.3+0.1s
+[2400/7800]	[L1: 65.6356]	92.3+0.1s
+[3200/7800]	[L1: 66.1913]	92.3+0.1s
+[4000/7800]	[L1: 64.8494]	92.4+0.1s
+[4800/7800]	[L1: 64.1808]	92.4+0.1s
+[5600/7800]	[L1: 63.4706]	92.4+0.1s
+[6400/7800]	[L1: 63.2578]	92.3+0.1s
+[7200/7800]	[L1: 62.6598]	92.5+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.269 (Best: 22.112 @epoch 72)
+Forward: 2.50s
+
+Saving...
+Total: 3.31s
+
+[Epoch 111]	Learning rate: 5.00e-5
+[800/7800]	[L1: 69.8134]	92.7+0.3s
+[1600/7800]	[L1: 106.8597]	92.5+0.1s
+[2400/7800]	[L1: 96.7539]	92.5+0.1s
+[3200/7800]	[L1: 89.0912]	92.3+0.1s
+[4000/7800]	[L1: 83.6339]	92.4+0.1s
+[4800/7800]	[L1: 80.3647]	92.4+0.1s
+[5600/7800]	[L1: 77.5249]	92.4+0.1s
+[6400/7800]	[L1: 75.8237]	92.4+0.1s
+[7200/7800]	[L1: 77.2173]	92.5+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 10.751 (Best: 22.112 @epoch 72)
+Forward: 2.52s
+
+Saving...
+Total: 3.32s
+
+[Epoch 112]	Learning rate: 5.00e-5
+[800/7800]	[L1: 111.8510]	92.5+0.3s
+[1600/7800]	[L1: 86.4550]	92.5+0.1s
+[2400/7800]	[L1: 77.1120]	92.4+0.1s
+[3200/7800]	[L1: 73.2357]	92.4+0.1s
+[4000/7800]	[L1: 73.4638]	92.4+0.1s
+[4800/7800]	[L1: 73.3450]	92.4+0.1s
+[5600/7800]	[L1: 72.4773]	92.4+0.1s
+[6400/7800]	[L1: 71.5604]	92.6+0.1s
+[7200/7800]	[L1: 70.2321]	92.5+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 10.465 (Best: 22.112 @epoch 72)
+Forward: 2.59s
+
+Saving...
+Total: 3.43s
+
+[Epoch 113]	Learning rate: 5.00e-5
+[800/7800]	[L1: 69.4766]	92.6+0.3s
+[1600/7800]	[L1: 67.9269]	92.4+0.1s
+[2400/7800]	[L1: 72.2138]	92.5+0.1s
+[3200/7800]	[L1: 71.0423]	92.3+0.1s
+[4000/7800]	[L1: 69.0791]	92.6+0.1s
+[4800/7800]	[L1: 67.7366]	92.5+0.1s
+[5600/7800]	[L1: 67.1025]	92.5+0.1s
+[6400/7800]	[L1: 67.1529]	92.4+0.1s
+[7200/7800]	[L1: 66.5476]	92.5+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 10.583 (Best: 22.112 @epoch 72)
+Forward: 2.62s
+
+Saving...
+Total: 3.42s
+
+[Epoch 114]	Learning rate: 5.00e-5
+[800/7800]	[L1: 93.4739]	92.7+0.3s
+[1600/7800]	[L1: 109.7262]	92.3+0.1s
+[2400/7800]	[L1: 92.9875]	92.4+0.1s
+[3200/7800]	[L1: 84.0036]	92.3+0.1s
+[4000/7800]	[L1: 78.7924]	92.3+0.1s
+[4800/7800]	[L1: 75.0918]	92.3+0.1s
+[5600/7800]	[L1: 72.8301]	92.4+0.1s
+[6400/7800]	[L1: 72.7072]	92.3+0.1s
+[7200/7800]	[L1: 71.3514]	92.5+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 10.890 (Best: 22.112 @epoch 72)
+Forward: 2.54s
+
+Saving...
+Total: 3.37s
+
+[Epoch 115]	Learning rate: 5.00e-5
+[800/7800]	[L1: 113.7257]	92.7+0.4s
+[1600/7800]	[L1: 86.0059]	92.4+0.1s
+[2400/7800]	[L1: 80.5095]	92.4+0.1s
+[3200/7800]	[L1: 76.8510]	92.5+0.1s
+[4000/7800]	[L1: 73.2069]	92.6+0.1s
+[4800/7800]	[L1: 71.6939]	92.5+0.1s
+[5600/7800]	[L1: 70.1550]	92.5+0.1s
+[6400/7800]	[L1: 68.2299]	92.5+0.1s
+[7200/7800]	[L1: 67.2666]	92.5+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.231 (Best: 22.112 @epoch 72)
+Forward: 2.56s
+
+Saving...
+Total: 3.39s
+
+[Epoch 116]	Learning rate: 5.00e-5
+[800/7800]	[L1: 55.8151]	92.7+0.3s
+[1600/7800]	[L1: 79.8007]	92.5+0.1s
+[2400/7800]	[L1: 142.8473]	92.6+0.1s
+[3200/7800]	[L1: 122.3758]	92.4+0.1s
+[4000/7800]	[L1: 110.0134]	92.4+0.1s
+[4800/7800]	[L1: 101.8121]	92.5+0.1s
+[5600/7800]	[L1: 95.5331]	92.5+0.1s
+[6400/7800]	[L1: 91.7557]	92.5+0.1s
+[7200/7800]	[L1: 90.0731]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.182 (Best: 22.112 @epoch 72)
+Forward: 2.62s
+
+Saving...
+Total: 3.42s
+
+[Epoch 117]	Learning rate: 5.00e-5
+[800/7800]	[L1: 55.5682]	92.6+0.3s
+[1600/7800]	[L1: 57.0342]	92.4+0.1s
+[2400/7800]	[L1: 57.3614]	92.4+0.1s
+[3200/7800]	[L1: 57.1372]	92.4+0.1s
+[4000/7800]	[L1: 56.9484]	92.4+0.1s
+[4800/7800]	[L1: 56.9621]	92.3+0.1s
+[5600/7800]	[L1: 56.8939]	92.6+0.1s
+[6400/7800]	[L1: 60.1124]	92.3+0.1s
+[7200/7800]	[L1: 60.3008]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.282 (Best: 22.112 @epoch 72)
+Forward: 2.63s
+
+Saving...
+Total: 3.62s
+
+[Epoch 118]	Learning rate: 5.00e-5
+[800/7800]	[L1: 58.1765]	92.7+0.3s
+[1600/7800]	[L1: 61.6588]	92.5+0.1s
+[2400/7800]	[L1: 71.2654]	92.5+0.1s
+[3200/7800]	[L1: 72.2258]	92.4+0.1s
+[4000/7800]	[L1: 70.6004]	92.4+0.1s
+[4800/7800]	[L1: 68.9681]	92.5+0.1s
+[5600/7800]	[L1: 67.5133]	92.6+0.1s
+[6400/7800]	[L1: 66.2816]	92.6+0.1s
+[7200/7800]	[L1: 66.3309]	92.6+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.284 (Best: 22.112 @epoch 72)
+Forward: 2.61s
+
+Saving...
+Total: 3.41s
+
+[Epoch 119]	Learning rate: 5.00e-5
+[800/7800]	[L1: 59.8831]	92.7+0.3s
+[1600/7800]	[L1: 94.1784]	92.6+0.1s
+[2400/7800]	[L1: 82.4860]	92.6+0.1s
+[3200/7800]	[L1: 76.1061]	92.4+0.1s
+[4000/7800]	[L1: 72.4875]	92.6+0.1s
+[4800/7800]	[L1: 69.8547]	92.7+0.1s
+[5600/7800]	[L1: 67.9564]	92.5+0.1s
+[6400/7800]	[L1: 66.4538]	92.6+0.1s
+[7200/7800]	[L1: 65.3095]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.211 (Best: 22.112 @epoch 72)
+Forward: 2.77s
+
+Saving...
+Total: 4.27s
+
+[Epoch 120]	Learning rate: 5.00e-5
+[800/7800]	[L1: 55.4321]	92.4+0.3s
+[1600/7800]	[L1: 55.6538]	92.5+0.1s
+[2400/7800]	[L1: 54.8198]	92.5+0.1s
+[3200/7800]	[L1: 57.2311]	92.5+0.1s
+[4000/7800]	[L1: 112.5287]	92.5+0.1s
+[4800/7800]	[L1: 104.9277]	92.4+0.1s
+[5600/7800]	[L1: 99.1307]	92.5+0.1s
+[6400/7800]	[L1: 94.7944]	92.5+0.1s
+[7200/7800]	[L1: 91.3912]	92.6+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.050 (Best: 22.112 @epoch 72)
+Forward: 2.64s
+
+Saving...
+Total: 3.51s
+
+[Epoch 121]	Learning rate: 5.00e-5
+[800/7800]	[L1: 3616.7324]	92.6+0.3s
+[1600/7800]	[L1: 2003.7719]	92.5+0.1s
+[2400/7800]	[L1: 1408.6406]	92.6+0.1s
+[3200/7800]	[L1: 1123.6338]	92.6+0.1s
+[4000/7800]	[L1: 923.2393]	92.5+0.1s
+[4800/7800]	[L1: 793.5772]	92.5+0.1s
+[5600/7800]	[L1: 695.2869]	92.4+0.1s
+[6400/7800]	[L1: 623.7711]	92.3+0.1s
+[7200/7800]	[L1: 565.8961]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 10.517 (Best: 22.112 @epoch 72)
+Forward: 2.57s
+
+Saving...
+Total: 3.38s
+
+[Epoch 122]	Learning rate: 5.00e-5
+[800/7800]	[L1: 78.7452]	92.6+0.3s
+[1600/7800]	[L1: 75.2106]	92.5+0.1s
+[2400/7800]	[L1: 72.7883]	92.4+0.1s
+[3200/7800]	[L1: 73.8321]	92.5+0.1s
+[4000/7800]	[L1: 72.3034]	92.3+0.1s
+[4800/7800]	[L1: 72.6196]	92.4+0.1s
+[5600/7800]	[L1: 78.9461]	92.4+0.1s
+[6400/7800]	[L1: 77.0109]	92.4+0.1s
+[7200/7800]	[L1: 75.0714]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 8.381 (Best: 22.112 @epoch 72)
+Forward: 2.58s
+
+Saving...
+Total: 3.50s
+
+[Epoch 123]	Learning rate: 5.00e-5
+[800/7800]	[L1: 267.5812]	92.6+0.3s
+[1600/7800]	[L1: 170.5399]	92.6+0.1s
+[2400/7800]	[L1: 136.1525]	92.6+0.1s
+[3200/7800]	[L1: 117.3086]	92.5+0.1s
+[4000/7800]	[L1: 106.3249]	92.4+0.1s
+[4800/7800]	[L1: 98.2747]	92.4+0.1s
+[5600/7800]	[L1: 92.3829]	92.5+0.1s
+[6400/7800]	[L1: 87.9714]	92.4+0.1s
+[7200/7800]	[L1: 84.7566]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.180 (Best: 22.112 @epoch 72)
+Forward: 2.55s
+
+Saving...
+Total: 3.36s
+
+[Epoch 124]	Learning rate: 5.00e-5
+[800/7800]	[L1: 60.8665]	92.5+0.3s
+[1600/7800]	[L1: 61.4736]	92.4+0.1s
+[2400/7800]	[L1: 61.2693]	92.4+0.1s
+[3200/7800]	[L1: 60.6268]	92.5+0.1s
+[4000/7800]	[L1: 60.3216]	92.6+0.1s
+[4800/7800]	[L1: 63.3875]	92.6+0.1s
+[5600/7800]	[L1: 62.9039]	92.4+0.1s
+[6400/7800]	[L1: 62.7647]	92.5+0.1s
+[7200/7800]	[L1: 62.3626]	92.5+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.001 (Best: 22.112 @epoch 72)
+Forward: 2.60s
+
+Saving...
+Total: 3.42s
+
+[Epoch 125]	Learning rate: 5.00e-5
+[800/7800]	[L1: 63.0075]	92.7+0.3s
+[1600/7800]	[L1: 61.3222]	92.5+0.1s
+[2400/7800]	[L1: 60.2506]	92.6+0.1s
+[3200/7800]	[L1: 59.8666]	92.4+0.1s
+[4000/7800]	[L1: 59.7256]	92.4+0.1s
+[4800/7800]	[L1: 59.3399]	92.5+0.1s
+[5600/7800]	[L1: 60.1702]	92.4+0.1s
+[6400/7800]	[L1: 60.1607]	92.8+0.1s
+[7200/7800]	[L1: 60.0206]	92.8+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.416 (Best: 22.112 @epoch 72)
+Forward: 2.68s
+
+Saving...
+Total: 3.85s
+
+[Epoch 126]	Learning rate: 5.00e-5
+[800/7800]	[L1: 157.5460]	92.6+0.3s
+[1600/7800]	[L1: 115.5858]	92.6+0.1s
+[2400/7800]	[L1: 96.7421]	92.5+0.1s
+[3200/7800]	[L1: 87.1671]	92.5+0.1s
+[4000/7800]	[L1: 82.6136]	92.5+0.1s
+[4800/7800]	[L1: 78.8121]	92.5+0.1s
+[5600/7800]	[L1: 75.9777]	92.7+0.1s
+[6400/7800]	[L1: 73.7436]	92.5+0.1s
+[7200/7800]	[L1: 71.8872]	92.5+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.360 (Best: 22.112 @epoch 72)
+Forward: 2.63s
+
+Saving...
+Total: 3.59s
+
+[Epoch 127]	Learning rate: 5.00e-5
+[800/7800]	[L1: 64.5073]	92.6+0.3s
+[1600/7800]	[L1: 74.2948]	92.4+0.1s
+[2400/7800]	[L1: 68.8331]	92.4+0.1s
+[3200/7800]	[L1: 66.0921]	92.4+0.1s
+[4000/7800]	[L1: 66.6679]	92.4+0.1s
+[4800/7800]	[L1: 67.6984]	92.4+0.1s
+[5600/7800]	[L1: 66.5087]	92.4+0.1s
+[6400/7800]	[L1: 67.5735]	92.5+0.1s
+[7200/7800]	[L1: 67.2503]	92.5+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 6.099 (Best: 22.112 @epoch 72)
+Forward: 2.63s
+
+Saving...
+Total: 3.72s
+
+[Epoch 128]	Learning rate: 5.00e-5
+[800/7800]	[L1: 472.8051]	92.7+0.3s
+[1600/7800]	[L1: 378.7289]	92.5+0.1s
+[2400/7800]	[L1: 279.0045]	92.5+0.1s
+[3200/7800]	[L1: 223.7606]	92.6+0.1s
+[4000/7800]	[L1: 191.0739]	92.5+0.1s
+[4800/7800]	[L1: 169.4454]	92.4+0.1s
+[5600/7800]	[L1: 153.7677]	92.5+0.1s
+[6400/7800]	[L1: 141.7174]	92.4+0.1s
+[7200/7800]	[L1: 132.3422]	92.5+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.173 (Best: 22.112 @epoch 72)
+Forward: 2.54s
+
+Saving...
+Total: 3.41s
+
+[Epoch 129]	Learning rate: 5.00e-5
+[800/7800]	[L1: 55.1329]	92.5+0.3s
+[1600/7800]	[L1: 56.3150]	92.4+0.1s
+[2400/7800]	[L1: 56.5257]	92.5+0.1s
+[3200/7800]	[L1: 56.5346]	92.4+0.1s
+[4000/7800]	[L1: 56.2497]	92.4+0.1s
+[4800/7800]	[L1: 59.5194]	92.4+0.1s
+[5600/7800]	[L1: 59.2733]	92.5+0.1s
+[6400/7800]	[L1: 59.0004]	92.5+0.1s
+[7200/7800]	[L1: 58.7580]	92.3+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.336 (Best: 22.112 @epoch 72)
+Forward: 2.57s
+
+Saving...
+Total: 3.39s
+
+[Epoch 130]	Learning rate: 5.00e-5
+[800/7800]	[L1: 56.8370]	92.7+0.3s
+[1600/7800]	[L1: 57.5925]	92.5+0.1s
+[2400/7800]	[L1: 57.8646]	92.5+0.1s
+[3200/7800]	[L1: 57.9936]	92.7+0.1s
+[4000/7800]	[L1: 58.0530]	92.5+0.1s
+[4800/7800]	[L1: 57.9557]	92.5+0.1s
+[5600/7800]	[L1: 57.7827]	92.6+0.1s
+[6400/7800]	[L1: 57.5246]	92.5+0.1s
+[7200/7800]	[L1: 57.7931]	92.6+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 10.948 (Best: 22.112 @epoch 72)
+Forward: 2.44s
+
+Saving...
+Total: 3.33s
+
+[Epoch 131]	Learning rate: 5.00e-5
+[800/7800]	[L1: 56.8492]	92.5+0.3s
+[1600/7800]	[L1: 57.4094]	92.5+0.1s
+[2400/7800]	[L1: 58.3312]	92.3+0.1s
+[3200/7800]	[L1: 58.1531]	92.5+0.1s
+[4000/7800]	[L1: 58.4268]	92.5+0.1s
+[4800/7800]	[L1: 58.4695]	92.4+0.1s
+[5600/7800]	[L1: 58.6713]	92.4+0.1s
+[6400/7800]	[L1: 58.5529]	92.5+0.1s
+[7200/7800]	[L1: 58.8943]	92.5+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 10.794 (Best: 22.112 @epoch 72)
+Forward: 2.50s
+
+Saving...
+Total: 3.31s
+
+[Epoch 132]	Learning rate: 5.00e-5
+[800/7800]	[L1: 56.4260]	92.6+0.3s
+[1600/7800]	[L1: 56.5815]	92.6+0.1s
+[2400/7800]	[L1: 58.3341]	92.6+0.1s
+[3200/7800]	[L1: 58.6751]	92.5+0.1s
+[4000/7800]	[L1: 58.7841]	92.5+0.1s
+[4800/7800]	[L1: 66.3284]	92.5+0.1s
+[5600/7800]	[L1: 65.5562]	92.4+0.1s
+[6400/7800]	[L1: 64.7389]	92.4+0.1s
+[7200/7800]	[L1: 65.7621]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.120 (Best: 22.112 @epoch 72)
+Forward: 2.47s
+
+Saving...
+Total: 3.31s
+
+[Epoch 133]	Learning rate: 5.00e-5
+[800/7800]	[L1: 68.4569]	92.5+0.3s
+[1600/7800]	[L1: 73.6436]	92.5+0.1s
+[2400/7800]	[L1: 69.3187]	92.5+0.1s
+[3200/7800]	[L1: 73.6907]	92.4+0.1s
+[4000/7800]	[L1: 70.8883]	92.5+0.1s
+[4800/7800]	[L1: 68.3251]	92.6+0.1s
+[5600/7800]	[L1: 66.3357]	92.4+0.1s
+[6400/7800]	[L1: 65.1441]	92.4+0.1s
+[7200/7800]	[L1: 64.4648]	92.5+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.116 (Best: 22.112 @epoch 72)
+Forward: 2.68s
+
+Saving...
+Total: 3.60s
+
+[Epoch 134]	Learning rate: 5.00e-5
+[800/7800]	[L1: 58.2136]	92.6+0.3s
+[1600/7800]	[L1: 57.6146]	92.3+0.1s
+[2400/7800]	[L1: 57.6741]	92.4+0.1s
+[3200/7800]	[L1: 57.2715]	92.3+0.1s
+[4000/7800]	[L1: 57.2982]	92.3+0.1s
+[4800/7800]	[L1: 57.2960]	92.4+0.1s
+[5600/7800]	[L1: 57.4132]	92.4+0.1s
+[6400/7800]	[L1: 57.3369]	92.4+0.1s
+[7200/7800]	[L1: 57.3238]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.158 (Best: 22.112 @epoch 72)
+Forward: 2.62s
+
+Saving...
+Total: 3.72s
+
+[Epoch 135]	Learning rate: 5.00e-5
+[800/7800]	[L1: 57.6098]	92.7+0.3s
+[1600/7800]	[L1: 57.3093]	92.4+0.1s
+[2400/7800]	[L1: 57.3480]	92.6+0.1s
+[3200/7800]	[L1: 57.7641]	92.4+0.1s
+[4000/7800]	[L1: 57.5154]	92.4+0.1s
+[4800/7800]	[L1: 57.3363]	92.6+0.1s
+[5600/7800]	[L1: 57.1453]	92.7+0.1s
+[6400/7800]	[L1: 57.0085]	92.5+0.1s
+[7200/7800]	[L1: 56.9723]	92.5+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.255 (Best: 22.112 @epoch 72)
+Forward: 2.71s
+
+Saving...
+Total: 3.60s
+
+[Epoch 136]	Learning rate: 5.00e-5
+[800/7800]	[L1: 56.5610]	92.5+0.3s
+[1600/7800]	[L1: 57.1777]	92.4+0.1s
+[2400/7800]	[L1: 57.8519]	92.3+0.1s
+[3200/7800]	[L1: 58.8284]	92.4+0.1s
+[4000/7800]	[L1: 59.1467]	92.4+0.1s
+[4800/7800]	[L1: 68.4409]	92.4+0.1s
+[5600/7800]	[L1: 68.0528]	92.3+0.1s
+[6400/7800]	[L1: 66.8671]	92.4+0.1s
+[7200/7800]	[L1: 66.1501]	92.3+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.145 (Best: 22.112 @epoch 72)
+Forward: 2.76s
+
+Saving...
+Total: 3.63s
+
+[Epoch 137]	Learning rate: 5.00e-5
+[800/7800]	[L1: 61.4944]	92.5+0.3s
+[1600/7800]	[L1: 63.0724]	92.4+0.1s
+[2400/7800]	[L1: 61.5075]	92.4+0.1s
+[3200/7800]	[L1: 60.8553]	92.4+0.1s
+[4000/7800]	[L1: 60.0800]	92.4+0.1s
+[4800/7800]	[L1: 60.3906]	92.4+0.1s
+[5600/7800]	[L1: 59.8008]	92.4+0.1s
+[6400/7800]	[L1: 59.6112]	92.4+0.1s
+[7200/7800]	[L1: 59.2616]	92.5+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.107 (Best: 22.112 @epoch 72)
+Forward: 2.55s
+
+Saving...
+Total: 3.37s
+
+[Epoch 138]	Learning rate: 5.00e-5
+[800/7800]	[L1: 57.2640]	92.6+0.3s
+[1600/7800]	[L1: 58.1761]	92.5+0.1s
+[2400/7800]	[L1: 58.3127]	92.4+0.1s
+[3200/7800]	[L1: 60.9489]	92.5+0.1s
+[4000/7800]	[L1: 61.6090]	92.5+0.1s
+[4800/7800]	[L1: 60.6731]	92.4+0.1s
+[5600/7800]	[L1: 65.2540]	92.4+0.1s
+[6400/7800]	[L1: 65.1777]	92.5+0.1s
+[7200/7800]	[L1: 64.5629]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.875 (Best: 22.112 @epoch 72)
+Forward: 2.54s
+
+Saving...
+Total: 3.70s
+
+[Epoch 139]	Learning rate: 5.00e-5
+[800/7800]	[L1: 51.3288]	92.5+0.3s
+[1600/7800]	[L1: 53.5795]	92.3+0.1s
+[2400/7800]	[L1: 54.7249]	92.4+0.1s
+[3200/7800]	[L1: 56.6548]	92.3+0.1s
+[4000/7800]	[L1: 58.3212]	92.3+0.1s
+[4800/7800]	[L1: 63.0806]	92.5+0.1s
+[5600/7800]	[L1: 62.0864]	92.4+0.1s
+[6400/7800]	[L1: 62.7212]	92.5+0.1s
+[7200/7800]	[L1: 63.5397]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.156 (Best: 22.112 @epoch 72)
+Forward: 2.58s
+
+Saving...
+Total: 3.89s
+
+[Epoch 140]	Learning rate: 5.00e-5
+[800/7800]	[L1: 57.5962]	92.5+0.3s
+[1600/7800]	[L1: 58.9531]	92.4+0.1s
+[2400/7800]	[L1: 58.8494]	92.5+0.1s
+[3200/7800]	[L1: 60.0213]	92.5+0.1s
+[4000/7800]	[L1: 61.6620]	92.4+0.1s
+[4800/7800]	[L1: 61.0523]	92.5+0.1s
+[5600/7800]	[L1: 60.4842]	92.5+0.1s
+[6400/7800]	[L1: 60.2313]	92.6+0.1s
+[7200/7800]	[L1: 59.8998]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.186 (Best: 22.112 @epoch 72)
+Forward: 2.61s
+
+Saving...
+Total: 3.45s
+
+[Epoch 141]	Learning rate: 5.00e-5
+[800/7800]	[L1: 59.8778]	92.8+0.3s
+[1600/7800]	[L1: 80.1736]	92.5+0.1s
+[2400/7800]	[L1: 73.4555]	92.4+0.1s
+[3200/7800]	[L1: 70.2526]	92.5+0.1s
+[4000/7800]	[L1: 68.0318]	92.4+0.1s
+[4800/7800]	[L1: 66.4610]	92.5+0.1s
+[5600/7800]	[L1: 65.2299]	92.5+0.1s
+[6400/7800]	[L1: 64.2894]	92.4+0.1s
+[7200/7800]	[L1: 63.4340]	92.5+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.253 (Best: 22.112 @epoch 72)
+Forward: 2.61s
+
+Saving...
+Total: 3.56s
+
+[Epoch 142]	Learning rate: 5.00e-5
+[800/7800]	[L1: 55.3352]	92.5+0.3s
+[1600/7800]	[L1: 64.0775]	92.4+0.1s
+[2400/7800]	[L1: 62.2120]	92.4+0.1s
+[3200/7800]	[L1: 60.8064]	92.4+0.1s
+[4000/7800]	[L1: 60.2882]	92.3+0.1s
+[4800/7800]	[L1: 60.9652]	92.5+0.1s
+[5600/7800]	[L1: 62.7647]	92.4+0.1s
+[6400/7800]	[L1: 62.1799]	92.4+0.1s
+[7200/7800]	[L1: 61.5408]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.172 (Best: 22.112 @epoch 72)
+Forward: 2.86s
+
+Saving...
+Total: 3.94s
+
+[Epoch 143]	Learning rate: 5.00e-5
+[800/7800]	[L1: 58.1847]	92.7+0.3s
+[1600/7800]	[L1: 136.9277]	92.4+0.1s
+[2400/7800]	[L1: 139.8375]	92.4+0.1s
+[3200/7800]	[L1: 119.8079]	92.7+0.1s
+[4000/7800]	[L1: 107.5480]	92.4+0.1s
+[4800/7800]	[L1: 100.0219]	92.5+0.1s
+[5600/7800]	[L1: 94.7264]	92.6+0.1s
+[6400/7800]	[L1: 92.3059]	92.6+0.1s
+[7200/7800]	[L1: 88.1904]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.675 (Best: 22.112 @epoch 72)
+Forward: 2.55s
+
+Saving...
+Total: 3.40s
+
+[Epoch 144]	Learning rate: 5.00e-5
+[800/7800]	[L1: 56.2649]	92.5+0.3s
+[1600/7800]	[L1: 55.6820]	92.4+0.1s
+[2400/7800]	[L1: 240.0492]	92.5+0.1s
+[3200/7800]	[L1: 207.7729]	92.5+0.1s
+[4000/7800]	[L1: 179.8907]	92.4+0.1s
+[4800/7800]	[L1: 159.6194]	92.5+0.1s
+[5600/7800]	[L1: 145.0218]	92.4+0.1s
+[6400/7800]	[L1: 134.1372]	92.7+0.1s
+[7200/7800]	[L1: 126.1657]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.916 (Best: 22.112 @epoch 72)
+Forward: 2.63s
+
+Saving...
+Total: 3.51s
+
+[Epoch 145]	Learning rate: 5.00e-5
+[800/7800]	[L1: 53.4117]	92.5+0.4s
+[1600/7800]	[L1: 55.9787]	92.5+0.1s
+[2400/7800]	[L1: 55.8931]	92.6+0.1s
+[3200/7800]	[L1: 59.1606]	92.4+0.1s
+[4000/7800]	[L1: 59.2129]	92.4+0.1s
+[4800/7800]	[L1: 58.6708]	92.5+0.1s
+[5600/7800]	[L1: 58.3049]	92.5+0.1s
+[6400/7800]	[L1: 57.7788]	92.4+0.1s
+[7200/7800]	[L1: 57.4731]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 11.679 (Best: 22.112 @epoch 72)
+Forward: 2.62s
+
+Saving...
+Total: 3.45s
+
+[Epoch 146]	Learning rate: 5.00e-5
+[800/7800]	[L1: 54.8133]	92.5+0.3s
+[1600/7800]	[L1: 56.0394]	92.4+0.1s
+[2400/7800]	[L1: 55.8377]	92.4+0.1s
+[3200/7800]	[L1: 55.2160]	92.4+0.1s
+[4000/7800]	[L1: 55.0843]	92.4+0.1s
+[4800/7800]	[L1: 56.0761]	92.3+0.1s
+[5600/7800]	[L1: 56.1479]	92.4+0.1s
+[6400/7800]	[L1: 55.6926]	92.3+0.1s
+[7200/7800]	[L1: 55.5276]	92.4+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 12.150 (Best: 22.112 @epoch 72)
+Forward: 2.65s
+
+Saving...
+Total: 3.50s
+
+[Epoch 147]	Learning rate: 5.00e-5
+[800/7800]	[L1: 56.6194]	92.5+0.3s
+[1600/7800]	[L1: 55.1057]	92.6+0.1s
+[2400/7800]	[L1: 53.7353]	92.5+0.1s
+[3200/7800]	[L1: 54.1306]	92.4+0.1s
+[4000/7800]	[L1: 54.0324]	92.7+0.1s
+[4800/7800]	[L1: 53.5581]	92.5+0.1s
+[5600/7800]	[L1: 53.4014]	92.6+0.1s
+[6400/7800]	[L1: 53.6426]	92.5+0.1s
+[7200/7800]	[L1: 54.0266]	92.5+0.1s
+
+Evaluation:
+[SRRAW x4]	PSNR: 12.271 (Best: 22.112 @epoch 72)
+Forward: 2.65s
+
+Saving...
+Total: 3.48s
+
+[Epoch 148]	Learning rate: 5.00e-5
+[800/7800]	[L1: 54.3502]	92.7+0.3s
+[1600/7800]	[L1: 54.5567]	92.5+0.1s
+[2400/7800]	[L1: 53.9663]	92.6+0.1s
