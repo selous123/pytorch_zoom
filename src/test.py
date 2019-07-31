@@ -5,13 +5,13 @@ sys.path.append('..')
 import utils
 import scipy
 import numpy as np
-
+import PIL.Image as Image
 from option import args
 # testDataset = srraw_test.SRRAW_TEST(args, 'SRRAW')
 from PIL import Image
 from data import srraw
 testDataset = srraw.SRRAW(args, 'SRRAW', train=False)
-
+print(len(testDataset))
 psnrs = []
 for data in testDataset:
     lr = data[0].numpy()

@@ -60,3 +60,4 @@ python main.py --label HR --model SSL --scale 4 --pre_train /store/git/pytorch_z
 
 
 python test.py --label HR --desc "test bicubic psnr" --scale 8 --data_range "1-437/438-447"
+python test.py --label HR --desc "test bicubic psnr" --dir_data /store/dataset/SR/train_data  --scale 4 --data_range "1-1412/1413-1462"
