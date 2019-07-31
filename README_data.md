@@ -25,12 +25,13 @@ After running these scripts, you can use the tform.txt and wb.txt inside each se
 ## source data directory
 dir_data="/store/dataset/zoom"
 ## destination data directory
-data_dir = "/store2/dataset/SR/train_data/SRRAW/X4/train"
+data_dir = "/store2/dataset/SR/train_data/(SRRAW/X4/train)"
 ## scale: up_ratio
 scale = 4 or 8
 
 
 bash run => python split_and_save_data.py
+python split_and_save_data.py --data_dir /store2/dataset/SR/train_data --source_dir /store2/dataset/SR/zoom --scale 8 --test
 ```
 
 

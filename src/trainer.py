@@ -106,7 +106,7 @@ class Trainer():
                     if isinstance(output, tuple):
                         sr = output[0]
                         fake_diff = output[1]
-                        diff = labels[1]
+                        diff = labels[0]
                     else:
                         sr = output
 

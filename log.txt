@@ -149,3 +149,7 @@
 [PSNR] [SSIM] [calc Time] [Loop Time] for lr and hr:22.2079 0.8318 0.4396 1.9784
 [PSNR] [SSIM] [calc Time] [Loop Time] for lr and hr:24.0237 0.8643 0.4320 1.9370
 mean PSNR and SSIM are: 21.5041, 0.7980
+[PSNR] [SSIM] [calc Time] [Loop Time] for lr and hr:22.0249 0.7702 0.4321 2.3534
+[PSNR] [SSIM] [calc Time] [Loop Time] for lr and hr:23.8626 0.7660 0.3879 2.0153
+[PSNR] [SSIM] [calc Time] [Loop Time] for lr and hr:20.1688 0.6567 0.4126 2.1831
+[PSNR] [SSIM] [calc Time] [Loop Time] for lr and hr:18.1665 0.4547 0.3756 2.0938
