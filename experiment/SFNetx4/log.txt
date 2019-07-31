@@ -1,0 +1,1 @@
+edsrca with self-supervised auxiliary task and multi-scale pooling spatial attention
