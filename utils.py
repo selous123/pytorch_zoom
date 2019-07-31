@@ -321,20 +321,20 @@ def warp_image(target_rgb, out_size, tform):
     return target_rgb_process, transformed_corner
 
 
-# def calc_psnr(sr, hr, scale, rgb_range):
-#
-#     diff = (sr - hr) / rgb_range
-#     shave = scale + 6
-#     valid = diff[shave:-shave, shave:-shave,:]
-#     mse = np.power(valid, 2).mean()
-#
-#     return -10 * math.log10(mse)
-def calc_psnr(img1, img2,scale, rgb_range):
-    diff = (img1 - img2) / rgb_range
-    mse = np.mean(diff ** 2)
-    if mse < 1.0e-10:
-        return 100
-    return 10 * math.log10(1.0**2/mse)
+def calc_psnr(sr, hr, scale, rgb_range):
+
+    diff = (sr - hr) / rgb_range
+    shave = scale + 6
+    valid = diff[shave:-shave, shave:-shave,:]
+    mse = np.power(valid, 2).mean()
+
+    return -10 * math.log10(mse)
+# def calc_psnr(img1, img2,scale, rgb_range):
+#     diff = (img1 - img2) / rgb_range
+#     mse = np.mean(diff ** 2)
+#     if mse < 1.0e-10:
+#         return 100
+#     return 10 * math.log10(1.0**2/mse)
 
 import skimage
 def calc_ssim(sr, hr):
