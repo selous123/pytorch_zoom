@@ -14,6 +14,7 @@
 
 #experiment and model
 /experiment_pre/
+/experiment_ablation/model
 #/experiment/*/result*
 /experiment/*/optimizer*
 /experiment/*/*.pdf
