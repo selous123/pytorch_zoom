@@ -113,8 +113,8 @@ class Trainer():
 
                     #print(sr.shape)
 
-                    if self.args.n_colors == 4:
-                        sr = utility.postprocess_wb(sr, filename, self.args.wb_root)
+                    #if self.args.n_colors == 4:
+                    #sr = utility.postprocess_wb(sr, filename, self.args.wb_root)
 
                     sr = utility.quantize(sr, self.args.rgb_range)
 
