@@ -36,7 +36,7 @@ class SSL_Trainer(Trainer):
         self.model.train()
 
         timer_data, timer_model = utility.timer(), utility.timer()
-        for batch, (lr, labels, _, idx_scale) in enumerate(self.loader_train):
+        for batch, (lr, labels, filename, idx_scale) in enumerate(self.loader_train):
 
             hr = labels[0]
             h_label = labels[1]
@@ -49,7 +49,8 @@ class SSL_Trainer(Trainer):
 
             sr, s_label = self.model(lr, idx_scale)
 
-
+            ## white balance
+            #sr = utility.postprocess_wb(sr, filename, self.args.wb_root)
 
             loss_SR = self.loss[0](sr, hr)
             loss_SSL = self.loss[1](s_label, h_label)
