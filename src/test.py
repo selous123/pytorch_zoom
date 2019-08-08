@@ -7,7 +7,7 @@ import scipy
 import numpy as np
 import PIL.Image as Image
 from option import args
-# testDataset = srraw_test.SRRAW_TEST(args, 'SRRAW')
+#testDataset = srraw_test.SRRAW_TEST(args, 'SRRAW')
 from PIL import Image
 from data import srraw
 from matplotlib import pyplot as plt

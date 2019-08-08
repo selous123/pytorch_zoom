@@ -20,6 +20,12 @@ from PIL import Image
 # 定义 Test 数据集 规则 以及 测试指标
 class SRRAW_TEST(data.Dataset):
     def __init__(self, args, name='',train = False, benchmark=False):
+        data_range = [r.split('-') for r in args.data_range.split('/')]
+
+        data_range = data_range[0]
+
+        self.begin, self.end = list(map(lambda x: int(x), data_range))
+
 
         self.benchmark = benchmark
         self.args = args
@@ -128,6 +134,8 @@ class SRRAW_TEST(data.Dataset):
                     )
                 ))
 
+        names_label = [n[self.begin - 1:self.end] for n in names_label]
+        names_lr = [n[self.begin - 1:self.end] for n in names_lr]
 
         return names_label, names_lr
 

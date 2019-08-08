@@ -30,12 +30,12 @@ class RDB(nn.Module):
         G0 = growRate0
         G  = growRate
         C  = nConvLayers
-        
+
         convs = []
         for c in range(C):
             convs.append(RDB_Conv(G0 + c*G, G))
         self.convs = nn.Sequential(*convs)
-        
+
         # Local Feature Fusion
         self.LFF = nn.Conv2d(G0 + C*G, G0, 1, padding=0, stride=1)
 
@@ -48,6 +48,7 @@ class RDN(nn.Module):
         r = args.scale[0]
         G0 = args.G0
         kSize = args.RDNkSize
+        # conv=common.default_conv
 
         # number of RDB blocks, conv layers, out channels
         self.D, C, G = {
@@ -72,6 +73,10 @@ class RDN(nn.Module):
             nn.Conv2d(G0, G0, kSize, padding=(kSize-1)//2, stride=1)
         ])
 
+        # modules_tail = [
+        #     common.Upsampler(conv, scale, n_feats, act=False),
+        #     conv(n_feats, args.n_colors, kernel_size)]
+
         # Up-sampling net
         if r == 2 or r == 3:
             self.UPNet = nn.Sequential(*[
@@ -82,6 +87,16 @@ class RDN(nn.Module):
         elif r == 4:
             self.UPNet = nn.Sequential(*[
                 nn.Conv2d(G0, G * 4, kSize, padding=(kSize-1)//2, stride=1),
+                nn.PixelShuffle(2),
+                nn.Conv2d(G, G * 4, kSize, padding=(kSize-1)//2, stride=1),
+                nn.PixelShuffle(2),
+                nn.Conv2d(G, args.n_colors, kSize, padding=(kSize-1)//2, stride=1)
+            ])
+        elif r == 8:
+            self.UPNet = nn.Sequential(*[
+                nn.Conv2d(G0, G * 4 , kSize, padding=(kSize-1)//2, stride=1),
+                nn.PixelShuffle(2),
+                nn.Conv2d(G, G * 4 , kSize, padding=(kSize-1)//2, stride=1),
                 nn.PixelShuffle(2),
                 nn.Conv2d(G, G * 4, kSize, padding=(kSize-1)//2, stride=1),
                 nn.PixelShuffle(2),
@@ -101,5 +116,6 @@ class RDN(nn.Module):
 
         x = self.GFF(torch.cat(RDBs_out,1))
         x += f__1
-
-        return self.UPNet(x)
+        x = self.UPNet(x)
+        #print(x.shape)
+        return  x

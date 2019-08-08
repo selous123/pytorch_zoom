@@ -55,7 +55,8 @@ python main.py --model SRResNet --scale 8 --patch_size 256  --data_train SRRAW -
 
 
 ##test script
-python main.py --label HR --model EDSR --scale 4 --pre_train /store/git/pytorch_zoom/experiment/EDSR_baselinex4/model/model_best.pt --data_test SRRAW --test_only --dir_data /store2/dataset/SR/train_data --n_colors 3  --save_results --save_gt --save EDSRX4_test --desc "test rdsr model on srraw test dataset"
+python main.py --label HR --model EDSR --scale 4 --pre_train /store/git/pytorch_zoom/experiment_ablation/EDSR_baselinex4/model/model_best.pt --data_test SRRAW --test_only --dir_data /store2/dataset/SR/train_data --n_colors 3  --save_results --save_gt --save test_EDSRX4 --desc "test rdsr model on srraw test dataset"
+
 python main.py --label HR --model SSL --scale 4 --pre_train /store/git/pytorch_zoom/experiment/EDSRCA_SAT_MSAx4/model/model_best.pt --data_test SRRAW_TEST --test_only --dir_data /store2/dataset/SR/train_data --n_colors 3  --save_results --save_gt --save SFNetX4_test --desc "test SFNet model on srraw test dataset" --attn
 
 
